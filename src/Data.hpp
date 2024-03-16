@@ -67,6 +67,8 @@ class Data {
     dataPointT pyro_3_fired;
     dataPointT pyro_4_fired;
 
+    dataPointT allowStage;
+
     dataPointT array[size];
 
     String get_data() {
@@ -124,7 +126,9 @@ class Data {
       return data;
     }
 
-    Data() { }
+    Data() {
+      allowStage.value = 0;
+    }
 };
 
 #endif

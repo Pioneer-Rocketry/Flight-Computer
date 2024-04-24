@@ -7,8 +7,8 @@
 class ColorLED {
 
   private:
-    static const int PIN_GREEN = 20;
-    static const int PIN_RED   = 21;
+    static const int PIN_GREEN = 2;
+    static const int PIN_RED   = 15;
     static const int PIN_BLUE  = 22;
 
     static void setColor(int red, int green, int blue) {

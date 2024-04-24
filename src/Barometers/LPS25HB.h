@@ -9,7 +9,7 @@
 #include "Data.hpp"
 #include "Sensor.hpp"
 
-#define LPS25HB_ADDR 0x5D
+#define LPS25HB_ADDR 0x5C
 
 class LPS25HB : Sensor {
 

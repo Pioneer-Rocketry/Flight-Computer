@@ -86,27 +86,27 @@ void setup() {
   // Start Memory
   if (!memory.begin()) {
     Serial.println("SPI Flash not online");
-    error();
+    // error();
   }
   Serial.println("SPI Flash detected.");
 
   // Start Pitot Tube
-  if (!pitot.begin()) {
-    Serial.println("Pitot Tube not online");
-    error();
-  }
-  Serial.println("Pitot Tube online");
+  // if (!pitot.begin()) {
+  //   Serial.println("Pitot Tube not online");
+  //   error();
+  // }
+  // Serial.println("Pitot Tube online");
 
   // fins.begin();
   // fins.sweep();
-  Serial.println("Fins setup");
+  // Serial.println("Fins setup");
 
   // Start Pyro Channels
-  channel1.begin();
-  channel2.begin();
-  channel3.begin();
-  channel4.begin();
-  Serial.println("Pyro Channels setup");
+  // channel1.begin();
+  // channel2.begin();
+  // channel3.begin();
+  // channel4.begin();
+  // Serial.println("Pyro Channels setup");
 
   // Setup Finished
 
@@ -140,7 +140,7 @@ void loop() {
 
       // Update the pyro channels
       // channel1.update(&data);
-      channel2.update(&data);
+      // channel2.update(&data);
       // channel3.update(&data);
       // channel4.update(&data);
 

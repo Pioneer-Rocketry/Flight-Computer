@@ -35,7 +35,7 @@ void Memory::write_header() {
   // Log to flashFile
   if (!flashFile) {
     Serial.println("File not opened.");
-    while (1); 
+    // while (1); 
     return;
   }
 
@@ -47,7 +47,7 @@ void Memory::write_data(Data *data) {
   // Log to flashFile
   if (!flashFile) {
     Serial.println("File not opened.");
-    while (1); 
+    // while (1); 
     return;
   }
 

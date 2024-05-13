@@ -87,7 +87,7 @@ class BNO055 : Sensor {
   enum GyroRange { RANGE_2000, RANGE_1000, RANGE_500, RANGE_250, RANGE_125 };
 
   GyroFreq gyroFreq = FREQ_32;      // the frequency of the gyro in hz            options: 523, 230, 116, 47, 23, 12, 64, 32
-  GyroRange gyroRange = RANGE_500;  // the range of the gyro in dps               options: 2000, 1000, 500, 250, 125
+  GyroRange gyroRange = RANGE_1000;  // the range of the gyro in dps               options: 2000, 1000, 500, 250, 125
 
   int gyroSettings = 0b00000000; // the settings for the gyro
   float GYRO_SCALE; // Scaling factor for gyroscope
@@ -110,7 +110,6 @@ class BNO055 : Sensor {
   unsigned long magLast = 0.0;
 
   // Data derived from the raw data
-  float angleX, angleY, angleZ;
   float velocityX, velocityY, velocityZ;
   float heading;
   float dt;

@@ -39,11 +39,11 @@ bool Stage(Data* data) {
   // If state is unpowered flight, and between min and max altitudes
   // Also if angle at anytime was +- StageMaxAngle
 
-  if (data->angleX.value > StageMaxAngle || data->angleX.value < -StageMaxAngle 
-      || data->angleY.value > StageMaxAngle || data->angleY.value < -StageMaxAngle
-      || data->angleZ.value > StageMaxAngle || data->angleZ.value < -StageMaxAngle) {
-    data->allowStage.value = 1; // Dont allow staging    
-  }
+  // if (data->angleX.value > StageMaxAngle || data->angleX.value < -StageMaxAngle 
+  //     || data->angleY.value > StageMaxAngle || data->angleY.value < -StageMaxAngle
+  //     || data->angleZ.value > StageMaxAngle || data->angleZ.value < -StageMaxAngle) {
+  //   data->allowStage.value = 1; // Dont allow staging    
+  // }
   
   if (data->state.value == State::unpowered_flight
       && data->filted_alt.value > StageMinAlt 
@@ -51,6 +51,8 @@ bool Stage(Data* data) {
       && data->allowStage.value == 0) {
     return true;
   }
+
+  return false;
 }
 
 #endif

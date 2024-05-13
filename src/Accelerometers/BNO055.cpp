@@ -3,10 +3,6 @@
 #include "ColorLED.hpp"
 
 BNO055::BNO055() : Sensor(BNO055_ADDR, &Wire) {
-  this->angleX = 0.0;
-  this->angleY = 0.0;
-  this->angleZ = 0.0;
-
   this->velocityX = 0.0f;
   this->velocityY = 0.0f;
   this->velocityZ = 0.0f;
@@ -189,10 +185,6 @@ void BNO055::get_data(Data *data) {
   data->magZ.value = magZ;
   data->heading.value = heading;
 
-  data->angleX.value = angleX;
-  data->angleY.value = angleY;
-  data->angleZ.value = angleZ;
-
   data->velX.value = velocityX;
   data->velY.value = velocityY;
   data->velZ.value = velocityZ;
@@ -232,11 +224,6 @@ void BNO055::update_sensor() {
 
     // Calculate derived values
     dt = ((millis() - gyroLast)) / 1000.0;
-
-    // Calculate the roll, pitch, and yaw
-    angleX += gyroX * dt;
-    angleY += gyroY * dt;
-    angleZ += gyroZ * dt;
 
     gyroLast = millis(); // Reset the timer
   }
@@ -301,10 +288,6 @@ void BNO055::reset() {
   velocityX = 0.0;
   velocityY = 0.0;
   velocityZ = 0.0;
-
-  angleX = 0.0;
-  angleY = 0.0;
-  angleZ = 0.0;
 
   dt = 0.0;
 }

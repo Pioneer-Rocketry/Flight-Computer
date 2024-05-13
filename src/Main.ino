@@ -16,6 +16,8 @@
 #include "GPS.h"
 #include "OtherSensors/PitotTube.hpp"
 
+#include "KalmanFilter.h"
+
 #define RECORD_BUTTON 14
 bool recording = false;
 
@@ -32,6 +34,8 @@ PyroChannel channel1(1);
 PyroChannel channel2(2, TestCondition);
 PyroChannel channel3(3);
 PyroChannel channel4(4);
+
+KalmanFilter kalmanFilter;
 
 unsigned long loopFreq   = 30; // In Hz
 unsigned long loopLenght = 1000 / loopFreq; // In ms
@@ -144,6 +148,14 @@ void loop() {
       // channel3.update(&data);
       // channel4.update(&data);
 
+      // Run the Kalman Filter
+      kalmanFilter.predict(&data); // Run the prediction
+      kalmanFilter.update(&data); // Run the estimation
+      /**
+       * Once we add GPS data to the kalman filter we will run predict every time step
+       * and only run update once GPS data updates
+      */
+
       // Update the state machine
       stateMachine.update(&data);
 
@@ -190,10 +202,13 @@ void start_recording() {
 
   // Reset the accelerometer drived data
   acc.reset();
+  acc.get_data(&data);
 
   // Read the starting alt for the barometer
   baro.get_data(&data);
   data.starting_alt.value = data.alt.value;
+
+  kalmanFilter.init(&data);
 
   // Print the header
   Serial.println(memory.header);

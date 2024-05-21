@@ -33,6 +33,20 @@ class Data {
 
 		Quaternion quat;
 
+		dataPointT roll;
+		dataPointT pitch;
+		dataPointT yaw;
+
+		dataPointT P1;
+		dataPointT P2;
+		dataPointT P3;
+		dataPointT P4;
+
+		dataPointT Pp1;
+		dataPointT Pp2;
+		dataPointT Pp3;
+		dataPointT Pp4;
+
 		dataPointT velX;
 		dataPointT velY;
 		dataPointT velZ;
@@ -68,62 +82,81 @@ class Data {
 		dataPointT pyro_4_fired;
 
 		dataPointT allowStage;
+		dataPointT dt;
 
 		dataPointT array[size];
 
 		String get_data() {
 			String data = "";
 
-			data += String(Data::time.value, 4) + ",";
+			data += String(Data::time.value, 3) + ",";
 
-			data += String(Data::accX.value, 2) + ",";
-			data += String(Data::accY.value, 2) + ",";
-			data += String(Data::accZ.value, 2) + ",";
+			// data += log(accX, 5);
+			// data += log(accY, 5);
+			// data += log(accZ, 5);
 
-			data += String(Data::gyrX.value, 2) + ",";
-			data += String(Data::gyrY.value, 2) + ",";
-			data += String(Data::gyrZ.value, 2) + ",";
+			// data += log(gyrX, 5);
+			// data += log(gyrY, 5);
+			// data += log(gyrZ, 5);
 
-			data += String(Data::magX.value, 2) + ",";
-			data += String(Data::magY.value, 2) + ",";
-			data += String(Data::magZ.value, 2) + ",";
-			// data += String(Data::heading.value, 2) + ",";
+			// data += log(magX, 2);
+			// data += log(magY, 2);
+			// data += log(magZ, 2);
+			// data += log(heading, 2);
 
-			// data += String(Data::angleX.value, 2) + ",";
-			// data += String(Data::angleY.value, 2) + ",";
-			// data += String(Data::angleZ.value, 2) + ",";
+			quat.toEuler(roll.value, pitch.value, yaw.value);
+			data += log(pitch, 1);
+			// data += log(roll,  1);
+			// data += log(yaw,   1);
+			
+			// data += log(P1, 4);
+			// data += log(P2, 4);
+			// data += log(P3, 4);
+			// data += log(P4, 4);
 
-			// data += String(Data::velX.value, 2) + ",";
-			// data += String(Data::velY.value, 2) + ",";
-			// data += String(Data::velZ.value, 2) + ",";
+			// data += log(Pp1, 4);
+			// data += log(Pp2, 4);
+			// data += log(Pp3, 4);
+			// data += log(Pp4, 4);
 
-			data += String(Data::temp.value, 2) + ",";
-			data += String(Data::press.value, 2) + ",";
-			data += String(Data::alt.value, 2) + ",";
-			data += String(Data::filted_alt.value, 2) + ",";
+			// data += log(velX, 2);
+			// data += log(velY, 2);
+			// data += log(velZ, 2);
 
-			data += String(Data::state.value) + ",";
+			// data += log(temp,  2);
+			// data += log(press, 2);
+			// data += log(alt,   2);
+			// data += log(filted_alt, 2);
 
-			data += String(Data::gps_lat.value, 8) + ",";
-			data += String(Data::gps_lng.value, 8) + ",";
-			data += String(Data::gps_sat.value) + ",";
-			data += String(Data::gps_alt.value, 2) + ",";
-			data += String(Data::gps_speed.value, 2) + ",";
-			data += String(Data::gps_hdop.value, 2) + ",";
+			// data += log(state, 0);
 
-			// data += String(Data::pyro_arm.value) + ",";
+			// data += log(gps_lat,   8);
+			// data += log(gps_lng,   8);
+			// data += log(gps_sat,   0);
+			// data += log(gps_alt,   2);
+			// data += log(gps_speed, 2);
+			// data += log(gps_hdop,  2);
 
-			// data += String(Data::pyro_1_con.value) + ",";
-			// data += String(Data::pyro_2_con.value) + ",";
-			// data += String(Data::pyro_3_con.value) + ",";
-			// data += String(Data::pyro_4_con.value) + ",";
+			// data += log(pyro_arm, 0);
 
-			// data += String(Data::pyro_1_fired.value) + ",";
-			// data += String(Data::pyro_2_fired.value) + ",";
-			// data += String(Data::pyro_3_fired.value) + ",";
-			// data += String(Data::pyro_4_fired.value);
+			// data += log(pyro_1_con, 0);
+			// data += log(pyro_2_con, 0);
+			// data += log(pyro_3_con, 0);
+			// data += log(pyro_4_con, 0);
+
+			// data += log(pyro_1_fired, 0);
+			// data += log(pyro_2_fired, 0);
+			// data += log(pyro_3_fired, 0);
+			// data += log(pyro_4_fired, 0);
 
 			return data;
+		}
+
+		String log(dataPointT data, int floatingPoint=2) {
+			String tmp = String(data.value, floatingPoint) + ",";
+			// if (data.value > 0) tmp = " " + tmp;
+			
+			return tmp;
 		}
 
 		Data() {

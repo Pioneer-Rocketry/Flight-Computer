@@ -185,6 +185,8 @@ void BNO055::get_data(Data *data) {
   data->magZ.value = magZ;
   data->heading.value = heading;
 
+  data->dt.value = dt;
+
   data->velX.value = velocityX;
   data->velY.value = velocityY;
   data->velZ.value = velocityZ;

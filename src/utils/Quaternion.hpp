@@ -25,13 +25,18 @@ class Quaternion {
         }
 
         Quaternion(float roll, float pitch, float yaw) {
-            // https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles#Source_code
-            float cr = cos(roll * 0.5);
-            float sr = sin(roll * 0.5);
-            float cp = cos(pitch * 0.5);
-            float sp = sin(pitch * 0.5);
+            // Convert degrees to radians
+            roll  *= M_PI / 180.0;
+            pitch *= M_PI / 180.0;
+            yaw   *= M_PI / 180.0;
+
+            // Convert Euler angles (in radians) to a quaternion
             float cy = cos(yaw * 0.5);
             float sy = sin(yaw * 0.5);
+            float cp = cos(roll * 0.5);
+            float sp = sin(roll * 0.5);
+            float cr = cos(pitch * 0.5);
+            float sr = sin(pitch * 0.5);
 
             w = cr * cp * cy + sr * sp * sy;
             x = sr * cp * cy - cr * sp * sy;
@@ -40,19 +45,27 @@ class Quaternion {
         }
 
         void toEuler(float &roll, float &pitch, float &yaw) {
-            // https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles#Source_code_2
-            float sinr_cosp = 2 * (w * x + y + z);
+            // Convert a quaternion to Euler angles (in radians)
+            // roll (x-axis rotation)
+            float sinr_cosp = 2 * (w * x + y * z);
             float cosr_cosp = 1 - 2 * (x * x + y * y);
-            roll = atan2f(sinr_cosp, cosr_cosp);
-            
-            float sinp = sqrt(1 + 2 * (w * y - x * z));
-            float cosp = sqrt(1 - 2 * (w * y - x * z));
-            pitch = 2 * atan2(sinp, cosp) - M_PI / 2;
+            pitch = atan2(sinr_cosp, cosr_cosp);
 
+            // pitch (y-axis rotation)
+            float sinp = 2 * (w * y - z * x);
+            if (fabs(sinp) >= 1)
+                roll = copysign(M_PI / 2, sinp); // use 90 degrees if out of range
+            else
+                roll = asin(sinp);
+
+            // yaw (z-axis rotation)
             float siny_cosp = 2 * (w * z + x * y);
-            float cosy_cosp = 1 - 2  * (y  * y  + z  * z );
+            float cosy_cosp = 1 - 2 * (y * y + z * z);
             yaw = atan2(siny_cosp, cosy_cosp);
 
+            // Convert radians to degrees
+            roll  *= 180.0 / M_PI;
+            pitch *= 180.0 / M_PI;
+            yaw   *= 180.0 / M_PI;
         }
-
 };

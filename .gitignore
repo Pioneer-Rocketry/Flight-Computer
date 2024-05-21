@@ -6,4 +6,5 @@
 .vscode/ipch
 ./include/*
 
+data/
 *.csv

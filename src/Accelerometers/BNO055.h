@@ -41,16 +41,16 @@ class BNO055 : Sensor {
   const int GYR_OFFSET_X_LSB_REG = 0x61;
 
   // Calibration offset
-  const int16_t accXcal = 1;
-  const int16_t accYcal = 1;
-  const int16_t accZcal = 1;
+  const int16_t accXcal = 29;
+  const int16_t accYcal = -8;
+  const int16_t accZcal = 0;
 
-  const int16_t magXcal = 50;
-  const int16_t magYcal = 33;
-  const int16_t magZcal = 13;
+  const int16_t magXcal = 24;
+  const int16_t magYcal = 12;
+  const int16_t magZcal = 63;
 
-  const int16_t gyrXcal = 0;
-  const int16_t gyrYcal = 1;
+  const int16_t gyrXcal = -1;
+  const int16_t gyrYcal = -1;
   const int16_t gyrZcal = 1;
 
   // Bias

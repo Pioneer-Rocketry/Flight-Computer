@@ -76,7 +76,7 @@ void setup() {
   // Start Barometer
   if (!baro.begin()) {
     Serial.println("Barometer not online");
-    error();
+    // error();
   }
   Serial.println("Barometer online");
 

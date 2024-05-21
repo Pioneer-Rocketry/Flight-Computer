@@ -5,14 +5,6 @@
 
 // Constructor
 KalmanFilter::KalmanFilter() {
-    // State Transition Matrix
-    A = {
-        1, 0, dt, 0, 
-        0, 1, 0,  dt, 
-        0, 0, 1,  sq(dt)/2, 
-        0, 0, 0,  1
-    };
-
     // State Transition Noise
     W = {
         0.001,
@@ -31,12 +23,12 @@ KalmanFilter::KalmanFilter() {
 
     // Measurement Noise
     V = { // Sensor Standard Deviation squared
-        sq(ACC_STD), 
-        sq(ACC_STD),
-        sq(ACC_STD),
-        sq(GYRO_STD),
-        sq(GYRO_STD),
-        sq(GYRO_STD)
+        sq(0.000795686), // Recorded data for 26.5 minutes and took the GUASE of the STDEV
+        sq(0.000756131),
+        sq(0.000426693),
+        sq(0.020861282), 
+        sq(0.020861282),
+        sq(0.006379468),
     };
 
     // Covariance of Measurement Noise (diagonal)
@@ -48,6 +40,30 @@ KalmanFilter::KalmanFilter() {
         0, 0, 0, 0, V(4), 0,
         0, 0, 0, 0, 0, V(5)
     };
+
+    P = {
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1,
+    };
+}
+
+void KalmanFilter::computeA(Data *data) {
+    float x = data->gyrX.value * M_PI / 180;
+    float y = data->gyrY.value * M_PI / 180;
+    float z = data->gyrZ.value * M_PI / 180;
+
+    // State Transition Matrix
+    A = {
+        0, -x, -y, -z,
+        x,  0,  z, -y,
+        y, -z,  0,  x,
+        z,  y, -x,  0,
+    };
+
+    dt = data->dt.value;
+    A *= I + dt * .5f;
 }
 
 void KalmanFilter::computeH(Data *data) {
@@ -55,12 +71,12 @@ void KalmanFilter::computeH(Data *data) {
 
     // State to Measurement Matrix
     H = {
-        1, -q.x, -q.y, -q.z,
-        0,  q.w,  q.z, -q.y,
-        0, -q.z,  q.w,  q.x,
-        0,  1,    0,    0,
-        0,  0,    1,    0,
-        0,  0,    0,    1
+         0,      -1/2,   0,     0,
+         0,      0,      -1/2,  0,      // Gyro
+         0,      0,      0,     -1/2,
+        -2*q.y,  2*q.z, -2*q.w, 2*q.x,
+         2*q.x,  2*q.w,  2*q.z, 2*q.y,  // Accel
+         2*q.w, -2*q.x, -2*q.y, 2*q.z,
     };
 }
 
@@ -71,10 +87,10 @@ void KalmanFilter::init(Data *data) {
      * It will use accerometer data to find the starting Quaternion
     */
 
-    float pitch = asin(data->accX.value / GRAVITY);
-    float yaw = asin(-data->accY.value / GRAVITY);
+    float pitch = asin(data->accX.value /  GRAVITY);
+    float roll = asin(-data->accY.value / (GRAVITY * cos(pitch)));
     // roll needs magnetometer data to find the starting pitch and yaw
-    float roll = 0;
+    float yaw = 0;
 
     data->quat = Quaternion(roll, pitch, yaw);
 
@@ -86,11 +102,14 @@ void KalmanFilter::init(Data *data) {
     };
 
     P = {
-        1,0,0,0,
-        0,1,0,0,
-        0,0,1,0,
-        0,0,0,1
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1
     };
+
+    this->predict(data); // Run the prediction
+    this->update(data);  // Run the estimation
 }
 
 /**
@@ -127,11 +146,13 @@ void KalmanFilter::predict(Data *data) {
      *  P⁻ₖ = APₖ₋₁Aᵀ + Q
     */
 
-    // Step 1: Predict State and Error Covariance
-    X = A * X;
-    P = A * P * A + Q;
+    computeA(data);
 
-    data->quat = Quaternion(X(1), X(2), X(3), X(4));
+    // Step 1: Predict State and Error Covariance
+    Xp = A * X;
+    Pp = A * P * ~A + Q;
+
+    data->quat = Quaternion(X(0), X(1), X(2), X(3));
 }
 
 // Runs the estimation step of the kalman filter
@@ -150,22 +171,32 @@ void KalmanFilter::update(Data *data) {
     */ 
 
     // Store the measurement in the Z matrix
-    Z(0) = data->accX.value;
-    Z(1) = data->accY.value;
-    Z(2) = data->accZ.value;
+    Z(0) = data->gyrX.value;
+    Z(1) = data->gyrY.value;
+    Z(2) = data->gyrZ.value;
 
-    Z(3) = data->gyrX.value;
-    Z(4) = data->gyrY.value;
-    Z(5) = data->gyrZ.value;
+    Z(3) = data->accX.value;
+    Z(4) = data->accY.value;
+    Z(5) = data->accZ.value;
 
     computeH(data);
 
     // Step 2: Compute the Kalman Gain
-    K = P * ~H * Inverse(H * P * ~H + R);
+    K = Pp * ~H * Inverse(H * Pp * ~H + R);
 
     // Step 3. Compute the estimate
-    X = X + K * (Z - (H * X));
+    X = Xp + K * (Z - (H * Xp));
 
     // Step 4. Compute the Error Covariance
-    P = P - K * H * P;
+    P = Pp - K * H * Pp;
+
+    data->P1.value = P(0, 0);
+    data->P2.value = P(1, 1);
+    data->P3.value = P(2, 2);
+    data->P4.value = P(3, 3);
+
+    data->Pp1.value = Pp(0, 0);
+    data->Pp2.value = Pp(1, 1);
+    data->Pp3.value = Pp(2, 2);
+    data->Pp4.value = Pp(3, 3);
 }

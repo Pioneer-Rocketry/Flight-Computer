@@ -18,7 +18,7 @@ parser.add_argument('device', help="The Serial Device")
 parser.add_argument('--baud', default=115200,
                     help='The baud rate for the Serial Connection')
 
-packetSize = 2
+packetSize = 3
 baud = 0
 device = ""
 conn = None
@@ -30,7 +30,7 @@ loggedData = []
 
 def processData():
     file = open(datetime.now().strftime(fileFormat), "w")
-    file.write("Time,Pitch,Roll,Yaw\n")
+    file.write("Time,Pitch,Roll\n")
 
     for datapoint in loggedData:
         datapoint = datapoint.replace("  ", " ")

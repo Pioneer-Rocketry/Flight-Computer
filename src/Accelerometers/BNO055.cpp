@@ -3,10 +3,6 @@
 #include "ColorLED.hpp"
 
 BNO055::BNO055() : Sensor(BNO055_ADDR, &Wire) {
-  this->velocityX = 0.0f;
-  this->velocityY = 0.0f;
-  this->velocityZ = 0.0f;
-
   this->accX = 0.0f;
   this->accY = 0.0f;
   this->accZ = 0.0f;
@@ -172,24 +168,20 @@ bool BNO055::begin() {
 void BNO055::get_data(Data *data) {
   update_sensor();
 
-  data->accX.value = accX;
-  data->accY.value = accY;
-  data->accZ.value = accZ;
+  data->accX = accX;
+  data->accY = accY;
+  data->accZ = accZ;
   
-  data->gyrX.value = gyroX;
-  data->gyrY.value = gyroY;
-  data->gyrZ.value = gyroZ;
+  data->gyrX = gyroX;
+  data->gyrY = gyroY;
+  data->gyrZ = gyroZ;
 
-  data->magX.value = magX;
-  data->magY.value = magY;
-  data->magZ.value = magZ;
-  data->heading.value = heading;
+  data->magX = magX;
+  data->magY = magY;
+  data->magZ = magZ;
+  data->heading = heading;
 
-  data->dt.value = dt;
-
-  data->velX.value = velocityX;
-  data->velY.value = velocityY;
-  data->velZ.value = velocityZ;
+  data->dt = dt;
 }
 
 void BNO055::update_sensor() {
@@ -206,13 +198,6 @@ void BNO055::update_sensor() {
 
     // Calculate derived values
     dt = ((millis() - accLast)) / 1000.0;
-
-    // Calculate the velocity
-    velocityX += accX * dt;
-    velocityY += accY * dt;
-    velocityZ += accZ * dt;
-
-    accLast = millis(); // Reset the timer
   }
 
   // Check if it is time to read the gyroscope
@@ -287,10 +272,6 @@ void BNO055::write_calibrations() {
 }
 
 void BNO055::reset() {
-  velocityX = 0.0;
-  velocityY = 0.0;
-  velocityZ = 0.0;
-
   dt = 0.0;
 }
 

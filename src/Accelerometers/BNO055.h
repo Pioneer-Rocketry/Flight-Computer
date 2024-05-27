@@ -110,7 +110,6 @@ class BNO055 : Sensor {
   unsigned long magLast = 0.0;
 
   // Data derived from the raw data
-  float velocityX, velocityY, velocityZ;
   float heading;
   float dt;
 

@@ -6,90 +6,95 @@
 
 #include "utils/Quaternion.hpp"
 
-typedef union
+class dataPoint {
+	private:
+		union {
+			float value;
+			byte array[4];
+		} dataT;
+
+	public:
+		operator float() const {
+			return dataT.value;
+		}
+
+		float operator=(float value) {
+			dataT.value = value;
+			return *this;
+		}
+};
+
+struct Vector
 {
-  float value;
-  byte array[4];
-}
-dataPointT;
+	dataPoint X;
+	dataPoint Y;
+	dataPoint Z;
+};
 
 const int size = 38;
 class Data {
 	public:
-		dataPointT time;
+		dataPoint time;
 
-		dataPointT accX;
-		dataPointT accY;
-		dataPointT accZ;
+		dataPoint accX;
+		dataPoint accY;
+		dataPoint accZ;
 		
-		dataPointT gyrX;
-		dataPointT gyrY;
-		dataPointT gyrZ;
+		dataPoint gyrX;
+		dataPoint gyrY;
+		dataPoint gyrZ;
 
-		dataPointT magX;
-		dataPointT magY;
-		dataPointT magZ;
-		dataPointT heading;
+		dataPoint magX;
+		dataPoint magY;
+		dataPoint magZ;
+		dataPoint heading;
 
 		Quaternion quat;
 
-		dataPointT roll;
-		dataPointT pitch;
-		dataPointT yaw;
+		Vector attitude;
+		Vector position;
+		Vector velocity;
+		Vector angular_rate;
 
-		dataPointT P1;
-		dataPointT P2;
-		dataPointT P3;
-		dataPointT P4;
-
-		dataPointT Pp1;
-		dataPointT Pp2;
-		dataPointT Pp3;
-		dataPointT Pp4;
-
-		dataPointT velX;
-		dataPointT velY;
-		dataPointT velZ;
-
-		dataPointT temp;
-		dataPointT press;
-		dataPointT alt;
+		dataPoint temp;
+		dataPoint press;
+		dataPoint alt;
 		
-		dataPointT filted_alt;
-		dataPointT starting_alt;
+		dataPoint filted_alt;
+		dataPoint starting_alt;
 
-		dataPointT state;
+		dataPoint state;
 
-		dataPointT gps_lat;
-		dataPointT gps_lng;
-		dataPointT gps_sat;
-		dataPointT gps_alt;
-		dataPointT gps_speed;
-		dataPointT gps_hdop;
+		dataPoint gps_lat;
+		dataPoint gps_lng;
+		dataPoint gps_sat;
+		dataPoint gps_alt;
+		dataPoint gps_speed;
+		dataPoint gps_hdop;
 
-		dataPointT air_speed;
+		dataPoint air_speed;
 
-		dataPointT pyro_arm;
+		dataPoint pyro_arm;
 
-		dataPointT pyro_1_con;
-		dataPointT pyro_2_con;
-		dataPointT pyro_3_con;
-		dataPointT pyro_4_con;
+		dataPoint pyro_1_con;
+		dataPoint pyro_2_con;
+		dataPoint pyro_3_con;
+		dataPoint pyro_4_con;
 
-		dataPointT pyro_1_fired;
-		dataPointT pyro_2_fired;
-		dataPointT pyro_3_fired;
-		dataPointT pyro_4_fired;
+		dataPoint pyro_1_fired;
+		dataPoint pyro_2_fired;
+		dataPoint pyro_3_fired;
+		dataPoint pyro_4_fired;
 
-		dataPointT allowStage;
-		dataPointT dt;
+		dataPoint allowStage;
+		dataPoint dt;
 
-		dataPointT array[size];
+		dataPoint array[size];
 
 		String get_data() {
 			String data = "";
 
-			data += String(Data::time.value, 3) + ",";
+			data += String(time, 3) + ",";
 
 			// data += log(accX, 5);
 			// data += log(accY, 5);
@@ -103,25 +108,22 @@ class Data {
 			// data += log(magY, 2);
 			// data += log(magZ, 2);
 			// data += log(heading, 2);
-
-			quat.toEuler(roll.value, pitch.value, yaw.value);
-			data += log(pitch, 1);
-			// data += log(roll,  1);
-			// data += log(yaw,   1);
 			
-			// data += log(P1, 4);
-			// data += log(P2, 4);
-			// data += log(P3, 4);
-			// data += log(P4, 4);
-
-			// data += log(Pp1, 4);
-			// data += log(Pp2, 4);
-			// data += log(Pp3, 4);
-			// data += log(Pp4, 4);
-
-			// data += log(velX, 2);
-			// data += log(velY, 2);
-			// data += log(velZ, 2);
+			data += log(attitude.X, 1);
+			data += log(attitude.Y, 1);
+			data += log(attitude.Z, 1);
+			
+			// data += log(position.X, 1);
+			// data += log(position.Y, 1);
+			// data += log(position.Z, 1);
+			
+			// data += log(velocity.X, 1);
+			// data += log(velocity.Y, 1);
+			// data += log(velocity.Z, 1);
+			
+			// data += log(angular_rate.X, 1);
+			// data += log(angular_rate.Y, 1);
+			// data += log(angular_rate.Z, 1);
 
 			// data += log(temp,  2);
 			// data += log(press, 2);
@@ -152,15 +154,15 @@ class Data {
 			return data;
 		}
 
-		String log(dataPointT data, int floatingPoint=2) {
-			String tmp = String(data.value, floatingPoint) + ",";
+		String log(dataPoint data, int floatingPoint=2) {
+			String tmp = String(data, floatingPoint) + ",";
 			// if (data.value > 0) tmp = " " + tmp;
 			
 			return tmp;
 		}
 
 		Data() {
-			allowStage.value = 0;
+			allowStage = 0;
 		}
 };
 

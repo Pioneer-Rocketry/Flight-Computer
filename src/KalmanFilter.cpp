@@ -50,9 +50,9 @@ KalmanFilter::KalmanFilter() {
 }
 
 void KalmanFilter::computeA(Data *data) {
-    float x = data->gyrX.value * M_PI / 180;
-    float y = data->gyrY.value * M_PI / 180;
-    float z = data->gyrZ.value * M_PI / 180;
+    float x = data->gyrX * M_PI / 180;
+    float y = data->gyrY * M_PI / 180;
+    float z = data->gyrZ * M_PI / 180;
 
     // State Transition Matrix
     A = {
@@ -62,7 +62,7 @@ void KalmanFilter::computeA(Data *data) {
         z,  y, -x,  0,
     };
 
-    dt = data->dt.value;
+    dt = data->dt;
     A *= I + dt * .5f;
 }
 
@@ -87,8 +87,8 @@ void KalmanFilter::init(Data *data) {
      * It will use accerometer data to find the starting Quaternion
     */
 
-    float pitch = asin(data->accX.value /  GRAVITY);
-    float roll = asin(-data->accY.value / (GRAVITY * cos(pitch)));
+    float pitch = asin(data->accX /  GRAVITY);
+    float roll = asin(-data->accY / (GRAVITY * cos(pitch)));
     // roll needs magnetometer data to find the starting pitch and yaw
     float yaw = 0;
 
@@ -171,13 +171,13 @@ void KalmanFilter::update(Data *data) {
     */ 
 
     // Store the measurement in the Z matrix
-    Z(0) = data->gyrX.value;
-    Z(1) = data->gyrY.value;
-    Z(2) = data->gyrZ.value;
+    Z(0) = data->gyrX;
+    Z(1) = data->gyrY;
+    Z(2) = data->gyrZ;
 
-    Z(3) = data->accX.value;
-    Z(4) = data->accY.value;
-    Z(5) = data->accZ.value;
+    Z(3) = data->accX;
+    Z(4) = data->accY;
+    Z(5) = data->accZ;
 
     computeH(data);
 
@@ -189,14 +189,4 @@ void KalmanFilter::update(Data *data) {
 
     // Step 4. Compute the Error Covariance
     P = Pp - K * H * Pp;
-
-    data->P1.value = P(0, 0);
-    data->P2.value = P(1, 1);
-    data->P3.value = P(2, 2);
-    data->P4.value = P(3, 3);
-
-    data->Pp1.value = Pp(0, 0);
-    data->Pp2.value = Pp(1, 1);
-    data->Pp3.value = Pp(2, 2);
-    data->Pp4.value = Pp(3, 3);
 }

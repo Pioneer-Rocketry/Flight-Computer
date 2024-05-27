@@ -41,10 +41,10 @@ State State_Machine::update(Data *data) {
   for (int i = numOfAltSamples-1; i > 0; i--) {
     lastAltitude[i] = lastAltitude[i - 1];
   }
-  lastAltitude[0] = data->alt.value;
+  lastAltitude[0] = data->alt;
 
   // Log the state
-  data->state.value = (float)state;
+  data->state = (float)state;
 
   return state;
 }
@@ -53,7 +53,7 @@ State State_Machine::update(Data *data) {
 void State_Machine::switch_to_powered_flight(Data *data) {
   // Conditions: vertical acceleration > 5.0 m/s^2
   //    cause on the launch rail SHOULD be 0 m/s^2, and in the air coasting (if mulitstage) SHOULD be -9.8 m/s^2 (or less)
-  if (data->accZ.value > 5.0) {
+  if (data->accZ > 5.0) {
     state = powered_flight;
   }
 }
@@ -61,7 +61,7 @@ void State_Machine::switch_to_powered_flight(Data *data) {
 // The rocket engine has burned out and the rocket is coasting upwards
 void State_Machine::switch_to_unpowered_flight(Data *data) {
   // Conditions: vertical acceleration < -9 m/s^2
-  if (data->accZ.value < -9.0) {
+  if (data->accZ < -9.0) {
     state = unpowered_flight;
 
     stagesRemaining--;
@@ -75,7 +75,7 @@ void State_Machine::switch_to_descent(Data *data) {
   // Check loop over the last n altitudes
   for (int i = 0; i < numOfAltSamples; i++) {
     // Check if the altitude is less than the previous altitude
-    if (data->alt.value > lastAltitude[i]) { 
+    if (data->alt > lastAltitude[i]) { 
       return; // If its greater, return
     }
   }
@@ -95,7 +95,7 @@ void State_Machine::switch_to_landed(Data *data) {
   // Check loop over the last n altitudes
   for (int i = 0; i < numOfAltSamples; i++) {
     // Check if the altitude is less than the previous altitude
-    if (abs(data->alt.value - lastAltitude[i]) > 0.5) { 
+    if (abs(data->alt - lastAltitude[i]) > 0.5) { 
       return; // If its greater, return
     }
   }

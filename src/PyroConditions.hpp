@@ -7,7 +7,7 @@
 #define MainChutesTargetAlt 1000
 
 bool ApogeeChutes(Data* data) {
-  if (data->state.value == State::descent) {
+  if (data->state == State::descent) {
     return true;
   }
 
@@ -15,7 +15,7 @@ bool ApogeeChutes(Data* data) {
 }
 
 bool MainChute(Data* data) {
-  if (data->state.value == State::parachute_descent && data->filted_alt.value < MainChutesTargetAlt) {
+  if (data->state == State::parachute_descent && data->filted_alt < MainChutesTargetAlt) {
     return true;
   }
 
@@ -23,7 +23,7 @@ bool MainChute(Data* data) {
 }
 
 bool TestCondition(Data* data) {
-  if (data->time.value > 5.0) {
+  if (data->time > 5.0) {
     return true;
   }
 
@@ -39,16 +39,16 @@ bool Stage(Data* data) {
   // If state is unpowered flight, and between min and max altitudes
   // Also if angle at anytime was +- StageMaxAngle
 
-  // if (data->angleX.value > StageMaxAngle || data->angleX.value < -StageMaxAngle 
-  //     || data->angleY.value > StageMaxAngle || data->angleY.value < -StageMaxAngle
-  //     || data->angleZ.value > StageMaxAngle || data->angleZ.value < -StageMaxAngle) {
-  //   data->allowStage.value = 1; // Dont allow staging    
+  // if (data->angleX > StageMaxAngle || data->angleX < -StageMaxAngle 
+  //     || data->angleY > StageMaxAngle || data->angleY < -StageMaxAngle
+  //     || data->angleZ > StageMaxAngle || data->angleZ < -StageMaxAngle) {
+  //   data->allowStage = 1; // Dont allow staging    
   // }
   
-  if (data->state.value == State::unpowered_flight
-      && data->filted_alt.value > StageMinAlt 
-      && data->filted_alt.value < StageMaxAlt
-      && data->allowStage.value == 0) {
+  if (data->state == State::unpowered_flight
+      && data->filted_alt > StageMinAlt 
+      && data->filted_alt < StageMaxAlt
+      && data->allowStage == 0) {
     return true;
   }
 

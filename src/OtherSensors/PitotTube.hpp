@@ -29,7 +29,7 @@ class PitotTube : Sensor {
 	public:
 
     void get_data(Data *data) {
-			data->air_speed.value = airspeed;
+			data->air_speed = airspeed;
 		}
 
     bool begin() {

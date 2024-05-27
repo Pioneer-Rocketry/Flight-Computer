@@ -1,6 +1,7 @@
 #pragma once
 
 #include <math.h>
+#include <BasicLinearAlgebra.h>
 
 class Quaternion {
     public:
@@ -67,5 +68,13 @@ class Quaternion {
             roll  *= 180.0 / M_PI;
             pitch *= 180.0 / M_PI;
             yaw   *= 180.0 / M_PI;
+        }
+
+        BLA::Matrix<4, 1> getMatrix() {
+            BLA::Matrix<4, 1> tmp = {
+                w, x, y, z
+            };
+
+            return tmp;
         }
 };

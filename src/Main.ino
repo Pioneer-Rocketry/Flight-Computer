@@ -134,7 +134,7 @@ void loop() {
       loopStart = millis();
 
       // Record data
-      data.time.value = (millis()-timeStart) / 1000.0f;
+      data.time = (millis()-timeStart) / 1000.0f;
       
       // Update the sensors
       acc.get_data(&data);
@@ -206,7 +206,7 @@ void start_recording() {
 
   // Read the starting alt for the barometer
   baro.get_data(&data);
-  data.starting_alt.value = data.alt.value;
+  data.starting_alt = data.alt;
 
   kalmanFilter.init(&data);
 

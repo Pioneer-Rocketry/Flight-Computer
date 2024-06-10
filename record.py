@@ -18,7 +18,7 @@ parser.add_argument('device', help="The Serial Device")
 parser.add_argument('--baud', default=115200,
                     help='The baud rate for the Serial Connection')
 
-packetSize = 3
+packetSize = 10
 baud = 0
 device = ""
 conn = None

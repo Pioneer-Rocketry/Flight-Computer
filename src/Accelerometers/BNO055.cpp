@@ -117,14 +117,14 @@ bool BNO055::begin() {
   // Set Units to, 10000000
   write(UNIT_SEL_REG, 0b10000000);
 
-  // Set the Axis Map to switch the X, and Z axis. Set to 00000110
-  write(AXIS_MAP_CONFIG, 0b00000110);
+  // // Set the Axis Map to switch the X, and Z axis. Set to 00000110
+  // write(AXIS_MAP_CONFIG, 0b00000110);
 
-  // Set the Axis Map Sign to flip all of the axis. Set to 00000111
-  write(AXIS_MAP_SIGN, 0b00000111);
+  // // Set the Axis Map Sign to flip all of the axis. Set to 00000111
+  // write(AXIS_MAP_SIGN, 0b00000111);
   
   // Set the Operating mode to, NDOF 00001100: 0x0C
-  write(OPR_MODE_REG, 0b00001100);
+  write(OPR_MODE_REG, 0b00000111);
 
   delay(25);
   update_sensor();
@@ -159,29 +159,39 @@ bool BNO055::begin() {
   delay(25);
 
   // Set the Operating mode to, AMG 00000111
-  write(OPR_MODE_REG, 0b00000111);
+  write(OPR_MODE_REG, 0b00001100);
   delay(20);
 
   return true;
 }
 
 void BNO055::get_data(Data *data) {
-  update_sensor();
+	if ((millis() - lastUpdate) >= updateInt) {
+    update_sensor();
 
-  data->accX = accX;
-  data->accY = accY;
-  data->accZ = accZ;
-  
-  data->gyrX = gyroX;
-  data->gyrY = gyroY;
-  data->gyrZ = gyroZ;
+    data->accX = accX;
+    data->accY = accY;
+    data->accZ = accZ;
+    
+    data->gyrX = gyroX;
+    data->gyrY = gyroY;
+    data->gyrZ = gyroZ;
 
-  data->magX = magX;
-  data->magY = magY;
-  data->magZ = magZ;
-  data->heading = heading;
+    data->magX = magX;
+    data->magY = magY;
+    data->magZ = magZ;
+    data->heading = heading;
 
-  data->dt = dt;
+    data->imuPitch = pitch;
+    data->imuRoll  = roll;
+    data->imuYaw   = yaw;
+
+    data->dt = dt;
+
+		data->newAccData = true;
+	} else {
+		data->newAccData = false;
+	}
 }
 
 void BNO055::update_sensor() {
@@ -228,6 +238,19 @@ void BNO055::update_sensor() {
     this->heading = atan2(magY, magX) * 180 / M_PI;
     // We need a more complex formula to calculate the heading
     // because the rocket will be rotating in all 3 axis
+
+    magLast = millis();
+  }
+
+  if ((millis() - fusionLast) >= fusionInterval) {
+
+    read(EUL_Heading_LSB_REG, raw_data, 6);
+
+    this->yaw   = (float) ((int16_t)(raw_data[0] | ((int16_t)raw_data[1] << 8))) / 16;
+    this->roll  = (float) ((int16_t)(raw_data[2] | ((int16_t)raw_data[3] << 8))) / 16;
+    this->pitch = (float) ((int16_t)(raw_data[4] | ((int16_t)raw_data[5] << 8))) / 16;
+
+    fusionLast = millis();
   }
 }
 

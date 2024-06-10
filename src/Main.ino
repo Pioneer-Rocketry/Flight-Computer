@@ -15,8 +15,10 @@
 #include "Barometers/LPS25HB.h"
 #include "GPS.h"
 #include "OtherSensors/PitotTube.hpp"
+#include "Radio/Radio.hpp"
 
 #include "KalmanFilter.h"
+#include <MadgwickAHRS.h>
 
 #define RECORD_BUTTON 14
 bool recording = false;
@@ -27,17 +29,19 @@ GPS gps;
 PitotTube pitot;
 
 Memory memory;
+// Radio radio;
 State_Machine stateMachine;
 Fin_Controller fins;
 
 PyroChannel channel1(1);
-PyroChannel channel2(2, TestCondition);
-PyroChannel channel3(3);
+PyroChannel channel2(2);
+PyroChannel channel3(3, TestCondition);
 PyroChannel channel4(4);
 
 KalmanFilter kalmanFilter;
+Madgwick filter;
 
-unsigned long loopFreq   = 30; // In Hz
+unsigned long loopFreq   = 100; // In Hz
 unsigned long loopLenght = 1000 / loopFreq; // In ms
 unsigned long loopDelay  = 0;
 unsigned long loopStart  = 0;
@@ -56,7 +60,7 @@ void setup() {
 
   Wire.begin();
   
-  // ColorLED::begin(); // Commented because the LED is very bright
+  ColorLED::begin(); // Commented because the LED is very bright
   // Buzzer::begin();
   ColorLED::show_blue();
 
@@ -76,7 +80,7 @@ void setup() {
   // Start Barometer
   if (!baro.begin()) {
     Serial.println("Barometer not online");
-    // error();
+    error();
   }
   Serial.println("Barometer online");
 
@@ -90,7 +94,7 @@ void setup() {
   // Start Memory
   if (!memory.begin()) {
     Serial.println("SPI Flash not online");
-    // error();
+    error();
   }
   Serial.println("SPI Flash detected.");
 
@@ -106,11 +110,20 @@ void setup() {
   // Serial.println("Fins setup");
 
   // Start Pyro Channels
-  // channel1.begin();
-  // channel2.begin();
-  // channel3.begin();
-  // channel4.begin();
+  channel1.begin();
+  channel2.begin();
+  channel3.begin();
+  channel4.begin();
   // Serial.println("Pyro Channels setup");
+
+  // Start Madgwick Filter
+  filter.begin(loopFreq);
+
+  // State Radio
+  // radio.begin();
+
+  data.dt = loopFreq;
+  kalmanFilter.init(&data);
 
   // Setup Finished
 
@@ -149,15 +162,23 @@ void loop() {
       // channel4.update(&data);
 
       // Run the Kalman Filter
-      kalmanFilter.predict(&data); // Run the prediction
-      kalmanFilter.update(&data); // Run the estimation
-      /**
-       * Once we add GPS data to the kalman filter we will run predict every time step
-       * and only run update once GPS data updates
-      */
+      kalmanFilter.run(&data); // Run the Kalman Filter
+
+      // Run the Madgwick Filter
+      // filter.updateIMU(
+      //   data.gyrX, data.gyrY, data.gyrZ,
+      //   data.accX, data.accY, data.accZ
+      //   // data.magX, data.magY, data.magZ
+      // );
+
+      // data.pitch = filter.getPitch();
+      // data.roll = filter.getRoll();
+      // data.yaw = filter.getYaw();
 
       // Update the state machine
       stateMachine.update(&data);
+
+      // radio.send_data(&data);
 
       // Write data to memory
       memory.write_data(&data);

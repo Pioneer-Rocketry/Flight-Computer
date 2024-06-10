@@ -15,6 +15,8 @@ class GPS : public Sensor {
     HardwareSerial* serial; // The serial port the GPS is connected to
     int baud;               // The baud rate of the GPS  
 
+    float lastTime;
+
     int freq = 10; // Update frequency in Hz
     unsigned long interval = freq / 1000.0;
     unsigned long last = 0.0;

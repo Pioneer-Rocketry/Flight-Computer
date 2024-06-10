@@ -5,78 +5,39 @@
 
 // Constructor
 KalmanFilter::KalmanFilter() {
+
     // State Transition Noise
     W = {
-        0.001,
-        0.001,
-        0.001,
-        0.001
+        0.01,
+        0.01,
     };
 
     // Covariance of State Transition Noise (diagonal)
     Q = { // Sensor Standard Deviation squared
-        W(0), 0, 0, 0, 
-        0, W(1), 0, 0, 
-        0, 0, W(2), 0, 
-        0, 0, 0, W(3)
+        W(0), 0,
+        0, W(1),
     };
 
     // Measurement Noise
     V = { // Sensor Standard Deviation squared
-        sq(0.000795686), // Recorded data for 26.5 minutes and took the GUASE of the STDEV
-        sq(0.000756131),
-        sq(0.000426693),
-        sq(0.020861282), 
-        sq(0.020861282),
-        sq(0.006379468),
+        sq(1.5f),
     };
 
     // Covariance of Measurement Noise (diagonal)
     R = {
-        V(0), 0, 0, 0, 0, 0,
-        0, V(1), 0, 0, 0, 0,
-        0, 0, V(2), 0, 0, 0,
-        0, 0, 0, V(3), 0, 0,
-        0, 0, 0, 0, V(4), 0,
-        0, 0, 0, 0, 0, V(5)
+        V(0)
     };
 
+    // Error Covariance
     P = {
-        1, 0, 0, 0,
-        0, 1, 0, 0,
-        0, 0, 1, 0,
-        0, 0, 0, 1,
+        1, 0,
+        0, 1,
     };
-}
-
-void KalmanFilter::computeA(Data *data) {
-    float x = data->gyrX * M_PI / 180;
-    float y = data->gyrY * M_PI / 180;
-    float z = data->gyrZ * M_PI / 180;
-
-    // State Transition Matrix
-    A = {
-        0, -x, -y, -z,
-        x,  0,  z, -y,
-        y, -z,  0,  x,
-        z,  y, -x,  0,
-    };
-
-    dt = data->dt;
-    A *= I + dt * .5f;
-}
-
-void KalmanFilter::computeH(Data *data) {
-    Quaternion q = data->quat;
 
     // State to Measurement Matrix
     H = {
-         0,      -1/2,   0,     0,
-         0,      0,      -1/2,  0,      // Gyro
-         0,      0,      0,     -1/2,
-        -2*q.y,  2*q.z, -2*q.w, 2*q.x,
-         2*q.x,  2*q.w,  2*q.z, 2*q.y,  // Accel
-         2*q.w, -2*q.x, -2*q.y, 2*q.z,
+        1, 0,
+        // 1, 0,
     };
 }
 
@@ -87,25 +48,15 @@ void KalmanFilter::init(Data *data) {
      * It will use accerometer data to find the starting Quaternion
     */
 
-    float pitch = asin(data->accX /  GRAVITY);
-    float roll = asin(-data->accY / (GRAVITY * cos(pitch)));
-    // roll needs magnetometer data to find the starting pitch and yaw
-    float yaw = 0;
+    X(0) = data->starting_alt;
+    X(1) = 0.0f;
 
-    data->quat = Quaternion(roll, pitch, yaw);
+    dt = data->dt;
 
-    X = {
-        data->quat.w,
-        data->quat.x,
-        data->quat.y,
-        data->quat.z,
-    };
-
-    P = {
-        1, 0, 0, 0,
-        0, 1, 0, 0,
-        0, 0, 1, 0,
-        0, 0, 0, 1
+    // State Transistion Matrix
+    A = {
+        1, dt,
+        0, 1,
     };
 
     this->predict(data); // Run the prediction
@@ -146,13 +97,15 @@ void KalmanFilter::predict(Data *data) {
      *  P⁻ₖ = APₖ₋₁Aᵀ + Q
     */
 
-    computeA(data);
-
     // Step 1: Predict State and Error Covariance
-    Xp = A * X;
-    Pp = A * P * ~A + Q;
+    X = A * X;
+    P = A * P * ~A + Q;
 
-    data->quat = Quaternion(X(0), X(1), X(2), X(3));
+    data->filted_alt = X(0);
+    data->verticalVelocity = X(1);
+
+    data->p1 = P(0);
+    data->p2 = P(1);
 }
 
 // Runs the estimation step of the kalman filter
@@ -171,22 +124,84 @@ void KalmanFilter::update(Data *data) {
     */ 
 
     // Store the measurement in the Z matrix
-    Z(0) = data->gyrX;
-    Z(1) = data->gyrY;
-    Z(2) = data->gyrZ;
-
-    Z(3) = data->accX;
-    Z(4) = data->accY;
-    Z(5) = data->accZ;
-
-    computeH(data);
+    
+    Z(0) = data->alt;
 
     // Step 2: Compute the Kalman Gain
-    K = Pp * ~H * Inverse(H * Pp * ~H + R);
+    K = P * ~H * Inverse(H * P * ~H + R);
 
     // Step 3. Compute the estimate
-    X = Xp + K * (Z - (H * Xp));
+    X = X + K * (Z - H * X);
 
     // Step 4. Compute the Error Covariance
-    P = Pp - K * H * Pp;
+    P = (I - K * H) * P;
+
+    data->filted_alt = X(0);
+    data->verticalVelocity = X(1);
+
+    data->p1 = P(0);
+    data->p2 = P(1, 1);
+}
+
+// Runs the estimation step of the kalman filter
+void KalmanFilter::updateGPS(Data *data) {
+    /**
+     * Estimation Step
+     *
+     * We compute the Kalman Gain
+     * the state estimation
+     * as well as the error covariance
+     * 
+     * Formulas
+     *  Kₖ = P⁻ₖHᵀ(HP⁻ₖHᵀ + R)⁻¹
+     *  X̂ₖ = X̂⁻ₖ + Kₖ(Zₖ - HX̂⁻ₖ)
+     *  Pₖ = P⁻ₖ - KₖHP⁻ₖ
+    */ 
+
+    // Store the measurement in the Z matrix
+    
+    Z(0) = data->gps_alt;
+
+    // Step 2: Compute the Kalman Gain
+    K = P * ~H * Inverse(H * P * ~H + R_GPS);
+
+    // Step 3. Compute the estimate
+    X = X + K * (Z - H * X);
+
+    // Step 4. Compute the Error Covariance
+    P = (I - K * H) * P; // * ~(I - K * H) + K * R * ~K;
+
+    data->filted_alt = X(0);
+    data->verticalVelocity = X(1);
+
+    data->p1 = P(0);
+    data->p2 = P(1, 1);
+}
+
+void KalmanFilter::run(Data *data) {
+    /**
+     * Kalman Filter Flow
+     * 
+     * We are running the Kalman Filter at 30hz right now
+     * At somepoint we should up it to 100hz, even if data is only 30hz
+     * 
+     * Starting with the basic altitude Kalman Filter
+     * We run predict and update on each iteration of the loop
+     * and if the GPS altitude is available then we run update with the releated GPS data
+     * 
+     */
+
+    predict(data);
+
+    if (data->newBaroData) {
+        update(data);
+    }
+
+    if (data->newGPSdata) {
+        R_GPS = {
+            sq(data->gps_hdop)
+        };
+
+        updateGPS(data);
+    }
 }

@@ -55,19 +55,23 @@ void LPS25HB::update_sensor() {
 	// Calculate the altitude
 	// Equation from https://www.weather.gov/media/epz/wxcalc/pressureAltitude.pdf
 	this->altitude = 145366.45 * (1.0 - pow((pressure/1013.25), 0.190284));
+
 }
 
 void LPS25HB::get_data(Data *data) {
-	update_sensor();
+	if ((millis() - lastUpdate) >= updateInt) {
+		update_sensor();
 
-	data->temp = this->temperature;
-	data->press = this->pressure;
-	data->alt = this->altitude;
+		data->temp = this->temperature;
+		data->press = this->pressure;
+		data->alt = this->altitude / 3.28084;
+	
+		data->newBaroData = true;
 
-	// Filtering we should use a Exponential Moving Average (EMA) filter
-	// as seggested here https://www.rocketryforum.com/threads/barometric-altitude-filtering.182592/post-2497636
-	data->filted_alt = (EMA_SMOOTHING_FACTOR * data->alt - data->starting_alt) + (EMA_SMOOTHING_FACTOR* data->filted_alt);
-
+		lastUpdate = millis();
+	} else {
+		data->newBaroData = false;
+	}
 }
 
 void LPS25HB::read(int registerAddress, byte* data, int bytes) {

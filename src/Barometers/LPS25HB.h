@@ -9,7 +9,8 @@
 #include "Data.hpp"
 #include "Sensor.hpp"
 
-#define LPS25HB_ADDR 0x5D
+#define LPS25HB_ADDR 0x5C
+// #define LPS25HB_ADDR 0x5D
 
 class LPS25HB : Sensor {
 
@@ -31,7 +32,9 @@ class LPS25HB : Sensor {
     /* Data */
     float pressure, temperature, altitude;
 
-    const int EMA_SMOOTHING_FACTOR = 0.2;
+    int updateFreq = 30; // 30 hz
+    float updateInt = 1000 / updateFreq;
+    float lastUpdate;
 
     void update_sensor() override;
 

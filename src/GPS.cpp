@@ -28,6 +28,10 @@ void GPS::get_data(Data *data) {
 
   lastTime = data->gps_time;
 
+  if (data->starting_gps_alt == -999 && gps.altitude.isUpdated()) {
+    data->starting_gps_alt = gps.altitude.meters();
+  }
+
   data->gps_time  = gps.time.second() + gps.time.minute()*60;
   data->gps_lat   = gps.location.lat();
   data->gps_lng   = gps.location.lng();

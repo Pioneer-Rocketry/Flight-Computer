@@ -48,7 +48,7 @@ void KalmanFilter::init(Data *data) {
      * It will use accerometer data to find the starting Quaternion
     */
 
-    X(0) = data->starting_alt;
+    X(0) = 0;
     X(1) = 0.0f;
 
     dt = data->dt;
@@ -125,7 +125,7 @@ void KalmanFilter::update(Data *data) {
 
     // Store the measurement in the Z matrix
     
-    Z(0) = data->alt;
+    Z(0) = data->alt - data->starting_alt;
 
     // Step 2: Compute the Kalman Gain
     K = P * ~H * Inverse(H * P * ~H + R);
@@ -160,7 +160,7 @@ void KalmanFilter::updateGPS(Data *data) {
 
     // Store the measurement in the Z matrix
     
-    Z(0) = data->gps_alt;
+    Z(0) = data->gps_alt - data->starting_gps_alt;
 
     // Step 2: Compute the Kalman Gain
     K = P * ~H * Inverse(H * P * ~H + R_GPS);
@@ -189,6 +189,12 @@ void KalmanFilter::run(Data *data) {
      * We run predict and update on each iteration of the loop
      * and if the GPS altitude is available then we run update with the releated GPS data
      * 
+     * Once we have Attitude
+     * We need to take the acceration vector and rotate it by the attitude
+     * After that, we pass the data to the Kalman Filter to get velocity, position, and altitude, etc
+     * 
+     * It might be easier to use 2 kalman filters
+     * 1 for attitude and 1 for velocity, position, etc
      */
 
     predict(data);

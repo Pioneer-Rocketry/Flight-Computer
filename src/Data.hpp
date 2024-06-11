@@ -90,6 +90,8 @@ class Data {
 		dataPoint gps_hdop;
 		bool newGPSdata;
 
+		dataPoint starting_gps_alt;
+
 		dataPoint air_speed;
 
 		dataPoint pyro_arm;
@@ -155,8 +157,6 @@ class Data {
 			// data += log(temp,  2);
 			// data += log(press, 2);
 			data += log(alt,   1);
-			data += log(filted_alt, 1);
-			data += log(verticalVelocity, 2);
 
 			// data += log(state, 0);
 
@@ -167,7 +167,11 @@ class Data {
 			// data += log(gps_speed, 2);
 			// data += log(gps_hdop,  2);
 			// data += String(newGPSdata) + ",";
+			// data += log(starting_gps_alt,   1);
 
+			data += log(filted_alt, 1);
+			data += log(verticalVelocity, 2);
+			
 			// data += log(pyro_arm, 0);
 
 			// data += log(pyro_1_con, 0);
@@ -197,6 +201,7 @@ class Data {
 
 		Data() {
 			allowStage = 0;
+			starting_gps_alt = -999;
 		}
 };
 

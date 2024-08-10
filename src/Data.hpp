@@ -5,110 +5,45 @@
 #include <Arduino.h>
 
 #include "utils/Quaternion.hpp"
-
-class dataPoint {
-	private:
-		union {
-			float value;
-			byte array[4];
-		} dataT;
-
-	public:
-		operator float() const {
-			return dataT.value;
-		}
-		
-		byte* getArray() {
-			return dataT.array;
-		}
-
-		float operator=(float value) {
-			dataT.value = value;
-			return *this;
-		}
-};
-
-struct Vector
-{
-	dataPoint X;
-	dataPoint Y;
-	dataPoint Z;
-};
+#include "utils/Types.hpp"
 
 const int size = 38;
 class Data {
 	public:
 		dataPoint time;
 
-		dataPoint accX;
-		dataPoint accY;
-		dataPoint accZ;
-		bool newAccData;
+		bool newImuData;
+		bool newBaroData;
+		bool newGPSdata;
 		
-		dataPoint gyrX;
-		dataPoint gyrY;
-		dataPoint gyrZ;
-
-		dataPoint magX;
-		dataPoint magY;
-		dataPoint magZ;
+		Vector acc;
+		Vector gyro;
+		Vector mag;
 		dataPoint heading;
 
 		Quaternion quat;
 
-		Vector attitude;
-		Vector position;
-		Vector velocity;
-		Vector angular_rate;
-
-		dataPoint imuPitch;
-		dataPoint imuRoll;
-		dataPoint imuYaw;
-
-		dataPoint pitch;
-		dataPoint roll;
-		dataPoint yaw;
-
 		dataPoint temp;
 		dataPoint press;
 		dataPoint alt;
-		bool newBaroData;
-
-		dataPoint verticalVelocity;
-		
 		dataPoint starting_alt;
 
-		Vector kalman_vel;
-		Vector kalman_pos;
+		Kalman_data kalman;
 
 		dataPoint state;
 
-		dataPoint gps_time;
-		dataPoint gps_lat;
-		dataPoint gps_lng;
-		dataPoint gps_sat;
-		dataPoint gps_alt;
-		dataPoint gps_speed;
-		dataPoint gps_hdop;
-		bool newGPSdata;
-
+		GPS_data gps;
 		dataPoint starting_gps_alt;
 
 		dataPoint air_speed;
 
-		dataPoint pyro_arm;
+		bool pyro_arm;
+		bool allowStaging;
+		Pyro_data pyro1;
+		Pyro_data pyro2;
+		Pyro_data pyro3;
+		Pyro_data pyro4;
 
-		dataPoint pyro_1_con;
-		dataPoint pyro_2_con;
-		dataPoint pyro_3_con;
-		dataPoint pyro_4_con;
-
-		dataPoint pyro_1_fired;
-		dataPoint pyro_2_fired;
-		dataPoint pyro_3_fired;
-		dataPoint pyro_4_fired;
-
-		dataPoint allowStage;
 		dataPoint dt;
 
 		dataPoint p1;
@@ -131,9 +66,9 @@ class Data {
 			// data += log(gyrY, 2);
 			// data += log(gyrZ, 2);
 
-			data += log(magX, 2);
-			data += log(magY, 2);
-			data += log(magZ, 2);
+			// data += log(magX, 2);
+			// data += log(magY, 2);
+			// data += log(magZ, 2);
 			// data += log(heading, 2);
 			
 			// data += log(pitch, 1);
@@ -202,7 +137,7 @@ class Data {
 		}
 
 		Data() {
-			allowStage = 0;
+			allowStaging = 0;
 			starting_gps_alt = -999;
 		}
 };

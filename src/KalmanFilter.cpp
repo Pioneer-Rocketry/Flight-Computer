@@ -187,7 +187,7 @@ void KalmanFilter::updateGPS() {
 
 	// Store the measurement in the Z matrix
 	
-	Z(0) = data->gps_alt - data->starting_gps_alt;
+	Z(0) = data->gps.alt - data->starting_gps_alt;
 
 	// Step 2: Compute the Kalman Gain
 	K = P * ~H * Inverse(H * P * ~H + R_GPS);
@@ -243,13 +243,13 @@ void KalmanFilter::run() {
 }
 
 void KalmanFilter::save() {
-	data->kalman_pos.X = X(0);
-	data->kalman_pos.Y = X(1);
-	data->kalman_pos.Z = X(2);
+	data->kalman.position.X = X(0);
+	data->kalman.position.Y = X(1);
+	data->kalman.position.Z = X(2);
 	
-	data->kalman_vel.X = X(3);
-	data->kalman_vel.Y = X(4);
-	data->kalman_vel.Z = X(5);
+	data->kalman.velocity.X = X(3);
+	data->kalman.velocity.Y = X(4);
+	data->kalman.velocity.Z = X(5);
 
 	data->p1 = P(0);
 	data->p2 = P(1);

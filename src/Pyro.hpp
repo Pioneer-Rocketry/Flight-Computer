@@ -93,23 +93,23 @@ class PyroChannel {
 
 			switch (this->channelNum) {
 				case 1:
-					data->pyro_1_fired = fired;
-					data->pyro_1_con = conntinuity();
+					data->pyro1.fired = fired;
+					data->pyro1.continuity = conntinuity();
 					break;
 
 				case 2:
-					data->pyro_2_fired = fired;
-					data->pyro_2_con = conntinuity();
+					data->pyro2.fired = fired;
+					data->pyro2.continuity = conntinuity();
 					break;
 
 				case 3:
-					data->pyro_3_fired = fired;
-					data->pyro_3_con = conntinuity();
+					data->pyro3.fired = fired;
+					data->pyro3.continuity = conntinuity();
 					break;
 
 				case 4:
-					data->pyro_4_fired = fired;
-					data->pyro_4_con = conntinuity();
+					data->pyro4.fired = fired;
+					data->pyro4.continuity = conntinuity();
 					break;
 
 				default: break;

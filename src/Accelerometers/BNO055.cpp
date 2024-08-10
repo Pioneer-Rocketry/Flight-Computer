@@ -169,28 +169,24 @@ void BNO055::get_data() {
 	if ((millis() - lastUpdate) >= updateInt) {
 		update_sensor();
 
-		data->accX = accX;
-		data->accY = accY;
-		data->accZ = accZ;
+		data->acc.X = accX;
+		data->acc.Y = accY;
+		data->acc.Z = accZ;
 		
-		data->gyrX = gyroX;
-		data->gyrY = gyroY;
-		data->gyrZ = gyroZ;
+		data->gyro.X = gyroX;
+		data->gyro.Y = gyroY;
+		data->gyro.Z = gyroZ;
 
-		data->magX = magX;
-		data->magY = magY;
-		data->magZ = magZ;
+		data->mag.X = magX;
+		data->mag.Y = magY;
+		data->mag.Z = magZ;
 		data->heading = heading;
-
-		data->imuPitch = pitch;
-		data->imuRoll  = roll;
-		data->imuYaw   = yaw;
 
 		data->dt = dt;
 
-		data->newAccData = true;
+		data->newImuData = true;
 	} else {
-		data->newAccData = false;
+		data->newImuData = false;
 	}
 }
 

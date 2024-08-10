@@ -53,7 +53,7 @@ State State_Machine::update(Data *data) {
 void State_Machine::switch_to_powered_flight(Data *data) {
 	// Conditions: vertical acceleration > 5.0 m/s^2
 	//    cause on the launch rail SHOULD be 0 m/s^2, and in the air coasting (if mulitstage) SHOULD be -9.8 m/s^2 (or less)
-	if (data->accZ > 5.0) {
+	if (data->acc.Z > 5.0) {
 		state = powered_flight;
 	}
 }
@@ -61,7 +61,7 @@ void State_Machine::switch_to_powered_flight(Data *data) {
 // The rocket engine has burned out and the rocket is coasting upwards
 void State_Machine::switch_to_unpowered_flight(Data *data) {
 	// Conditions: vertical acceleration < -9 m/s^2
-	if (data->accZ < -9.0) {
+	if (data->acc.Z < -9.0) {
 		state = unpowered_flight;
 
 		stagesRemaining--;

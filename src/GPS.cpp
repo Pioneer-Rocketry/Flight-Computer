@@ -26,21 +26,21 @@ void GPS::update_sensor() {
 void GPS::get_data() {
 	update_sensor();
 
-	lastTime = data->gps_time;
+	lastTime = data->gps.time;
 
 	if (data->starting_gps_alt == -999 && gps.altitude.isUpdated()) {
 		data->starting_gps_alt = gps.altitude.meters();
 	}
 
-	data->gps_time  = gps.time.second() + gps.time.minute()*60;
-	data->gps_lat   = gps.location.lat();
-	data->gps_lng   = gps.location.lng();
-	data->gps_sat   = gps.satellites.value();
-	data->gps_alt   = gps.altitude.meters();
-	data->gps_speed = gps.speed.kmph();
-	data->gps_hdop  = gps.hdop.hdop();
+	data->gps.time  = gps.time.second() + gps.time.minute()*60;
+	data->gps.lat   = gps.location.lat();
+	data->gps.lng   = gps.location.lng();
+	data->gps.sat   = gps.satellites.value();
+	data->gps.alt   = gps.altitude.meters();
+	data->gps.speed = gps.speed.kmph();
+	data->gps.hdop  = gps.hdop.hdop();
 
-	data->newGPSdata = lastTime != data->gps_time;
+	data->newGPSdata = lastTime != data->gps.time;
 	
 	// Read the GPS data
 	// Decode the NMEA Data (https://docs.arduino.cc/learn/communication/gps-nmea-data-101)

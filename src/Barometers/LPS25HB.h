@@ -14,37 +14,37 @@
 
 class LPS25HB : Sensor {
 
-  private:
-    const int RES_CONF_REG = 0x10;
-    const int CTRL_REG1    = 0x20;
-    const int CTRL_REG2    = 0x21;
-    
-    /* Data Registers */
-    const int PRESS_OUT_XL_REG = 0x28;
-    const int PRESS_OUT_L_REG  = 0x29;
-    const int PRESS_OUT_H_REG  = 0x2A;
+	private:
+		const int RES_CONF_REG = 0x10;
+		const int CTRL_REG1    = 0x20;
+		const int CTRL_REG2    = 0x21;
+		
+		/* Data Registers */
+		const int PRESS_OUT_XL_REG = 0x28;
+		const int PRESS_OUT_L_REG  = 0x29;
+		const int PRESS_OUT_H_REG  = 0x2A;
 
-    const int TEMP_OUT_L_REG = 0x2B;
-    const int TEMP_OUT_H_REG = 0x2C;
+		const int TEMP_OUT_L_REG = 0x2B;
+		const int TEMP_OUT_H_REG = 0x2C;
 
-    const int WHO_AM_I_REG = 0x0F;
+		const int WHO_AM_I_REG = 0x0F;
 
-    /* Data */
-    float pressure, temperature, altitude;
+		/* Data */
+		float pressure, temperature, altitude;
 
-    int updateFreq = 30; // 30 hz
-    float updateInt = 1000 / updateFreq;
-    float lastUpdate;
+		int updateFreq = 30; // 30 hz
+		float updateInt = 1000 / updateFreq;
+		float lastUpdate;
 
-    void update_sensor() override;
+		void update_sensor() override;
 
-    void read(int registerAddress, byte* data, int bytes=1);
+		void read(int registerAddress, byte* data, int bytes=1);
 
-  public:
-    void get_data() override;
-    bool begin() override;
+	public:
+		void get_data() override;
+		bool begin() override;
 
-    LPS25HB(Data *data, int address=LPS25HB_ADDR, TwoWire *wire=&Wire);
+		LPS25HB(Data *data, int address=LPS25HB_ADDR, TwoWire *wire=&Wire);
 };
 
 /** Notes

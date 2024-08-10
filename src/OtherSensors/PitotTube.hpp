@@ -12,13 +12,13 @@
 // Based on this sketchy function from 2016 competition code
 // https://github.com/oberhauserg/PioneerRocketry/blob/master/2016-Competition-AirBrakes/Adam/BetterSketch/Sensors.ino#L17
 class PitotTube : Sensor {
-  private:
+	private:
 		float airspeed;
 		float value;
 
 		int pin = A2; // Analog pin for pitot tube
 
-    void update_sensor() {
+		void update_sensor() {
 			// Read the analog value from the pitot tube
 			value = analogRead(pin);
 
@@ -27,19 +27,17 @@ class PitotTube : Sensor {
 		}
 
 	public:
-
-    void get_data() {
+		void get_data() {
 			data->air_speed = airspeed;
 		}
 
-    bool begin() {
+		bool begin() {
 			pinMode(pin, INPUT);
 
 			return true;
 		}
 
 		PitotTube(Data *data) : Sensor(0x00, data) { // no address for pitot tube so 0x00
-			
 		}
 };
 

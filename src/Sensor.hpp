@@ -10,56 +10,56 @@
 
 class Sensor {
   
-  private:
-    TwoWire *wire;
-    int address;
+	private:
+		TwoWire *wire;
+		int address;
 
-    virtual void update_sensor();
+		virtual void update_sensor();
 
 
-  protected:
-    Data *data;
+	protected:
+		Data *data;
 
-    void read(int registerAddress, byte* data, int bytes=1) {
-      wire->beginTransmission(address);
-      
-      wire->write(registerAddress);
-      wire->endTransmission(false);
+		void read(int registerAddress, byte* data, int bytes=1) {
+		wire->beginTransmission(address);
+			
+			wire->write(registerAddress);
+			wire->endTransmission(false);
 
-      wire->requestFrom(address, bytes);
-      for (int i=0; i<bytes; i++) {
-        data[i] = wire->read();
-      }
+			wire->requestFrom(address, bytes);
+			for (int i=0; i<bytes; i++) {
+				data[i] = wire->read();
+			}
 
-      wire->endTransmission(true);
-    }
+			wire->endTransmission(true);
+		}
 
-    void write(int registerAddress, byte data) {
-      wire->beginTransmission(address);
-      
-      wire->write(registerAddress);
-      wire->write(data);
+		void write(int registerAddress, byte data) {
+			wire->beginTransmission(address);
+			
+			wire->write(registerAddress);
+			wire->write(data);
 
-      wire->endTransmission(true);
-    }
+			wire->endTransmission(true);
+		}
 
-    TwoWire* get_wire() {
-      return wire;
-    }
+		TwoWire* get_wire() {
+			return wire;
+		}
 
-    int get_address() {
-      return address;
-    }
+		int get_address() {
+			return address;
+		}
 
-  public:
-    virtual bool begin() = 0;
-    virtual void get_data() = 0;
+	public:
+		virtual bool begin() = 0;
+		virtual void get_data() = 0;
 
-    Sensor(int address, Data *data, TwoWire *wire=&Wire) {
-      this->address = address;
-      this->data = data;
-      this->wire = wire;
-    }
+		Sensor(int address, Data *data, TwoWire *wire=&Wire) {
+			this->address = address;
+			this->data = data;
+			this->wire = wire;
+		}
 };
 
 #endif

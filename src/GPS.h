@@ -9,24 +9,23 @@
 #include "Sensor.hpp"
 
 class GPS : public Sensor {
+	private:
+		TinyGPSPlus gps;
+		HardwareSerial* serial; // The serial port the GPS is connected to
+		int baud;               // The baud rate of the GPS  
 
-  private:
-    TinyGPSPlus gps;
-    HardwareSerial* serial; // The serial port the GPS is connected to
-    int baud;               // The baud rate of the GPS  
+		float lastTime;
 
-    float lastTime;
+		int freq = 10; // Update frequency in Hz
+		unsigned long interval = freq / 1000.0;
+		unsigned long last = 0.0;
 
-    int freq = 10; // Update frequency in Hz
-    unsigned long interval = freq / 1000.0;
-    unsigned long last = 0.0;
+	public:
+		bool begin() override;
+		void update_sensor() override;
+		void get_data() override;
 
-  public:
-    bool begin() override;
-    void update_sensor() override;
-    void get_data() override;
-
-    GPS(Data *data, HardwareSerial* serial=&Serial2, int baud=9600);
+		GPS(Data *data, HardwareSerial* serial=&Serial2, int baud=9600);
 };
 
 #endif

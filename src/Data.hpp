@@ -53,73 +53,53 @@ class Data {
 
 			data += String(time, 3) + ",";
 
-			// data += log(accX, 2);
-			// data += log(accY, 2);
-			// data += log(accZ, 2);
+			// data += log(acc.X, 2);
+			// data += log(acc.Y, 2);
+			// data += log(acc.Z, 2);
 
-			// data += log(gyrX, 2);
-			// data += log(gyrY, 2);
-			// data += log(gyrZ, 2);
+			// data += log(gyro.X, 2);
+			// data += log(gyro.Y, 2);
+			// data += log(gyro.Z, 2);
 
-			// data += log(magX, 2);
-			// data += log(magY, 2);
-			// data += log(magZ, 2);
+			// data += log(mag.X, 2);
+			// data += log(mag.Y, 2);
+			// data += log(mag.Z, 2);
 			// data += log(heading, 2);
 			
-			// data += log(pitch, 1);
-			// data += log(roll, 1);
-			// data += log(yaw, 1);
+			// data += log(kalman.position.X, 1);
+			// data += log(kalman.position.Y, 1);
+			// data += log(kalman.position.Z, 1);
 			
-			// data += log(imuPitch, 1);
-			// data += log(imuRoll, 1);
-			// data += log(imuYaw, 1);
+			// data += log(kalman.velocity.X, 1);
+			// data += log(kalman.velocity.Y, 1);
+			// data += log(kalman.velocity.Z, 1);
 			
-			// data += log(position.X, 1);
-			// data += log(position.Y, 1);
-			// data += log(position.Z, 1);
-			
-			// data += log(velocity.X, 1);
-			// data += log(velocity.Y, 1);
-			// data += log(velocity.Z, 1);
-			
-			// data += log(angular_rate.X, 1);
-			// data += log(angular_rate.Y, 1);
-			// data += log(angular_rate.Z, 1);
-
 			// data += log(temp,  2);
 			// data += log(press, 2);
 			// data += log(alt,   1);
 
 			// data += log(state, 0);
 
-			// data += log(gps_lat,   8);
-			// data += log(gps_lng,   8);
-			// data += log(gps_sat,   0);
-			// data += log(gps_alt,   1);
-			// data += log(gps_speed, 2);
-			// data += log(gps_hdop,  2);
-			// data += String(newGPSdata) + ",";
+			// data += log(gps.lat,   8);
+			// data += log(gps.lng,   8);
+			// data += log(gps.sat,   0);
+			// data += log(gps.alt,   1);
+			// data += log(gps.speed, 2);
+			// data += log(gps.hdop,  2);
+			// data += log(newGPSdata);
 			// data += log(starting_gps_alt,   1);
 
-			// data += log(filted_alt, 1);
-			// data += log(verticalVelocity, 2);
-			
-			// data += log(pyro_arm, 0);
+			// data += log(pyro_arm);
 
-			// data += log(pyro_1_con, 0);
-			// data += log(pyro_2_con, 0);
-			// data += log(pyro_3_con, 0);
-			// data += log(pyro_4_con, 0);
+			// data += log(pyro1.continuity);
+			// data += log(pyro2.continuity);
+			// data += log(pyro3.continuity);
+			// data += log(pyro4.continuity);
 
-			// data += log(pyro_1_fired, 0);
-			// data += log(pyro_2_fired, 0);
-			// data += log(pyro_3_fired, 0);
-			// data += log(pyro_4_fired, 0);
-
-			// data += log(p1, 3);
-			// data += log(p2, 3);
-			// data += log(p3, 3);
-			// data += log(p4, 3);
+			// data += log(pyro1.fired);
+			// data += log(pyro2.fired);
+			// data += log(pyro3.fired);
+			// data += log(pyro4.fired);
 
 			return data;
 		}
@@ -129,6 +109,10 @@ class Data {
 			// if (data > 0) tmp = " " + tmp;
 			
 			return tmp;
+		}
+
+		String log(bool data) {
+			return data + ",";
 		}
 
 		Data() {

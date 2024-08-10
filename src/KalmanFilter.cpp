@@ -5,7 +5,9 @@
 
 // Constructor
 KalmanFilter::KalmanFilter(Data *data) {
+
 	this->data = data;
+	this->dt = data->dt;
 
 	// State layout
 	/**
@@ -81,10 +83,13 @@ void KalmanFilter::init() {
 	 * It will use accerometer data to find the starting Quaternion
 	*/
 
+	// Set inital conditions
 	X(0) = 0;
-	X(1) = 0.0f;
-
-	dt = data->dt;
+	X(1) = 0;
+	X(2) = 0;
+	X(3) = 0.0f;
+	X(4) = 0.0f;
+	X(5) = 0.0f;
 
 	// State Transistion Matrix
 	A = {
@@ -156,7 +161,10 @@ void KalmanFilter::update() {
 
 	// Store the measurement in the Z matrix
 	
-	Z(0) = data->alt - data->starting_alt;
+	Z(0) = data->acc.X;
+	Z(1) = data->acc.Y;
+	Z(2) = data->acc.Z;
+	Z(3) = data->alt - data->starting_alt;
 
 	// Step 2: Compute the Kalman Gain
 	K = P * ~H * Inverse(H * P * ~H + R);
@@ -166,8 +174,6 @@ void KalmanFilter::update() {
 
 	// Step 4. Compute the Error Covariance
 	P = (I - K * H) * P;
-	
-	save();
 }
 
 // Runs the estimation step of the kalman filter
@@ -197,8 +203,6 @@ void KalmanFilter::updateGPS() {
 
 	// Step 4. Compute the Error Covariance
 	P = (I - K * H) * P; // * ~(I - K * H) + K * R * ~K;
-	
-	save();
 }
 
 void KalmanFilter::run() {
@@ -240,6 +244,8 @@ void KalmanFilter::run() {
 
 		// updateGPS(data);
 	}
+
+	save();
 }
 
 void KalmanFilter::save() {
@@ -250,7 +256,4 @@ void KalmanFilter::save() {
 	data->kalman.velocity.X = X(3);
 	data->kalman.velocity.Y = X(4);
 	data->kalman.velocity.Z = X(5);
-
-	data->p1 = P(0);
-	data->p2 = P(1);
 }

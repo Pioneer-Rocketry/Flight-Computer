@@ -46,11 +46,6 @@ class Data {
 
 		dataPoint dt;
 
-		dataPoint p1;
-		dataPoint p2;
-		dataPoint p3;
-		dataPoint p4;
-
 		dataPoint array[size];
 
 		String get_data() {

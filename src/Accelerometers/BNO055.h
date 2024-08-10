@@ -129,7 +129,7 @@ class BNO055 : Sensor {
   void update_sensor() override;
 
  public:
-  void get_data(Data *data) override;
+  void get_data() override;
   bool begin() override;
   void reset();
 
@@ -137,7 +137,7 @@ class BNO055 : Sensor {
   void get_calibration();
   void write_calibrations();
 
-  BNO055();
+  BNO055(Data *data);
 
 };
 

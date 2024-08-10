@@ -1,7 +1,7 @@
 // Barometers/LPS25HB.cpp
 #include "LPS25HB.h"
 
-LPS25HB::LPS25HB(int address, TwoWire *wire) : Sensor(address, wire) {
+LPS25HB::LPS25HB(Data *data, int address, TwoWire *wire) : Sensor(address, data, wire) {
 	this->temperature = 0.0;
 	this->pressure = 0.0;
 	this->altitude = 0.0;
@@ -58,7 +58,7 @@ void LPS25HB::update_sensor() {
 
 }
 
-void LPS25HB::get_data(Data *data) {
+void LPS25HB::get_data() {
 	if ((millis() - lastUpdate) >= updateInt) {
 		update_sensor();
 

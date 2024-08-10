@@ -4,7 +4,9 @@
 
 #include <Arduino.h>
 #include <Wire.h>
+
 #include "Memory.h"
+#include "Data.hpp"
 
 class Sensor {
   
@@ -14,7 +16,10 @@ class Sensor {
 
     virtual void update_sensor();
 
+
   protected:
+    Data *data;
+
     void read(int registerAddress, byte* data, int bytes=1) {
       wire->beginTransmission(address);
       
@@ -48,10 +53,11 @@ class Sensor {
 
   public:
     virtual bool begin() = 0;
-    virtual void get_data(Data *data) = 0;
+    virtual void get_data() = 0;
 
-    Sensor(int address, TwoWire *wire=&Wire) {
+    Sensor(int address, Data *data, TwoWire *wire=&Wire) {
       this->address = address;
+      this->data = data;
       this->wire = wire;
     }
 };

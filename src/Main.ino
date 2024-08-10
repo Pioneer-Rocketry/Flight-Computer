@@ -15,7 +15,6 @@
 #include "Barometers/LPS25HB.h"
 #include "GPS.h"
 #include "OtherSensors/PitotTube.hpp"
-#include "Radio/Radio.hpp"
 
 #include "KalmanFilter.h"
 #include <MadgwickAHRS.h>
@@ -23,13 +22,14 @@
 #define RECORD_BUTTON 14
 bool recording = false;
 
-BNO055 acc;
-LPS25HB baro;
-GPS gps;
-PitotTube pitot;
+Data data;
+
+BNO055 acc(&data);
+LPS25HB baro(&data);
+GPS gps(&data);
+PitotTube pitot(&data);
 
 Memory memory;
-// Radio radio;
 State_Machine stateMachine;
 Fin_Controller fins;
 
@@ -38,10 +38,9 @@ PyroChannel channel2(2);
 PyroChannel channel3(3, TestCondition);
 PyroChannel channel4(4);
 
-KalmanFilter kalmanFilter;
-Madgwick filter;
+KalmanFilter kalmanFilter(&data);
 
-unsigned long loopFreq   = 100; // In Hz
+unsigned long loopFreq   = 30; // In Hz
 unsigned long loopLenght = 1000 / loopFreq; // In ms
 unsigned long loopDelay  = 0;
 unsigned long loopStart  = 0;
@@ -49,8 +48,6 @@ unsigned long timeStart  = 0;
 
 unsigned long start = 0;
 unsigned long end = 0;
-
-Data data;
 
 void setup() {
   Serial.begin(115200);
@@ -115,15 +112,9 @@ void setup() {
   channel3.begin();
   channel4.begin();
   // Serial.println("Pyro Channels setup");
-
-  // Start Madgwick Filter
-  filter.begin(loopFreq);
-
-  // State Radio
-  // radio.begin();
-
+  
   data.dt = loopFreq;
-  kalmanFilter.init(&data);
+  kalmanFilter.init(); // Run the Kalman Filter setup step
 
   // Setup Finished
 
@@ -150,9 +141,9 @@ void loop() {
       data.time = (millis()-timeStart) / 1000.0f;
       
       // Update the sensors
-      acc.get_data(&data);
-      baro.get_data(&data);
-      gps.get_data(&data);
+      acc.get_data();
+      baro.get_data();
+      gps.get_data();
       // pitot.get_data(&data);
 
       // Update the pyro channels
@@ -162,23 +153,10 @@ void loop() {
       // channel4.update(&data);
 
       // Run the Kalman Filter
-      kalmanFilter.run(&data); // Run the Kalman Filter
-
-      // Run the Madgwick Filter
-      // filter.updateIMU(
-      //   data.gyrX, data.gyrY, data.gyrZ,
-      //   data.accX, data.accY, data.accZ
-      //   // data.magX, data.magY, data.magZ
-      // );
-
-      // data.pitch = filter.getPitch();
-      // data.roll = filter.getRoll();
-      // data.yaw = filter.getYaw();
+      kalmanFilter.run(); // Run the Kalman Filter
 
       // Update the state machine
       stateMachine.update(&data);
-
-      // radio.send_data(&data);
 
       // Write data to memory
       memory.write_data(&data);
@@ -223,13 +201,13 @@ void start_recording() {
 
   // Reset the accelerometer drived data
   acc.reset();
-  acc.get_data(&data);
+  acc.get_data();
 
   // Read the starting alt for the barometer
-  baro.get_data(&data);
+  baro.get_data();
   data.starting_alt = data.alt;
 
-  kalmanFilter.init(&data);
+  kalmanFilter.init();
 
   // Print the header
   Serial.println(memory.header);

@@ -1,6 +1,6 @@
 #include "GPS.h"
 
-GPS::GPS(HardwareSerial* serial, int baud) : Sensor(0x00) { // No address for GPS cause it's serial
+GPS::GPS(Data *data, HardwareSerial* serial, int baud) : Sensor(0x00, data) { // No address for GPS cause it's serial
   this->serial = serial;
   this->baud = baud;
 }
@@ -23,7 +23,7 @@ void GPS::update_sensor() {
   }
 }
 
-void GPS::get_data(Data *data) {
+void GPS::get_data() {
   update_sensor();
 
   lastTime = data->gps_time;

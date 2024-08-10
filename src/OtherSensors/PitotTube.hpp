@@ -28,7 +28,7 @@ class PitotTube : Sensor {
 
 	public:
 
-    void get_data(Data *data) {
+    void get_data() {
 			data->air_speed = airspeed;
 		}
 
@@ -38,7 +38,7 @@ class PitotTube : Sensor {
 			return true;
 		}
 
-		PitotTube() : Sensor(0x00) { // no address for pitot tube so 0x00
+		PitotTube(Data *data) : Sensor(0x00, data) { // no address for pitot tube so 0x00
 			
 		}
 };

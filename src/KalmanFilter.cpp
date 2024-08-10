@@ -4,44 +4,77 @@
 #include <math.h>
 
 // Constructor
-KalmanFilter::KalmanFilter() {
+KalmanFilter::KalmanFilter(Data *data) {
+    this->data = data;
+
+    // State layout
+    /**
+     * X = {
+     *          Position X,
+     *          Position Y,
+     *          Position Z,
+     *          Velocity X,
+     *          Velocity Y,
+     *          Velocity Z,
+     * }
+     * 
+     * Z =  {
+     *          Accelerometer X
+     *          Accelerometer Y
+     *          Accelerometer Z
+     *          Barometer
+     * }
+     */
 
     // State Transition Noise
     W = {
+        0.01,
+        0.01,
+        0.01,
+        0.01,
         0.01,
         0.01,
     };
 
     // Covariance of State Transition Noise (diagonal)
     Q = { // Sensor Standard Deviation squared
-        W(0), 0,
-        0, W(1),
+        W(0), 0, 0, 0, 0, 0, 
+        0, W(1), 0, 0, 0, 0, 
+        0, 0, W(2), 0, 0, 0, 
+        0, 0, 0, W(3), 0, 0, 
+        0, 0, 0, 0, W(4), 0, 
+        0, 0, 0, 0, 0, W(5), 
     };
 
     // Measurement Noise
     V = { // Sensor Standard Deviation squared
         sq(1.5f),
+        sq(1.5f),
+        sq(1.5f),
+        sq(1.5f),
     };
 
     // Covariance of Measurement Noise (diagonal)
     R = {
-        V(0)
+        V(0), 0, 0, 0,
+        0, V(1), 0, 0,
+        0, 0, V(2), 0,
+        0, 0, 0, V(3),
     };
 
     // Error Covariance
-    P = {
-        1, 0,
-        0, 1,
-    };
+    P = I;
 
     // State to Measurement Matrix
     H = {
-        1, 0,
-        // 1, 0,
+        0, 0, 0, 1, 0, 0,
+        0, 0, 0, 0, 1, 0,
+        0, 0, 0, 0, 0, 1,
+        0, 0, 1, 0, 0, 0,
     };
 }
 
-void KalmanFilter::init(Data *data) {
+void KalmanFilter::init() {
     /**
      * This setups the starting State, and starting Error Covariance
      * 
@@ -55,12 +88,16 @@ void KalmanFilter::init(Data *data) {
 
     // State Transistion Matrix
     A = {
-        1, dt,
-        0, 1,
+        1, 0, 0, dt, 0,  0,
+        0, 1, 0, 0,  dt, 0,
+        0, 0, 1, 0,  0,  dt,
+        0, 0, 0, 1,  0,  0,
+        0, 0, 0, 0,  1,  0,
+        0, 0, 0, 0,  0,  1,
     };
 
-    this->predict(data); // Run the prediction
-    this->update(data);  // Run the estimation
+    this->predict(); // Run the prediction
+    this->update();  // Run the estimation
 }
 
 /**
@@ -86,7 +123,7 @@ void KalmanFilter::init(Data *data) {
 */
 
 // Runs the prediction step of the kalman filter
-void KalmanFilter::predict(Data *data) {
+void KalmanFilter::predict() {
     /**
      * Prediction Step
      * 
@@ -100,16 +137,10 @@ void KalmanFilter::predict(Data *data) {
     // Step 1: Predict State and Error Covariance
     X = A * X;
     P = A * P * ~A + Q;
-
-    data->filted_alt = X(0);
-    data->verticalVelocity = X(1);
-
-    data->p1 = P(0);
-    data->p2 = P(1);
 }
 
 // Runs the estimation step of the kalman filter
-void KalmanFilter::update(Data *data) {
+void KalmanFilter::update() {
     /**
      * Estimation Step
      *
@@ -135,16 +166,12 @@ void KalmanFilter::update(Data *data) {
 
     // Step 4. Compute the Error Covariance
     P = (I - K * H) * P;
-
-    data->filted_alt = X(0);
-    data->verticalVelocity = X(1);
-
-    data->p1 = P(0);
-    data->p2 = P(1, 1);
+    
+    save();
 }
 
 // Runs the estimation step of the kalman filter
-void KalmanFilter::updateGPS(Data *data) {
+void KalmanFilter::updateGPS() {
     /**
      * Estimation Step
      *
@@ -170,15 +197,11 @@ void KalmanFilter::updateGPS(Data *data) {
 
     // Step 4. Compute the Error Covariance
     P = (I - K * H) * P; // * ~(I - K * H) + K * R * ~K;
-
-    data->filted_alt = X(0);
-    data->verticalVelocity = X(1);
-
-    data->p1 = P(0);
-    data->p2 = P(1, 1);
+    
+    save();
 }
 
-void KalmanFilter::run(Data *data) {
+void KalmanFilter::run() {
     /**
      * Kalman Filter Flow
      * 
@@ -197,17 +220,37 @@ void KalmanFilter::run(Data *data) {
      * 1 for attitude and 1 for velocity, position, etc
      */
 
-    predict(data);
+    predict();
 
     if (data->newBaroData) {
-        update(data);
+        /**
+         * Uses Barometer, Accelormeter to compute the Kalman Filter
+         */
+        update();
     }
 
     if (data->newGPSdata) {
-        R_GPS = {
-            sq(data->gps_hdop)
-        };
+        // R_GPS = {
+        //     sq(data->gps_hdop) // The estimated accuracy given from the GPS
+        // };
 
-        updateGPS(data);
+        /**
+         * Uses GPS Altitude, Velocity, Latitude/Longitude to compute the Kalman Filter
+         */
+
+        // updateGPS(data);
     }
+}
+
+void KalmanFilter::save() {
+    data->kalman_pos.X = X(0);
+    data->kalman_pos.Y = X(1);
+    data->kalman_pos.Z = X(2);
+    
+    data->kalman_vel.X = X(3);
+    data->kalman_vel.Y = X(4);
+    data->kalman_vel.Z = X(5);
+
+    data->p1 = P(0);
+    data->p2 = P(1);
 }

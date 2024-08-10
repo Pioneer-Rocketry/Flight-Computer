@@ -2,7 +2,7 @@
 
 #include "ColorLED.hpp"
 
-BNO055::BNO055() : Sensor(BNO055_ADDR, &Wire) {
+BNO055::BNO055(Data *data) : Sensor(BNO055_ADDR, data, &Wire) {
   this->accX = 0.0f;
   this->accY = 0.0f;
   this->accZ = 0.0f;
@@ -165,7 +165,7 @@ bool BNO055::begin() {
   return true;
 }
 
-void BNO055::get_data(Data *data) {
+void BNO055::get_data() {
 	if ((millis() - lastUpdate) >= updateInt) {
     update_sensor();
 
@@ -230,9 +230,9 @@ void BNO055::update_sensor() {
     // The magnetometer data is stored in the next 6 bytes
     read(MAG_DATA_X_LSB_REG, raw_data, 6);
     
-    this->magX = (float) ((int16_t)(raw_data[0] | ((int16_t)raw_data[1] << 8))) / 1.6;
-    this->magY = (float) ((int16_t)(raw_data[2] | ((int16_t)raw_data[3] << 8))) / 1.6;
-    this->magZ = (float) ((int16_t)(raw_data[4] | ((int16_t)raw_data[5] << 8))) / 1.6;
+    this->magX = (float) ((int16_t)(raw_data[0] | ((int16_t)raw_data[1] << 8)) / 1.6);
+    this->magY = (float) ((int16_t)(raw_data[2] | ((int16_t)raw_data[3] << 8)) / 1.6);
+    this->magZ = (float) ((int16_t)(raw_data[4] | ((int16_t)raw_data[5] << 8)) / 1.6);
 
     // https://arduino.stackexchange.com/a/57297
     this->heading = atan2(magY, magX) * 180 / M_PI;

@@ -15,7 +15,7 @@ bool ApogeeChutes(Data* data) {
 }
 
 bool MainChute(Data* data) {
-  if (data->state == State::parachute_descent && data->filted_alt < MainChutesTargetAlt) {
+  if (data->state == State::parachute_descent && data->kalman_pos.Z < MainChutesTargetAlt) {
     return true;
   }
 
@@ -46,8 +46,8 @@ bool Stage(Data* data) {
   // }
   
   if (data->state == State::unpowered_flight
-      && data->filted_alt > StageMinAlt 
-      && data->filted_alt < StageMaxAlt
+      && data->kalman_pos.Z > StageMinAlt 
+      && data->kalman_pos.Z < StageMaxAlt
       && data->allowStage == 0) {
     return true;
   }

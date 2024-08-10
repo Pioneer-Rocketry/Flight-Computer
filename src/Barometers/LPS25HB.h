@@ -41,10 +41,10 @@ class LPS25HB : Sensor {
     void read(int registerAddress, byte* data, int bytes=1);
 
   public:
-    void get_data(Data *data) override;
+    void get_data() override;
     bool begin() override;
 
-    LPS25HB(int address=LPS25HB_ADDR, TwoWire *wire=&Wire);
+    LPS25HB(Data *data, int address=LPS25HB_ADDR, TwoWire *wire=&Wire);
 };
 
 /** Notes

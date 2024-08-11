@@ -5,6 +5,8 @@
 #include <Arduino.h>
 #include <Servo.h>
 
+#include "Data.hpp"
+
 // The pin's that the servos are connected to
 #define SERVO_1_PIN 37
 #define SERVO_2_PIN 36
@@ -26,6 +28,8 @@ class Fin_Controller {
 		float servo4_offset = 0;
 
 		int pulseWidth;
+
+		Data *data;
 
 	public:
 		// Allows you to set the angle of the servos
@@ -135,7 +139,9 @@ class Fin_Controller {
 			servo4.attach(SERVO_4_PIN);
 		}
 
-		Fin_Controller() {
+		Fin_Controller(Data *data) {
+			this->data = data;
+
 			servo1 = Servo();
 			servo2 = Servo();
 			servo3 = Servo();

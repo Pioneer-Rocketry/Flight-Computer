@@ -17,7 +17,6 @@
 #include "OtherSensors/PitotTube.hpp"
 
 #include "KalmanFilter.h"
-#include <MadgwickAHRS.h>
 
 #define RECORD_BUTTON 14
 bool recording = false;
@@ -29,14 +28,14 @@ LPS25HB baro(&data);
 GPS gps(&data);
 PitotTube pitot(&data);
 
-Memory memory;
-State_Machine stateMachine;
-Fin_Controller fins;
+Memory memory(&data);
+State_Machine stateMachine(&data);
+Fin_Controller fins(&data);
 
-PyroChannel channel1(1);
-PyroChannel channel2(2);
-PyroChannel channel3(3, TestCondition);
-PyroChannel channel4(4);
+PyroChannel channel1(1, &data);
+PyroChannel channel2(2, &data);
+PyroChannel channel3(3, &data, TestCondition);
+PyroChannel channel4(4, &data);
 
 KalmanFilter kalmanFilter(&data);
 
@@ -144,22 +143,22 @@ void loop() {
 			acc.get_data();
 			baro.get_data();
 			gps.get_data();
-			// pitot.get_data(&data);
+			// pitot.get_data();
 
 			// Update the pyro channels
-			// channel1.update(&data);
-			// channel2.update(&data);
-			// channel3.update(&data);
-			// channel4.update(&data);
+			// channel1.update();
+			// channel2.update();
+			// channel3.update();
+			// channel4.update();
 
 			// Run the Kalman Filter
 			kalmanFilter.run(); // Run the Kalman Filter
 
 			// Update the state machine
-			stateMachine.update(&data);
+			stateMachine.update();
 
 			// Write data to memory
-			memory.write_data(&data);
+			memory.write_data();
 
 			// Print data
 			Serial.println(data.get_data());

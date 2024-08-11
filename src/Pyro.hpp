@@ -27,11 +27,15 @@ class PyroChannel {
 		int armedPin;
 		int channelNum;
 
+		Data* data;
+
 		bool fired = false;
 		bool (*condition)(Data*);
 
 	public:
-		PyroChannel(int channelNum, bool (*condition)(Data*)=NULL) {
+		PyroChannel(int channelNum, Data* data, bool (*condition)(Data*)=NULL) {
+			this->data = data;
+
 			switch (channelNum) {
 				case 1:
 					this->triggerPin = CHANNEL_1_TRIGGER_PIN;
@@ -82,7 +86,7 @@ class PyroChannel {
 			return digitalRead(this->armedPin);
 		}
 
-		void update(Data *data) {
+		void update() {
 			if (condition == nullptr) return;
 			if (condition(data) && !fired)
 			{

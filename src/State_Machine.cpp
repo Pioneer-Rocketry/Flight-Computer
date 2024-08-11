@@ -1,8 +1,10 @@
 // State_Machine.cpp
 #include "State_Machine.h"
 
-State_Machine::State_Machine(int num_stages) {
+State_Machine::State_Machine(Data *data, int num_stages) {
 	state = on_launch_rail;
+
+	this->data = data;
 
 	this->stagesRemaining = num_stages;
 	
@@ -11,28 +13,28 @@ State_Machine::State_Machine(int num_stages) {
 	}
 }
 
-State State_Machine::update(Data *data) {
+State State_Machine::update() {
 	switch (state) {
-		case on_launch_rail: switch_to_powered_flight(data);    break;
-		case powered_flight: switch_to_unpowered_flight(data);  break;
+		case on_launch_rail: switch_to_powered_flight();    break;
+		case powered_flight: switch_to_unpowered_flight();  break;
 		
 		case unpowered_flight:
-			switch_to_descent(data);
+			switch_to_descent();
 
 			// If there is another stage, and we are not in the descent state
 			if (stagesRemaining >  1 && state != descent)
-				switch_to_powered_flight(data);
+				switch_to_powered_flight();
 			break;
 
 		case descent:
-			switch_to_parachute_descent(data);
+			switch_to_parachute_descent();
 			
 			// Need to catch if there is no parachute deployed and we crash into the ground
-			if (state != parachute_descent) switch_to_landed(data);
+			if (state != parachute_descent) switch_to_landed();
 			
 			break;
-		case parachute_descent: switch_to_landed(data);             break;
-		case landed:            switch_to_powered_flight(data);     break;
+		case parachute_descent: switch_to_landed();             break;
+		case landed:            switch_to_powered_flight();     break;
 
 		default: break;
 	}
@@ -50,7 +52,7 @@ State State_Machine::update(Data *data) {
 }
 
 // The rocket engine has ignited and the rocket is accelerating upwards
-void State_Machine::switch_to_powered_flight(Data *data) {
+void State_Machine::switch_to_powered_flight() {
 	// Conditions: vertical acceleration > 5.0 m/s^2
 	//    cause on the launch rail SHOULD be 0 m/s^2, and in the air coasting (if mulitstage) SHOULD be -9.8 m/s^2 (or less)
 	if (data->acc.Z > 5.0) {
@@ -59,7 +61,7 @@ void State_Machine::switch_to_powered_flight(Data *data) {
 }
 
 // The rocket engine has burned out and the rocket is coasting upwards
-void State_Machine::switch_to_unpowered_flight(Data *data) {
+void State_Machine::switch_to_unpowered_flight() {
 	// Conditions: vertical acceleration < -9 m/s^2
 	if (data->acc.Z < -9.0) {
 		state = unpowered_flight;
@@ -69,7 +71,7 @@ void State_Machine::switch_to_unpowered_flight(Data *data) {
 }
 
 // The rocket has passed the apogee and is descending
-void State_Machine::switch_to_descent(Data *data) {
+void State_Machine::switch_to_descent() {
 	// Conditions: altitude is less than the previous altitude (check over a 1 second period)
 	
 	// Check loop over the last n altitudes
@@ -84,12 +86,12 @@ void State_Machine::switch_to_descent(Data *data) {
 }
 
 // The parachute has been deployed and the rocket is descending
-void State_Machine::switch_to_parachute_descent(Data *data) {
+void State_Machine::switch_to_parachute_descent() {
 	// Conditions: If vertical velocity is 
 }
 
 // The rocket has landed on the ground
-void State_Machine::switch_to_landed(Data *data) {
+void State_Machine::switch_to_landed() {
 	// Conditions: If the last n number of altitudes are with in +- 0.5 m
 
 	// Check loop over the last n altitudes

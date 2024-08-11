@@ -2,7 +2,9 @@
 #include <LittleFS.h>
 #include "Memory.h"
 
-Memory::Memory(){
+Memory::Memory(Data *data){
+	this->data = data;
+
 	flash = LittleFS_QSPIFlash();
 }
 
@@ -43,7 +45,7 @@ void Memory::write_header() {
 	flashFile.flush();
 }
 
-void Memory::write_data(Data *data) {
+void Memory::write_data() {
 	// Log to flashFile
 	if (!flashFile) {
 		Serial.println("File not opened.");

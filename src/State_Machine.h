@@ -25,16 +25,18 @@ class State_Machine {
 		float lastAltitude[numOfAltSamples]; // The altitude of the rocket in the last loop
 
 		// Conditions
-		void switch_to_powered_flight(Data *data);
-		void switch_to_unpowered_flight(Data *data);
-		void switch_to_descent(Data *data);
-		void switch_to_parachute_descent(Data *data);
-		void switch_to_landed(Data *data);
+		void switch_to_powered_flight();
+		void switch_to_unpowered_flight();
+		void switch_to_descent();
+		void switch_to_parachute_descent();
+		void switch_to_landed();
+
+		Data* data;
 
 	public:
-		State_Machine(int num_stages=1);
+		State_Machine(Data *data, int num_stages=1);
 
-		State update(Data *data);
+		State update();
 };
 
 #endif

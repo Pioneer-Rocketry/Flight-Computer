@@ -15,10 +15,6 @@ BNO055::BNO055(Data *data) : Sensor(BNO055_ADDR, data, &Wire) {
 	this->magY = 0.0f;
 	this->magZ = 0.0f;
 
-	this->heading = 0.0f;
-
-	this->dt = 0.0;
-
 	// Accelerometer
 	accSettings = 0b00000000;
 	switch (accFreq) { // Set the frequency
@@ -72,7 +68,7 @@ BNO055::BNO055(Data *data) : Sensor(BNO055_ADDR, data, &Wire) {
 		case FREQ_25: magSettings |= 0b00000110; break;
 		case FREQ_30: magSettings |= 0b00000111; break;
 	}
-	
+
 	MAG_SCALE = 8.0 / 32768.0;
 }
 
@@ -86,7 +82,7 @@ bool BNO055::begin() {
 		Serial.println(chip_id[0], HEX);
 		return false;
 	}
-	
+
 	delay(100);
 
 	// Put BN0055 into config mode
@@ -122,7 +118,7 @@ bool BNO055::begin() {
 
 	// // Set the Axis Map Sign to flip all of the axis. Set to 00000111
 	// write(AXIS_MAP_SIGN, 0b00000111);
-	
+
 	// Set the Operating mode to, NDOF 00001100: 0x0C
 	write(OPR_MODE_REG, 0b00000111);
 
@@ -172,7 +168,7 @@ void BNO055::get_data() {
 		data->acc.X = accX;
 		data->acc.Y = accY;
 		data->acc.Z = accZ;
-		
+
 		data->gyro.X = gyroX;
 		data->gyro.Y = gyroY;
 		data->gyro.Z = gyroZ;
@@ -180,9 +176,6 @@ void BNO055::get_data() {
 		data->mag.X = magX;
 		data->mag.Y = magY;
 		data->mag.Z = magZ;
-		data->heading = heading;
-
-		data->dt = dt;
 
 		data->newImuData = true;
 	} else {
@@ -201,9 +194,6 @@ void BNO055::update_sensor() {
 		this->accX = (static_cast<float>((int16_t)(raw_data[0] | (raw_data[1] << 8))) / 100.0) - accXoffset;
 		this->accY = (static_cast<float>((int16_t)(raw_data[2] | (raw_data[3] << 8))) / 100.0) - accYoffset;
 		this->accZ = (static_cast<float>((int16_t)(raw_data[4] | (raw_data[5] << 8))) / 100.0) - accZoffset;
-
-		// Calculate derived values
-		dt = ((millis() - accLast)) / 1000.0;
 	}
 
 	// Check if it is time to read the gyroscope
@@ -214,39 +204,16 @@ void BNO055::update_sensor() {
 		this->gyroX = ((float) ((int16_t)(raw_data[0] | ((int16_t)raw_data[1] << 8))) / 900.0) - gyrXoffset;
 		this->gyroY = ((float) ((int16_t)(raw_data[2] | ((int16_t)raw_data[3] << 8))) / 900.0) - gyrYoffset;
 		this->gyroZ = ((float) ((int16_t)(raw_data[4] | ((int16_t)raw_data[5] << 8))) / 900.0) - gyrZoffset;
-
-		// Calculate derived values
-		dt = ((millis() - gyroLast)) / 1000.0;
-
-		gyroLast = millis(); // Reset the timer
 	}
 
 	// Check if it is time to read the magnetometer
 	if ((millis() - magLast) >= magInterval) {
 		// The magnetometer data is stored in the next 6 bytes
 		read(MAG_DATA_X_LSB_REG, raw_data, 6);
-		
+
 		this->magX = (float) ((int16_t)(raw_data[0] | ((int16_t)raw_data[1] << 8)) / 1.6);
 		this->magY = (float) ((int16_t)(raw_data[2] | ((int16_t)raw_data[3] << 8)) / 1.6);
 		this->magZ = (float) ((int16_t)(raw_data[4] | ((int16_t)raw_data[5] << 8)) / 1.6);
-
-		// https://arduino.stackexchange.com/a/57297
-		this->heading = atan2(magY, magX) * 180 / M_PI;
-		// We need a more complex formula to calculate the heading
-		// because the rocket will be rotating in all 3 axis
-
-		magLast = millis();
-	}
-
-	if ((millis() - fusionLast) >= fusionInterval) {
-
-		read(EUL_Heading_LSB_REG, raw_data, 6);
-
-		this->yaw   = (float) ((int16_t)(raw_data[0] | ((int16_t)raw_data[1] << 8))) / 16;
-		this->roll  = (float) ((int16_t)(raw_data[2] | ((int16_t)raw_data[3] << 8))) / 16;
-		this->pitch = (float) ((int16_t)(raw_data[4] | ((int16_t)raw_data[5] << 8))) / 16;
-
-		fusionLast = millis();
 	}
 }
 
@@ -291,7 +258,7 @@ void BNO055::write_calibrations() {
 }
 
 void BNO055::reset() {
-	dt = 0.0;
+
 }
 
 int BNO055::get_calibration_status(bool print) {

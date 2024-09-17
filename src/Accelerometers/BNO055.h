@@ -73,7 +73,6 @@ class BNO055 : Sensor {
 		float accX,  accY,  accZ;
 		float gyroX, gyroY, gyroZ;
 		float magX,  magY,  magZ;
-		float pitch, roll, yaw;
 
 		int updateFreq = 30; // 30 hz
 		float updateInt = 1000 / updateFreq;
@@ -116,13 +115,6 @@ class BNO055 : Sensor {
 
 		unsigned long magInterval = magFreq / 1000.0;
 		unsigned long magLast = 0.0;
-
-		unsigned long fusionInterval = 100 / 1000.0;
-		unsigned long fusionLast = 0.0;
-
-		// Data derived from the raw data
-		float heading;
-		float dt;
 
 		/* Functions */
 		void update_sensor() override;

@@ -56,18 +56,18 @@ class BNO055 : Sensor {
 		const int16_t gyrYcal = 0;
 		const int16_t gyrZcal = 2;
 
-		// Bias
-		const float accXoffset = 0;
-		const float accYoffset = 0;
-		const float accZoffset = 0;
+		// Bias (Auto calulate)
+		float accXoffset = 0;
+		float accYoffset = 0;
+		float accZoffset = 0;
 
-		const float magXoffset = 0;
-		const float macYoffset = 0;
-		const float magZoffset = 0;
+		float magXoffset = 0;
+		float magYoffset = 0;
+		float magZoffset = 0;
 
-		const float gyrXoffset = 0;
-		const float gyrYoffset = 0;
-		const float gyrZoffset = 0;
+		float gyrXoffset = 0;
+		float gyrYoffset = 0;
+		float gyrZoffset = 0;
 
 		// Data
 		float accX,  accY,  accZ;
@@ -120,6 +120,8 @@ class BNO055 : Sensor {
 
 		/* Functions */
 		void update_sensor() override;
+
+		void compute_offsets();
 
 	public:
 		void get_data() override;

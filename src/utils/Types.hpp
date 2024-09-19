@@ -15,7 +15,12 @@ class dataPoint {
 		operator float() const {
 			return dataT.value;
 		}
-		
+
+		dataPoint operator+=(const float value) {
+			dataT.value += value;
+			return *this;
+		}
+
 		byte* getArray() {
 			return dataT.array;
 		}

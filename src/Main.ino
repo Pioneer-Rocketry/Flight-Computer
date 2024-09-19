@@ -111,7 +111,7 @@ void setup() {
 	channel3.begin();
 	channel4.begin();
 	// Serial.println("Pyro Channels setup");
-	
+
 	data.dt = loopFreq;
 	kalmanFilter.init(); // Run the Kalman Filter setup step
 

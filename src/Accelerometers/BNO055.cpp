@@ -160,7 +160,70 @@ bool BNO055::begin() {
 	write(OPR_MODE_REG, 0b00001100);
 	delay(20);
 
+	compute_offsets();
+
 	return true;
+}
+
+void BNO055::compute_offsets() {
+	// Take 100 Sensor Readings average them together to get the offset
+
+
+	Serial.println("Computing offsets...");
+	Serial.println("Dont touch the sensor till completed");
+
+	delay(2500);
+
+	float sum_accX = 0.f;
+	float sum_accY = 0.f;
+	float sum_accZ = 0.f;
+	float sum_gyroX = 0.f;
+	float sum_gyroY = 0.f;
+	float sum_gyroZ = 0.f;
+
+	for (int i=0; i<100; i+=0) {
+		update_sensor();
+
+		if (data->newImuData) {
+			sum_accX += data->acc.X;
+			sum_accY += data->acc.Y;
+			sum_accZ += data->acc.Z;
+
+			sum_gyroX += data->gyro.X;
+			sum_gyroY += data->gyro.Y;
+			sum_gyroZ += data->gyro.Z;
+
+			i++;
+		}
+	}
+
+	accXoffset = sum_accX / 100;
+	accYoffset = sum_accY / 100;
+	accZoffset = sum_accZ / 100;
+
+	gyrXoffset = sum_gyroX / 100;
+	gyrYoffset = sum_gyroY / 100;
+	gyrZoffset = sum_gyroZ / 100;
+
+	Serial.println("Offsets computed!");
+
+	Serial.print("accXoffset: ");
+	Serial.println(accXoffset);
+
+	Serial.print("accYoffset: ");
+	Serial.println(accYoffset);
+
+	Serial.print("accZoffset: ");
+	Serial.println(accZoffset);
+
+	Serial.print("gyrXoffset: ");
+	Serial.println(gyrXoffset);
+
+	Serial.print("gyrYoffset: ");
+	Serial.println(gyrYoffset);
+
+	Serial.print("gyrZoffset: ");
+	Serial.println(gyrZoffset);
 }
 
 void BNO055::get_data() {
@@ -181,11 +244,9 @@ void BNO055::get_data() {
 
 		data->newImuData = true;
 
-		// https://stackoverflow.com/questions/78999123/how-can-i-estimate-an-orientation-just-using-a-gyro-and-magnetometer
-
-		data->orientation.X = K * (data->orientation.X + gyroX); // Pitch
-		data->orientation.Y = K * (data->orientation.Y + gyroY); // Roll
-		data->orientation.Z = K * (data->orientation.Z + gyroZ); // Yaw
+		data->orientation.X += data->gyro.X * data->dt; // Pitch
+		data->orientation.Y += data->gyro.Y * data->dt; // Roll
+		data->orientation.Z += data->gyro.Z * data->dt; // Yaw
 
 		lastUpdate = millis();
 	} else {

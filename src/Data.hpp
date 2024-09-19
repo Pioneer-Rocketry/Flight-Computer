@@ -15,13 +15,13 @@ class Data {
 		bool newImuData;
 		bool newBaroData;
 		bool newGPSdata;
-		
+
 		Vector acc;
 		Vector gyro;
 		Vector mag;
 		dataPoint heading;
 
-		Quaternion quat;
+		Vector orientation;
 
 		dataPoint temp;
 		dataPoint press;
@@ -65,15 +65,15 @@ class Data {
 			// data += log(mag.Y, 2);
 			// data += log(mag.Z, 2);
 			// data += log(heading, 2);
-			
+
 			// data += log(kalman.position.X, 1);
 			// data += log(kalman.position.Y, 1);
 			// data += log(kalman.position.Z, 1);
-			
+
 			// data += log(kalman.velocity.X, 1);
 			// data += log(kalman.velocity.Y, 1);
 			// data += log(kalman.velocity.Z, 1);
-			
+
 			// data += log(temp,  2);
 			// data += log(press, 2);
 			// data += log(alt,   1);
@@ -107,7 +107,7 @@ class Data {
 		String log(dataPoint data, int floatingPoint=2) {
 			String tmp = String(data, floatingPoint) + ",";
 			// if (data > 0) tmp = " " + tmp;
-			
+
 			return tmp;
 		}
 

@@ -15,6 +15,8 @@ BNO055::BNO055(Data *data) : Sensor(BNO055_ADDR, data, &Wire) {
 	this->magY = 0.0f;
 	this->magZ = 0.0f;
 
+	this->K = 1.f;
+
 	// Accelerometer
 	accSettings = 0b00000000;
 	switch (accFreq) { // Set the frequency
@@ -178,6 +180,14 @@ void BNO055::get_data() {
 		data->mag.Z = magZ;
 
 		data->newImuData = true;
+
+		// https://stackoverflow.com/questions/78999123/how-can-i-estimate-an-orientation-just-using-a-gyro-and-magnetometer
+
+		data->orientation.X = K * (data->orientation.X + gyroX); // Pitch
+		data->orientation.Y = K * (data->orientation.Y + gyroY); // Roll
+		data->orientation.Z = K * (data->orientation.Z + gyroZ); // Yaw
+
+		lastUpdate = millis();
 	} else {
 		data->newImuData = false;
 	}
@@ -194,16 +204,20 @@ void BNO055::update_sensor() {
 		this->accX = (static_cast<float>((int16_t)(raw_data[0] | (raw_data[1] << 8))) / 100.0) - accXoffset;
 		this->accY = (static_cast<float>((int16_t)(raw_data[2] | (raw_data[3] << 8))) / 100.0) - accYoffset;
 		this->accZ = (static_cast<float>((int16_t)(raw_data[4] | (raw_data[5] << 8))) / 100.0) - accZoffset;
+
+		accLast = millis();
 	}
 
 	// Check if it is time to read the gyroscope
-	if ((millis() - gyroFreq) >= gyroInterval) {
+	if ((millis() - gyroLast) >= gyroInterval) {
 		// The gyroscope data is stored in the next 6 bytes
 		read(GYR_DATA_X_LSB_REG, raw_data, 6);
 
 		this->gyroX = ((float) ((int16_t)(raw_data[0] | ((int16_t)raw_data[1] << 8))) / 900.0) - gyrXoffset;
 		this->gyroY = ((float) ((int16_t)(raw_data[2] | ((int16_t)raw_data[3] << 8))) / 900.0) - gyrYoffset;
 		this->gyroZ = ((float) ((int16_t)(raw_data[4] | ((int16_t)raw_data[5] << 8))) / 900.0) - gyrZoffset;
+
+		gyroLast = millis();
 	}
 
 	// Check if it is time to read the magnetometer
@@ -214,6 +228,8 @@ void BNO055::update_sensor() {
 		this->magX = (float) ((int16_t)(raw_data[0] | ((int16_t)raw_data[1] << 8)) / 1.6);
 		this->magY = (float) ((int16_t)(raw_data[2] | ((int16_t)raw_data[3] << 8)) / 1.6);
 		this->magZ = (float) ((int16_t)(raw_data[4] | ((int16_t)raw_data[5] << 8)) / 1.6);
+
+		magLast = millis();
 	}
 }
 
@@ -304,7 +320,7 @@ int BNO055::get_calibration_status(bool print) {
 void BNO055::get_calibration() {
 	Serial.println("Fully calibrated!");
 	Serial.print("Calibration: ");
-	
+
 	byte calib[18];
 	read(ACC_OFFSET_X_LSB_REG, calib, 18);
 

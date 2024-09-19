@@ -74,6 +74,8 @@ class BNO055 : Sensor {
 		float gyroX, gyroY, gyroZ;
 		float magX,  magY,  magZ;
 
+		float K;
+
 		int updateFreq = 30; // 30 hz
 		float updateInt = 1000 / updateFreq;
 		float lastUpdate;

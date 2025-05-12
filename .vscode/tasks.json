@@ -1,0 +1,69 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build CM4",
+            "group": "build",
+            "type": "shell",
+            "command": [ "make", "-C", "Makefile/CM4" ],
+            "detail": "Build CM4"
+        },
+        {
+            "label": "Clean Build of CM4",
+            "group": "build",
+            "type": "shell",
+            "command": [ "make", "-C", "Makefile/CM4", "clean", "&&", "make", "-C", "Makefile/CM4" ],
+            "detail": "Do a clean build of CM4"
+        },
+        {
+            "label": "Build CM7",
+            "group": "build",
+            "type": "shell",
+            "command": [ "make", "-C", "Makefile/CM7" ],
+            "detail": "Build CM7"
+        },
+        {
+            "label": "Clean Build of CM7",
+            "group": "build",
+            "type": "shell",
+            "command": [ "make", "-C", "Makefile/CM7", "clean", "&&", "make", "-C", "Makefile/CM7" ],
+            "detail": "Do a clean build of CM7"
+        },
+        {
+            "label": "Build All",
+            "group": "build",
+            "type": "shell",
+            "command": [ "make", "-C", "Makefile/CM4", "&&", "make", "-C", "Makefile/CM7" ],
+            "detail": "Build CM4 and CM7"
+        },
+        {
+            "label": "Clean All",
+            "group": "build",
+            "type": "shell",
+            "command": [ "make", "-C", "Makefile/CM4", "clean", "&&", "make", "-C", "Makefile/CM7", "clean" ],
+            "detail": "Do a clean build of CM4 and CM7"
+        },
+        {
+            "label": "Upload CM4",
+            "group": "build",
+            "type": "shell",
+            "command": [ "st-flash", "write", "Makefile/CM4/build/Flight-Computer_CM4.bin", "0x08100000" ],
+            "detail": "Upload CM4"
+        },
+        {
+            "label": "Upload CM7",
+            "group": "build",
+            "type": "shell",
+            "command": [ "st-flash", "write", "Makefile/CM7/build/Flight-Computer_CM7.bin", "0x08000000" ],
+            "detail": "Upload CM7"
+        },
+        {
+            "label": "Upload All",
+            "group": "build",
+            "type": "shell",
+            "command": [ "st-flash", "write", "Makefile/CM4/build/Flight-Computer_CM4.bin", "0x08100000", "&&", "st-flash", "write", "Makefile/CM7/build/Flight-Computer_CM7.bin", "0x08000000" ],
+            "detail": "Upload CM4 and CM7"
+        }
+    ]
+}
+  

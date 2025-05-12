@@ -1,0 +1,54 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+
+jobs:
+  build_CM4:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/pioneer-rocketry/flight-computer-v3:main
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          make -C Makefile/CM4
+
+      - name: Save Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: CM4 Build
+          path: Makefile/CM4/build/Flight-Computer_CM4.elf
+
+  build_CM7:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/pioneer-rocketry/flight-computer-v3:main
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          make -C Makefile/CM7
+
+      - name: Save Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: CM7 Build
+          path: Makefile/CM7/build/Flight-Computer_CM7.elf

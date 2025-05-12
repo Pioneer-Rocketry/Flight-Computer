@@ -1,0 +1,4 @@
+{
+    "cortex-debug.gdbPath": "/usr/bin/gdb-multiarch",
+    "stm32-for-vscode.openOCDPath": false
+}

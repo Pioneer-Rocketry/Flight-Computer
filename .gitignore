@@ -1,0 +1,6 @@
+.vscode/.browse.c_cpp.db*
+.vscode/browse.*
+.vscode/ipch
+
+Makefile/CM4/build/
+Makefile/CM7/build/

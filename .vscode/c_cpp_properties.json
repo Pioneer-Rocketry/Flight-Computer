@@ -1,0 +1,59 @@
+// Name ${workspaceRoot} folder path names to your project
+// Set paths to arm-none-eabi libraries as it is installed on your system
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath":
+            [
+                "${workspaceRoot}",
+                "${workspaceRoot}/CM4/Core/Inc",
+                "${workspaceRoot}/CM7/Core/Inc",
+                "${workspaceRoot}/Drivers/STM32H7xx_HAL_Driver/Inc",
+                "${workspaceRoot}/Drivers/STM32H7xx_HAL_Driver/Inc/Legacy",
+                "${workspaceRoot}/Drivers/CMSIS/Device/ST/STM32H7xx/Include",
+                "${workspaceRoot}/Drivers/CMSIS/Include",
+                "${workspaceRoot}/Common/Inc",
+                "/usr/lib/arm-none-eabi/include",
+                "/usr/lib/arm-none-eabi/include/c++/10.3.1",
+                "/lib/gcc/arm-none-eabi/10.3.1/include",
+                "/lib/gcc/arm-none-eabi/10.3.1/include-fixed",
+                "/usr/lib/arm-none-eabi/include/machine",
+                "/usr/lib/arm-none-eabi/include/sys",
+                "/usr/lib/arm-none-eabi/include/"
+            ],
+            "defines":
+            [
+                "USE_HAL_DRIVER",
+                "STM32H745xx",
+                "CORE_CM7",
+                "CORE_CM4",
+                "USE_PWR_LDO_SUPPLY",
+                "USE_PWR_DIRECT_SMPS_SUPPLY"
+            ],
+            "intelliSenseMode": "linux-gcc-x64",
+            "cStandard": "c11",
+            "cppStandard": "c++20",
+            "browse":
+            {
+                "path":
+                [
+                    "${workspaceRoot}",
+                    "${workspaceRoot}/CM4/Core/Inc",
+                    "${workspaceRoot}/CM7/Core/Inc",
+                    "${workspaceRoot}/Drivers/STM32H7xx_HAL_Driver/Inc",
+                    "${workspaceRoot}/Drivers/CMSIS/Include",
+                    "${workspaceRoot}/Drivers/CMSIS/Device/ST/STM32H7xx/Include",
+                    "${workspaceRoot}/Common/Inc",
+                    "/usr/lib/arm-none-eabi/include",
+                    "/usr/lib/arm-none-eabi/include/c++/10.3.1",
+                    "/lib/gcc/arm-none-eabi/10.3.1/include",
+                    "/lib/gcc/arm-none-eabi/10.3.1/include-fixed"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "${workspaceRoot}/.vscode/browse.vc.db"
+            }
+        }
+    ],
+    "version": 4
+}

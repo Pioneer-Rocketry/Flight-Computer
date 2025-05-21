@@ -1,0 +1,7 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "AIS3624")(type "KiCad")(uri "${KIPRJMOD}/Imported Parts/AIS3624.kicad_sym")(options "")(descr ""))
+  (lib (name "H3LIS100")(type "KiCad")(uri "${KIPRJMOD}/Imported Parts/H3LIS100.kicad_sym")(options "")(descr ""))
+  (lib (name "UT6MA3TCR")(type "KiCad")(uri "${KIPRJMOD}/Imported Parts/UT6MA3TCR.kicad_sym")(options "")(descr ""))
+  (lib (name "VIOH063")(type "KiCad")(uri "${KIPRJMOD}/Imported Parts/VIOH063.kicad_sym")(options "")(descr ""))
+)

@@ -144,26 +144,26 @@ void IMU_LSM6DSV320::get_data() {
     read_I2C(LSM6DSV320_OUTY_L_G, &buffer[2], 2);
     read_I2C(LSM6DSV320_OUTZ_L_G, &buffer[4], 2);
 
-    this->data->LSM6DSV320_Gyro.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->gyro_sensitivity);
-    this->data->LSM6DSV320_Gyro.setY(((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->gyro_sensitivity);
-    this->data->LSM6DSV320_Gyro.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->gyro_sensitivity);
+    this->data->LSM6DSV320_Gyro.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->gyroSensitivity);
+    this->data->LSM6DSV320_Gyro.setY(((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->gyroSensitivity);
+    this->data->LSM6DSV320_Gyro.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->gyroSensitivity);
 
     // Read Low G Accelerometer Measurements
     read_I2C(LSM6DSV320_OUTX_L_A, &buffer[0], 2);
     read_I2C(LSM6DSV320_OUTY_L_A, &buffer[2], 2);
     read_I2C(LSM6DSV320_OUTZ_L_A, &buffer[4], 2);
 
-    this->data->LSM6DSV320_LowG_Accel.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->low_g_sensitivity);
-    this->data->LSM6DSV320_LowG_Accel.setY(((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->low_g_sensitivity);
-    this->data->LSM6DSV320_LowG_Accel.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->low_g_sensitivity);
+    this->data->LSM6DSV320_LowG_Accel.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->lowGSensitivity);
+    this->data->LSM6DSV320_LowG_Accel.setY(((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->lowGSensitivity);
+    this->data->LSM6DSV320_LowG_Accel.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->lowGSensitivity);
 
     // Read High G Accelerometer Measurements
     read_I2C(LSM6DSV320_UI_OUTX_L_A_OIS_HG, &buffer[0], 2);
     read_I2C(LSM6DSV320_UI_OUTY_L_A_OIS_HG, &buffer[2], 2);
     read_I2C(LSM6DSV320_UI_OUTZ_L_A_OIS_HG, &buffer[4], 2);
 
-    this->data->LSM6DSV320_HighG_Accel.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->high_g_sensitivity);
-    this->data->LSM6DSV320_HighG_Accel.setY(((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->high_g_sensitivity);
-    this->data->LSM6DSV320_HighG_Accel.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->high_g_sensitivity);
+    this->data->LSM6DSV320_HighG_Accel.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->highGSensitivity);
+    this->data->LSM6DSV320_HighG_Accel.setY(((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->highGSensitivity);
+    this->data->LSM6DSV320_HighG_Accel.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->highGSensitivity);
 
 }

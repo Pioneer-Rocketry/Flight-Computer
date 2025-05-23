@@ -52,7 +52,9 @@ C_INCLUDES =  \
 ######################################
 # C sources
 C_SOURCES = $(wildcard $(addsuffix /*.c, $(SRC_DIRS)))
+C_SOURCES += $(wildcard $(addsuffix /*/*.c, $(SRC_DIRS)))
 CPP_SOURCES = $(wildcard $(addsuffix /*.cpp, $(SRC_DIRS)))
+CPP_SOURCES += $(wildcard $(addsuffix /*/*.cpp, $(SRC_DIRS)))
 
 # ASM sources
 ASM_SOURCES =  \

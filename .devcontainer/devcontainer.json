@@ -5,7 +5,7 @@
 	"runArgs": [
 		"--privileged"
 	],
-	"image": "ghcr.io/pioneer-rocketry/flight-computer:main",
+	"image": "ghcr.io/pioneer-rocketry/flight-computer-v3:main",
 
 	// "build": {
 	//   "dockerfile": "Dockerfile"

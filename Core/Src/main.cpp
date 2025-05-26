@@ -23,6 +23,8 @@
 /* USER CODE BEGIN Includes */
 
 #include "data.h"
+#include "flash_w25q128.h"
+#include "state_machine.h"
 #include "sensors/imu_LSM6DSV320.h"
 
 /* USER CODE END Includes */
@@ -57,7 +59,7 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 /* USER CODE BEGIN PV */
 
 Data data;
-Flash_W25Q128 flash_w25q128(&hspi5, &data);
+Flash_W25Q128 flash_w25q128(&hspi2, &data);
 
 State_Machine state_machine(&data);
 

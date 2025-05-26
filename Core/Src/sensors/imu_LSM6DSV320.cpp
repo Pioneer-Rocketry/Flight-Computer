@@ -104,7 +104,7 @@ bool IMU_LSM6DSV320::begin() {
 
     /* Configure Sensitivities */
 
-    // Low G Sensitivity
+    // Set the according Low G Sensitivity
     switch (lowGRange) {
         case LOW_G_RANGE_2G:  this->lowGSensitivity = LSM6DSV320_LOW_G_SENSITIVITY_2G;  break;
         case LOW_G_RANGE_4G:  this->lowGSensitivity = LSM6DSV320_LOW_G_SENSITIVITY_4G;  break;
@@ -113,7 +113,7 @@ bool IMU_LSM6DSV320::begin() {
         default: return false;
     }
 
-    // High G Sensitivity
+    // Set the according High G Sensitivity
     switch (highGRange) {
         case HIGH_G_RANGE_32G:  this->highGSensitivity = LSM6DSV320_HIGH_G_SENSITIVITY_32G;  break;
         case HIGH_G_RANGE_64G:  this->highGSensitivity = LSM6DSV320_HIGH_G_SENSITIVITY_64G;  break;
@@ -123,7 +123,7 @@ bool IMU_LSM6DSV320::begin() {
         default: return false;
     }
 
-    // Gyro Sensitivity
+    // Set the according Gyro Sensitivity
     switch (gyroRange) {
         case GYRO_RANGE_250DPS:  this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_250DPS;  break;
         case GYRO_RANGE_500DPS:  this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_500DPS;  break;
@@ -144,6 +144,7 @@ void IMU_LSM6DSV320::get_data() {
     read_I2C(LSM6DSV320_OUTY_L_G, &buffer[2], 2);
     read_I2C(LSM6DSV320_OUTZ_L_G, &buffer[4], 2);
 
+    // Cast measurements to floats
     this->data->LSM6DSV320_Gyro.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->gyroSensitivity);
     this->data->LSM6DSV320_Gyro.setY(((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->gyroSensitivity);
     this->data->LSM6DSV320_Gyro.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->gyroSensitivity);
@@ -153,6 +154,7 @@ void IMU_LSM6DSV320::get_data() {
     read_I2C(LSM6DSV320_OUTY_L_A, &buffer[2], 2);
     read_I2C(LSM6DSV320_OUTZ_L_A, &buffer[4], 2);
 
+    // Cast measurements to floats
     this->data->LSM6DSV320_LowG_Accel.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->lowGSensitivity);
     this->data->LSM6DSV320_LowG_Accel.setY(((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->lowGSensitivity);
     this->data->LSM6DSV320_LowG_Accel.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->lowGSensitivity);
@@ -162,6 +164,7 @@ void IMU_LSM6DSV320::get_data() {
     read_I2C(LSM6DSV320_UI_OUTY_L_A_OIS_HG, &buffer[2], 2);
     read_I2C(LSM6DSV320_UI_OUTZ_L_A_OIS_HG, &buffer[4], 2);
 
+    // Cast measurements to floats
     this->data->LSM6DSV320_HighG_Accel.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->highGSensitivity);
     this->data->LSM6DSV320_HighG_Accel.setY(((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->highGSensitivity);
     this->data->LSM6DSV320_HighG_Accel.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->highGSensitivity);

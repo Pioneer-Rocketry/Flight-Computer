@@ -57,7 +57,11 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 /* USER CODE BEGIN PV */
 
 Data data;
+Flash_W25Q128 flash_w25q128(&hspi5, &data);
 
+State_Machine state_machine(&data);
+
+// Sensors
 IMU_LSM6DSV320 imu(&hi2c1, &data);
 
 /* USER CODE END PV */
@@ -98,6 +102,13 @@ int main(void)
 
     /* USER CODE BEGIN Init */
 
+    // Check to see if the flash chip is working
+    if (!flash_w25q128.begin()) {
+        // Flash failed to start
+        while (1);
+    }
+
+    // Check to see if the IMU sensor is working
     if (!imu.begin()) {
         while (1);
         // IMU Sensor failed to start

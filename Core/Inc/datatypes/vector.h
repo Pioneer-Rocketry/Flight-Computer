@@ -8,9 +8,6 @@
  */
 class Vector {
 private:
-    float x;
-    float y;
-    float z;
 
 public:
     Vector();
@@ -42,6 +39,10 @@ public:
     float dot(Vector v);
     Vector normalize();
     float magnitude();
+
+    float x;
+    float y;
+    float z;
 };
 
 #endif

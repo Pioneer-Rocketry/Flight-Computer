@@ -10,10 +10,6 @@
  */
 class Quaternion {
 private:
-    float x;
-    float y;
-    float z;
-    float w;
 
 public:
     Quaternion();
@@ -46,6 +42,11 @@ public:
 
     Vector toEuler();
     void fromEuler(Vector euler);
+
+    float x;
+    float y;
+    float z;
+    float w;
 };
 
 #endif /* QUATERNION_H */

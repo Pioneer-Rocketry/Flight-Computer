@@ -18,7 +18,7 @@ public:
 
     Vector LSM6DSV320_Gyro; // Gyroscope measurements in degrees/s
 
-    Vector MMC5603_Mag; // MMC5603 Magnetometer measurements in uT
+    Vector MMC5603_Mag; // MMC5603 Magnetometer measurements in milliGauss
 
     float MS560702BA03_Pressure; // MS560702BA03 Pressure measurements in hPa
     float MS560702BA03_Altitude; // MS560702BA03 altitude in m using https://www.weather.gov/media/epz/wxcalc/pressureAltitude.pdf to convert

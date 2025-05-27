@@ -25,7 +25,9 @@
 #include "data.h"
 #include "flash_W25Q128.h"
 #include "state_machine.h"
+
 #include "sensors/imu_LSM6DSV320.h"
+#include "sensors/mag_MMC5603NJ.h"
 
 #include "filters/orientation_filter.h"
 
@@ -71,6 +73,7 @@ Orientation_Filter orientation_filter(&data);
 
 // Sensors
 IMU_LSM6DSV320 imu(&hi2c1, &data);
+Mag_MMC5603NJ  mag(&hi2c1, &data);
 
 /* USER CODE END PV */
 
@@ -120,6 +123,12 @@ int main(void)
     if (!imu.begin()) {
         while (1);
         // IMU Sensor failed to start
+    }
+
+    // Check to see if the magnetometer sensor is working
+    if (!mag.begin()) {
+        while (1);
+        // Magnetometer Sensor failed to start
     }
 
     /* USER CODE END Init */

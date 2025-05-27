@@ -12,7 +12,7 @@ bool IMU_LSM6DSV320::begin() {
         return false;
     }
 
-    /* Configuration Sensor */
+    /* Sensor Configuration */
     uint8_t config = 0;
 
     // CTRL1 page 65, table 52

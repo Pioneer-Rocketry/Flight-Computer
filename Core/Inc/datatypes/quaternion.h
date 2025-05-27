@@ -26,7 +26,7 @@ public:
      * @param z The z component of the quaternion
      * @param w The w component of the quaternion
      */
-    Quaternion(float x, float y, float z, float w); 
+    Quaternion(float x, float y, float z, float w);
     Quaternion(Vector euler);
 
     float getX();

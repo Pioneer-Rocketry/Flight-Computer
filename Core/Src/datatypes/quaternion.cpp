@@ -38,9 +38,9 @@ void Quaternion::normalize() {
 
 /**
  * Multiply this quaternion by another
- * 
+ *
  * @param q The quaternion to multiply by
- * 
+ *
  * @return The result of the multiplication
  */
 Quaternion Quaternion::operator*(Quaternion q) {
@@ -54,9 +54,9 @@ Quaternion Quaternion::operator*(Quaternion q) {
 
 /**
  * Multiply this quaternion by another
- * 
+ *
  * @param q The quaternion to multiply by
- * 
+ *
  * @return The result of the multiplication
  */
 Quaternion Quaternion::operator*=(Quaternion q) {
@@ -65,7 +65,7 @@ Quaternion Quaternion::operator*=(Quaternion q) {
 
 /**
  * Convert a quaternion to an euler angle
- * 
+ *
  * @return The euler angle
  */
 Vector Quaternion::toEuler() {
@@ -73,11 +73,11 @@ Vector Quaternion::toEuler() {
      * Roll is around the Z axis
      * Pitch is around the X axis
      * Yaw is around the Y axis
-     * 
+     *
      * https://math.stackexchange.com/q/2975109
      */
 
-    float roll = atan2( 2 * (this->w * this->x + this->y * this->z), 
+    float roll = atan2( 2 * (this->w * this->x + this->y * this->z),
                         1 - 2 * (this->x * this->x + this->y * this->y));
     roll *= 180 / M_PI;
 
@@ -87,7 +87,7 @@ Vector Quaternion::toEuler() {
     pitch = asin(pitch);
     pitch *= 180 / M_PI;
 
-    float yaw = atan2(  2 * (this->w * this->z + this->x * this->y), 
+    float yaw = atan2(  2 * (this->w * this->z + this->x * this->y),
                         1 - 2 * (this->y * this->y + this->z * this->z));
     yaw *= 180 / M_PI;
 
@@ -96,7 +96,7 @@ Vector Quaternion::toEuler() {
 
 /**
  * Convert an euler angle to a quaternion
- * 
+ *
  * @param euler The euler angle
  */
 void Quaternion::fromEuler(Vector euler) {
@@ -104,7 +104,7 @@ void Quaternion::fromEuler(Vector euler) {
      * Roll is around the Z axis
      * Pitch is around the X axis
      * Yaw is around the Y axis
-     * 
+     *
      * https://math.stackexchange.com/q/2975109
      */
     this->x = sin(euler.getZ() / 2) * cos(euler.getX() / 2) * cos(euler.getY() / 2) - cos(euler.getZ() / 2) * sin(euler.getX() / 2) * sin(euler.getY() / 2);

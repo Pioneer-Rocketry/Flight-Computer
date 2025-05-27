@@ -24,7 +24,7 @@ protected:
 
     /**
      * Read data from the i2c bus
-     * 
+     *
      * @param reg The register to read from
      * @param data The data to be read
      * @param len The number of bytes to read
@@ -35,7 +35,7 @@ protected:
 
     /**
      * Write data to the i2c bus
-     * 
+     *
      * @param reg The register to write to
      * @param data The data to be written
      * @param len The number of bytes to write
@@ -46,7 +46,7 @@ protected:
 
     /**
      * Get the address of the sensor
-     * 
+     *
      * @return The address of the sensor
      */
     uint8_t get_address() {

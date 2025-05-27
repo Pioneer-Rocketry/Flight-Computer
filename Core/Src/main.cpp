@@ -23,7 +23,7 @@
 /* USER CODE BEGIN Includes */
 
 #include "data.h"
-#include "flash_w25q128.h"
+#include "flash_W25Q128.h"
 #include "state_machine.h"
 #include "sensors/imu_LSM6DSV320.h"
 

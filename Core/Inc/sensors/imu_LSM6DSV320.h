@@ -17,7 +17,7 @@
 #define LSM6DSV320_FIFO_CTRL3               0x09
 #define LSM6DSV320_FIFO_CTRL4               0x0A
 #define LSM6DSV320_COUNTER_BDR_REG1         0x0B
-#define LSM6DSV320_COUNTER_BDR_REG1         0x0C
+#define LSM6DSV320_COUNTER_BDR_REG2         0x0C
 #define LSM6DSV320_INT1_CTLR                0x0D
 #define LSM6DSV320_INT2_CTLR                0x0E
 #define LSM6DSV320_WHO_AM_I                 0x0F

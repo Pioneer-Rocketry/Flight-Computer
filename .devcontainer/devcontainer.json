@@ -37,7 +37,8 @@
 				"ms-vscode.vscode-serial-monitor",
 				"Gruntfuggly.todo-tree",
 				"tomoki1207.vscode-pdf",
-				"codeium.codeium"
+				"codeium.codeium",
+				"shardulm94.trailing-spaces"
 			]
 		}
 	},

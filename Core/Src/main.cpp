@@ -27,6 +27,10 @@
 #include "state_machine.h"
 #include "sensors/imu_LSM6DSV320.h"
 
+#include "filters/orientation_filter.h"
+
+#include "micros.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,6 +67,8 @@ Flash_W25Q128 flash_w25q128(&hspi2, &data);
 
 State_Machine state_machine(&data);
 
+Orientation_Filter orientation_filter(&data);
+
 // Sensors
 IMU_LSM6DSV320 imu(&hi2c1, &data);
 
@@ -94,7 +100,7 @@ int main(void)
 {
 
     /* USER CODE BEGIN 1 */
-
+    DWT_Init(); // Initialize the DWT for micro() and delay_us() functions
     /* USER CODE END 1 */
 
     /* MCU Configuration--------------------------------------------------------*/

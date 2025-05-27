@@ -10,12 +10,15 @@
  * Every filter will inherit from this class
  */
 class Filter {
-private:
+protected:
     Data *data;
+
+    float dt; // Time since last update
 
 public:
     Filter(Data *data) {
         this->data = data;
+        this->dt = 0;
     }
 
     virtual void compute() = 0;

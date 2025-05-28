@@ -22,6 +22,7 @@ private:
 public:
     Orientation_Filter(Data *data);
 
+    void init() override;
     void compute() override;
 };
 

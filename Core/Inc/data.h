@@ -25,6 +25,8 @@ public:
 
     // State Estimation
     Quaternion orientation; // Quaternion representing of orientation
+    Vector position; // Vector representing of position
+    Vector velocity; // Vector representing of velocity
 };
 
 #endif

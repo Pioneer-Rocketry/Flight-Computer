@@ -21,6 +21,7 @@ public:
         this->dt = 0;
     }
 
+    virtual void init() = 0;
     virtual void compute() = 0;
 };
 

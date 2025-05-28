@@ -12,6 +12,10 @@ Orientation_Filter::Orientation_Filter(Data *data)
     newGyroTime = 0.0f;
 }
 
+void Orientation_Filter::init() {
+    
+}
+
 /**
  * Compute the orientation as a quaternion based on angulare velocities measured from the gyroscope
  *

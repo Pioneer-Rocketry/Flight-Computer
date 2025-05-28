@@ -30,6 +30,7 @@
 #include "sensors/mag_MMC5603NJ.h"
 
 #include "filters/orientation_filter.h"
+#include "filters/position_kalman_filter.h"
 
 #include "micros.h"
 
@@ -64,12 +65,18 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
 
+#define LOOP_FREQ 100 // Hz
+#define LOOP_TIME (1000000 / LOOP_FREQ) // us
+uint32_t loop_start = micros();
+
+
 Data data;
 Flash_W25Q128 flash_w25q128(&hspi2, &data);
 
 State_Machine state_machine(&data);
 
 Orientation_Filter orientation_filter(&data);
+Position_Kalman_Filter position_kalman_filter(&data);
 
 // Sensors
 IMU_LSM6DSV320 imu(&hi2c1, &data);
@@ -131,6 +138,15 @@ int main(void)
         // Magnetometer Sensor failed to start
     }
 
+    // Initialize the state machine
+    state_machine.reset();
+
+    // Initialize the filters
+    orientation_filter.init();
+    position_kalman_filter.init();
+
+
+
     /* USER CODE END Init */
 
     /* Configure the system clock */
@@ -159,6 +175,24 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
+
+        if (micros() - loop_start >= LOOP_TIME) {
+            loop_start = micros();
+
+            // Read data from sensors
+            imu.get_data();
+            mag.get_data();
+
+            // Update state machine
+            orientation_filter.update();
+            position_kalman_filter.update();
+
+            // Write data to flash
+            flash_w25q128.save();
+
+            // Update state machine
+            state_machine.update();
+        }
     }
     /* USER CODE END 3 */
 }

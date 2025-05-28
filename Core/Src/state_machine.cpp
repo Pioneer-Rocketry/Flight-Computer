@@ -22,13 +22,14 @@ State State_Machine::update() {
             break;
         case ACCELERATING:
             switch_to_ascending();
+            switch_to_descending();
             switch_to_landed(); // Something is VERY wrong ¯\_(ツ)_/¯
             break;
         case ASCENDING:
             switch_to_descending();
             switch_to_accelerating();
             break;
-        case DESENDING:
+        case DESCENDING:
             switch_to_under_drouge();
             switch_to_landed();
             break;
@@ -54,29 +55,29 @@ void State_Machine::reset() {
     this->state = INITIALIZING;
 }
 
-void switch_to_system_checks() {
+void State_Machine::switch_to_system_checks() {
 }
 
-void switch_to_localizing() {
+void State_Machine::switch_to_localizing() {
 }
 
-void switch_to_ready_for_flight() {
+void State_Machine::switch_to_ready_for_flight() {
 }
 
-void switch_to_accelerating() {
+void State_Machine::switch_to_accelerating() {
 }
 
-void switch_to_ascending() {
+void State_Machine::switch_to_ascending() {
 }
 
-void switch_to_descending() {
+void State_Machine::switch_to_descending() {
 }
 
-void switch_to_under_drouge() {
+void State_Machine::switch_to_under_drouge() {
 }
 
-void switch_to_under_main() {
+void State_Machine::switch_to_under_main() {
 }
 
-void switch_to_landed() {
+void State_Machine::switch_to_landed() {
 }

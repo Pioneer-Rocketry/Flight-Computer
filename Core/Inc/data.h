@@ -27,6 +27,8 @@ public:
     Quaternion orientation; // Quaternion representing of orientation
     Vector position; // Vector representing of position
     Vector velocity; // Vector representing of velocity
+
+    uint32_t timestamp;
 };
 
 #endif

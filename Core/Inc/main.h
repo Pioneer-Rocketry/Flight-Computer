@@ -69,10 +69,6 @@ void Error_Handler(void);
 #define SERVO1_GPIO_Port GPIOA
 #define SERVO2_Pin GPIO_PIN_1
 #define SERVO2_GPIO_Port GPIOA
-#define SERVO3_Pin GPIO_PIN_2
-#define SERVO3_GPIO_Port GPIOA
-#define SERVO4_Pin GPIO_PIN_3
-#define SERVO4_GPIO_Port GPIOA
 #define SPI_CS1_Pin GPIO_PIN_4
 #define SPI_CS1_GPIO_Port GPIOA
 #define GPS_SAFEBOOT_Pin GPIO_PIN_4

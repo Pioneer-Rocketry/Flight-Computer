@@ -2,12 +2,20 @@
 #ifndef DATA_H
 #define DATA_H
 
+#include <stdio.h> // for snprintf
+
+#include "stm32f4xx_hal.h"
+
 #include "datatypes/vector.h"
 #include "datatypes/quaternion.h"
 
 class Data {
+private:
+    char buffer[512];
+    UART_HandleTypeDef* uart;
+
 public:
-    Data();
+    Data(UART_HandleTypeDef* uart);
 
     void save();
     void log();
@@ -29,6 +37,8 @@ public:
     Vector velocity; // Vector representing of velocity
 
     uint32_t timestamp;
+    float freq;
+    // int timestamp;
 };
 
 #endif

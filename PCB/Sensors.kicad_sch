@@ -3504,7 +3504,7 @@
 	)
 	(global_label "I2C_SDA"
 		(shape input)
-		(at 53.34 60.96 180)
+		(at 53.34 58.42 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3514,7 +3514,7 @@
 		)
 		(uuid "e532fc0d-3c2c-4c2c-a2df-7b26caaf0276")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 42.7348 60.96 0)
+			(at 42.7348 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3526,7 +3526,7 @@
 	)
 	(global_label "I2C_SCL"
 		(shape input)
-		(at 53.34 58.42 180)
+		(at 53.34 60.96 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3536,7 +3536,7 @@
 		)
 		(uuid "eb0c5c2a-c2bb-42ac-aecf-a738206334a9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 42.7953 58.42 0)
+			(at 42.7953 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)

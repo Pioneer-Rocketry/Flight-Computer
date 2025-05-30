@@ -4,7 +4,7 @@
 #include "sensors/sensors.hpp"
 
 // Address
-#define LSM6DSV320_ADDRESS 0b1101010 // or 0b1101011 if 
+#define LSM6DSV320_ADDRESS 0b1101010 << 1 // or 0b1101011 if 
 
 // Register Address
 #define LSM6DSV320_FUNC_CFG_ACCESS          0x01
@@ -145,6 +145,10 @@
 #define LSM6DSV320_GYRO_SENSITIVITY_1000DPS 0.0175f     // +/- 1000dgps 35   mdps/LSB = 0.0175  dps/LSB
 #define LSM6DSV320_GYRO_SENSITIVITY_2000DPS 0.07f       // +/- 2000dgps 70   mdps/LSB = 0.07    dps/LSB
 #define LSM6DSV320_GYRO_SENSITIVITY_4000DPS 0.14f       // +/- 4000dgps 140  mdps/LSB = 0.14    dps/LSB
+
+#define GRAVITY             9.80665f
+#define PI                  3.14159f
+#define RADIANS_TO_DEGREES  PI/180.0f
 
 class IMU_LSM6DSV320 : public Sensor {
 private:

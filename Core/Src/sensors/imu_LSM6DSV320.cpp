@@ -106,30 +106,30 @@ bool IMU_LSM6DSV320::begin() {
 
     // Set the according Low G Sensitivity
     switch (lowGRange) {
-        case LOW_G_RANGE_2G:  this->lowGSensitivity = LSM6DSV320_LOW_G_SENSITIVITY_2G;  break;
-        case LOW_G_RANGE_4G:  this->lowGSensitivity = LSM6DSV320_LOW_G_SENSITIVITY_4G;  break;
-        case LOW_G_RANGE_8G:  this->lowGSensitivity = LSM6DSV320_LOW_G_SENSITIVITY_8G;  break;
-        case LOW_G_RANGE_16G: this->lowGSensitivity = LSM6DSV320_LOW_G_SENSITIVITY_16G; break;
+        case LOW_G_RANGE_2G:  this->lowGSensitivity = LSM6DSV320_LOW_G_SENSITIVITY_2G  * GRAVITY; break;
+        case LOW_G_RANGE_4G:  this->lowGSensitivity = LSM6DSV320_LOW_G_SENSITIVITY_4G  * GRAVITY; break;
+        case LOW_G_RANGE_8G:  this->lowGSensitivity = LSM6DSV320_LOW_G_SENSITIVITY_8G  * GRAVITY; break;
+        case LOW_G_RANGE_16G: this->lowGSensitivity = LSM6DSV320_LOW_G_SENSITIVITY_16G * GRAVITY; break;
         default: return false;
     }
 
     // Set the according High G Sensitivity
     switch (highGRange) {
-        case HIGH_G_RANGE_32G:  this->highGSensitivity = LSM6DSV320_HIGH_G_SENSITIVITY_32G;  break;
-        case HIGH_G_RANGE_64G:  this->highGSensitivity = LSM6DSV320_HIGH_G_SENSITIVITY_64G;  break;
-        case HIGH_G_RANGE_128G: this->highGSensitivity = LSM6DSV320_HIGH_G_SENSITIVITY_128G; break;
-        case HIGH_G_RANGE_256G: this->highGSensitivity = LSM6DSV320_HIGH_G_SENSITIVITY_256G; break;
-        case HIGH_G_RANGE_320G: this->highGSensitivity = LSM6DSV320_HIGH_G_SENSITIVITY_320G; break;
+        case HIGH_G_RANGE_32G:  this->highGSensitivity = LSM6DSV320_HIGH_G_SENSITIVITY_32G  * GRAVITY; break;
+        case HIGH_G_RANGE_64G:  this->highGSensitivity = LSM6DSV320_HIGH_G_SENSITIVITY_64G  * GRAVITY; break;
+        case HIGH_G_RANGE_128G: this->highGSensitivity = LSM6DSV320_HIGH_G_SENSITIVITY_128G * GRAVITY; break;
+        case HIGH_G_RANGE_256G: this->highGSensitivity = LSM6DSV320_HIGH_G_SENSITIVITY_256G * GRAVITY; break;
+        case HIGH_G_RANGE_320G: this->highGSensitivity = LSM6DSV320_HIGH_G_SENSITIVITY_320G * GRAVITY; break;
         default: return false;
     }
 
     // Set the according Gyro Sensitivity
     switch (gyroRange) {
-        case GYRO_RANGE_250DPS:  this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_250DPS;  break;
-        case GYRO_RANGE_500DPS:  this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_500DPS;  break;
-        case GYRO_RANGE_1000DPS: this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_1000DPS; break;
-        case GYRO_RANGE_2000DPS: this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_2000DPS; break;
-        case GYRO_RANGE_4000DPS: this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_4000DPS; break;
+        case GYRO_RANGE_250DPS:  this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_250DPS  * RADIANS_TO_DEGREES; break;
+        case GYRO_RANGE_500DPS:  this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_500DPS  * RADIANS_TO_DEGREES; break;
+        case GYRO_RANGE_1000DPS: this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_1000DPS * RADIANS_TO_DEGREES; break;
+        case GYRO_RANGE_2000DPS: this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_2000DPS * RADIANS_TO_DEGREES; break;
+        case GYRO_RANGE_4000DPS: this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_4000DPS * RADIANS_TO_DEGREES; break;
         default: return false;
     }
 

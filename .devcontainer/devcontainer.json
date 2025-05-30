@@ -44,11 +44,11 @@
 		}
 	},
 	"mounts": [
-		// "type=bind,source=/dev/bus/usb,target=/dev/bus/usb",
+		"type=bind,source=/dev/bus/usb,target=/dev/bus/usb",
 		// Required for ST-Link
-		// "type=bind,source=/dev,target=/dev",
+		"type=bind,source=/dev,target=/dev",
 		// Required for Serial Ports
-		// "type=bind,source=/run/udev,target=/run/udev" // Required for Serial Ports detection
+		"type=bind,source=/run/udev,target=/run/udev" // Required for Serial Ports detection
 	] // Connect to USB devices on the host
 
     // Features to add to the dev container. More info: https://containers.dev/features.

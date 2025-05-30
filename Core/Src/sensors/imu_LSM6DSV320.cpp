@@ -137,12 +137,12 @@ bool IMU_LSM6DSV320::begin() {
 }
 
 void IMU_LSM6DSV320::get_data() {
-    uint8_t buffer[6];
+    uint8_t buffer[12];
 
     // Read Gyroscope Measurements
-    read_I2C(LSM6DSV320_OUTX_L_G, &buffer[0], 2);
-    read_I2C(LSM6DSV320_OUTY_L_G, &buffer[2], 2);
-    read_I2C(LSM6DSV320_OUTZ_L_G, &buffer[4], 2);
+    read_I2C(LSM6DSV320_OUTX_L_G, &buffer[0], 12);
+    // read_I2C(LSM6DSV320_OUTY_L_G, &buffer[2], 2);
+    // read_I2C(LSM6DSV320_OUTZ_L_G, &buffer[4], 2);
 
     // Cast measurements to floats
     this->data->LSM6DSV320_Gyro.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->gyroSensitivity);
@@ -150,9 +150,9 @@ void IMU_LSM6DSV320::get_data() {
     this->data->LSM6DSV320_Gyro.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->gyroSensitivity);
 
     // Read Low G Accelerometer Measurements
-    read_I2C(LSM6DSV320_OUTX_L_A, &buffer[0], 2);
-    read_I2C(LSM6DSV320_OUTY_L_A, &buffer[2], 2);
-    read_I2C(LSM6DSV320_OUTZ_L_A, &buffer[4], 2);
+    // read_I2C(LSM6DSV320_OUTX_L_A, &buffer[0], 6);
+    // read_I2C(LSM6DSV320_OUTY_L_A, &buffer[2], 2);
+    // read_I2C(LSM6DSV320_OUTZ_L_A, &buffer[4], 2);
 
     // Cast measurements to floats
     this->data->LSM6DSV320_LowG_Accel.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->lowGSensitivity);
@@ -160,9 +160,9 @@ void IMU_LSM6DSV320::get_data() {
     this->data->LSM6DSV320_LowG_Accel.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->lowGSensitivity);
 
     // Read High G Accelerometer Measurements
-    read_I2C(LSM6DSV320_UI_OUTX_L_A_OIS_HG, &buffer[0], 2);
-    read_I2C(LSM6DSV320_UI_OUTY_L_A_OIS_HG, &buffer[2], 2);
-    read_I2C(LSM6DSV320_UI_OUTZ_L_A_OIS_HG, &buffer[4], 2);
+    read_I2C(LSM6DSV320_UI_OUTX_L_A_OIS_HG, &buffer[0], 6);
+    // read_I2C(LSM6DSV320_UI_OUTY_L_A_OIS_HG, &buffer[2], 2);
+    // read_I2C(LSM6DSV320_UI_OUTZ_L_A_OIS_HG, &buffer[4], 2);
 
     // Cast measurements to floats
     this->data->LSM6DSV320_HighG_Accel.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->highGSensitivity);

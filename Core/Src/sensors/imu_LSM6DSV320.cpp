@@ -155,9 +155,9 @@ void IMU_LSM6DSV320::get_data() {
     // read_I2C(LSM6DSV320_OUTZ_L_A, &buffer[4], 2);
 
     // Cast measurements to floats
-    this->data->LSM6DSV320_LowG_Accel.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->lowGSensitivity);
-    this->data->LSM6DSV320_LowG_Accel.setY(((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->lowGSensitivity);
-    this->data->LSM6DSV320_LowG_Accel.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->lowGSensitivity);
+    this->data->LSM6DSV320_LowG_Accel.setX(((float) (int16_t) (buffer[6]  | buffer[7]  << 8)) * this->lowGSensitivity);
+    this->data->LSM6DSV320_LowG_Accel.setY(((float) (int16_t) (buffer[8]  | buffer[9]  << 8)) * this->lowGSensitivity);
+    this->data->LSM6DSV320_LowG_Accel.setZ(((float) (int16_t) (buffer[10] | buffer[11] << 8)) * this->lowGSensitivity);
 
     // Read High G Accelerometer Measurements
     read_I2C(LSM6DSV320_UI_OUTX_L_A_OIS_HG, &buffer[0], 6);

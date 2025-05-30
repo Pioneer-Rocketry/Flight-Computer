@@ -58,7 +58,7 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 
-#define LOOP_FREQ 1000 // Hz
+#define LOOP_FREQ 100 // Hz
 #define LOOP_TIME (1000000 / LOOP_FREQ) // us
 uint32_t loop_start = micros();
 

@@ -38,7 +38,8 @@
 				"Gruntfuggly.todo-tree",
 				"tomoki1207.vscode-pdf",
 				"codeium.codeium",
-				"shardulm94.trailing-spaces"
+				"shardulm94.trailing-spaces",
+				"fabiospampinato.vscode-diff"
 			]
 		}
 	},

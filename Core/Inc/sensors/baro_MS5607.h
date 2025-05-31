@@ -3,8 +3,6 @@
 
 #include "sensors/sensors.hpp"
 
-#include "micros.h"
-
 // Address
 #define MS5607_ADDRESS 0b1110111 << 1 // or 0b1110111 if CSB is high
 

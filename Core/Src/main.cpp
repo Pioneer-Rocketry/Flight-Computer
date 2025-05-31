@@ -191,10 +191,9 @@ int main(void)
 
         if (micros() - loop_start >= LOOP_TIME) {
 
-            data.freq = 1000 / (micros() - loop_start);
+            data.freq = 1000000 / (micros() - loop_start);
 
             loop_start = micros();
-            data.timestamp = loop_start;
 
             // Read data from sensors
             imu.get_data();
@@ -211,6 +210,8 @@ int main(void)
 
             // Update state machine
             state_machine.update();
+
+            data.timestamp = loop_start;
 
             // Log data
             data.log();

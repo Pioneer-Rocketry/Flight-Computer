@@ -28,6 +28,7 @@
 
 #include "sensors/imu_LSM6DSV320.h"
 #include "sensors/mag_MMC5603NJ.h"
+#include "sensors/baro_MS5607.h"
 
 #include "filters/orientation_filter.h"
 #include "filters/position_kalman_filter.h"
@@ -74,6 +75,8 @@ Position_Kalman_Filter position_kalman_filter(&data);
 // Sensors
 IMU_LSM6DSV320 imu(&hi2c1, &data);
 Mag_MMC5603NJ  mag(&hi2c1, &data);
+// Baro_MS5607    baro(&hi2c1, &data);
+Baro_MS5607 baro(&hi2c1, &data);
 
 /* USER CODE END PV */
 
@@ -144,7 +147,18 @@ int main(void)
 			// IMU Sensor failed to start
 			HAL_UART_Transmit(&huart2, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
 			HAL_Delay(1000);
-		}
+        }
+    }
+
+    // Check to see if the barometer sensor is working
+   if (!baro.begin()) {
+        char buffer[40] = "Failed to connect to Barometer Sensor\r\n";
+
+        while (1) {
+            // barometer Sensor failed to start
+            HAL_UART_Transmit(&huart2, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
+            HAL_Delay(1000);
+        }
     }
 
     // Check to see if the magnetometer sensor is working
@@ -177,13 +191,16 @@ int main(void)
 
         if (micros() - loop_start >= LOOP_TIME) {
 
-            data.freq = 1000000 / (micros() - loop_start);
+            data.freq = 1000 / (micros() - loop_start);
 
             loop_start = micros();
+            data.timestamp = loop_start;
 
             // Read data from sensors
             imu.get_data();
             // mag.get_data();
+
+            baro.get_data();
 
             // Update state machine
             orientation_filter.compute();
@@ -194,8 +211,6 @@ int main(void)
 
             // Update state machine
             state_machine.update();
-
-            data.timestamp = loop_start;
 
             // Log data
             data.log();

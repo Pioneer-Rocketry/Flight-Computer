@@ -73,7 +73,7 @@ void Position_Kalman_Filter::update() {
     Z(0) = data->LSM6DSV320_LowG_Accel.x; // X Acceleration
     Z(1) = data->LSM6DSV320_LowG_Accel.y; // Y Acceleration
     Z(2) = data->LSM6DSV320_LowG_Accel.z; // Z Acceleration
-    Z(3) = data->MS560702BA03_Altitude;   // Barometric Altitude
+    Z(3) = data->MS5607_Altitude;         // Barometric Altitude
 
     // Step 2: Compute the Kalman Gain
 	K = P * H.transpose() * (H * P * H.transpose() + R).inverse();

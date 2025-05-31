@@ -12,7 +12,6 @@
 class Data {
 private:
     char buffer[512];
-    UART_HandleTypeDef* uart;
 
 public:
     Data(UART_HandleTypeDef* uart);
@@ -28,8 +27,9 @@ public:
 
     Vector MMC5603_Mag; // MMC5603 Magnetometer measurements in milliGauss
 
-    float MS560702BA03_Pressure; // MS560702BA03 Pressure measurements in hPa
-    float MS560702BA03_Altitude; // MS560702BA03 altitude in m using https://www.weather.gov/media/epz/wxcalc/pressureAltitude.pdf to convert
+    float MS5607_Pressure;    // MS560702BA03 Pressure measurements in hPa
+    float MS5607_Temperature; // MS560702BA03 Temperature measurements in hPa
+    float MS5607_Altitude;    // MS560702BA03 altitude in m using https://www.weather.gov/media/epz/wxcalc/pressureAltitude.pdf to convert
 
     // State Estimation
     Quaternion orientation; // Quaternion representing of orientation
@@ -39,6 +39,8 @@ public:
     uint32_t timestamp;
     float freq;
     // int timestamp;
+
+    UART_HandleTypeDef* uart;
 };
 
 #endif

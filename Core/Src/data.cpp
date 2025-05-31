@@ -10,8 +10,8 @@ Data::Data(UART_HandleTypeDef* uart) {
     this->LSM6DSV320_Gyro.zero();
     this->MMC5603_Mag.zero();
 
-    this->MS560702BA03_Pressure = 0;
-    this->MS560702BA03_Altitude = 0;
+    this->MS5607_Pressure = 0;
+    this->MS5607_Altitude = 0;
 }
 
 void Data::save() {
@@ -34,7 +34,7 @@ void Data::log() {
         LSM6DSV320_HighG_Accel.x, LSM6DSV320_HighG_Accel.y, LSM6DSV320_HighG_Accel.z,
         LSM6DSV320_Gyro.x, LSM6DSV320_Gyro.y, LSM6DSV320_Gyro.z,
         MMC5603_Mag.x, MMC5603_Mag.y, MMC5603_Mag.z,
-        MS560702BA03_Pressure, MS560702BA03_Altitude,
+        MS5607_Pressure, MS5607_Altitude,
         orientation.w, orientation.x, orientation.y, orientation.z,
         position.x, position.y, position.z,
         velocity.x, velocity.y, velocity.z

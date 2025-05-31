@@ -112,3 +112,20 @@ void Quaternion::fromEuler(Vector euler) {
     this->z = cos(euler.getZ() / 2) * cos(euler.getX() / 2) * sin(euler.getY() / 2) - sin(euler.getZ() / 2) * sin(euler.getX() / 2) * cos(euler.getY() / 2);
     this->w = cos(euler.getZ() / 2) * cos(euler.getX() / 2) * cos(euler.getY() / 2) + sin(euler.getZ() / 2) * sin(euler.getX() / 2) * sin(euler.getY() / 2);
 }
+
+/**
+ * Convert an axis angle to a quaternion
+ *
+ * @param axis The axis
+ * @param angle The angle
+ * 
+ * @return The quaternion
+ */
+void Quaternion::fromAxisAngle(Vector axis, float angle) {
+    float sinAngle = sin(angle / 2);
+
+    this->x = axis.getX() * sinAngle;
+    this->y = axis.getY() * sinAngle;
+    this->z = axis.getZ() * sinAngle;
+    this->w = cos(angle / 2);
+}

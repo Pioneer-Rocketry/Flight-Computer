@@ -53,7 +53,10 @@ void Baro_MS5607::get_data() {
 
     P = (((D1 * SENS) >> 21) - OFF) >> 15;
 
+    if (this->data->startingAltitude == 0)
+        this->data->startingAltitude = this->data->MS5607_Altitude;
+
     this->data->MS5607_Temperature = TEMP / 100.0f;
     this->data->MS5607_Pressure = P / 100.0f;
-    this->data->MS5607_Altitude = (1-pow(this->data->MS5607_Pressure/1013.25, 0.190284))*145366.45;
+    this->data->MS5607_Altitude = (1-pow(this->data->MS5607_Pressure/1013.25, 0.190284))*145366.45 * FT_TO_M;
 }

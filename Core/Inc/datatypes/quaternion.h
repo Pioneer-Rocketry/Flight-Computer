@@ -42,6 +42,7 @@ public:
 
     Vector toEuler();
     void fromEuler(Vector euler);
+    void fromAxisAngle(Vector axis, float angle);
 
     float x;
     float y;

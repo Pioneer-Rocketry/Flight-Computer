@@ -125,11 +125,11 @@ bool IMU_LSM6DSV320::begin() {
 
     // Set the according Gyro Sensitivity
     switch (gyroRange) {
-        case GYRO_RANGE_250DPS:  this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_250DPS  * RADIANS_TO_DEGREES; break;
-        case GYRO_RANGE_500DPS:  this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_500DPS  * RADIANS_TO_DEGREES; break;
-        case GYRO_RANGE_1000DPS: this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_1000DPS * RADIANS_TO_DEGREES; break;
-        case GYRO_RANGE_2000DPS: this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_2000DPS * RADIANS_TO_DEGREES; break;
-        case GYRO_RANGE_4000DPS: this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_4000DPS * RADIANS_TO_DEGREES; break;
+        case GYRO_RANGE_250DPS:  this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_250DPS; break;
+        case GYRO_RANGE_500DPS:  this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_500DPS; break;
+        case GYRO_RANGE_1000DPS: this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_1000DPS; break;
+        case GYRO_RANGE_2000DPS: this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_2000DPS; break;
+        case GYRO_RANGE_4000DPS: this->gyroSensitivity = LSM6DSV320_GYRO_SENSITIVITY_4000DPS; break;
         default: return false;
     }
 

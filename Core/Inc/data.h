@@ -9,6 +9,12 @@
 #include "datatypes/vector.h"
 #include "datatypes/quaternion.h"
 
+#define GRAVITY     9.80665f
+#define PI          3.141592653589793
+#define RAD_TO_DEG  180/PI
+#define DEG_TO_RAD  PI/180
+#define FT_TO_M     0.3048
+
 class Data {
 private:
     char buffer[512];
@@ -31,8 +37,12 @@ public:
     float MS5607_Temperature; // MS560702BA03 Temperature measurements in hPa
     float MS5607_Altitude;    // MS560702BA03 altitude in m using https://www.weather.gov/media/epz/wxcalc/pressureAltitude.pdf to convert
 
+    float startingAltitude;
+
     // State Estimation
     Quaternion orientation; // Quaternion representing of orientation
+    Vector eular;
+
     Vector position; // Vector representing of position
     Vector velocity; // Vector representing of velocity
 

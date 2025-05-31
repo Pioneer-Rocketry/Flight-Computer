@@ -8,16 +8,17 @@
 
 #include "micros.h"
 
+#define PI 3.141592653589793
+#define RAD_TO_DEG 180/PI
+#define DEG_TO_RAD PI/180
+
 class Orientation_Filter : public Filter {
 private:
-    float gyroMagnitude;
+    float norm;
+
+    uint32_t last_update;
 
     Quaternion deltaQuaternion;
-    Vector angularVelocity;
-    float theta;
-
-    float oldGyroTime;
-    float newGyroTime;
 
 public:
     Orientation_Filter(Data *data);

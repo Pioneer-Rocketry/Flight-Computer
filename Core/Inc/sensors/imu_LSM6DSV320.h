@@ -156,7 +156,7 @@ private:
         LOW_G_RANGE_4G    = 0b01,
         LOW_G_RANGE_8G    = 0b10,
         LOW_G_RANGE_16G   = 0b11
-    } lowGRange = LOW_G_RANGE_16G;
+    } lowGRange = LOW_G_RANGE_2G;
 
     enum LSM6DSV320_LOW_G_OP_MODE { // Defined in datasheet on page 65, table 53.
         LOW_G_HIGH_PERFORMANCE  = 0b000, // High-performance mode (default)

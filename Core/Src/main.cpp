@@ -30,8 +30,8 @@
 #include "sensors/mag_MMC5603NJ.h"
 #include "sensors/baro_MS5607.h"
 
-#include "filters/orientation_filter.h"
-#include "filters/position_kalman_filter.h"
+// #include "filters/orientation_filter.h"
+// #include "filters/position_kalman_filter.h"
 
 #include "micros.h"
 
@@ -69,8 +69,8 @@ Data data(&huart2);
 
 State_Machine state_machine(&data);
 
-Orientation_Filter orientation_filter(&data);
-Position_Kalman_Filter position_kalman_filter(&data);
+// Orientation_Filter orientation_filter(&data);
+// Position_Kalman_Filter position_kalman_filter(&data);
 
 // Sensors
 IMU_LSM6DSV320 imu(&hi2c1, &data);
@@ -151,7 +151,7 @@ int main(void)
     }
 
     // Check to see if the barometer sensor is working
-   if (!baro.begin()) {
+    if (!baro.begin()) {
         char buffer[40] = "Failed to connect to Barometer Sensor\r\n";
 
         while (1) {
@@ -176,8 +176,8 @@ int main(void)
     state_machine.reset();
 
     // Initialize the filters
-    orientation_filter.init();
-    position_kalman_filter.init();
+    // orientation_filter.init();
+    // position_kalman_filter.init();
 
     /* USER CODE END 2 */
 
@@ -202,8 +202,8 @@ int main(void)
             baro.get_data();
 
             // Update state machine
-            orientation_filter.compute();
-            position_kalman_filter.compute();
+            // orientation_filter.compute();
+            // position_kalman_filter.compute();
 
             // Write data to flash
             // flash_w25q128.write_data();

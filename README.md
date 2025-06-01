@@ -25,36 +25,21 @@
 ### State Machine/Flow
 The software will be a (mostly) linear state machine.
 ```mermaid
-stateDiagram-v2
-    [*] --> PreLaunch
+---
+config:
+  theme: redux
+---
+flowchart TD
+    A(["Initializing"]) --> B["System Checks"]
+    B --> C["Localizing"]
+    C --> D["Armed"]
+    D --> E["Accelerating"]
+    E --> F["Ascending"] & J["Landed"]
+    F --> G["Descending"] & E
+    G --> H["Drouge"] & I["Main"] & J
+    H --> I & J
+    I --> J
 
-    state PreLaunch {
-        direction LR
-        [*] --> Booting
-        Booting --> Checks
-        Checks --> Localizing
-        Localizing --> Ready
-    }
-
-    PreLaunch --> Flight : Armed
-
-    state Flight {
-        direction LR
-        [*] --> Accelerating
-        Accelerating --> Ascending
-        Accelerating --> Landed
-        Ascending --> Accelerating : Multistage Rocket
-        Ascending --> Descending
-        Descending --> Landed
-        Descending --> Drouge
-        Drouge --> Landed
-        Drouge --> Main
-        Main  --> Landed
-    }
-
-    state Landed {
-        [*]
-    }
 ```
 
 The state machine can fo from Coasting up to Accelerating if its a multistage rocket. It can also skip states incase of any failures.

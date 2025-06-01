@@ -1,7 +1,7 @@
 #include "sensors/imu_LSM6DSV320.h"
 
 IMU_LSM6DSV320::IMU_LSM6DSV320(I2C_HandleTypeDef *i2cHandler, Data *data)
-    : Sensor(i2cHandler, LSM6DSV320_ADDRESS, data) {
+    : Sensor(i2cHandler, LSM6DSV320_ADDRESS, data, "LSM6DSV320") {
 }
 
 bool IMU_LSM6DSV320::begin() {

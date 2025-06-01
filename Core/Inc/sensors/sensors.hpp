@@ -2,6 +2,8 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 
+#include <string.h> /* Needed for memcpy */
+
 #include "stm32f4xx_hal.h" /* Needed for i2c */
 
 #include "data.h"
@@ -18,6 +20,8 @@ private:
     I2C_HandleTypeDef *i2cHandler;
 
     uint8_t address;
+
+    char name[32];
 
 protected:
     Data *data;
@@ -44,6 +48,18 @@ protected:
         return HAL_I2C_Mem_Write(this->i2cHandler, this->address, reg, I2C_MEMADD_SIZE_8BIT, data, len, HAL_MAX_DELAY);
     }
 
+public:
+    virtual bool begin() = 0;
+    virtual void get_data() = 0;
+
+    Sensor(I2C_HandleTypeDef *i2cHandler, uint8_t address, Data *data, char name[32]) {
+        this->i2cHandler = i2cHandler;
+        this->address = address;
+        this->data = data;
+
+        memcpy(this->name, name, sizeof(this->name));
+    }
+
     /**
      * Get the address of the sensor
      *
@@ -53,14 +69,13 @@ protected:
         return this->address;
     }
 
-public:
-    virtual bool begin() = 0;
-    virtual void get_data() = 0;
-
-    Sensor(I2C_HandleTypeDef *i2cHandler, uint8_t address, Data *data) {
-        this->i2cHandler = i2cHandler;
-        this->address = address;
-        this->data = data;
+    /**
+     * Get the name of the sensor
+     *
+     * @return The name of the sensor
+     */
+    char* get_name() {
+        return this->name;
     }
 };
 

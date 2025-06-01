@@ -47,6 +47,7 @@ public:
     Vector velocity; // Vector representing of velocity
 
     uint32_t timestamp;
+    float dt;
     float freq;
     // int timestamp;
 

@@ -132,7 +132,7 @@ int main(void)
 	// 	char buffer[34] = "Failed to connect to Flash Chip\r\n";
 
     //     while (1) {
-	// 		// IMU Sensor failed to start
+	// 		// Flash failed to start
 	// 		HAL_UART_Transmit(&huart2, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
 	// 		HAL_Delay(1000);
 	// 	}
@@ -191,17 +191,17 @@ int main(void)
 
         if (micros() - loop_start >= LOOP_TIME) {
 
-            data.freq = 1000000 / (micros() - loop_start);
+            data.dt = (micros() - loop_start) / 1000000.0;
+            data.freq = 1 / data.dt;
 
             loop_start = micros();
 
             // Read data from sensors
             imu.get_data();
             // mag.get_data();
-
             baro.get_data();
 
-            // Update state machine
+            // Update filters
             // orientation_filter.compute();
             // position_kalman_filter.compute();
 

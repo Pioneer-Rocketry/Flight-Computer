@@ -12,7 +12,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         container:
-        image: ghcr.io/pioneer-rocketry/flight-computer-v3:main
+            image: ghcr.io/pioneer-rocketry/flight-computer-v3:main
         credentials:
             username: ${{ github.actor }}
             password: ${{ secrets.GITHUB_TOKEN }}

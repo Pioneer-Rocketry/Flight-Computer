@@ -9,7 +9,7 @@ on:
 
 
 jobs:
-    build:
+    build_CM4:
         runs-on: ubuntu-latest
         container:
         image: ghcr.io/pioneer-rocketry/flight-computer-v3:main
@@ -19,7 +19,7 @@ jobs:
 
         steps:
         - name: Check out code
-            uses: actions/checkout@v4
+          uses: actions/checkout@v4
 
         - name: Build
-            run: make -C .
+          run: make -C .

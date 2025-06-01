@@ -9,7 +9,7 @@ on:
 
 
 jobs:
-    build_CM4:
+    build:
         runs-on: ubuntu-latest
         container:
         image: ghcr.io/pioneer-rocketry/flight-computer-v3:main

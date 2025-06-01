@@ -34,12 +34,16 @@ flowchart TD
     B --> C["Localizing"]
     C --> D["Armed"]
     D --> E["Accelerating"]
-    E --> F["Ascending"] & J["Landed"]
-    F --> G["Descending"] & E
-    G --> H["Drouge"] & I["Main"] & J
-    H --> I & J
+    E --> F["Ascending"]
+    E --> J["Landed"]
+    F --> G["Descending"]
+    F --> |Multistage|E
+    G --> H["Drouge"]
+    G --> I["Main"]
+    G --> J
+    H --> I
+    H --> J
     I --> J
-
 ```
 
 The state machine can fo from Coasting up to Accelerating if its a multistage rocket. It can also skip states incase of any failures.

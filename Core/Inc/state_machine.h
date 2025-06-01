@@ -1,35 +1,51 @@
 #ifndef STATEMACHINE_H
 #define STATEMACHINE_H
 
-#include <cstdint>
+#include <stdio.h> // for snprintf
 
 #include "data.h"
+#include "sensors/sensors.hpp"
 
 enum State {
-    INITIALIZING,
-    SYSTEM_CHECKS,
-    LOCALIZING,
-    READY_FOR_FLIGHT,
-    ACCELERATING,
-    ASCENDING,
-    DESCENDING,
-    UNDER_DROUGE,
-    UNDER_MAIN,
-    LANDED
+    INITIALIZING        = 0,
+    SYSTEM_CHECKS       = 1,
+    LOCALIZING          = 2,
+    READY_FOR_FLIGHT    = 3,
+    ACCELERATING        = 4,
+    ASCENDING           = 5,
+    DESCENDING          = 6,
+    UNDER_DROUGE        = 7,
+    UNDER_MAIN          = 8,
+    LANDED              = 9
 };
+
+#define NUM_SENSORS 2
 
 class State_Machine {
 private:
     State state = INITIALIZING;
+    int currentState;
 
     uint8_t stages;
     uint8_t stagesRemaining;
 
     Data *data;
+    Sensor* sensors[NUM_SENSORS];
+
+    char state_names[10][17] = {
+        "INITIALIZING",
+        "SYSTEM_CHECKS",
+        "LOCALIZING",
+        "READY_FOR_FLIGHT",
+        "ACCELERATING",
+        "ASCENDING",
+        "DESCENDING",
+        "UNDER_DROUGE",
+        "UNDER_MAIN",
+        "LANDED"
+    };
 
     // State Switch Conditions
-    void switch_to_system_checks();
-    void switch_to_localizing();
     void switch_to_ready_for_flight();
     void switch_to_accelerating();
     void switch_to_ascending();
@@ -38,13 +54,22 @@ private:
     void switch_to_under_main();
     void switch_to_landed();
 
-public:
-    State_Machine(Data *data);
+    void switch_to_next_state();
 
+    char buffer[64];
+    void log_state();
+    void clear_buffer();
+
+public:
+    State_Machine(Data *data, Sensor* sensors[]);
+
+    void system_checks();
+    void localize();
+    void arm();
+
+    void start();
     State update();
     State get_state();
-
-    void reset();
 };
 
 #endif

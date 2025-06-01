@@ -63,20 +63,20 @@ UART_HandleTypeDef huart2;
 #define LOOP_TIME (1000000 / LOOP_FREQ) // us
 uint32_t loop_start = micros();
 
-
 Data data(&huart2);
 // Flash_W25Q128 flash_w25q128(&hspi2, &data);
-
-State_Machine state_machine(&data);
-
-// Orientation_Filter orientation_filter(&data);
-// Position_Kalman_Filter position_kalman_filter(&data);
+char buffer[64];
 
 // Sensors
 IMU_LSM6DSV320 imu(&hi2c1, &data);
 Mag_MMC5603NJ  mag(&hi2c1, &data);
-// Baro_MS5607    baro(&hi2c1, &data);
-Baro_MS5607 baro(&hi2c1, &data);
+Baro_MS5607    baro(&hi2c1, &data);
+Sensor* sensors[NUM_SENSORS] = {&imu, /*&mag,*/ &baro};
+
+// Orientation_Filter orientation_filter(&data);
+// Position_Kalman_Filter position_kalman_filter(&data);
+
+State_Machine state_machine(&data, sensors);
 
 /* USER CODE END PV */
 
@@ -127,57 +127,18 @@ int main(void)
     MX_USART2_UART_Init();
     /* USER CODE BEGIN 2 */
 
-    // Check to see if the flash chip is working
-    // if (!flash_w25q128.begin()) {
-	// 	char buffer[34] = "Failed to connect to Flash Chip\r\n";
-
-    //     while (1) {
-	// 		// Flash failed to start
-	// 		HAL_UART_Transmit(&huart2, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
-	// 		HAL_Delay(1000);
-	// 	}
-    // }
-
-
-    // Check to see if the IMU sensor is working
-    if (!imu.begin()) {
-		char buffer[34] = "Failed to connect to IMU Sensor\r\n";
-
-        while (1) {
-			// IMU Sensor failed to start
-			HAL_UART_Transmit(&huart2, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
-			HAL_Delay(1000);
-        }
-    }
-
-    // Check to see if the barometer sensor is working
-    if (!baro.begin()) {
-        char buffer[40] = "Failed to connect to Barometer Sensor\r\n";
-
-        while (1) {
-            // barometer Sensor failed to start
-            HAL_UART_Transmit(&huart2, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
-            HAL_Delay(1000);
-        }
-    }
-
-    // Check to see if the magnetometer sensor is working
-    // if (!mag.begin()) {
-	// 	char buffer[43] = "Failed to connect to Magnetometer Sensor\r\n";
-
-    //     while (1) {
-	// 		// magnetometer Sensor failed to start
-	// 		HAL_UART_Transmit(&huart2, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
-	// 		HAL_Delay(1000);
-	// 	}
-    // }
-
     // Initialize the state machine
-    state_machine.reset();
+    state_machine.start();
+    state_machine.system_checks();
+
+    snprintf(buffer, sizeof(buffer), "Finished System Checks\r\n");
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
 
     // Initialize the filters
     // orientation_filter.init();
     // position_kalman_filter.init();
+
+    state_machine.localize();
 
     /* USER CODE END 2 */
 

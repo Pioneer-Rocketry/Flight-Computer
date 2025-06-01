@@ -1,19 +1,17 @@
 #include "state_machine.h"
 
-State_Machine::State_Machine(Data *data) {
+State_Machine::State_Machine(Data *data, Sensor* sensors[]) {
     this->data = data;
+
+    for (int i = 0; i < NUM_SENSORS; i++) {
+        this->sensors[i] = sensors[i];
+    }
 }
 
 State State_Machine::update() {
     // Run through all the the switch conditions
 
     switch (this->state) {
-        case INITIALIZING:
-            switch_to_system_checks();
-            break;
-        case SYSTEM_CHECKS:
-            switch_to_localizing();
-            break;
         case LOCALIZING:
             switch_to_ready_for_flight();
             break;
@@ -42,6 +40,9 @@ State State_Machine::update() {
             break;
         case LANDED:
             break;
+
+        default: // Log
+            break;
     }
 
     return this->state;
@@ -51,14 +52,10 @@ State State_Machine::get_state() {
     return this->state;
 }
 
-void State_Machine::reset() {
-    this->state = INITIALIZING;
-}
+void State_Machine::start() {
+    log_state();
 
-void State_Machine::switch_to_system_checks() {
-}
-
-void State_Machine::switch_to_localizing() {
+    switch_to_next_state();
 }
 
 void State_Machine::switch_to_ready_for_flight() {
@@ -80,4 +77,76 @@ void State_Machine::switch_to_under_main() {
 }
 
 void State_Machine::switch_to_landed() {
+}
+
+void State_Machine::switch_to_next_state() {
+    switch (state) {
+        case INITIALIZING:      state = SYSTEM_CHECKS;      break;
+        case SYSTEM_CHECKS:     state = LOCALIZING;         break;
+        case LOCALIZING:        state = READY_FOR_FLIGHT;   break;
+        case READY_FOR_FLIGHT:  state = ACCELERATING;       break;
+        case ACCELERATING:      state = ASCENDING;          break;
+        case ASCENDING:         state = DESCENDING;         break;
+        case DESCENDING:        state = UNDER_DROUGE;       break;
+        case UNDER_DROUGE:      state = UNDER_MAIN;         break;
+        case UNDER_MAIN:        state = LANDED;             break;
+        case LANDED:                                        break;
+        default:                state = INITIALIZING;       break;
+    }
+
+    currentState = state;
+    log_state();
+}
+
+void State_Machine::system_checks() {
+    if (state != SYSTEM_CHECKS) {
+        clear_buffer();
+        snprintf(buffer, sizeof(buffer), "Initializing %s\r\n");
+
+        while (1) {
+            // Flash failed to start
+            HAL_UART_Transmit(data->uart, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
+            HAL_Delay(1000);
+        }
+    }
+    log_state();
+
+
+    // Check to see if all sensors are workin
+    for (int i = 0; i < NUM_SENSORS; i++) {
+
+        clear_buffer();
+        snprintf(buffer, sizeof(buffer), "Initializing %s Sensor\r\n", sensors[i]->get_name());
+        HAL_UART_Transmit(data->uart, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
+
+        if (!sensors[i]->begin()) {
+            clear_buffer();
+            int len = snprintf(buffer, sizeof(buffer), "Failed to start %s\r\n", sensors[i]->get_name());
+
+            while (1) {
+                // Sensor failed to start
+                HAL_UART_Transmit(data->uart, (uint8_t*)buffer, len, HAL_MAX_DELAY);
+                HAL_Delay(1000);
+            }
+        }
+    }
+
+    switch_to_next_state();
+}
+
+void State_Machine::localize() {
+    // Run kalman filter until it has an optimal position
+
+    switch_to_next_state();
+}
+
+void State_Machine::clear_buffer() {
+    for (int i=0; i < sizeof(buffer); i++) buffer[i] = 0;
+}
+
+void State_Machine::log_state() {
+    clear_buffer();
+
+    snprintf(buffer, sizeof(buffer), "Current State: %s\r\n", this->state_names[this->state]);
+    HAL_UART_Transmit(data->uart, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
 }

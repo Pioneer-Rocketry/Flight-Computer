@@ -94,7 +94,7 @@ void State_Machine::switch_to_next_state() {
         default:                state = INITIALIZING;       break;
     }
 
-    currentState = state;
+    data->state = state;
     log_state();
 }
 

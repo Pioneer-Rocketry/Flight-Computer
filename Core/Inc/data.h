@@ -46,11 +46,15 @@ public:
     Vector position; // Vector representing of position
     Vector velocity; // Vector representing of velocity
 
+    // Time
     uint32_t timestamp;
     float dt;
     float freq;
     // int timestamp;
 
+    uint8_t state;
+
+    // UART
     UART_HandleTypeDef* uart;
 };
 

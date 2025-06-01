@@ -39,7 +39,6 @@
                     "${workspaceRoot}/Drivers/STM32F4xx_HAL_Driver/Inc",
                     "${workspaceRoot}/Drivers/CMSIS/Include",
                     "${workspaceRoot}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
-                    "${workspaceRoot}/Common/Inc",
                     "/usr/lib/arm-none-eabi/include",
                     "/usr/lib/arm-none-eabi/include/c++/10.3.1",
                     "/lib/gcc/arm-none-eabi/10.3.1/include",

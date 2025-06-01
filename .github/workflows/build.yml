@@ -13,13 +13,13 @@ jobs:
         runs-on: ubuntu-latest
         container:
             image: ghcr.io/pioneer-rocketry/flight-computer-v3:main
-        credentials:
-            username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}
+            credentials:
+                username: ${{ github.actor }}
+                password: ${{ secrets.GITHUB_TOKEN }}
 
         steps:
-        - name: Check out code
-          uses: actions/checkout@v4
+            - name: Check out code
+              uses: actions/checkout@v4
 
-        - name: Build
-          run: make -C .
+            - name: Build
+              run: make -C .

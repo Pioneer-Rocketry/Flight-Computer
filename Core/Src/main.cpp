@@ -78,9 +78,9 @@ Baro_MS5607    baro(&hi2c1, &data);
 I2C_Device* i2c_devices[NUM_I2C_DEVICES] = {&imu, /*&mag,*/ &baro};
 
 // SPI Devices
-Radio_SX1262  radio(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);
-Flash_W25Q128 flash(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);
-SPI_Device* spi_devices[NUM_SPI_DEVICES] = {&radio, &flash};
+// Radio_SX1262  radio(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);
+// Flash_W25Q128 flash(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);
+SPI_Device* spi_devices[NUM_SPI_DEVICES]; // = {&radio, &flash};
 
 // Filters
 // Orientation_Filter orientation_filter(&data);

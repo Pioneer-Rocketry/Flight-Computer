@@ -21,7 +21,7 @@ enum State {
 };
 
 #define NUM_I2C_DEVICES 2
-#define NUM_SPI_DEVICES 2
+#define NUM_SPI_DEVICES 0
 
 class State_Machine {
 private:

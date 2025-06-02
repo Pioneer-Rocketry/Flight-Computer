@@ -5,6 +5,7 @@
 
 #include "data.h"
 #include "I2C_Devices/I2C_Device.hpp"
+#include "SPI_Devices/SPI_Device.hpp"
 
 enum State {
     INITIALIZING        = 0,
@@ -20,6 +21,7 @@ enum State {
 };
 
 #define NUM_I2C_DEVICES 2
+#define NUM_SPI_DEVICES 2
 
 class State_Machine {
 private:
@@ -31,6 +33,7 @@ private:
 
     Data *data;
     I2C_Device* i2c_devices[NUM_I2C_DEVICES];
+    SPI_Device* spi_devices[NUM_SPI_DEVICES];
 
     char state_names[10][17] = {
         "INITIALIZING",
@@ -61,7 +64,7 @@ private:
     void clear_buffer();
 
 public:
-    State_Machine(Data *data, I2C_Device* i2c_devices[]);
+    State_Machine(Data *data, I2C_Device* i2c_devices[], SPI_Device* spi_devices[]);
 
     void system_checks();
     void localize();

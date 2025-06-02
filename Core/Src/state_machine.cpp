@@ -1,11 +1,10 @@
 #include "state_machine.h"
 
-State_Machine::State_Machine(Data *data, I2C_Device* i2c_devices[]) {
+State_Machine::State_Machine(Data *data, I2C_Device* i2c_devices[], SPI_Device* spi_devices[]) {
     this->data = data;
 
-    for (int i = 0; i < NUM_I2C_DEVICES; i++) {
-        this->i2c_devices[i] = i2c_devices[i];
-    }
+    for (int i = 0; i < NUM_I2C_DEVICES; i++) this->i2c_devices[i] = i2c_devices[i];
+    for (int i = 0; i < NUM_SPI_DEVICES; i++) this->spi_devices[i] = spi_devices[i];
 }
 
 State State_Machine::update() {
@@ -129,6 +128,14 @@ void State_Machine::system_checks() {
                 HAL_Delay(1000);
             }
         }
+    }
+
+    // Check to see if all SPI Devices are working
+    for (int i = 0; i < NUM_SPI_DEVICES; i++) {
+
+        clear_buffer();
+        snprintf(buffer, sizeof(buffer), "Initializing %s Sensor\r\n", spi_devices[i]->get_name());
+        HAL_UART_Transmit(data->uart, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
     }
 
     switch_to_next_state();

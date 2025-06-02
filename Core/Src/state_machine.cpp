@@ -115,7 +115,7 @@ void State_Machine::system_checks() {
     for (int i = 0; i < NUM_I2C_DEVICES; i++) {
 
         clear_buffer();
-        snprintf(buffer, sizeof(buffer), "Initializing %s Sensor\r\n", i2c_devices[i]->get_name());
+        snprintf(buffer, sizeof(buffer), "Initializing %s I2C Device\r\n", i2c_devices[i]->get_name());
         HAL_UART_Transmit(data->uart, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
 
         if (!i2c_devices[i]->begin()) {
@@ -134,8 +134,19 @@ void State_Machine::system_checks() {
     for (int i = 0; i < NUM_SPI_DEVICES; i++) {
 
         clear_buffer();
-        snprintf(buffer, sizeof(buffer), "Initializing %s Sensor\r\n", spi_devices[i]->get_name());
+        snprintf(buffer, sizeof(buffer), "Initializing %s SPI Device\r\n", spi_devices[i]->get_name());
         HAL_UART_Transmit(data->uart, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
+
+        if (!spi_devices[i]->begin()) {
+            clear_buffer();
+            int len = snprintf(buffer, sizeof(buffer), "Failed to start %s\r\n", spi_devices[i]->get_name());
+
+            while (1) {
+                // SPI Device failed to start
+                HAL_UART_Transmit(data->uart, (uint8_t*)buffer, len, HAL_MAX_DELAY);
+                HAL_Delay(1000);
+            }
+        }
     }
 
     switch_to_next_state();

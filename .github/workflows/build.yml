@@ -2,6 +2,15 @@ name: Build
 
 on:
     push:
+        paths:
+            - "Core/**"
+            - "Drivers/**"
+            - "Makefile"
+            - "startup_stm32f446xx.s"
+            - "stm32f446retx_flash.ld"
+        paths-ignore::
+            - "**.md"
+            - "PCB/**"
         branches: [ main ]
     pull_request:
         branches: [ main ]

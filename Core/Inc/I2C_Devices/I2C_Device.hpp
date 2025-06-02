@@ -1,20 +1,18 @@
 
-#ifndef I2C_DEVICE_H
-#define I2C_DEVICE_H
+#ifndef I2C_DEVICE_HPP
+#define I2C_DEVICE_HPP
 
 #include <string.h> /* Needed for memcpy */
 
 #include "stm32f4xx_hal.h" /* Needed for i2c */
-
 #include "data.h"
 
 /**
  * I2C Device Abstraction Class
  *
- * The purpose of this class is to allow the sensors to be used in a generic way
- * Every sensor will inherit from this class
+ * The purpose of this class is to allow the i2c devices to be used in a generic way
+ * Every i2c device will inherit from this class
  */
-
 class I2C_Device {
 private:
     I2C_HandleTypeDef *i2cHandler;
@@ -79,4 +77,4 @@ public:
     }
 };
 
-#endif /* I2C_DEVICE_H */
+#endif /* I2C_DEVICE_HPP */

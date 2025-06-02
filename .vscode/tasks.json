@@ -19,14 +19,14 @@
             "label": "Upload",
             "group": "build",
             "type": "shell",
-            "command": [ "st-flash", "write", "build/Flight-Computer-v3.bin", "0x08000000" ],
+            "command": [ "st-flash", "write", "build/Flight-Computer.bin", "0x08000000" ],
             "detail": "Upload"
         },
         {
             "label": "Build and Upload",
             "group": "build",
             "type": "shell",
-            "command": [ "make", "-C", "." , "&&", "st-flash", "write", "build/Flight-Computer-v3.bin", "0x08000000" ],
+            "command": [ "make", "-C", "." , "&&", "st-flash", "write", "build/Flight-Computer.bin", "0x08000000" ],
             "detail": "Upload"
         }
     ]

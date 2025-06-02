@@ -24,6 +24,7 @@
 
 #include "data.h"
 #include "state_machine.h"
+
 #include "SPI_Devices/radio_SX1262.h"
 #include "SPI_Devices/flash_W25Q128.h"
 
@@ -59,7 +60,7 @@ I2C_HandleTypeDef hi2c1;
 SPI_HandleTypeDef hspi1;
 
 UART_HandleTypeDef huart1; // GPS
-UART_HandleTypeDef huart2; // Loggins
+UART_HandleTypeDef huart2; // Logging
 
 /* USER CODE BEGIN PV */
 

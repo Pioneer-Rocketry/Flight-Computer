@@ -1,6 +1,6 @@
 
-#ifndef SENSOR_H
-#define SENSOR_H
+#ifndef I2C_DEVICE_H
+#define I2C_DEVICE_H
 
 #include <string.h> /* Needed for memcpy */
 
@@ -9,13 +9,13 @@
 #include "data.h"
 
 /**
- * Sensor Abstraction Class
+ * I2C Device Abstraction Class
  *
  * The purpose of this class is to allow the sensors to be used in a generic way
  * Every sensor will inherit from this class
  */
 
-class Sensor {
+class I2C_Device {
 private:
     I2C_HandleTypeDef *i2cHandler;
 
@@ -52,7 +52,7 @@ public:
     virtual bool begin() = 0;
     virtual void get_data() = 0;
 
-    Sensor(I2C_HandleTypeDef *i2cHandler, uint8_t address, Data *data, char name[32]) {
+    I2C_Device(I2C_HandleTypeDef *i2cHandler, uint8_t address, Data *data, char name[32]) {
         this->i2cHandler = i2cHandler;
         this->address = address;
         this->data = data;
@@ -79,4 +79,4 @@ public:
     }
 };
 
-#endif
+#endif /* I2C_DEVICE_H */

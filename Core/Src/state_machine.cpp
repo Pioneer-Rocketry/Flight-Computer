@@ -1,10 +1,10 @@
 #include "state_machine.h"
 
-State_Machine::State_Machine(Data *data, Sensor* sensors[]) {
+State_Machine::State_Machine(Data *data, I2C_Device* i2c_devices[]) {
     this->data = data;
 
-    for (int i = 0; i < NUM_SENSORS; i++) {
-        this->sensors[i] = sensors[i];
+    for (int i = 0; i < NUM_I2C_DEVICES; i++) {
+        this->i2c_devices[i] = i2c_devices[i];
     }
 }
 
@@ -112,19 +112,19 @@ void State_Machine::system_checks() {
     log_state();
 
 
-    // Check to see if all sensors are workin
-    for (int i = 0; i < NUM_SENSORS; i++) {
+    // Check to see if all I2C Devices are working
+    for (int i = 0; i < NUM_I2C_DEVICES; i++) {
 
         clear_buffer();
-        snprintf(buffer, sizeof(buffer), "Initializing %s Sensor\r\n", sensors[i]->get_name());
+        snprintf(buffer, sizeof(buffer), "Initializing %s Sensor\r\n", i2c_devices[i]->get_name());
         HAL_UART_Transmit(data->uart, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
 
-        if (!sensors[i]->begin()) {
+        if (!i2c_devices[i]->begin()) {
             clear_buffer();
-            int len = snprintf(buffer, sizeof(buffer), "Failed to start %s\r\n", sensors[i]->get_name());
+            int len = snprintf(buffer, sizeof(buffer), "Failed to start %s\r\n", i2c_devices[i]->get_name());
 
             while (1) {
-                // Sensor failed to start
+                // I2C Device failed to start
                 HAL_UART_Transmit(data->uart, (uint8_t*)buffer, len, HAL_MAX_DELAY);
                 HAL_Delay(1000);
             }

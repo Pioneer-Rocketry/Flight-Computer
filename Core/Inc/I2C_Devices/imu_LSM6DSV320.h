@@ -1,10 +1,10 @@
 #ifndef IMU_LSM6DSV320_H
 #define IMU_LSM6DSV320_H
 
-#include "sensors/sensors.hpp"
+#include "I2C_Devices/I2C_Device.hpp"
 
 // Address
-#define LSM6DSV320_ADDRESS 0b1101010 << 1 // or 0b1101011 if 
+#define LSM6DSV320_ADDRESS 0b1101010 << 1 // or 0b1101011 if
 
 // Register Address
 #define LSM6DSV320_FUNC_CFG_ACCESS          0x01
@@ -147,7 +147,7 @@
 #define LSM6DSV320_GYRO_SENSITIVITY_4000DPS 0.14f       // +/- 4000dgps 140  mdps/LSB = 0.14    dps/LSB
 
 
-class IMU_LSM6DSV320 : public Sensor {
+class IMU_LSM6DSV320 : public I2C_Device {
 private:
 
     // Low G Settings

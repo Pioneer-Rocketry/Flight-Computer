@@ -1,7 +1,7 @@
 #ifndef MAG_MMC5603NJ_H
 #define MAG_MMC5603NJ_H
 
-#include "sensors/sensors.hpp"
+#include "I2C_Devices/I2C_Device.hpp"
 
 // Address
 #define MMC5603NJ_ADDRESS 0b1101010 // or 0b1101011 if
@@ -35,7 +35,7 @@
 // Sensitivity
 #define MMC5603NJ_SENSITIVITY 0.0625f // 0.0625 milliGauss/LSB
 
-class Mag_MMC5603NJ : public Sensor
+class Mag_MMC5603NJ : public I2C_Device
 {
 private:
 public:

@@ -26,9 +26,9 @@
 // #include "flash_W25Q128.h"
 #include "state_machine.h"
 
-#include "sensors/imu_LSM6DSV320.h"
-#include "sensors/mag_MMC5603NJ.h"
-#include "sensors/baro_MS5607.h"
+#include "I2C_Devices/imu_LSM6DSV320.h"
+#include "I2C_Devices/mag_MMC5603NJ.h"
+#include "I2C_Devices/baro_MS5607.h"
 
 // #include "filters/orientation_filter.h"
 // #include "filters/position_kalman_filter.h"
@@ -74,12 +74,12 @@ char buffer[64];
 IMU_LSM6DSV320 imu(&hi2c1, &data);
 Mag_MMC5603NJ  mag(&hi2c1, &data);
 Baro_MS5607    baro(&hi2c1, &data);
-Sensor* sensors[NUM_SENSORS] = {&imu, /*&mag,*/ &baro};
+I2C_Device* i2c_devices[NUM_I2C_DEVICES] = {&imu, /*&mag,*/ &baro};
 
 // Orientation_Filter orientation_filter(&data);
 // Position_Kalman_Filter position_kalman_filter(&data);
 
-State_Machine state_machine(&data, sensors);
+State_Machine state_machine(&data, i2c_devices);
 
 /* USER CODE END PV */
 

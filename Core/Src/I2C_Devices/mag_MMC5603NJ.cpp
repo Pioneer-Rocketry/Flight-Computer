@@ -1,7 +1,7 @@
-#include "sensors/mag_MMC5603NJ.h"
+#include "I2C_Devices/mag_MMC5603NJ.h"
 
 Mag_MMC5603NJ::Mag_MMC5603NJ(I2C_HandleTypeDef *i2cHandler, Data *data)
-    : Sensor(i2cHandler, MMC5603NJ_ADDRESS, data, "MMC5603NJ") {
+    : I2C_Device(i2cHandler, MMC5603NJ_ADDRESS, data, "MMC5603NJ") {
 }
 
 bool Mag_MMC5603NJ::begin() {

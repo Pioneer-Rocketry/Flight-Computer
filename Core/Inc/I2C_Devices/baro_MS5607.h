@@ -1,7 +1,7 @@
 #ifndef BARO_MS5607_H
 #define BARO_MS5607_H
 
-#include "sensors/sensors.hpp"
+#include "I2C_Devices/I2C_Device.hpp"
 
 // Address
 #define MS5607_ADDRESS 0b1110111 << 1 // or 0b1110111 if CSB is high
@@ -13,7 +13,7 @@
 #define MS5607_ADC_READ     0x00
 #define MS5607_PROM_READ    0xA0 // Base address for PROM read
 
-class Baro_MS5607 : public Sensor {
+class Baro_MS5607 : public I2C_Device {
 private:
     uint16_t C[7]; // Calibration coefficients
 

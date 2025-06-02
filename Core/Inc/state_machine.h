@@ -4,7 +4,7 @@
 #include <stdio.h> // for snprintf
 
 #include "data.h"
-#include "sensors/sensors.hpp"
+#include "I2C_Devices/I2C_Device.hpp"
 
 enum State {
     INITIALIZING        = 0,
@@ -19,7 +19,7 @@ enum State {
     LANDED              = 9
 };
 
-#define NUM_SENSORS 2
+#define NUM_I2C_DEVICES 2
 
 class State_Machine {
 private:
@@ -30,7 +30,7 @@ private:
     uint8_t stagesRemaining;
 
     Data *data;
-    Sensor* sensors[NUM_SENSORS];
+    I2C_Device* i2c_devices[NUM_I2C_DEVICES];
 
     char state_names[10][17] = {
         "INITIALIZING",
@@ -61,7 +61,7 @@ private:
     void clear_buffer();
 
 public:
-    State_Machine(Data *data, Sensor* sensors[]);
+    State_Machine(Data *data, I2C_Device* i2c_devices[]);
 
     void system_checks();
     void localize();

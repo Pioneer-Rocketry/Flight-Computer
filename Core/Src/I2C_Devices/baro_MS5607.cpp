@@ -1,8 +1,8 @@
-#include "sensors/baro_MS5607.h"
+#include "I2C_Devices/baro_MS5607.h"
 
 
 Baro_MS5607::Baro_MS5607(I2C_HandleTypeDef* i2cHandler, Data* data)
-    : Sensor(i2cHandler, MS5607_ADDRESS, data, "MS5607") {
+    : I2C_Device(i2cHandler, MS5607_ADDRESS, data, "MS5607") {
 }
 
 bool Baro_MS5607::begin() {

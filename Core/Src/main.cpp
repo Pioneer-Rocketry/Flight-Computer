@@ -27,10 +27,10 @@
 
 #include "SPI_Devices/radio_SX1262.h"
 #include "SPI_Devices/flash_W25Q128.h"
+#include "SPI_Devices/imu_LSM6DSV320.h"
 
-#include "I2C_Devices/imu_LSM6DSV320.h"
 #include "I2C_Devices/mag_MMC5603NJ.h"
-#include "I2C_Devices/baro_MS5607.h"
+// #include "I2C_Devices/baro_MS5607.h"
 
 // #include "filters/orientation_filter.h"
 // #include "filters/position_kalman_filter.h"
@@ -64,7 +64,7 @@ UART_HandleTypeDef huart2; // Logging
 
 /* USER CODE BEGIN PV */
 
-#define LOOP_FREQ 100 // Hz
+#define LOOP_FREQ 10 // Hz
 #define LOOP_TIME (1000000 / LOOP_FREQ) // us
 uint32_t loop_start = micros();
 
@@ -72,15 +72,16 @@ Data data(&huart2);
 char buffer[64];
 
 // I2C Devices
-IMU_LSM6DSV320 imu(&hi2c1, &data);
-Mag_MMC5603NJ  mag(&hi2c1, &data);
-Baro_MS5607    baro(&hi2c1, &data);
-I2C_Device* i2c_devices[NUM_I2C_DEVICES] = {&imu, /*&mag,*/ &baro};
+// IMU_LSM6DSV320 imu(&hi2c1, &data);
+// Mag_MMC5603NJ  mag(&hi2c1, &data);
+// Baro_MS5607    baro(&hi2c1, &data);
+I2C_Device* i2c_devices[NUM_I2C_DEVICES]; // = {&imu, /*&mag,*/ &baro};
 
 // SPI Devices
 // Radio_SX1262  radio(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);
 // Flash_W25Q128 flash(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);
-SPI_Device* spi_devices[NUM_SPI_DEVICES]; // = {&radio, &flash};
+IMU_LSM6DSV320 imu(&data, &hspi1, IMU_CS_GPIO_Port, IMU_CS_Pin);
+SPI_Device* spi_devices[NUM_SPI_DEVICES] = {&imu};
 
 // Filters
 // Orientation_Filter orientation_filter(&data);
@@ -172,9 +173,9 @@ int main(void)
             loop_start = micros();
 
             // Read data from sensors
-            imu.get_data();
+            imu.loop();
             // mag.get_data();
-            baro.get_data();
+            // baro.get_data();
 
             // Update filters
             // orientation_filter.compute();
@@ -299,7 +300,7 @@ static void MX_SPI1_Init(void)
     hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
     hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
     hspi1.Init.NSS = SPI_NSS_SOFT;
-    hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+    hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
     hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
     hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
     hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -398,20 +399,30 @@ static void MX_GPIO_Init(void)
     __HAL_RCC_GPIOB_CLK_ENABLE();
 
     /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(SPI_CS_GPIO_Port, SPI_CS_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOB, Baro_CS_Pin|SPI_CS_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : B1_Pin */
-  GPIO_InitStruct.Pin = B1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+    /*Configure GPIO pin Output Level */
+    HAL_GPIO_WritePin(IMU_CS_GPIO_Port, IMU_CS_Pin, GPIO_PIN_RESET);
+
+    /*Configure GPIO pin : B1_Pin */
+    GPIO_InitStruct.Pin = B1_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
+    HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : SPI_CS_Pin */
-  GPIO_InitStruct.Pin = SPI_CS_Pin;
+    /*Configure GPIO pins : Baro_CS_Pin SPI_CS_Pin */
+    GPIO_InitStruct.Pin = Baro_CS_Pin|SPI_CS_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(SPI_CS_GPIO_Port, &GPIO_InitStruct);
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /*Configure GPIO pin : IMU_CS_Pin */
+    GPIO_InitStruct.Pin = IMU_CS_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(IMU_CS_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

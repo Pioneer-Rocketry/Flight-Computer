@@ -3,6 +3,8 @@
 
 #include <string.h> /* Needed for memcpy */
 
+#include "micros.h"
+
 #include "stm32f4xx_hal.h" /* Needed for spi */
 #include "data.h"
 
@@ -14,15 +16,16 @@
  */
 class SPI_Device {
 private:
+    char name[32];
+
+protected:
     SPI_HandleTypeDef *spiHandler;
-    HAL_StatusTypeDef status;
 
     GPIO_TypeDef *chipSelectPort;
     uint16_t chipSelectPin;
 
-    char name[32];
+    HAL_StatusTypeDef status;
 
-protected:
     Data *data;
 
     /**
@@ -35,8 +38,8 @@ protected:
     HAL_StatusTypeDef read_SPI(uint8_t reg, uint8_t *data, uint8_t len=1) {
         HAL_GPIO_WritePin(this->chipSelectPort, this->chipSelectPin, GPIO_PIN_RESET);
 
-        status = HAL_SPI_Transmit(this->spiHandler, &reg, len, HAL_MAX_DELAY);
-        status = HAL_SPI_Receive(this->spiHandler, data, len, HAL_MAX_DELAY);
+        status = HAL_SPI_Transmit(this->spiHandler, &reg, len, 10);
+        status = HAL_SPI_Receive(this->spiHandler, data, len, 10);
 
         HAL_GPIO_WritePin(this->chipSelectPort, this->chipSelectPin, GPIO_PIN_SET);
 
@@ -51,9 +54,13 @@ protected:
      * @param len The number of bytes to write
      */
     HAL_StatusTypeDef write_SPI(uint8_t reg, uint8_t *data, uint8_t len=1) {
+        uint8_t buffer[len + 1];
+        buffer[0] = reg;
+        memcpy(buffer + 1, data, len);
+
         HAL_GPIO_WritePin(this->chipSelectPort, this->chipSelectPin, GPIO_PIN_RESET);
 
-        status = HAL_SPI_Transmit(this->spiHandler, &reg, len, HAL_MAX_DELAY);
+        status = HAL_SPI_Transmit(this->spiHandler, buffer, len+1, 10);
 
         HAL_GPIO_WritePin(this->chipSelectPort, this->chipSelectPin, GPIO_PIN_SET);
 

@@ -1,7 +1,7 @@
 #ifndef IMU_LSM6DSV320_H
 #define IMU_LSM6DSV320_H
 
-#include "I2C_Devices/I2C_Device.hpp"
+#include "SPI_Devices/SPI_Device.hpp"
 
 // Address
 #define LSM6DSV320_ADDRESS 0b1101010 << 1 // or 0b1101011 if
@@ -126,7 +126,8 @@
 #define LSM6DSV320_FIFO_DATA_OUT_Z_L        0x7D
 #define LSM6DSV320_FIFO_DATA_OUT_Z_H        0x7E
 
-#define LSM6DSV320_ID 0x73
+// #define LSM6DSV320_ID 0x73
+#define LSM6DSV320_ID 0x64
 
 // Sensitivity
 #define LSM6DSV320_LOW_G_SENSITIVITY_2G  0.000061f  // +/- 2g  0.061 mg/LSB = 0.000061 g/LSB
@@ -147,7 +148,7 @@
 #define LSM6DSV320_GYRO_SENSITIVITY_4000DPS 0.14f       // +/- 4000dgps 140  mdps/LSB = 0.14    dps/LSB
 
 
-class IMU_LSM6DSV320 : public I2C_Device {
+class IMU_LSM6DSV320 : public SPI_Device {
 private:
 
     // Low G Settings
@@ -244,11 +245,37 @@ private:
     float highGSensitivity;
     float gyroSensitivity;
 
+protected:
+
+    /**
+     * @brief Read from a register on the LSM6DSV320.
+     *
+     * @details This functions overrides the base read_SPI function to set bit 1 of the register on reads
+     *
+     * @param reg The register to read from
+     * @param data The data to be read
+     * @param len The number of bytes to read
+     *
+     * @return HAL_StatusTypeDef
+     */
+    HAL_StatusTypeDef read_SPI(uint8_t reg, uint8_t *data, uint8_t len=1) {
+        reg |= 0x80;
+
+        HAL_GPIO_WritePin(this->chipSelectPort, this->chipSelectPin, GPIO_PIN_RESET);
+
+        status = HAL_SPI_Transmit(this->spiHandler, &reg, len, 1);
+        status = HAL_SPI_Receive(this->spiHandler, data, len, 1);
+
+        HAL_GPIO_WritePin(this->chipSelectPort, this->chipSelectPin, GPIO_PIN_SET);
+
+        return status;
+    }
+
 public:
-    IMU_LSM6DSV320(I2C_HandleTypeDef *i2cHandler, Data *data);
+    IMU_LSM6DSV320(Data *data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin);
 
     bool begin() override;
-    void get_data() override;
+    void loop() override;
 };
 
 #endif /* IMU_LSM6DSV320_H */

@@ -13,7 +13,7 @@
             "group": "build",
             "type": "shell",
             "command": [ "make", "-C", ".", "clean", "&&", "make", "-C", "." ],
-            "detail": "Do a clean build of CM4"
+            "detail": "Do a clean build"
         },
         {
             "label": "Upload",

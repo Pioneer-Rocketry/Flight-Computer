@@ -28,9 +28,9 @@
 #include "SPI_Devices/radio_SX1262.h"
 #include "SPI_Devices/flash_W25Q128.h"
 #include "SPI_Devices/imu_LSM6DSV320.h"
+#include "SPI_Devices/baro_MS5607.h"
 
 #include "I2C_Devices/mag_MMC5603NJ.h"
-// #include "I2C_Devices/baro_MS5607.h"
 
 // #include "filters/orientation_filter.h"
 // #include "filters/position_kalman_filter.h"
@@ -80,8 +80,9 @@ I2C_Device* i2c_devices[NUM_I2C_DEVICES]; // = {&imu, /*&mag,*/ &baro};
 // SPI Devices
 // Radio_SX1262  radio(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);
 // Flash_W25Q128 flash(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);
-IMU_LSM6DSV320 imu(&data, &hspi1, IMU_CS_GPIO_Port, IMU_CS_Pin);
-SPI_Device* spi_devices[NUM_SPI_DEVICES] = {&imu};
+// IMU_LSM6DSV320 imu(&data, &hspi1, IMU_CS_GPIO_Port, IMU_CS_Pin);
+Baro_MS5607    baro(&data, &hspi1, GPIOB, Baro_CS_Pin);
+SPI_Device* spi_devices[NUM_SPI_DEVICES] {&baro}; //= {&imu, &baro};
 
 // Filters
 // Orientation_Filter orientation_filter(&data);
@@ -173,9 +174,9 @@ int main(void)
             loop_start = micros();
 
             // Read data from sensors
-            imu.loop();
+            // imu.loop();
             // mag.get_data();
-            // baro.get_data();
+            baro.loop();
 
             // Update filters
             // orientation_filter.compute();
@@ -208,7 +209,7 @@ void SystemClock_Config(void)
     /** Configure the main internal regulator output voltage
      */
     __HAL_RCC_PWR_CLK_ENABLE();
-    __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
+      __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
 
     /** Initializes the RCC Oscillators according to the specified parameters
      * in the RCC_OscInitTypeDef structure.

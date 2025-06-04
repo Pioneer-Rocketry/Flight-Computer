@@ -6,12 +6,8 @@ IMU_LSM6DSV320::IMU_LSM6DSV320(Data *data, SPI_HandleTypeDef *spi, GPIO_TypeDef 
 
 bool IMU_LSM6DSV320::begin() {
     uint8_t whoAmI = 0;
-    char buffer[32];
 
-    HAL_StatusTypeDef status = read_SPI(LSM6DSV320_WHO_AM_I, &whoAmI);
-    int len = snprintf(buffer, sizeof(buffer), "SPI Error: %d, whoAmI: %d\r\n", (int)status, whoAmI);
-    HAL_UART_Transmit(data->uart, (uint8_t*)buffer, len, HAL_MAX_DELAY);
-
+    read_SPI(LSM6DSV320_WHO_AM_I, &whoAmI);
     if (whoAmI != LSM6DSV320_ID) {
         return false;
     }

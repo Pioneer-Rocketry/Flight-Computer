@@ -258,15 +258,21 @@ protected:
      *
      * @return HAL_StatusTypeDef
      */
-    HAL_StatusTypeDef read_SPI(uint8_t reg, uint8_t *data, uint8_t len=1) {
+    HAL_StatusTypeDef read_SPI(uint8_t reg, uint8_t *data) {
         reg |= 0x80;
+        uint8_t tx[2] = {reg, 0x00};
+        uint8_t rx[2];
 
         HAL_GPIO_WritePin(this->chipSelectPort, this->chipSelectPin, GPIO_PIN_RESET);
 
-        status = HAL_SPI_Transmit(this->spiHandler, &reg, len, 1);
-        status = HAL_SPI_Receive(this->spiHandler, data, len, 1);
+        // status = HAL_SPI_Transmit(this->spiHandler, &reg, len, 10);
+        // status = HAL_SPI_Receive(this->spiHandler, data, len, 10);
+        // status = HAL_SPI_TransmitReceive(this->spiHandler, &reg, data, len+1, 10);
+        status = HAL_SPI_TransmitReceive(this->spiHandler, tx, rx, 2, HAL_MAX_DELAY);
 
         HAL_GPIO_WritePin(this->chipSelectPort, this->chipSelectPin, GPIO_PIN_SET);
+
+        *data = rx[1];
 
         return status;
     }

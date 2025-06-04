@@ -64,7 +64,7 @@ UART_HandleTypeDef huart2; // Logging
 
 /* USER CODE BEGIN PV */
 
-#define LOOP_FREQ 10 // Hz
+#define LOOP_FREQ 100 // Hz
 #define LOOP_TIME (1000000 / LOOP_FREQ) // us
 uint32_t loop_start = micros();
 
@@ -399,10 +399,10 @@ static void MX_GPIO_Init(void)
     __HAL_RCC_GPIOB_CLK_ENABLE();
 
     /*Configure GPIO pin Output Level */
-    HAL_GPIO_WritePin(GPIOB, Baro_CS_Pin|SPI_CS_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOB, Baro_CS_Pin|SPI_CS_Pin, GPIO_PIN_SET);
 
     /*Configure GPIO pin Output Level */
-    HAL_GPIO_WritePin(IMU_CS_GPIO_Port, IMU_CS_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(IMU_CS_GPIO_Port, IMU_CS_Pin, GPIO_PIN_SET);
 
     /*Configure GPIO pin : B1_Pin */
     GPIO_InitStruct.Pin = B1_Pin;

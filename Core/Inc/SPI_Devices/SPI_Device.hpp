@@ -36,10 +36,15 @@ protected:
      * @param len The number of bytes to read
      */
     HAL_StatusTypeDef read_SPI(uint8_t reg, uint8_t *data, uint8_t len=1) {
+
+        uint8_t tx[2] = {reg, 0x00};
+
         HAL_GPIO_WritePin(this->chipSelectPort, this->chipSelectPin, GPIO_PIN_RESET);
 
-        status = HAL_SPI_Transmit(this->spiHandler, &reg, len, 10);
-        status = HAL_SPI_Receive(this->spiHandler, data, len, 10);
+        // status = HAL_SPI_Transmit(this->spiHandler, &reg, len, 10);
+        // status = HAL_SPI_Receive(this->spiHandler, data, len, 10);
+        // status = HAL_SPI_TransmitReceive(this->spiHandler, &reg, data, len+1, 10);
+        status = HAL_SPI_TransmitReceive(this->spiHandler, tx, data, len+1, 10);
 
         HAL_GPIO_WritePin(this->chipSelectPort, this->chipSelectPin, GPIO_PIN_SET);
 

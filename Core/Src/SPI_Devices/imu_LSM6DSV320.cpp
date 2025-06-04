@@ -5,13 +5,12 @@ IMU_LSM6DSV320::IMU_LSM6DSV320(Data *data, SPI_HandleTypeDef *spi, GPIO_TypeDef 
 }
 
 bool IMU_LSM6DSV320::begin() {
-    uint8_t whoAmI;
+    uint8_t whoAmI = 0;
+    char buffer[32];
 
     HAL_StatusTypeDef status = read_SPI(LSM6DSV320_WHO_AM_I, &whoAmI);
-    char buffer[32];
     int len = snprintf(buffer, sizeof(buffer), "SPI Error: %d, whoAmI: %d\r\n", (int)status, whoAmI);
     HAL_UART_Transmit(data->uart, (uint8_t*)buffer, len, HAL_MAX_DELAY);
-
 
     if (whoAmI != LSM6DSV320_ID) {
         return false;
@@ -19,20 +18,43 @@ bool IMU_LSM6DSV320::begin() {
 
     /* Sensor Configuration */
     uint8_t config = 0;
+    uint8_t out[2] = {0,0};
+
+    // IF_CFG page 58, table 32
+    config  = 0;
+    config |= 0 << 7; // SDA_PU_EN disconnects the SDA pullup (default)
+    config |= 0 << 6; // SHUB_PU_EN Disables I2C plus pullups (default)
+    config |= 0 << 5; // ASF_CTRL turns off antispike filter (default)
+    config |= 0 << 4; // H_LACTIVE sets interrupts to active high (default)
+    config |= 0 << 3; // PP_OD sets interrupts to push-pull (default)
+    config |= 0 << 2; // SIM sets the SPI interface more to 4 wire (default)
+    config |= 0 << 1; // Reserved
+    config |= 0 << 0; // I2C_I3C_DISABLE disables I2C and I3C interface (default)
+    write_SPI(LSM6DSV320_IF_CFG, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_IF_CFG, out);
+
+    HAL_Delay(1);
 
     // CTRL1 page 65, table 52
     config  = 0;
     config |= this->lowGOPMode << 4; // OP_MODE_XL
     config |= this->lowGODR    << 0; // ODR_XL
     write_SPI(LSM6DSV320_CTRL1, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_CTRL1, out);
 
-    read_SPI(LSM6DSV320_CTRL1, &config);
+    HAL_Delay(1);
 
     // CTRL2 page 66, table 55
     config  = 0;
     config |= this->gyroOPMode << 4; // OP_MODE_G
     config |= this->gyroODR    << 0; // ODR_G
     write_SPI(LSM6DSV320_CTRL2, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_CTRL2, out);
+
+    HAL_Delay(1);
 
     // CTRL3 page 67, table 58
     config  = 0;
@@ -41,8 +63,10 @@ bool IMU_LSM6DSV320::begin() {
     config |= 0b1 << 2; // IF_INC set to
     config |= 0b0 << 0; // SW_RESET set to normal mode
     write_SPI(LSM6DSV320_CTRL3, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_CTRL3, out);
 
-    HAL_Delay(10);
+    HAL_Delay(1);
 
     // CTRL4 page 68, table 60
     config  = 0;
@@ -52,6 +76,10 @@ bool IMU_LSM6DSV320::begin() {
     config |= 0b0 << 1; // DRDY_PULSED set data-ready latched mode
     config |= 0b0 << 0; // INT2_IN_LH set embedded functions active low
     write_SPI(LSM6DSV320_CTRL4, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_CTRL4, out);
+
+    HAL_Delay(1);
 
     // CTRL5 page 69, table 62
     config  = 0;
@@ -59,12 +87,20 @@ bool IMU_LSM6DSV320::begin() {
     config |= 0b00 << 2; // BUS_ACT_SEC sets the bus available time selection for IBT to 50 us (default)
     config |= 0b0  << 0; // INT_EN_SPI disables INT pin when I3C is enabled (default)
     write_SPI(LSM6DSV320_CTRL5, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_CTRL5, out);
+
+    HAL_Delay(1);
 
     // CTRL6 page 69, table 64
     config  = 0;
     config |= 0b000           << 4; // LPF1_G_BW
     config |= this->gyroRange << 0; // FS_G
     write_SPI(LSM6DSV320_CTRL6, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_CTRL6, out);
+
+    HAL_Delay(1);
 
     // CTRL7 page 70, table 67
     config  = 0;
@@ -72,12 +108,20 @@ bool IMU_LSM6DSV320::begin() {
     config |= 0b0 << 6; // INT2_DRDY_XL disables high-g data-ready interrupt on INT2 pin (default)
     config |= 0b0 << 0; // LPF1_G_EN disables low-pass filter for gyroscope
     write_SPI(LSM6DSV320_CTRL7, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_CTRL7, out);
+
+    HAL_Delay(1);
 
     // CTRL8 page 71, table 69
     config  = 0;
     config |= 0b000           << 5; // HP_LPF2_XL_BW
     config |= this->lowGRange << 0; // FS_XL
     write_SPI(LSM6DSV320_CTRL8, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_CTRL8, out);
+
+    HAL_Delay(1);
 
     // CTRL9 page 72, table 72
     config  = 0;
@@ -88,6 +132,10 @@ bool IMU_LSM6DSV320::begin() {
     config |= 0b0 << 1; // USR_OFF_W sets user offsets to be 2^-10 g/LSB (default)
     config |= 0b0 << 0; // USR_OFF_ON_OUT bypasses user offset correction block (default)
     write_SPI(LSM6DSV320_CTRL9, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_CTRL9, out);
+
+    HAL_Delay(1);
 
     // CTRL10 page 74, table 74
     config  = 0;
@@ -95,6 +143,8 @@ bool IMU_LSM6DSV320::begin() {
     config |= 0b00 << 2; // ST_G sets the normal self-test mode (default)
     config |= 0b00 << 0; // ST_XL sets the normal self-test mode (default)
     write_SPI(LSM6DSV320_CTRL10, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_CTRL10, out);
 
     // CTRL1_XL_HG page 91, table 147
     config  = 0;
@@ -103,13 +153,20 @@ bool IMU_LSM6DSV320::begin() {
     config |= this->highGODR   << 3; // ODR_XL_HG
     config |= this->highGRange << 0; // FS_XL_HG
     write_SPI(LSM6DSV320_CTRL1_XL_HG, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_CTRL1_XL_HG, out);
+
+    HAL_Delay(1);
 
     // CTRL2_XL_HG page 91, table 145
     config  = 0;
     config |= 0b0  << 4; // HG_USR_OFF_ON_WU doesnt drive the offset values into high-g wake-up and shock
     config |= 0b00 << 0; // XL_HG_ST sets the normal self-test mode (default)
     write_SPI(LSM6DSV320_CTRL2_XL_HG, &config);
+    out[0] = 0; out[1] = 0;
+    read_SPI(LSM6DSV320_CTRL2_XL_HG, out);
 
+    HAL_Delay(1);
 
     /* Configure Sensitivities */
 
@@ -149,12 +206,12 @@ void IMU_LSM6DSV320::loop() {
     uint8_t buffer[6];
 
     // Read Gyroscope Measurements
-    read_SPI(LSM6DSV320_OUTX_L_G, &buffer[0], 1);
-    read_SPI(LSM6DSV320_OUTX_H_G, &buffer[1], 1);
-    read_SPI(LSM6DSV320_OUTY_L_G, &buffer[2], 1);
-    read_SPI(LSM6DSV320_OUTY_H_G, &buffer[3], 1);
-    read_SPI(LSM6DSV320_OUTZ_L_G, &buffer[4], 1);
-    read_SPI(LSM6DSV320_OUTZ_H_G, &buffer[5], 1);
+    read_SPI(LSM6DSV320_OUTX_L_G, &buffer[0]);
+    read_SPI(LSM6DSV320_OUTX_H_G, &buffer[1]);
+    read_SPI(LSM6DSV320_OUTY_L_G, &buffer[2]);
+    read_SPI(LSM6DSV320_OUTY_H_G, &buffer[3]);
+    read_SPI(LSM6DSV320_OUTZ_L_G, &buffer[4]);
+    read_SPI(LSM6DSV320_OUTZ_H_G, &buffer[5]);
 
     // Cast measurements to floats
     this->data->LSM6DSV320_Gyro.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->gyroSensitivity);
@@ -162,12 +219,12 @@ void IMU_LSM6DSV320::loop() {
     this->data->LSM6DSV320_Gyro.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->gyroSensitivity);
 
     // Read Low G Accelerometer Measurements
-    read_SPI(LSM6DSV320_OUTX_L_A, &buffer[0], 1);
-    read_SPI(LSM6DSV320_OUTX_H_A, &buffer[1], 1);
-    read_SPI(LSM6DSV320_OUTY_L_A, &buffer[2], 1);
-    read_SPI(LSM6DSV320_OUTY_H_A, &buffer[3], 1);
-    read_SPI(LSM6DSV320_OUTZ_L_A, &buffer[4], 1);
-    read_SPI(LSM6DSV320_OUTZ_H_A, &buffer[5], 1);
+    read_SPI(LSM6DSV320_OUTX_L_A, &buffer[0]);
+    read_SPI(LSM6DSV320_OUTX_H_A, &buffer[1]);
+    read_SPI(LSM6DSV320_OUTY_L_A, &buffer[2]);
+    read_SPI(LSM6DSV320_OUTY_H_A, &buffer[3]);
+    read_SPI(LSM6DSV320_OUTZ_L_A, &buffer[4]);
+    read_SPI(LSM6DSV320_OUTZ_H_A, &buffer[5]);
 
     // Cast measurements to floats
     this->data->LSM6DSV320_LowG_Accel.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->lowGSensitivity);
@@ -175,12 +232,12 @@ void IMU_LSM6DSV320::loop() {
     this->data->LSM6DSV320_LowG_Accel.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->lowGSensitivity);
 
     // Read High G Accelerometer Measurements
-    read_SPI(LSM6DSV320_UI_OUTX_L_A_OIS_HG, &buffer[0], 1);
-    read_SPI(LSM6DSV320_UI_OUTX_H_A_OIS_HG, &buffer[1], 1);
-    read_SPI(LSM6DSV320_UI_OUTY_L_A_OIS_HG, &buffer[2], 1);
-    read_SPI(LSM6DSV320_UI_OUTY_H_A_OIS_HG, &buffer[3], 1);
-    read_SPI(LSM6DSV320_UI_OUTZ_L_A_OIS_HG, &buffer[4], 1);
-    read_SPI(LSM6DSV320_UI_OUTZ_H_A_OIS_HG, &buffer[5], 1);
+    read_SPI(LSM6DSV320_UI_OUTX_L_A_OIS_HG, &buffer[0]);
+    read_SPI(LSM6DSV320_UI_OUTX_H_A_OIS_HG, &buffer[1]);
+    read_SPI(LSM6DSV320_UI_OUTY_L_A_OIS_HG, &buffer[2]);
+    read_SPI(LSM6DSV320_UI_OUTY_H_A_OIS_HG, &buffer[3]);
+    read_SPI(LSM6DSV320_UI_OUTZ_L_A_OIS_HG, &buffer[4]);
+    read_SPI(LSM6DSV320_UI_OUTZ_H_A_OIS_HG, &buffer[5]);
 
     // Cast measurements to floats
     this->data->LSM6DSV320_HighG_Accel.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->highGSensitivity);

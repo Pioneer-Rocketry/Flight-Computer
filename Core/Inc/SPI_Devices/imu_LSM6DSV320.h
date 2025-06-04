@@ -126,8 +126,8 @@
 #define LSM6DSV320_FIFO_DATA_OUT_Z_L        0x7D
 #define LSM6DSV320_FIFO_DATA_OUT_Z_H        0x7E
 
-// #define LSM6DSV320_ID 0x73
-#define LSM6DSV320_ID 0x64
+#define LSM6DSV320_ID 0x73
+// #define LSM6DSV320_ID 0x64
 
 // Sensitivity
 #define LSM6DSV320_LOW_G_SENSITIVITY_2G  0.000061f  // +/- 2g  0.061 mg/LSB = 0.000061 g/LSB
@@ -157,7 +157,7 @@ private:
         LOW_G_RANGE_4G    = 0b01,
         LOW_G_RANGE_8G    = 0b10,
         LOW_G_RANGE_16G   = 0b11
-    } lowGRange = LOW_G_RANGE_2G;
+    } lowGRange = LOW_G_RANGE_16G;
 
     enum LSM6DSV320_LOW_G_OP_MODE { // Defined in datasheet on page 65, table 53.
         LOW_G_HIGH_PERFORMANCE  = 0b000, // High-performance mode (default)
@@ -183,7 +183,7 @@ private:
         LOW_G_ODR_960HZ         = 0b1001, // 960 Hz (high-performance, normal mode)
         LOW_G_ODR_1_92KHZ       = 0b1010, // 1.92 kHz (high-performance mode)
         LOW_G_ODR_7_68KHZ       = 0b1011  // 7.68 kHz (high-performance mode)
-    } lowGODR = LOW_G_ODR_120HZ;
+    } lowGODR = LOW_G_ODR_7_68KHZ;
 
     // High G Settings
     enum LSM6DSV320_HIGH_G_RANGE { // Defined in datasheet on page 91, table 150.
@@ -192,7 +192,7 @@ private:
         HIGH_G_RANGE_128G   = 0b010,
         HIGH_G_RANGE_256G   = 0b011,
         HIGH_G_RANGE_320G   = 0b100,
-    } highGRange = HIGH_G_RANGE_256G;
+    } highGRange = HIGH_G_RANGE_128G;
 
     enum LSM6DSV320_HIGH_G_ODR { // Defined in datasheet on page 91, table 149.
         HIGH_G_ODR_POWER_DOWN   = 0b000, // Power-down (default)
@@ -203,7 +203,7 @@ private:
         HIGH_G_ODR_1_92_KHZ     = 0b101, // 1.92 kHz
         HIGH_G_ODR_3_84_KHZ     = 0b110, // 3.84 kHz
         HIGH_G_ODR_7_68_KHZ     = 0b111, // 7.68 kHz
-    } highGODR = HIGH_G_ODR_480_HZ;
+    } highGODR = HIGH_G_ODR_7_68_KHZ;
 
 
     // Gyro Settings
@@ -237,7 +237,7 @@ private:
         GYRO_ODR_1_92KHZ       = 0b1010, // 1.92 kHz (high-performance mode)
         GYRO_ODR_3_58KHZ       = 0b1011, // 3.58 kHz (high-performance mode)
         GYRO_ODR_7_68KHZ       = 0b1100  // 7.68 kHz (high-performance mode)
-    } gyroODR = GYRO_ODR_120HZ;
+    } gyroODR = GYRO_ODR_7_68KHZ;
 
 
     // Sensitivities

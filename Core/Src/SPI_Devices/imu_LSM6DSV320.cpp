@@ -195,6 +195,31 @@ bool IMU_LSM6DSV320::begin() {
         default: return false;
     }
 
+    // Read 100 samples of the Gyroscope and Accelerometer
+    int calibrationSamples = 100;
+    for (int i = 0; i < calibrationSamples; i++) {
+        uint8_t buffer[6];
+
+        // Read Gyroscope Measurements
+        read_SPI(LSM6DSV320_OUTX_L_G, &buffer[0]);
+        read_SPI(LSM6DSV320_OUTX_H_G, &buffer[1]);
+        read_SPI(LSM6DSV320_OUTY_L_G, &buffer[2]);
+        read_SPI(LSM6DSV320_OUTY_H_G, &buffer[3]);
+        read_SPI(LSM6DSV320_OUTZ_L_G, &buffer[4]);
+        read_SPI(LSM6DSV320_OUTZ_H_G, &buffer[5]);
+
+        gyroOffsetX += ((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->gyroSensitivity;
+        gyroOffsetY += ((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->gyroSensitivity;
+        gyroOffsetZ += ((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->gyroSensitivity;
+
+        HAL_Delay(10);
+    }
+
+
+    gyroOffsetX /= calibrationSamples;
+    gyroOffsetY /= calibrationSamples;
+    gyroOffsetZ /= calibrationSamples;
+
     return true;
 }
 
@@ -210,9 +235,9 @@ void IMU_LSM6DSV320::loop() {
     read_SPI(LSM6DSV320_OUTZ_H_G, &buffer[5]);
 
     // Cast measurements to floats
-    this->data->LSM6DSV320_Gyro.setX(((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->gyroSensitivity);
-    this->data->LSM6DSV320_Gyro.setY(((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->gyroSensitivity);
-    this->data->LSM6DSV320_Gyro.setZ(((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->gyroSensitivity);
+    this->data->LSM6DSV320_Gyro.setX((((float) (int16_t) (buffer[0] | buffer[1] << 8)) * this->gyroSensitivity) - gyroOffsetX);
+    this->data->LSM6DSV320_Gyro.setY((((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->gyroSensitivity) - gyroOffsetY);
+    this->data->LSM6DSV320_Gyro.setZ((((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->gyroSensitivity) - gyroOffsetZ);
 
     // Read Low G Accelerometer Measurements
     read_SPI(LSM6DSV320_OUTX_L_A, &buffer[0]);

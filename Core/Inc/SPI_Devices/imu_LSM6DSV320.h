@@ -239,11 +239,15 @@ private:
         GYRO_ODR_7_68KHZ       = 0b1100  // 7.68 kHz (high-performance mode)
     } gyroODR = GYRO_ODR_120HZ;
 
-
     // Sensitivities
     float lowGSensitivity;
     float highGSensitivity;
     float gyroSensitivity;
+
+    // Offsets
+    float gyroOffsetX;
+    float gyroOffsetY;
+    float gyroOffsetZ;
 
 protected:
 

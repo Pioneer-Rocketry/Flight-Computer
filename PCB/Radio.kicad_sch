@@ -7105,7 +7105,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_Coaxial:SMA_Amphenol_132134-11_Vertical"
+		(property "Footprint" "Connector_Coaxial:SMA_Samtec_SMA-J-P-H-ST-EM1_EdgeMount"
 			(at 271.78 92.71 0)
 			(effects
 				(font
@@ -8705,8 +8705,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3V3"
-			(at 46.99 106.9142 0)
+		(property "Value" "+3.3V"
+			(at 46.99 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)

@@ -48,7 +48,7 @@ protected:
 
 public:
     virtual bool begin() = 0;
-    virtual void get_data() = 0;
+    virtual void loop() = 0;
 
     I2C_Device(I2C_HandleTypeDef *i2cHandler, uint8_t address, Data *data, char name[32]) {
         this->i2cHandler = i2cHandler;

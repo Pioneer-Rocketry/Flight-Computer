@@ -7,9 +7,19 @@ State_Machine::State_Machine(Data *data, I2C_Device* i2c_devices[], SPI_Device* 
     for (int i = 0; i < NUM_SPI_DEVICES; i++) this->spi_devices[i] = spi_devices[i];
 }
 
-State State_Machine::update() {
-    // Run through all the the switch conditions
+State State_Machine::loop() {
 
+    // Check to see if all I2C Devices are working
+    for (int i = 0; i < NUM_I2C_DEVICES; i++) {
+        i2c_devices[i]->loop();
+    }
+
+    // Check to see if all SPI Devices are working
+    for (int i = 0; i < NUM_SPI_DEVICES; i++) {
+        spi_devices[i]->loop();
+    }
+
+    // Run through all the the switch conditions
     switch (this->state) {
         case LOCALIZING:
             switch_to_ready_for_flight();
@@ -109,7 +119,6 @@ void State_Machine::system_checks() {
         }
     }
     log_state();
-
 
     // Check to see if all I2C Devices are working
     for (int i = 0; i < NUM_I2C_DEVICES; i++) {

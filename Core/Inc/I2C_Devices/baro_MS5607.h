@@ -4,7 +4,7 @@
 #include "I2C_Devices/I2C_Device.hpp"
 
 // Address
-#define MS5607_ADDRESS 0b1110111 << 1 // or 0b1110111 if CSB is high
+#define MS5607_ADDRESS 0b1110111 << 1 // or 0b1110110 if CSB is low
 
 // Commands
 #define MS5607_RESET        0x1E
@@ -40,7 +40,7 @@ public:
     Baro_MS5607(I2C_HandleTypeDef* i2cHandler, Data* data);
 
     bool begin() override;
-    void get_data() override;
+    void loop() override;
 };
 
 #endif /* BARO_MS5607_H */

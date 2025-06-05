@@ -41,7 +41,7 @@ uint32_t Baro_MS5607::read_adc(uint8_t cmd) {
     return (buf[0] << 16) | (buf[1] << 8) | buf[2];
 }
 
-void Baro_MS5607::get_data() {
+void Baro_MS5607::loop() {
     D1 = read_adc(MS5607_CONVERT_D1 | (osr << 1));
     D2 = read_adc(MS5607_CONVERT_D2 | (osr << 1));
 

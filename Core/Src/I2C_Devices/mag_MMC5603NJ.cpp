@@ -20,7 +20,7 @@ bool Mag_MMC5603NJ::begin() {
     return true;
 }
 
-void Mag_MMC5603NJ::get_data() {
+void Mag_MMC5603NJ::loop() {
     uint8_t buffer[3];
 
     // Read X Axis Measurements

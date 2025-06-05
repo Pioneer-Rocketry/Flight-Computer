@@ -42,7 +42,7 @@ public:
     Mag_MMC5603NJ(I2C_HandleTypeDef *i2cHandler, Data *data);
 
     bool begin() override;
-    void get_data() override;
+    void loop() override;
 };
 
 #endif /* MAG_MMC5603NJ_H */

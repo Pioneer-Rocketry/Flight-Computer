@@ -183,7 +183,7 @@ private:
         LOW_G_ODR_960HZ         = 0b1001, // 960 Hz (high-performance, normal mode)
         LOW_G_ODR_1_92KHZ       = 0b1010, // 1.92 kHz (high-performance mode)
         LOW_G_ODR_7_68KHZ       = 0b1011  // 7.68 kHz (high-performance mode)
-    } lowGODR = LOW_G_ODR_7_68KHZ;
+    } lowGODR = LOW_G_ODR_240HZ;
 
     // High G Settings
     enum LSM6DSV320_HIGH_G_RANGE { // Defined in datasheet on page 91, table 150.
@@ -203,7 +203,7 @@ private:
         HIGH_G_ODR_1_92_KHZ     = 0b101, // 1.92 kHz
         HIGH_G_ODR_3_84_KHZ     = 0b110, // 3.84 kHz
         HIGH_G_ODR_7_68_KHZ     = 0b111, // 7.68 kHz
-    } highGODR = HIGH_G_ODR_7_68_KHZ;
+    } highGODR = HIGH_G_ODR_480_HZ;
 
 
     // Gyro Settings
@@ -237,7 +237,7 @@ private:
         GYRO_ODR_1_92KHZ       = 0b1010, // 1.92 kHz (high-performance mode)
         GYRO_ODR_3_58KHZ       = 0b1011, // 3.58 kHz (high-performance mode)
         GYRO_ODR_7_68KHZ       = 0b1100  // 7.68 kHz (high-performance mode)
-    } gyroODR = GYRO_ODR_7_68KHZ;
+    } gyroODR = GYRO_ODR_240HZ;
 
 
     // Sensitivities

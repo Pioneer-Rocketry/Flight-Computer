@@ -74,8 +74,8 @@ char buffer[64];
 // I2C Devices
 // IMU_LSM6DSV320 imu(&hi2c1, &data);
 // Mag_MMC5603NJ  mag(&hi2c1, &data);
-Baro_MS5607    baro(&hi2c1, &data);
-I2C_Device* i2c_devices[NUM_I2C_DEVICES] = {&baro}; // = {&imu, /*&mag,*/ &baro};
+Baro_MS5607 baro(&hi2c1, &data);
+I2C_Device* i2c_devices[NUM_I2C_DEVICES] = {&baro};
 
 // SPI Devices
 // Radio_SX1262  radio(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);

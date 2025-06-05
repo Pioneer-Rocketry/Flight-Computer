@@ -90,7 +90,7 @@ bool IMU_LSM6DSV320::begin() {
 
     // CTRL6 page 69, table 64
     config  = 0;
-    config |= 0b000           << 4; // LPF1_G_BW
+    config |= 0b110           << 4; // LPF1_G_BW sets the low-pass filter for gyroscope bandwidth selection
     config |= this->gyroRange << 0; // FS_G
     write_SPI(LSM6DSV320_CTRL6, &config);
     out[0] = 0; out[1] = 0;
@@ -102,7 +102,7 @@ bool IMU_LSM6DSV320::begin() {
     config  = 0;
     config |= 0b0 << 7; // INT1_DRDY_XL disabled high-g data-ready interrupt on INT1 pin (default)
     config |= 0b0 << 6; // INT2_DRDY_XL disables high-g data-ready interrupt on INT2 pin (default)
-    config |= 0b0 << 0; // LPF1_G_EN disables low-pass filter for gyroscope
+    config |= 0b1 << 0; // LPF1_G_EN enables low-pass filter for gyroscope (default)
     write_SPI(LSM6DSV320_CTRL7, &config);
     out[0] = 0; out[1] = 0;
     read_SPI(LSM6DSV320_CTRL7, out);
@@ -111,7 +111,7 @@ bool IMU_LSM6DSV320::begin() {
 
     // CTRL8 page 71, table 69
     config  = 0;
-    config |= 0b000           << 5; // HP_LPF2_XL_BW
+    config |= 0b000           << 5; // HP_LPF2_XL_BW set to ODR / 4
     config |= this->lowGRange << 0; // FS_XL
     write_SPI(LSM6DSV320_CTRL8, &config);
     out[0] = 0; out[1] = 0;
@@ -124,7 +124,7 @@ bool IMU_LSM6DSV320::begin() {
     config |= 0b0 << 6; // HP_REF_MODE_XL disables the high-pass filter reference mode (default)
     config |= 0b0 << 5; // XL_FASTSETTL_MODE disables the fast-settling mode (default)
     config |= 0b0 << 4; // HP_SLOPE_XL_EN selects low-pass filter slope (default)
-    config |= 0b0 << 3; // LPF2_XL_EN uses first stage of digital filtering (default)
+    config |= 0b1 << 3; // LPF2_XL_EN 
     config |= 0b0 << 1; // USR_OFF_W sets user offsets to be 2^-10 g/LSB (default)
     config |= 0b0 << 0; // USR_OFF_ON_OUT bypasses user offset correction block (default)
     write_SPI(LSM6DSV320_CTRL9, &config);

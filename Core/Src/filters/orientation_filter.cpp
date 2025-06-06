@@ -11,6 +11,8 @@ void Orientation_Filter::compute() {
     dt = (micros() - last_update) / 1000000.0f;
     last_update = micros();
 
+    if (dt > 0.1f) return;
+
     deltaQuaternion = Quaternion(
         data->LSM6DSV320_Gyro.getX() * DEG_TO_RAD,
         data->LSM6DSV320_Gyro.getY() * DEG_TO_RAD,

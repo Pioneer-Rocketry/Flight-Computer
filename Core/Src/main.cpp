@@ -172,23 +172,14 @@ int main(void)
             data.freq = 1 / data.dt;
 
             loop_start = micros();
-
-            // Read data from sensors
-            // imu.loop();
-            // mag.get_data();
-            // baro.loop();
+            data.timestamp = loop_start;
 
             // Update filters
             orientation_filter.compute();
             // position_kalman_filter.compute();
 
-            // Write data to flash
-            // flash_w25q128.write_data();
-
             // Update state machine
             state_machine.loop();
-
-            data.timestamp = loop_start;
 
             // Log data
             data.log();

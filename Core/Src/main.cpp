@@ -32,7 +32,7 @@
 #include "I2C_Devices/mag_MMC5603NJ.h"
 #include "I2C_Devices/baro_MS5607.h"
 
-// #include "filters/orientation_filter.h"
+#include "filters/orientation_filter.h"
 // #include "filters/position_kalman_filter.h"
 
 #include "micros.h"
@@ -85,7 +85,7 @@ IMU_LSM6DSV320 imu(&data, &hspi1, IMU_CS_GPIO_Port, IMU_CS_Pin);
 SPI_Device* spi_devices[NUM_SPI_DEVICES] {&imu};
 
 // Filters
-// Orientation_Filter orientation_filter(&data);
+Orientation_Filter orientation_filter(&data);
 // Position_Kalman_Filter position_kalman_filter(&data);
 
 State_Machine state_machine(&data, i2c_devices, spi_devices);
@@ -151,7 +151,7 @@ int main(void)
     HAL_UART_Transmit(&huart2, (uint8_t*)buffer, sizeof(buffer), HAL_MAX_DELAY);
 
     // Initialize the filters
-    // orientation_filter.init();
+    orientation_filter.init();
     // position_kalman_filter.init();
 
     state_machine.localize();
@@ -179,7 +179,7 @@ int main(void)
             // baro.loop();
 
             // Update filters
-            // orientation_filter.compute();
+            orientation_filter.compute();
             // position_kalman_filter.compute();
 
             // Write data to flash

@@ -195,6 +195,8 @@ bool IMU_LSM6DSV320::begin() {
         default: return false;
     }
 
+    HAL_Delay(2000); // Wait 2 seconds to make sure the sensor is stable
+
     // Read 100 samples of the Gyroscope and Accelerometer
     int calibrationSamples = 100;
     for (int i = 0; i < calibrationSamples; i++) {

@@ -29,7 +29,7 @@ void Quaternion::setZ(float z) { this->z = z; }
 void Quaternion::setW(float w) { this->w = w; }
 
 void Quaternion::normalize() {
-    float length = sqrt(this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
+    float length = sqrtf(this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
     this->x /= length;
     this->y /= length;
     this->z /= length;
@@ -64,6 +64,48 @@ Quaternion Quaternion::operator*=(Quaternion q) {
 }
 
 /**
+ * Multiply this quaternion by a scalar
+ *
+ * @param scalar The scalar to multiply by
+ *
+ * @return The result of the multiplication
+ */
+Quaternion Quaternion::operator*(float scalar) {
+    w *= scalar;
+    x *= scalar;
+    y *= scalar;
+    z *= scalar;
+    return *this;
+}
+
+/**
+ * Add this quaternion by another
+ *
+ * @param q The quaternion to add
+ *
+ * @return The result of the addition
+ */
+Quaternion Quaternion::operator+(Quaternion q) {
+    Quaternion result;
+    result.w = this->w + q.w;
+    result.x = this->x + q.x;
+    result.y = this->y + q.y;
+    result.z = this->z + q.z;
+    return result;
+}
+
+/**
+ * Add this quaternion by another
+ *
+ * @param q The quaternion to add
+ *
+ * @return The result of the addition
+ */
+Quaternion Quaternion::operator+=(Quaternion q) {
+    return *this = *this + q;
+}
+
+/**
  * Convert a quaternion to an euler angle
  *
  * @return The euler angle
@@ -77,17 +119,17 @@ Vector Quaternion::toEuler() {
      * https://math.stackexchange.com/q/2975109
      */
 
-    float roll = atan2( 2 * (this->w * this->x + this->y * this->z),
+    float roll = atan2f( 2 * (this->w * this->x + this->y * this->z),
                         1 - 2 * (this->x * this->x + this->y * this->y));
     roll *= 180 / M_PI;
 
     float pitch = 2 * (this->w * this->y - this->z * this->x);
     if (pitch > 1) pitch = 1;
     else if (pitch < -1) pitch = -1;
-    pitch = asin(pitch);
+    pitch = asinf(pitch);
     pitch *= 180 / M_PI;
 
-    float yaw = atan2(  2 * (this->w * this->z + this->x * this->y),
+    float yaw = atan2f(  2 * (this->w * this->z + this->x * this->y),
                         1 - 2 * (this->y * this->y + this->z * this->z));
     yaw *= 180 / M_PI;
 
@@ -107,10 +149,10 @@ void Quaternion::fromEuler(Vector euler) {
      *
      * https://math.stackexchange.com/q/2975109
      */
-    this->x = sin(euler.getZ() / 2) * cos(euler.getX() / 2) * cos(euler.getY() / 2) - cos(euler.getZ() / 2) * sin(euler.getX() / 2) * sin(euler.getY() / 2);
-    this->y = cos(euler.getZ() / 2) * sin(euler.getX() / 2) * cos(euler.getY() / 2) + sin(euler.getZ() / 2) * cos(euler.getX() / 2) * sin(euler.getY() / 2);
-    this->z = cos(euler.getZ() / 2) * cos(euler.getX() / 2) * sin(euler.getY() / 2) - sin(euler.getZ() / 2) * sin(euler.getX() / 2) * cos(euler.getY() / 2);
-    this->w = cos(euler.getZ() / 2) * cos(euler.getX() / 2) * cos(euler.getY() / 2) + sin(euler.getZ() / 2) * sin(euler.getX() / 2) * sin(euler.getY() / 2);
+    this->x = sinf(euler.getZ() / 2) * cosf(euler.getX() / 2) * cosf(euler.getY() / 2) - cosf(euler.getZ() / 2) * sinf(euler.getX() / 2) * sinf(euler.getY() / 2);
+    this->y = cosf(euler.getZ() / 2) * sinf(euler.getX() / 2) * cosf(euler.getY() / 2) + sinf(euler.getZ() / 2) * cosf(euler.getX() / 2) * sinf(euler.getY() / 2);
+    this->z = cosf(euler.getZ() / 2) * cosf(euler.getX() / 2) * sinf(euler.getY() / 2) - sinf(euler.getZ() / 2) * sinf(euler.getX() / 2) * cosf(euler.getY() / 2);
+    this->w = cosf(euler.getZ() / 2) * cosf(euler.getX() / 2) * cosf(euler.getY() / 2) + sinf(euler.getZ() / 2) * sinf(euler.getX() / 2) * sinf(euler.getY() / 2);
 }
 
 /**
@@ -118,14 +160,14 @@ void Quaternion::fromEuler(Vector euler) {
  *
  * @param axis The axis
  * @param angle The angle
- * 
+ *
  * @return The quaternion
  */
 void Quaternion::fromAxisAngle(Vector axis, float angle) {
-    float sinAngle = sin(angle / 2);
+    float sinAngle = sinf(angle / 2);
 
     this->x = axis.getX() * sinAngle;
     this->y = axis.getY() * sinAngle;
     this->z = axis.getZ() * sinAngle;
-    this->w = cos(angle / 2);
+    this->w = cosf(angle / 2);
 }

@@ -18,7 +18,7 @@ void Data::save() {
 }
 
 void Data::log() {
-    eular = orientation.toEuler() * RAD_TO_DEG;
+    eular = orientation.toEuler();
 
     int len = snprintf(buffer, sizeof(buffer),
         "Timestamp: %d\r\n"

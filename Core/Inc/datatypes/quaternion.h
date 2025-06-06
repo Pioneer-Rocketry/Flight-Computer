@@ -39,6 +39,10 @@ public:
 
     Quaternion operator*(Quaternion q);
     Quaternion operator*=(Quaternion q);
+    Quaternion operator*(float scalar);
+
+    Quaternion operator+(Quaternion q);
+    Quaternion operator+=(Quaternion q);
 
     Vector toEuler();
     void fromEuler(Vector euler);

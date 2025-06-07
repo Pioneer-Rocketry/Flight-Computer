@@ -72,3 +72,30 @@ Vector Vector::normalize() {
 float Vector::magnitude() {
     return sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
 }
+
+Vector Vector::rotateByEuler(const Vector euler) {
+    // Calculate sine and cosine values
+    float cosPitch = cos(euler.x);
+    float sinPitch = sin(euler.x);
+    float cosYaw = cos(euler.y);
+    float sinYaw = sin(euler.y);
+    float cosRoll = cos(euler.z);
+    float sinRoll = sin(euler.z);
+
+    Vector result;
+
+    // Apply rotation matrix (ZYX order: Roll * Yaw * Pitch)
+    result.x = this->x * (cosYaw * cosRoll) +
+               this->y * (sinPitch * sinYaw * cosRoll - cosPitch * sinRoll) +
+               this->z * (cosPitch * sinYaw * cosRoll + sinPitch * sinRoll);
+
+    result.y = this->x * (cosYaw * sinRoll) +
+               this->y * (sinPitch * sinYaw * sinRoll + cosPitch * cosRoll) +
+               this->z * (cosPitch * sinYaw * sinRoll - sinPitch * cosRoll);
+
+    result.z = this->x * (-sinYaw) +
+               this->y * (sinPitch * cosYaw) +
+               this->z * (cosPitch * cosYaw);
+
+    return result;
+}

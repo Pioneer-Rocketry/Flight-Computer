@@ -198,7 +198,7 @@ bool IMU_LSM6DSV320::begin() {
     HAL_Delay(2000); // Wait 2 seconds to make sure the sensor is stable
 
     // Read 100 samples of the Gyroscope and Accelerometer
-    int calibrationSamples = 100;
+    int calibrationSamples = 1000;
     for (int i = 0; i < calibrationSamples; i++) {
         uint8_t buffer[6];
 
@@ -214,7 +214,7 @@ bool IMU_LSM6DSV320::begin() {
         gyroOffsetY += ((float) (int16_t) (buffer[2] | buffer[3] << 8)) * this->gyroSensitivity;
         gyroOffsetZ += ((float) (int16_t) (buffer[4] | buffer[5] << 8)) * this->gyroSensitivity;
 
-        HAL_Delay(10);
+        HAL_Delay(1);
     }
 
 

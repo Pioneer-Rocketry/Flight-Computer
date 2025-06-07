@@ -36,6 +36,8 @@ public:
     Vector normalize();
     float magnitude();
 
+    Vector rotateByEuler(const Vector euler);
+
     float x;
     float y;
     float z;

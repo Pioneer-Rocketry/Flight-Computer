@@ -42,6 +42,9 @@ public:
     Quaternion orientation; // Quaternion representing of orientation
     Vector eular;
 
+    Vector rotated_LowG_Accel;
+    Vector rotated_HighG_Accel;
+
     Vector position; // Vector representing of position
     Vector velocity; // Vector representing of velocity
 

@@ -33,7 +33,7 @@
 #include "I2C_Devices/baro_MS5607.h"
 
 #include "filters/orientation_filter.h"
-// #include "filters/position_kalman_filter.h"
+#include "filters/position_kalman_filter.h"
 
 #include "micros.h"
 
@@ -75,7 +75,7 @@ char buffer[64];
 // IMU_LSM6DSV320 imu(&hi2c1, &data);
 // Mag_MMC5603NJ  mag(&hi2c1, &data);
 Baro_MS5607 baro(&hi2c1, &data);
-I2C_Device* i2c_devices[NUM_I2C_DEVICES] = {&baro};
+I2C_Device* i2c_devices[NUM_I2C_DEVICES]; // = {&baro};
 
 // SPI Devices
 // Radio_SX1262  radio(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);
@@ -86,7 +86,7 @@ SPI_Device* spi_devices[NUM_SPI_DEVICES] {&imu};
 
 // Filters
 Orientation_Filter orientation_filter(&data);
-// Position_Kalman_Filter position_kalman_filter(&data);
+Position_Kalman_Filter position_kalman_filter(&data);
 
 State_Machine state_machine(&data, i2c_devices, spi_devices);
 
@@ -152,7 +152,7 @@ int main(void)
 
     // Initialize the filters
     orientation_filter.init();
-    // position_kalman_filter.init();
+    position_kalman_filter.init();
 
     state_machine.localize();
 
@@ -174,12 +174,15 @@ int main(void)
             loop_start = micros();
             data.timestamp = loop_start;
 
-            // Update filters
-            orientation_filter.compute();
-            // position_kalman_filter.compute();
-
             // Update state machine
             state_machine.loop();
+
+            // Update filters
+            orientation_filter.compute();
+
+			data.rotated_LowG_Accel = data.LSM6DSV320_LowG_Accel.rotateByEuler(data.orientation.toEuler());   // Rotate acceleration vector by orientation
+			data.rotated_HighG_Accel = data.LSM6DSV320_HighG_Accel.rotateByEuler(data.orientation.toEuler()); // Rotate acceleration vector by orientation
+            position_kalman_filter.compute();
 
             // Log data
             data.log();

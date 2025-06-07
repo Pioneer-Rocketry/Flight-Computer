@@ -30,8 +30,8 @@ void Data::log() {
         "Pressure: %.2f\thPa | Altitude: %.2f\tm\r\n"
         "Orientation:   W: %.2f\tX: %.2f\tY: %.2f Z: %.2f\r\n"
         "Eular: Roll: %.2f\tPitch: %.2f\tYaw: %.2f\r\n"
-        // "Position:      X: %.2f\tY: %.2f\tZ: %.2f\tm\r\n"
-        // "Velocity:      X: %.2f\tY: %.2f\tZ: %.2f\tm/s\r\n"
+        "Position:      X: %.2f\tY: %.2f\tZ: %.2f\tm\r\n"
+        "Velocity:      X: %.2f\tY: %.2f\tZ: %.2f\tm/s\r\n"
         "State: %d\r\n\r\n",
         this->timestamp, this->freq,
         LSM6DSV320_LowG_Accel.x, LSM6DSV320_LowG_Accel.y, LSM6DSV320_LowG_Accel.z,
@@ -41,8 +41,8 @@ void Data::log() {
         MS5607_Pressure, MS5607_Altitude,
         orientation.w, orientation.x, orientation.y, orientation.z,
         eular.x, eular.y, eular.z,
-        // position.x, position.y, position.z,
-        // velocity.x, velocity.y, velocity.z,
+        position.x, position.y, position.z,
+        velocity.x, velocity.y, velocity.z,
         state
     );
 

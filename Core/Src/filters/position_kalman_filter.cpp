@@ -43,7 +43,7 @@ Position_Kalman_Filter::Position_Kalman_Filter(Data *data)
     // Error Covariance
     P = I;
 
-    // State to measuremnet Matrix
+    // State to measurements Matrix
     H = {
         { 0, 0, 0, 1, 0, 0 },
 		{ 0, 0, 0, 0, 1, 0 },
@@ -53,15 +53,6 @@ Position_Kalman_Filter::Position_Kalman_Filter(Data *data)
 }
 
 void Position_Kalman_Filter::init() {
-
-    // Set initial state
-    X(0) = 0; // X Position
-    X(1) = 0; // Y Position
-    X(2) = 0; // Z Position
-    X(3) = 0; // X Velocity
-    X(4) = 0; // Y Velocity
-    X(5) = 0; // Z Velocity
-
     // State Transition Matrix
     A = {
         { 1, 0, 0, 0.01, 0,    0    },
@@ -71,6 +62,14 @@ void Position_Kalman_Filter::init() {
         { 0, 0, 0, 0,    1,    0    },
         { 0, 0, 0, 0,    0,    1    }
     };
+
+    // Set initial state
+    X(0) = 0; // X Position
+    X(1) = 0; // Y Position
+    X(2) = 0; // Z Position
+    X(3) = 0; // X Velocity
+    X(4) = 0; // Y Velocity
+    X(5) = 0; // Z Velocity
 
     this->predict(); // Run the prediction step
     this->update();  // Run the estimation step
@@ -86,6 +85,18 @@ void Position_Kalman_Filter::init() {
  *  P⁻ₖ = APₖ₋₁Aᵀ + Q
  */
 void Position_Kalman_Filter::predict() {
+    if (data->dt > 0.1f) return;
+
+    // Update State Transition Matrix
+    A = {
+        { 1, 0, 0, data->dt, 0,        0        },
+        { 0, 1, 0, 0,        data->dt, 0        },
+        { 0, 0, 1, 0,        0,        data->dt },
+        { 0, 0, 0, 1,        0,        0        },
+        { 0, 0, 0, 0,        1,        0        },
+        { 0, 0, 0, 0,        0,        1        }
+    };
+
     // Step 1: Predict State and Error Covariance
     X = A * X;
     P = A * P * A.transpose() + Q;
@@ -102,11 +113,20 @@ void Position_Kalman_Filter::predict() {
  *  Pₖ = P⁻ₖ - KₖHP⁻ₖ
  */
 void Position_Kalman_Filter::update() {
+    if (data->dt > 0.1f) return;
+
+    // Update state to measurements Matrix
+    H = {
+        { 0, 0, 0, data->dt/1, 0,          0          },
+		{ 0, 0, 0, 0,          data->dt/1, 0          },
+		{ 0, 0, 0, 0,          0,          data->dt/1 },
+		{ 0, 0, 1, 0,          0,          0          }
+    };
 
     // Store the current measurement into the Z matrix
-    Z(0) = data->LSM6DSV320_LowG_Accel.x; // X Acceleration
-    Z(1) = data->LSM6DSV320_LowG_Accel.y; // Y Acceleration
-    Z(2) = data->LSM6DSV320_LowG_Accel.z; // Z Acceleration
+    Z(0) = data->rotated_LowG_Accel.x; // X Acceleration
+    Z(1) = data->rotated_LowG_Accel.y; // Y Acceleration
+    Z(2) = data->rotated_LowG_Accel.z - GRAVITY; // Z Acceleration
     Z(3) = data->MS5607_Altitude - data->startingAltitude; // Barometric Altitude
 
     // Step 2: Compute the Kalman Gain

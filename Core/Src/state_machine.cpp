@@ -28,7 +28,7 @@ State State_Machine::loop() {
             switch_to_accelerating();
             break;
         case ACCELERATING:
-            switch_to_ascending();
+            switch_to_deccelerating();
             switch_to_descending();
             switch_to_landed(); // Something is VERY wrong ¯\_(ツ)_/¯
             break;
@@ -74,21 +74,39 @@ void State_Machine::switch_to_accelerating() {
     // Switch the state if the magnitude of the acceleration is greater than 2g, for at least .3 seconds
     if (data->rotated_LowG_Accel.magnitude() < MIN_ACCELERATION)
     {
-        accelerationStart = 0;
+        eventStart = 0;
         return;
     }
 
-    if (accelerationStart == 0) {
-        accelerationStart = HAL_GetTick();
+    if (eventStart == 0) {
+        eventStart = HAL_GetTick();
         return;
     }
 
-    if (HAL_GetTick() - accelerationStart > MIN_ACCELERATION_TIME) {
+    if (HAL_GetTick() - eventStart > MIN_ACCELERATION_TIME) {
+        eventStart = 0;
         switch_to_next_state();
     }
 }
 
-void State_Machine::switch_to_ascending() {
+void State_Machine::switch_to_deccelerating() {
+    // Switch the state if the magnitude of the acceleration is less than -1G, for at least .5 seconds
+    if (data->rotated_LowG_Accel.magnitude() < MIN_DECCELERATION)
+    {
+        eventStart = 0;
+        return;
+    }
+
+    if (eventStart == 0) {
+        eventStart = HAL_GetTick();
+        return;
+    }
+
+    if (HAL_GetTick() - eventStart > MIN_DECCELERATION_TIME) {
+        eventStart = 0;
+        switch_to_next_state();
+    }
+
 }
 
 void State_Machine::switch_to_descending() {

@@ -23,8 +23,11 @@ enum State {
 #define NUM_I2C_DEVICES 0
 #define NUM_SPI_DEVICES 1
 
-#define MIN_ACCELERATION 2 * GRAVITY // 2 G
+#define MIN_ACCELERATION 2 * GRAVITY // 2G
 #define MIN_ACCELERATION_TIME 300 // ms
+
+#define MIN_DECCELERATION -1 * GRAVITY // -1G
+#define MIN_DECCELERATION_TIME 500 // ms
 
 class State_Machine {
 private:
@@ -34,7 +37,7 @@ private:
     uint8_t stages;
     uint8_t stagesRemaining;
 
-    int accelerationStart;
+    int eventStart;
 
     Data *data;
     I2C_Device* i2c_devices[NUM_I2C_DEVICES];
@@ -46,7 +49,7 @@ private:
         "LOCALIZING",
         "READY_FOR_FLIGHT",
         "ACCELERATING",
-        "ASCENDING",
+        "DECCELERATING",
         "DESCENDING",
         "UNDER_DROUGE",
         "UNDER_MAIN",
@@ -56,7 +59,7 @@ private:
     // State Switch Conditions
     void switch_to_ready_for_flight();
     void switch_to_accelerating();
-    void switch_to_ascending();
+    void switch_to_deccelerating();
     void switch_to_descending();
     void switch_to_under_drouge();
     void switch_to_under_main();

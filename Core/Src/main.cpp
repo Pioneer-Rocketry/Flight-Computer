@@ -180,8 +180,8 @@ int main(void)
             // Update filters
             orientation_filter.compute();
 
-			data.rotated_LowG_Accel = data.LSM6DSV320_LowG_Accel.rotateByEuler(data.orientation.toEuler());   // Rotate acceleration vector by orientation
-			data.rotated_HighG_Accel = data.LSM6DSV320_HighG_Accel.rotateByEuler(data.orientation.toEuler()); // Rotate acceleration vector by orientation
+            data.rotated_LowG_Accel = data.LSM6DSV320_LowG_Accel.rotateByEuler(data.orientation.toEuler());   // Rotate acceleration vector by orientation
+            data.rotated_HighG_Accel = data.LSM6DSV320_HighG_Accel.rotateByEuler(data.orientation.toEuler()); // Rotate acceleration vector by orientation
             position_kalman_filter.compute();
 
             // Log data
@@ -203,7 +203,7 @@ void SystemClock_Config(void)
     /** Configure the main internal regulator output voltage
      */
     __HAL_RCC_PWR_CLK_ENABLE();
-      __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
+	__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
 
     /** Initializes the RCC Oscillators according to the specified parameters
      * in the RCC_OscInitTypeDef structure.

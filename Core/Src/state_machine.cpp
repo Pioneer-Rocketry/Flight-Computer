@@ -71,6 +71,21 @@ void State_Machine::switch_to_ready_for_flight() {
 }
 
 void State_Machine::switch_to_accelerating() {
+    // Switch the state if the magnitude of the acceleration is greater than 2g, for at least .3 seconds
+    if (data->rotated_LowG_Accel.magnitude() < MIN_ACCELERATION)
+    {
+        accelerationStart = 0;
+        return;
+    }
+
+    if (accelerationStart == 0) {
+        accelerationStart = HAL_GetTick();
+        return;
+    }
+
+    if (HAL_GetTick() - accelerationStart > MIN_ACCELERATION_TIME) {
+        switch_to_next_state();
+    }
 }
 
 void State_Machine::switch_to_ascending() {

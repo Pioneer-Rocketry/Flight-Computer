@@ -14,10 +14,10 @@ void Orientation_Filter::compute() {
     if (dt > 0.1f) return;
 
     deltaQuaternion = Quaternion(
-        data->LSM6DSV320_Gyro.getX() * DEG_TO_RAD,
-        data->LSM6DSV320_Gyro.getY() * DEG_TO_RAD,
-        data->LSM6DSV320_Gyro.getZ() * DEG_TO_RAD,
-        0
+        0,
+        data->LSM6DSV320_Gyro.x * DEG_TO_RAD,
+        data->LSM6DSV320_Gyro.y * DEG_TO_RAD,
+        data->LSM6DSV320_Gyro.z * DEG_TO_RAD
     );
     deltaQuaternion = (data->orientation * deltaQuaternion) * 0.5f;
 

@@ -21,20 +21,16 @@ public:
      */
     Vector(float x, float y, float z);
 
-    float getX();
-    float getY();
-    float getZ();
-
-    void setX(float x);
-    void setY(float y);
-    void setZ(float z);
-
     void zero();
 
-    Vector operator+(Vector v);
-    Vector operator-(Vector v);
-    Vector operator*(float scalar);
-    Vector operator/(float scalar);
+    Vector operator+ (const Vector v);
+    Vector operator+=(const Vector v);
+    Vector operator- (const Vector v);
+    Vector operator-=(const Vector v);
+    Vector operator* (const float scalar);
+    Vector operator*=(const float scalar);
+    Vector operator/ (const float scalar);
+    Vector operator/=(const float scalar);
 
     float dot(Vector v);
     Vector normalize();

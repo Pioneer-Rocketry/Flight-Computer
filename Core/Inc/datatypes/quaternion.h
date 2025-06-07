@@ -22,36 +22,24 @@ public:
      * @param z The z component of the quaternion
      * @param w The w component of the quaternion
      */
-    Quaternion(float x, float y, float z, float w);
-    Quaternion(Vector euler);
-
-    float getX();
-    float getY();
-    float getZ();
-    float getW();
-
-    void setX(float x);
-    void setY(float y);
-    void setZ(float z);
-    void setW(float w);
+    Quaternion(float w, float x, float y, float z);
 
     void normalize();
 
-    Quaternion operator*(Quaternion q);
-    Quaternion operator*=(Quaternion q);
+    Quaternion operator*(const Quaternion q);
+    Quaternion operator*=(const Quaternion q);
     Quaternion operator*(float scalar);
 
-    Quaternion operator+(Quaternion q);
-    Quaternion operator+=(Quaternion q);
+    Quaternion operator+(const Quaternion q);
+    Quaternion operator+=(const Quaternion q);
 
     Vector toEuler();
     void fromEuler(Vector euler);
-    void fromAxisAngle(Vector axis, float angle);
 
+    float w;
     float x;
     float y;
     float z;
-    float w;
 };
 
 #endif /* QUATERNION_H */

@@ -10,38 +10,58 @@ Vector::Vector(float x, float y, float z) {
     this->z = z;
 }
 
-void Vector::setX(float x) { this->x = x; }
-void Vector::setY(float y) { this->y = y; }
-void Vector::setZ(float z) { this->z = z; }
-
-float Vector::getX() { return this->x; }
-float Vector::getY() { return this->y; }
-float Vector::getZ() { return this->z; }
-
 void Vector::zero() {
     this->x = 0;
     this->y = 0;
     this->z = 0;
 }
 
-Vector Vector::operator+(Vector v) {
-    return Vector(this->x + v.getX(), this->y + v.getY(), this->z + v.getZ());
+Vector Vector::operator+(const Vector v) {
+    return Vector(this->x + v.x, this->y + v.y, this->z + v.z);
 }
 
-Vector Vector::operator-(Vector v) {
-    return Vector(this->x - v.getX(), this->y - v.getY(), this->z - v.getZ());
+Vector Vector::operator+=(const Vector v) {
+    this->x += v.x;
+    this->y += v.y;
+    this->z += v.z;
+    return *this;
 }
 
-Vector Vector::operator*(float scalar) {
+Vector Vector::operator-(const Vector v) {
+    return Vector(this->x - v.x, this->y - v.y, this->z - v.z);
+}
+
+Vector Vector::operator-=(const Vector v) {
+    this->x -= v.x;
+    this->y -= v.y;
+    this->z -= v.z;
+    return *this;
+}
+
+Vector Vector::operator*(const float scalar) {
     return Vector(this->x * scalar, this->y * scalar, this->z * scalar);
 }
 
-Vector Vector::operator/(float scalar) {
+Vector Vector::operator*=(const float scalar) {
+    this->x *= scalar;
+    this->y *= scalar;
+    this->z *= scalar;
+    return *this;
+}
+
+Vector Vector::operator/(const float scalar) {
     return Vector(this->x / scalar, this->y / scalar, this->z / scalar);
 }
 
+Vector Vector::operator/=(const float scalar) {
+    this->x /= scalar;
+    this->y /= scalar;
+    this->z /= scalar;
+    return *this;
+}
+
 float Vector::dot(Vector v) {
-    return this->x * v.getX() + this->y * v.getY() + this->z * v.getZ();
+    return this->x * v.x + this->y * v.y + this->z * v.z;
 }
 
 Vector Vector::normalize() {

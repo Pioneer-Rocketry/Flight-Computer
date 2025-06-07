@@ -27,18 +27,18 @@ void Mag_MMC5603NJ::loop() {
     read_I2C(MMC5603NJ_X_OUT_0, &buffer[0], 2);
     read_I2C(MMC5603NJ_X_OUT_2, &buffer[2], 1);
 
-    this->data->MMC5603_Mag.setX(((float) (int32_t) (buffer[0] << 16 | buffer[1] << 8 | buffer[2] >> 4)) * MMC5603NJ_SENSITIVITY);
+    this->data->MMC5603_Mag.x = ((float) (int32_t) (buffer[0] << 16 | buffer[1] << 8 | buffer[2] >> 4)) * MMC5603NJ_SENSITIVITY;
 
     // Read Y Axis Measurements
     read_I2C(MMC5603NJ_Y_OUT_0, &buffer[0], 2);
     read_I2C(MMC5603NJ_Y_OUT_2, &buffer[2], 1);
 
-    this->data->MMC5603_Mag.setY(((float) (int32_t) (buffer[0] << 16 | buffer[1] << 8 | buffer[2] >> 4)) * MMC5603NJ_SENSITIVITY);
+    this->data->MMC5603_Mag.y = ((float) (int32_t) (buffer[0] << 16 | buffer[1] << 8 | buffer[2] >> 4)) * MMC5603NJ_SENSITIVITY;
 
     // Read Z Axis Measurements
     read_I2C(MMC5603NJ_Z_OUT_0, &buffer[0], 2);
     read_I2C(MMC5603NJ_Z_OUT_2, &buffer[2], 1);
 
-    this->data->MMC5603_Mag.setZ(((float) (int32_t) (buffer[0] << 16 | buffer[1] << 8 | buffer[2] >> 4)) * MMC5603NJ_SENSITIVITY);
+    this->data->MMC5603_Mag.z = ((float) (int32_t) (buffer[0] << 16 | buffer[1] << 8 | buffer[2] >> 4)) * MMC5603NJ_SENSITIVITY;
 
 }

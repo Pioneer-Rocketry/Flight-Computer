@@ -10,9 +10,8 @@
 #include "datatypes/quaternion.h"
 
 #define GRAVITY     9.80665f
-#define PI          3.141592653589793
-#define RAD_TO_DEG  180/PI
-#define DEG_TO_RAD  PI/180
+#define RAD_TO_DEG  180/M_PI
+#define DEG_TO_RAD  M_PI/180
 #define FT_TO_M     0.3048
 
 class Data {

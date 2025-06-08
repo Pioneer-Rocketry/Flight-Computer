@@ -110,6 +110,7 @@ void State_Machine::switch_to_deccelerating() {
 }
 
 void State_Machine::switch_to_descending() {
+    // Switch the state if the altitude starts to decrease, and vertical velocity > 0 m/s for at least .5 seconds
 }
 
 void State_Machine::switch_to_under_drouge() {
@@ -119,6 +120,7 @@ void State_Machine::switch_to_under_main() {
 }
 
 void State_Machine::switch_to_landed() {
+    // Switch the state if the magnitude of the acceleration is -1+-0.2G for at least 2 seconds
 }
 
 void State_Machine::switch_to_next_state() {

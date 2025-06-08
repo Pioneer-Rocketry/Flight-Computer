@@ -28,7 +28,7 @@ void Data::log() {
         "Gyro:          X: %.2f\tY: %.2f\tZ: %.2f\tdeg/s\r\n"
         "Rotated Accel Mag: %.2f\r\n"
         // "Mag:           X: %.2f\tY: %.2f\tZ: %.2f\tmG\r\n"
-        // "Pressure: %.2f\thPa | Altitude: %.2f\tm\r\n"
+        "Pressure: %.2f\thPa | Altitude: %.2f\tm\r\n"
         // "Orientation:   W: %.2f\tX: %.2f\tY: %.2f Z: %.2f\r\n"
         // "Eular: Roll: %.2f\tPitch: %.2f\tYaw: %.2f\r\n"
         // "Position:      X: %.2f\tY: %.2f\tZ: %.2f\tm\r\n"
@@ -40,7 +40,7 @@ void Data::log() {
         LSM6DSV320_Gyro.x, LSM6DSV320_Gyro.y, LSM6DSV320_Gyro.z,
         rotated_LowG_Accel.magnitude(),
         // MMC5603_Mag.x, MMC5603_Mag.y, MMC5603_Mag.z,
-        // MS5607_Pressure, MS5607_Altitude,
+        MS5607_Pressure, MS5607_Altitude,
         // orientation.w, orientation.x, orientation.y, orientation.z,
         // eular.x, eular.y, eular.z,
         // position.x, position.y, position.z,

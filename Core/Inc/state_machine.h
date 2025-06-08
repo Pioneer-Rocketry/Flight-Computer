@@ -20,7 +20,7 @@ enum State {
     LANDED              = 9
 };
 
-#define NUM_I2C_DEVICES 0
+#define NUM_I2C_DEVICES 1
 #define NUM_SPI_DEVICES 1
 
 #define MIN_ACCELERATION 2 * GRAVITY // 2G

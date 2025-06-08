@@ -145,7 +145,7 @@ void State_Machine::switch_to_next_state() {
 void State_Machine::system_checks() {
     if (state != SYSTEM_CHECKS) {
         clear_buffer();
-        snprintf(buffer, sizeof(buffer), "Initializing %s\r\n");
+        snprintf(buffer, sizeof(buffer), "In the wrong state to do system checks\r\n");
 
         while (1) {
             // Flash failed to start
@@ -203,7 +203,7 @@ void State_Machine::localize() {
 }
 
 void State_Machine::clear_buffer() {
-    for (int i=0; i < sizeof(buffer); i++) buffer[i] = 0;
+    for (uint i=0; i < sizeof(buffer); i++) buffer[i] = 0;
 }
 
 void State_Machine::log_state() {

@@ -13,7 +13,7 @@ bool Mag_MMC5603NJ::begin() {
     }
 
     /* Sensor Configuration */
-    uint8_t config = 0;
+    // uint8_t config = 0;
 
     // TODO: Implement sensor configuration
 

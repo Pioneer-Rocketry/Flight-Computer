@@ -91,7 +91,7 @@ public:
      * @param pin The chip select pin
      * @param name The name of the device
      */
-    SPI_Device(Data *data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin, char name[32]) {
+    SPI_Device(Data *data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin, const char name[32]) {
         this->data = data;
         this->spiHandler = spi;
         this->chipSelectPort = port;

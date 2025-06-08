@@ -21,7 +21,7 @@ void Data::log() {
     eular = orientation.toEuler();
 
     int len = snprintf(buffer, sizeof(buffer),
-        "Timestamp: %d\r\n"
+        "Timestamp: %lu\r\n"
         "Frequency: %.02f\tHz\r\n"
         "LowG Accel:    X: %.2f\tY: %.2f\tZ: %.2f\tm/s^2\r\n"
         "HighG Accel:   X: %.2f\tY: %.2f\tZ: %.2f\tm/s^2\r\n"

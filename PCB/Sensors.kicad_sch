@@ -3688,7 +3688,7 @@
 			(uuid "84fdae86-fef8-4c8d-a1a4-48e32af3a94c")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0303")
 					(unit 1)
@@ -3754,7 +3754,7 @@
 			(uuid "d8deb1f7-54fb-435e-86d9-0e5401d772ab")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0314")
 					(unit 1)
@@ -3948,7 +3948,7 @@
 			(uuid "8b3b9392-52d2-47b8-acb8-85ce5f8208da")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "C305")
 					(unit 1)
@@ -4014,7 +4014,7 @@
 			(uuid "8dfea881-6aab-4131-a854-49f808be49a0")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0307")
 					(unit 1)
@@ -4080,7 +4080,7 @@
 			(uuid "c4b80b4e-d046-46d6-b3e2-e6102b99798e")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0313")
 					(unit 1)
@@ -4226,7 +4226,7 @@
 			(uuid "3c938088-f316-4d53-8f63-024bcc058026")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "C301")
 					(unit 1)
@@ -4397,7 +4397,7 @@
 			(uuid "ad9502ca-e616-4081-83c4-aeeb7d17fb8a")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0308")
 					(unit 1)
@@ -4463,7 +4463,7 @@
 			(uuid "f34b1f22-98d1-46a5-88f3-ef3035f1bf85")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0316")
 					(unit 1)
@@ -4529,7 +4529,7 @@
 			(uuid "98d6e1c7-1a4d-42de-adfe-738987ff3347")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0309")
 					(unit 1)
@@ -4595,7 +4595,7 @@
 			(uuid "2df9d9d4-c785-4823-9d45-3c1c50409a65")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0306")
 					(unit 1)
@@ -4664,7 +4664,7 @@
 			(uuid "888c76c3-19c3-4279-9129-fc98020ed97f")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "C306")
 					(unit 1)
@@ -4822,7 +4822,7 @@
 			(uuid "a22680d1-23f0-4812-b933-5c1a9b329dee")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "C303")
 					(unit 1)
@@ -4892,7 +4892,7 @@
 			(uuid "68d8baaa-fd99-4ff6-a0d5-f652e10f1bb2")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "C302")
 					(unit 1)
@@ -4958,7 +4958,7 @@
 			(uuid "1cf1f80a-fdc8-4c8c-8262-6f00bc1b3d8a")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0312")
 					(unit 1)
@@ -5027,7 +5027,7 @@
 			(uuid "156cac95-1ecf-4381-b012-dd651a190dde")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "R301")
 					(unit 1)
@@ -5093,7 +5093,7 @@
 			(uuid "03486779-9ff4-4578-ace5-7a0a12993dec")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0302")
 					(unit 1)
@@ -5159,7 +5159,7 @@
 			(uuid "2d9290eb-99bf-4aa5-8095-19adee993edf")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0315")
 					(unit 1)
@@ -5229,7 +5229,7 @@
 			(uuid "da90fee4-55c4-4723-9961-5fe766480081")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "R303")
 					(unit 1)
@@ -5299,7 +5299,7 @@
 			(uuid "4e194b2e-e034-42d3-9d54-e56a0df3813e")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "C304")
 					(unit 1)
@@ -5438,7 +5438,7 @@
 			(uuid "4b12cbf1-033f-4dcb-adba-d137e6664096")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0301")
 					(unit 1)
@@ -5504,7 +5504,7 @@
 			(uuid "b2ccce06-42d2-4346-beba-470bf9ac77aa")
 		)
 		(instances
-			(project "Flight Computer v3"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0305")
 					(unit 1)
@@ -5570,7 +5570,7 @@
 			(uuid "36da11a4-20e9-48ca-b56e-fe99c2f44c43")
 		)
 		(instances
-			(project "Flight Computer v3"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0304")
 					(unit 1)
@@ -5640,7 +5640,7 @@
 			(uuid "c793a944-536b-4522-88ba-484bfd11ccf1")
 		)
 		(instances
-			(project "Flight Computer v3 - Kicad"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "R304")
 					(unit 1)

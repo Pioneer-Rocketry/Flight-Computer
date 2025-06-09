@@ -44,7 +44,7 @@
 			)
 		)
 		(instances
-			(project "Flight Computer v3"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4"
 					(page "6")
 				)
@@ -86,7 +86,7 @@
 			)
 		)
 		(instances
-			(project "Flight Computer v3"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4"
 					(page "7")
 				)
@@ -128,7 +128,7 @@
 			)
 		)
 		(instances
-			(project "Flight Computer v3"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4"
 					(page "3")
 				)
@@ -170,7 +170,7 @@
 			)
 		)
 		(instances
-			(project "Flight Computer v3"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4"
 					(page "2")
 				)
@@ -212,7 +212,7 @@
 			)
 		)
 		(instances
-			(project "Flight Computer v3"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4"
 					(page "5")
 				)
@@ -254,7 +254,7 @@
 			)
 		)
 		(instances
-			(project "Flight Computer v3"
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4"
 					(page "4")
 				)

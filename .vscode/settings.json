@@ -1,4 +1,8 @@
 {
     "cortex-debug.gdbPath": "/usr/bin/gdb-multiarch",
-    "stm32-for-vscode.openOCDPath": "/usr/bin/openocd"
+    "stm32-for-vscode.openOCDPath": "/usr/bin/openocd",
+    "editor.formatOnSave": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false
 }

@@ -3614,6 +3614,16 @@
 	)
 	(wire
 		(pts
+			(xy 110.49 110.49) (xy 111.76 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "850dd8e9-e9bd-4d65-b03e-642620bb29bd")
+	)
+	(wire
+		(pts
 			(xy 50.8 69.85) (xy 50.8 72.39)
 		)
 		(stroke
@@ -4514,6 +4524,17 @@
 			(justify right)
 		)
 		(uuid "76da73e5-9347-4e73-bec6-355e3b5aebd0")
+	)
+	(hierarchical_label "PB1"
+		(shape bidirectional)
+		(at 111.76 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7ad5e262-6d34-4741-b0d4-7a0fe39989c9")
 	)
 	(hierarchical_label "PA14"
 		(shape bidirectional)

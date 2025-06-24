@@ -424,15 +424,15 @@
       "duplicate_sheet_names": "error",
       "endpoint_off_grid": "warning",
       "extra_units": "error",
-      "footprint_filter": "ignore",
-      "footprint_link_issues": "warning",
+      "footprint_filter": "warning",
+      "footprint_link_issues": "ignore",
       "four_way_junction": "ignore",
       "global_label_dangling": "warning",
       "hier_label_mismatch": "error",
       "label_dangling": "error",
       "label_multiple_wires": "warning",
       "lib_symbol_issues": "warning",
-      "lib_symbol_mismatch": "warning",
+      "lib_symbol_mismatch": "ignore",
       "missing_bidi_pin": "warning",
       "missing_input_pin": "warning",
       "missing_power_pin": "error",
@@ -444,13 +444,13 @@
       "pin_not_connected": "error",
       "pin_not_driven": "error",
       "pin_to_pin": "warning",
-      "power_pin_not_driven": "error",
+      "power_pin_not_driven": "ignore",
       "same_local_global_label": "warning",
       "similar_label_and_power": "warning",
       "similar_labels": "warning",
       "similar_power": "warning",
-      "simulation_model_issue": "ignore",
-      "single_global_label": "ignore",
+      "simulation_model_issue": "warning",
+      "single_global_label": "warning",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
       "unit_value_mismatch": "error",
@@ -651,6 +651,12 @@
           "label": "#",
           "name": "${ITEM_NUMBER}",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Device",
+          "name": "Sim.Device",
+          "show": false
         }
       ],
       "filter_string": "",
@@ -710,16 +716,12 @@
       "Power"
     ],
     [
-      "c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a",
-      "Sensors"
-    ],
-    [
-      "f595cd26-832b-4750-b9f5-43cd274712c7",
-      "Pyro"
-    ],
-    [
       "d0598f39-31ca-47e7-8156-229135d6220f",
       "MCU"
+    ],
+    [
+      "c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a",
+      "Sensors"
     ],
     [
       "0a0b3d01-7422-42e0-b725-ff9e85b891ec",
@@ -728,6 +730,10 @@
     [
       "b5b3f2b6-4604-4088-8488-54d61b2ee536",
       "Radio"
+    ],
+    [
+      "f595cd26-832b-4750-b9f5-43cd274712c7",
+      "Pyro"
     ]
   ],
   "text_variables": {}

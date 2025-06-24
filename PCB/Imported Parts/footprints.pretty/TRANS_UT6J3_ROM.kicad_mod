@@ -565,18 +565,6 @@
 	)
 	(fp_text user "*"
 		(at -1.3548 -1.356 0)
-		(unlocked yes)
-		(layer "F.SilkS")
-		(uuid "79154318-ab2a-4b35-9231-701329d7acfb")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.15)
-			)
-		)
-	)
-	(fp_text user "*"
-		(at -1.3548 -1.356 0)
 		(layer "F.SilkS")
 		(uuid "e60e1ce8-bc89-4361-b592-6326c323e073")
 		(effects

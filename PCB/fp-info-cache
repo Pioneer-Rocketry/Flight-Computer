@@ -1,4 +1,4 @@
-25638568766731010
+25640322175470410
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -102654,6 +102654,13 @@ EdgePinHeader_02x07
 0
 14
 14
+imported
+OSC_CSTNE8M00G52Z000R0
+
+
+0
+3
+3
 imported
 QFN24L_4X4X0P5_STM
 

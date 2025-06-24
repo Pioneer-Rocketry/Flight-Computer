@@ -1629,6 +1629,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 63.5 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC  Part #" ""
+			(at 63.5 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3f6f1ae5-2741-4977-b983-14d3f9b7481c")
 		)
@@ -1897,6 +1915,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 133.35 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC  Part #" ""
+			(at 133.35 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "030b80af-6ee6-4bb8-a0da-588ef2509285")
 		)
@@ -1957,6 +1993,24 @@
 			)
 		)
 		(property "Description" "800mA Low-Dropout Linear Regulator, 3.3V fixed output, SOT-223"
+			(at 50.8 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 50.8 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC  Part #" ""
 			(at 50.8 49.53 0)
 			(effects
 				(font
@@ -2030,6 +2084,24 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 101.6 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 101.6 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC  Part #" ""
 			(at 101.6 43.18 0)
 			(effects
 				(font
@@ -2237,6 +2309,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 106.68 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC  Part #" ""
+			(at 106.68 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ae39f1c1-3836-4ae8-862d-109c50d2f405")
 		)
@@ -2299,6 +2389,24 @@
 			)
 		)
 		(property "Description" "test point"
+			(at 128.27 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 128.27 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC  Part #" ""
 			(at 128.27 43.18 0)
 			(effects
 				(font
@@ -2383,6 +2491,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 106.68 46.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC  Part #" ""
+			(at 106.68 46.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "7e7940b2-0d57-4146-86a7-5a689170c45e")
 		)
@@ -2455,6 +2581,24 @@
 		)
 		(property "Sim.Pins" "1=K 2=A"
 			(at 133.35 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 133.35 46.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC  Part #" ""
+			(at 133.35 46.99 90)
 			(effects
 				(font
 					(size 1.27 1.27)

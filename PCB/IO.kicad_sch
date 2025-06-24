@@ -4302,7 +4302,7 @@
 	)
 	(hierarchical_label "SWDIO"
 		(shape bidirectional)
-		(at 182.88 39.37 0)
+		(at 182.88 36.83 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4357,7 +4357,7 @@
 	)
 	(hierarchical_label "SWCLK"
 		(shape output)
-		(at 182.88 36.83 0)
+		(at 182.88 39.37 0)
 		(effects
 			(font
 				(size 1.27 1.27)

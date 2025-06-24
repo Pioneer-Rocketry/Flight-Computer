@@ -180,7 +180,7 @@ int main(void)
             // Update filters
             orientation_filter.compute();
 
-            data.rotated_LowG_Accel = data.LSM6DSV320_LowG_Accel.rotateByEuler(data.orientation.toEuler());   // Rotate acceleration vector by orientation
+            data.rotated_LowG_Accel  = data.LSM6DSV320_LowG_Accel.rotateByEuler(data.orientation.toEuler());   // Rotate acceleration vector by orientation
             data.rotated_HighG_Accel = data.LSM6DSV320_HighG_Accel.rotateByEuler(data.orientation.toEuler()); // Rotate acceleration vector by orientation
             position_kalman_filter.compute();
 

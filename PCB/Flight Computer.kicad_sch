@@ -1614,7 +1614,7 @@
 		(uuid "7bb4667e-28aa-4b1d-8856-63b056d6bc49")
 	)
 	(label "SWCLK"
-		(at 173.99 57.15 180)
+		(at 173.99 59.69 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2004,7 +2004,7 @@
 		(uuid "f4f38f31-c495-4474-8d05-e8d2529a5cab")
 	)
 	(label "SWDIO"
-		(at 173.99 59.69 180)
+		(at 173.99 57.15 180)
 		(effects
 			(font
 				(size 1.27 1.27)

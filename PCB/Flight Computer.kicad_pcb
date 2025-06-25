@@ -17211,6 +17211,7 @@
 		(property "Reference" "C309"
 			(at 0 1.301076 135)
 			(layer "B.SilkS")
+			(hide yes)
 			(uuid "1d9fe63f-c94d-4921-8469-3b805e0d607b")
 			(effects
 				(font

@@ -1274,7 +1274,7 @@
 		(uuid "024df1e4-edb5-4ab9-9a29-8f22350c5e9f")
 	)
 	(label "Pryo1_Trigger"
-		(at 100.33 38.1 0)
+		(at 100.33 43.18 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1284,7 +1284,7 @@
 		(uuid "028cf281-8f39-444d-87f1-e5cf900d5b02")
 	)
 	(label "Pryo3_Trigger"
-		(at 100.33 43.18 0)
+		(at 100.33 38.1 0)
 		(effects
 			(font
 				(size 1.27 1.27)

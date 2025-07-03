@@ -25,7 +25,7 @@
 #include "data.h"
 #include "state_machine.h"
 
-#include "SPI_Devices/radio_SX1262.h"
+#include "SPI_Devices/radio_RFM95W.h"
 #include "SPI_Devices/flash_W25Q128.h"
 #include "SPI_Devices/imu_LSM6DSV320.h"
 
@@ -78,7 +78,7 @@ Baro_MS5607 baro(&hi2c1, &data);
 I2C_Device* i2c_devices[NUM_I2C_DEVICES] = {&baro};
 
 // SPI Devices
-// Radio_SX1262  radio(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);
+// Radio_RFM95W  radio(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin, 915.0);
 // Flash_W25Q128 flash(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);
 IMU_LSM6DSV320 imu(&data, &hspi1, IMU_CS_GPIO_Port, IMU_CS_Pin);
 // Baro_MS5607    baro(&data, &hspi1, GPIOB, Baro_CS_Pin);

@@ -9,9 +9,9 @@
 // Registers
 #define RFM95W_FIFO					0x00
 #define RFM95W_OP_MODE				0x01
-#define RFM95W_FRF_MSB				0x06
-#define RFM95W_FRF_MID				0x07
-#define RFM95W_FRF_LSB				0x08
+#define RFM95W_FR_MSB				0x06
+#define RFM95W_FR_MID				0x07
+#define RFM95W_FR_LSB				0x08
 #define RFM95W_PA_CONFIG			0x09
 #define RFM95W_PA_RAMP				0x0A
 #define RFM95W_OCP					0x0B
@@ -58,10 +58,11 @@ class Radio_RFM95W : public SPI_Device
 {
 private:
 
-	float frequency = 915.0;
+	int64_t frequency = 915000000;
+	int32_t frf;
 
 public:
-    Radio_RFM95W(Data *data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin, float frequency);
+    Radio_RFM95W(Data *data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin, int64_t frequency);
 
     bool begin() override;
     void loop() override;

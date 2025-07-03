@@ -21,7 +21,7 @@ enum State {
 };
 
 #define NUM_I2C_DEVICES 1
-#define NUM_SPI_DEVICES 1
+#define NUM_SPI_DEVICES 2
 
 #define MIN_ACCELERATION 2 * GRAVITY // 2G
 #define MIN_ACCELERATION_TIME 300 // ms

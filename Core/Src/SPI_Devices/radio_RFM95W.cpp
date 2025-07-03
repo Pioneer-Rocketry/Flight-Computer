@@ -1,15 +1,27 @@
 #include "SPI_Devices/radio_RFM95W.h"
 
-Radio_RFM95W::Radio_RFM95W(Data *data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin, float frequency)
+Radio_RFM95W::Radio_RFM95W(Data *data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin, int64_t frequency)
     : SPI_Device(data, spi, port, pin, "RFM95W") {
 
 	this->frequency = frequency;
+	this->frf = (double)frequency / 61.03515625;
 }
 
 bool Radio_RFM95W::begin() {
 
     /* Radio Configuration */
     uint8_t config = 0;
+
+	// Put device in sleep mode
+
+	// OP_MODE page 87
+	config  = 0;
+	config |= 0b1   << 7; // Enable LoRa Mode
+	config |= 0b0   << 6; // Access to LoRa register page
+	config |= 0b00  << 4; // Reserved
+	config |= 0b0   << 3; // High Frequency Mode
+	config |= 0b000 << 0; // Sleep Mode
+	write_SPI(RFM95W_OP_MODE, &config);
 
 	// OP_MODE page 87
 	config  = 0;
@@ -21,10 +33,16 @@ bool Radio_RFM95W::begin() {
 	write_SPI(RFM95W_OP_MODE, &config);
 
 	// FR_MSB
+	config = frf >> 16;
+	write_SPI(RFM95W_FR_MSB, &config);
 
 	// FR_MID
+	config = frf >> 8;
+	write_SPI(RFM95W_FR_MID, &config);
 
 	// FR_LSB
+	config = frf >> 0;
+	write_SPI(RFM95W_FR_LSB, &config);
 
 	// PA_CONFIG
 	config  = 0;
@@ -54,6 +72,18 @@ bool Radio_RFM95W::begin() {
 	config |= 0b00 	<< 1; // Reserved
 	config |= 0b11 	<< 0; // Enable boost
 	write_SPI(RFM95W_LNA, &config);
+
+
+	// Put device in stand by mode
+
+	// OP_MODE page 87
+	config  = 0;
+	config |= 0b1   << 7; // Enable LoRa Mode
+	config |= 0b0   << 6; // Access to LoRa register page
+	config |= 0b00  << 4; // Reserved
+	config |= 0b0   << 3; // High Frequency Mode
+	config |= 0b001 << 0; // Sleep Mode
+	write_SPI(RFM95W_OP_MODE, &config);
 
     return true;
 }

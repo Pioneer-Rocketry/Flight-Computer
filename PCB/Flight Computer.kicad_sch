@@ -1273,7 +1273,7 @@
 		)
 		(uuid "024df1e4-edb5-4ab9-9a29-8f22350c5e9f")
 	)
-	(label "Pryo1_Trigger"
+	(label "Pyro1_Trigger"
 		(at 100.33 43.18 0)
 		(effects
 			(font
@@ -1283,7 +1283,7 @@
 		)
 		(uuid "028cf281-8f39-444d-87f1-e5cf900d5b02")
 	)
-	(label "Pryo3_Trigger"
+	(label "Pyro3_Trigger"
 		(at 100.33 38.1 0)
 		(effects
 			(font
@@ -1343,7 +1343,7 @@
 		)
 		(uuid "0dc265ee-3b39-472f-9e77-eb903609e97b")
 	)
-	(label "Pryo3_Trigger"
+	(label "Pyro3_Trigger"
 		(at 43.18 152.4 0)
 		(effects
 			(font
@@ -1363,7 +1363,7 @@
 		)
 		(uuid "22004195-e130-4801-aa87-ba01191bf423")
 	)
-	(label "Pryo1_Cont"
+	(label "Pyro1_Cont"
 		(at 173.99 34.29 180)
 		(effects
 			(font
@@ -1443,7 +1443,7 @@
 		)
 		(uuid "449c990c-69c5-44ee-95a4-87e578f82f18")
 	)
-	(label "Pryo1_Cont"
+	(label "Pyro1_Cont"
 		(at 43.18 132.08 0)
 		(effects
 			(font
@@ -1453,7 +1453,7 @@
 		)
 		(uuid "458260b3-637a-4126-8bc7-a8db2b68bf45")
 	)
-	(label "Pryo2_Cont"
+	(label "Pyro2_Cont"
 		(at 43.18 140.97 0)
 		(effects
 			(font
@@ -1573,7 +1573,7 @@
 		)
 		(uuid "66c30727-bea8-45cd-88d5-667979a84b5c")
 	)
-	(label "Pryo1_Trigger"
+	(label "Pyro1_Trigger"
 		(at 43.18 134.62 0)
 		(effects
 			(font
@@ -1623,7 +1623,7 @@
 		)
 		(uuid "7ca138e7-9328-43b6-82e4-3462cab639a4")
 	)
-	(label "Pryo1"
+	(label "Pyro1"
 		(at 162.56 102.87 180)
 		(effects
 			(font
@@ -1663,7 +1663,7 @@
 		)
 		(uuid "90d6f138-6463-4764-a17c-4ff755e6a9d1")
 	)
-	(label "Pryo3_Cont"
+	(label "Pyro3_Cont"
 		(at 173.99 39.37 180)
 		(effects
 			(font
@@ -1683,7 +1683,7 @@
 		)
 		(uuid "9ad137fe-4087-4219-a1a4-9872fd4e600d")
 	)
-	(label "Pryo2"
+	(label "Pyro2"
 		(at 162.56 105.41 180)
 		(effects
 			(font
@@ -1723,7 +1723,7 @@
 		)
 		(uuid "a34026a8-fe48-4867-bac5-8899f19dabad")
 	)
-	(label "Pryo3_Cont"
+	(label "Pyro3_Cont"
 		(at 43.18 149.86 0)
 		(effects
 			(font
@@ -1753,7 +1753,7 @@
 		)
 		(uuid "a997e4ee-3967-4547-96b4-bd47a00769e1")
 	)
-	(label "Pryo3"
+	(label "Pyro3"
 		(at 43.18 147.32 0)
 		(effects
 			(font
@@ -1783,7 +1783,7 @@
 		)
 		(uuid "b257e5a2-0000-411c-84b2-81f4a053e2ab")
 	)
-	(label "Pryo3"
+	(label "Pyro3"
 		(at 162.56 107.95 180)
 		(effects
 			(font
@@ -1803,7 +1803,7 @@
 		)
 		(uuid "ba287e53-e0ef-4f85-a250-939258260e20")
 	)
-	(label "Pryo2_Trigger"
+	(label "Pyro2_Trigger"
 		(at 100.33 40.64 0)
 		(effects
 			(font
@@ -1813,7 +1813,7 @@
 		)
 		(uuid "badd61c3-cff4-43e4-9ea2-0263b48a4f0e")
 	)
-	(label "Pryo2_Cont"
+	(label "Pyro2_Cont"
 		(at 173.99 31.75 180)
 		(effects
 			(font
@@ -1893,7 +1893,7 @@
 		)
 		(uuid "d42e6637-4e61-4ecf-a386-696b8ff93f56")
 	)
-	(label "Pryo2_Trigger"
+	(label "Pyro2_Trigger"
 		(at 43.18 143.51 0)
 		(effects
 			(font
@@ -1923,7 +1923,7 @@
 		)
 		(uuid "d8bc6cbf-f148-40c9-bd3d-41d037587c26")
 	)
-	(label "Pryo1"
+	(label "Pyro1"
 		(at 43.18 129.54 0)
 		(effects
 			(font
@@ -1993,7 +1993,7 @@
 		)
 		(uuid "ee5d4155-c9f1-4d83-8df3-32aa9f97e2ea")
 	)
-	(label "Pryo2"
+	(label "Pyro2"
 		(at 43.18 138.43 0)
 		(effects
 			(font

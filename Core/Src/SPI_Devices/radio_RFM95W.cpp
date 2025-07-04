@@ -85,6 +85,33 @@ bool Radio_RFM95W::begin() {
 	config |= 0b001 << 0; // Sleep Mode
 	write_SPI(RFM95W_OP_MODE, &config);
 
+	// MODEM_CONFIG1
+	config  = 0;
+	config |= 0b0110 << 4; // 62.5 kHz bandwidth
+	config |= 0b001  << 1; // 4/5 coding
+	config |= 0b1    << 0; // Implicit header
+	write_SPI(RFM95W_MODEM_CONFIG1, &config);
+
+	// MODEM_CONFIG2
+	config  = 0;
+	config |= 0b1111 << 4; // 12 Spread Factor
+	config |= 0b1    << 3; // Enabled TX Continuous Mode
+	config |= 0b0    << 2; // Turn off CRC on RX packets
+	config |= 0b00   << 0; // Default value to timeout
+	write_SPI(RFM95W_MODEM_CONFIG2, &config);
+
+	// SYMB_TIMEOUT_L
+	config = 0x64; // Default value
+	write_SPI(RFM95W_SYMB_TIMEOUT_L, &config);
+
+	// MODEM_CONFIG3
+	config  = 0;
+	config |= 0b0000 << 4; // Unused
+	config |= 0b1    << 3; // Set it to mobile node
+	config |= 0b0    << 2; // Set Register LNA Gain
+	config |= 0b00   << 0; // Reserved
+	write_SPI(RFM95W_MODEM_CONFIG3, &config);
+
     return true;
 }
 

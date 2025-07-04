@@ -35,6 +35,8 @@
 #include "filters/orientation_filter.h"
 #include "filters/position_kalman_filter.h"
 
+#include "definitions.h"
+
 #include "micros.h"
 
 /* USER CODE END Includes */
@@ -63,22 +65,18 @@ UART_HandleTypeDef huart1; // GPS
 UART_HandleTypeDef huart2; // Logging
 
 /* USER CODE BEGIN PV */
-
-#define LOOP_FREQ 100 // Hz
-#define LOOP_TIME (1000000 / LOOP_FREQ) // us
 uint32_t loop_start = micros();
 
 Data data(&huart2);
 char buffer[64];
 
 // I2C Devices
-// IMU_LSM6DSV320 imu(&hi2c1, &data);
 // Mag_MMC5603NJ  mag(&hi2c1, &data);
 Baro_MS5607 baro(&hi2c1, &data);
 I2C_Device* i2c_devices[NUM_I2C_DEVICES] = {&baro};
 
 // SPI Devices
-Radio_RFM95W  radio(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin, 915000000);
+Radio_RFM95W  radio(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin, RADIO_FREQ);
 // Flash_W25Q128 flash(&data, &hspi1, SPI_CS_GPIO_Port, SPI_CS_Pin);
 IMU_LSM6DSV320 imu(&data, &hspi1, IMU_CS_GPIO_Port, IMU_CS_Pin);
 // Baro_MS5607    baro(&data, &hspi1, GPIOB, Baro_CS_Pin);

@@ -7,6 +7,8 @@
 #include "I2C_Devices/I2C_Device.hpp"
 #include "SPI_Devices/SPI_Device.hpp"
 
+#include "definitions.h"
+
 enum State {
     INITIALIZING        = 0,
     SYSTEM_CHECKS       = 1,
@@ -20,14 +22,6 @@ enum State {
     LANDED              = 9
 };
 
-#define NUM_I2C_DEVICES 1
-#define NUM_SPI_DEVICES 2
-
-#define MIN_ACCELERATION 2 * GRAVITY // 2G
-#define MIN_ACCELERATION_TIME 300 // ms
-
-#define MIN_DECCELERATION -1 * GRAVITY // -1G
-#define MIN_DECCELERATION_TIME 500 // ms
 
 class State_Machine {
 private:

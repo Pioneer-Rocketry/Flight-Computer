@@ -9,12 +9,8 @@
 #include "datatypes/vector.h"
 #include "datatypes/quaternion.h"
 
-#define GRAVITY     9.80665f
-#define RAD_TO_DEG  180/M_PI
-#define DEG_TO_RAD  M_PI/180
-#define FT_TO_M     0.3048
+#include "definitions.h"
 
-#define MAX_RADIO_PACKET_SIZE 10
 
 class Data {
 private:

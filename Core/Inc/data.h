@@ -14,6 +14,8 @@
 #define DEG_TO_RAD  M_PI/180
 #define FT_TO_M     0.3048
 
+#define MAX_RADIO_PACKET_SIZE 10
+
 class Data {
 private:
     char buffer[512];

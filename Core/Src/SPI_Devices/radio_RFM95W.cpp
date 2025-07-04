@@ -112,8 +112,28 @@ bool Radio_RFM95W::begin() {
 	config |= 0b00   << 0; // Reserved
 	write_SPI(RFM95W_MODEM_CONFIG3, &config);
 
+	// MAX_PAYLOAD_LENGTH
+	config = MAX_RADIO_PACKET_SIZE;
+	write_SPI(RFM95W_MAX_PAYLOAD_LENGTH, &config);
+
+	// Reset FIFO
+
+	// FIFO_ADDR_PTR
+	config = 0x00;
+	write_SPI(RFM95W_FIFO_ADDR_PTR, &config);
+
+	// FIFO_TX_BASE_ADDR
+	config = 0x00;
+	write_SPI(RFM95W_FIFO_TX_BASE_ADDR, &config);
+
+	// FIFO_RX_BASE_ADDR
+	config = 0x00;
+	write_SPI(RFM95W_FIFO_RX_BASE_ADDR, &config);
+
     return true;
 }
 
 void Radio_RFM95W::loop() {
+
+	//
 }

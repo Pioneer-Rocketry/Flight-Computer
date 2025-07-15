@@ -14,28 +14,26 @@ private:
 	GPIO_TypeDef *triggerPort;
 	uint16_t triggerPin;
 
-	// Continity Pin
-	GPIO_TypeDef *continuityPort;
-	uint16_t continuityPin;
+	// Continity
+	ADC_HandleTypeDef continuityADC;
 
+	float cont_volt;
 	bool fired;
-
 	Data *data;
 
-	// Armed pins
-	static GPIO_TypeDef *armedPort;
-	static uint16_t armedPin;
-
+	// Armed
+	static ADC_HandleTypeDef armedADC;
+	static float pyro_volt;
 	static bool armed;
 
 public:
-	Pyro(Data *data, GPIO_TypeDef *triggerPort, uint16_t triggerPin, GPIO_TypeDef *continuityPort, uint16_t continuityPin);
+	Pyro(Data *data, GPIO_TypeDef *triggerPort, uint16_t triggerPin, ADC_HandleTypeDef continuityADC);
 
 	void init();
 	void update();
 	void fire();
 
-	static void set_armed_pins(GPIO_TypeDef *armedPort, uint16_t armedPin);
+	static void set_armed_pins(ADC_HandleTypeDef armedADC);
 	static void check_armed();
 };
 

@@ -87,7 +87,7 @@ IMU_LSM6DSV320 imu(&data, &hspi1, IMU_CS_GPIO_Port, IMU_CS_Pin);
 SPI_Device* spi_devices[NUM_SPI_DEVICES] {&imu, &radio};
 
 // Pyro Channels
-Pyro pyro1(&data, GPIOA, Pyro1_Fire_Pin, GPIOA, Pyro1_Cont_Pin);
+Pyro pyro1(&data, GPIOA, Pyro1_Fire_Pin, hadc1);
 // Pyro pyro2(&data, GPIOA, Pyro2_Fire_Pin, GPIOA, Pyro2_Cont_Pin);
 // Pyro pyro3(&data, GPIOA, Pyro3_Fire_Pin, GPIOA, Pyro3_Cont_Pin);
 
@@ -189,7 +189,7 @@ int main(void)
             // Update filters
             orientation_filter.compute();
 
-            data.rotated_LowG_Accel  = data.LSM6DSV320_LowG_Accel.rotateByEuler(data.orientation.toEuler());   // Rotate acceleration vector by orientation
+            data.rotated_LowG_Accel  = data.LSM6DSV320_LowG_Accel.rotateByEuler(data.orientation.toEuler());  // Rotate acceleration vector by orientation
             data.rotated_HighG_Accel = data.LSM6DSV320_HighG_Accel.rotateByEuler(data.orientation.toEuler()); // Rotate acceleration vector by orientation
             position_kalman_filter.compute();
 

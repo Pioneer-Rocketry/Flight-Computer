@@ -2644,7 +2644,7 @@
 	)
 	(hierarchical_label "SPI_MOSI"
 		(shape input)
-		(at 53.34 50.8 180)
+		(at 53.34 60.96 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2831,7 +2831,7 @@
 	)
 	(hierarchical_label "SPI_MISO"
 		(shape output)
-		(at 53.34 60.96 180)
+		(at 53.34 50.8 180)
 		(effects
 			(font
 				(size 1.27 1.27)

@@ -1,0 +1,14 @@
+2025-07-16 21:06:09,846 - panelizer_logger - INFO - Running Panelizer
+2025-07-16 21:06:09,847 - panelizer_logger - INFO - ['--panelx', '139.700000', '--panely', '190.500000', '--smaller', '--vscorelayer', 'User.Comments', '--vscoretextlayer', 'User.Comments', '--gapx', '0.000000', '--gapy', '0.000000']
+2025-07-16 21:06:09,848 - panelizer_logger - INFO - PANELIZER START: 2025-07-16T21:06:09.848599
+2025-07-16 21:06:14,340 - panelizer_logger - WARNING - 
+START: 2025-07-16T21:06:09.848593
+Zones filled by Panelizer.
+
+Board: /home/colin/rocketry/Flight-Computer/PCB/Production/Flight Computer_panelized.kicad_pcb
+Board dimensions: 30.00 x 60.00 mm.
+You can fit 4 x 3 boards on the panel.
+Zones refilled by Panelizer.
+Warning: Ordering Instructions contains default values.
+
+2025-07-16 21:07:35,715 - panelizer_logger - INFO - Panelizer complete

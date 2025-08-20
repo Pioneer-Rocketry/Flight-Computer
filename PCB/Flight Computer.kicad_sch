@@ -22,7 +22,7 @@
 		(uuid "136e20c5-0d55-42ae-a5c3-9cde6716052a")
 	)
 	(no_connect
-		(at 121.92 179.07)
+		(at 104.14 170.18)
 		(uuid "19333e9e-dad3-4067-b8cd-b2b7f0ba9e51")
 	)
 	(no_connect
@@ -42,7 +42,7 @@
 		(uuid "4d743651-c984-4df7-98f5-f1bd9af83780")
 	)
 	(no_connect
-		(at 121.92 181.61)
+		(at 104.14 172.72)
 		(uuid "824e10db-64ff-4380-a36c-b876f86a923f")
 	)
 	(no_connect
@@ -54,11 +54,11 @@
 		(uuid "a6fce366-7f46-4987-bbd8-cbc18795fe37")
 	)
 	(no_connect
-		(at 121.92 186.69)
+		(at 104.14 177.8)
 		(uuid "bda452b8-2b07-469a-bc1f-a727ce53eab4")
 	)
 	(no_connect
-		(at 121.92 189.23)
+		(at 104.14 180.34)
 		(uuid "c09b2a19-0b06-455c-ab3b-78957477b938")
 	)
 	(no_connect
@@ -78,7 +78,7 @@
 		(uuid "ea4a0ff9-ecce-4fd0-be20-a499f44bbffc")
 	)
 	(no_connect
-		(at 121.92 184.15)
+		(at 104.14 175.26)
 		(uuid "ec2d32d6-c8a5-4187-83af-e474b41f061d")
 	)
 	(no_connect
@@ -113,6 +113,15 @@
 		(uuid "38baaf02-1fdc-4ea8-b465-b05b5d5f23e2")
 	)
 	(bus_entry
+		(at 93.98 161.29)
+		(size 2.54 -2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "416c27b5-59b6-4acb-917a-14353283c260")
+	)
+	(bus_entry
 		(at 93.98 86.36)
 		(size 2.54 -2.54)
 		(stroke
@@ -129,6 +138,15 @@
 			(type default)
 		)
 		(uuid "6e4de803-4b22-4ef9-accb-9440edc357b1")
+	)
+	(bus_entry
+		(at 93.98 158.75)
+		(size 2.54 -2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7b61564e-1fe3-4d6b-b728-1697ffe02b60")
 	)
 	(bus_entry
 		(at 93.98 110.49)
@@ -165,6 +183,15 @@
 			(type default)
 		)
 		(uuid "ac4131af-fcb9-4643-8437-1b05776a6037")
+	)
+	(bus_entry
+		(at 93.98 156.21)
+		(size 2.54 -2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad457934-d3fe-4d15-ae88-df98f3f74168")
 	)
 	(bus_entry
 		(at 91.44 81.28)
@@ -252,7 +279,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 189.23) (xy 134.62 189.23)
+			(xy 104.14 180.34) (xy 116.84 180.34)
 		)
 		(stroke
 			(width 0)
@@ -399,6 +426,16 @@
 			(type default)
 		)
 		(uuid "2543f8b7-96df-4ed1-8d76-dab1c38bc45e")
+	)
+	(bus
+		(pts
+			(xy 93.98 158.75) (xy 93.98 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2559c4c2-a0aa-4979-8d28-e1568ecc5377")
 	)
 	(wire
 		(pts
@@ -712,7 +749,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 184.15) (xy 134.62 184.15)
+			(xy 104.14 175.26) (xy 116.84 175.26)
 		)
 		(stroke
 			(width 0)
@@ -792,7 +829,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 181.61) (xy 134.62 181.61)
+			(xy 104.14 172.72) (xy 116.84 172.72)
 		)
 		(stroke
 			(width 0)
@@ -809,6 +846,16 @@
 			(type default)
 		)
 		(uuid "8f7d6668-234a-4e9f-87f9-1bbd03b72b85")
+	)
+	(wire
+		(pts
+			(xy 96.52 156.21) (xy 116.84 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8fb302af-b48c-4318-a5b8-05c95bb5bc3c")
 	)
 	(wire
 		(pts
@@ -882,7 +929,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 186.69) (xy 134.62 186.69)
+			(xy 104.14 177.8) (xy 116.84 177.8)
 		)
 		(stroke
 			(width 0)
@@ -922,7 +969,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 170.18) (xy 134.62 170.18)
+			(xy 104.14 161.29) (xy 116.84 161.29)
 		)
 		(stroke
 			(width 0)
@@ -992,7 +1039,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 179.07) (xy 134.62 179.07)
+			(xy 104.14 170.18) (xy 116.84 170.18)
 		)
 		(stroke
 			(width 0)
@@ -1019,6 +1066,16 @@
 			(type default)
 		)
 		(uuid "b8b73e7b-a4cb-4f75-9fa2-7ed3cf78c5c0")
+	)
+	(wire
+		(pts
+			(xy 96.52 153.67) (xy 116.84 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb16100b-eae1-4a8f-a762-063e4034c3d6")
 	)
 	(wire
 		(pts
@@ -1059,6 +1116,26 @@
 			(type default)
 		)
 		(uuid "c5372960-6bc1-47e3-b2b8-ffa00821bc37")
+	)
+	(bus
+		(pts
+			(xy 93.98 156.21) (xy 93.98 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c64f6282-4dc9-41c1-a424-b91f12ac5e5c")
+	)
+	(bus
+		(pts
+			(xy 93.98 115.57) (xy 93.98 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6815396-7541-4843-a96e-a3726941139f")
 	)
 	(wire
 		(pts
@@ -1182,7 +1259,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 172.72) (xy 134.62 172.72)
+			(xy 104.14 163.83) (xy 116.84 163.83)
 		)
 		(stroke
 			(width 0)
@@ -1242,7 +1319,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 176.53) (xy 134.62 176.53)
+			(xy 104.14 167.64) (xy 116.84 167.64)
 		)
 		(stroke
 			(width 0)
@@ -1289,6 +1366,16 @@
 			(type default)
 		)
 		(uuid "fa07c7ec-32e0-4ca3-a151-01493dd3c82b")
+	)
+	(wire
+		(pts
+			(xy 96.52 158.75) (xy 116.84 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fed5e03f-49cc-4060-9b46-67f3903005ea")
 	)
 	(wire
 		(pts
@@ -1371,7 +1458,7 @@
 		(uuid "0b0a2d7c-9a70-4055-b080-d4e03e635677")
 	)
 	(label "LORA_DIO4"
-		(at 121.92 186.69 0)
+		(at 104.14 177.8 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1409,6 +1496,16 @@
 			(justify left bottom)
 		)
 		(uuid "1682d5a2-b2b7-4b59-9342-a3b1ab47c2e0")
+	)
+	(label "SPI_SCK"
+		(at 106.68 153.67 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "21095079-cbb8-468c-b8b2-a06bbfdf06e6")
 	)
 	(label "IMU_INT1"
 		(at 100.33 55.88 0)
@@ -1601,7 +1698,7 @@
 		(uuid "60dcf169-7247-47d0-90c9-2cd6bf8d23b8")
 	)
 	(label "LORA_RESET"
-		(at 121.92 172.72 0)
+		(at 104.14 163.83 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1621,7 +1718,7 @@
 		(uuid "6329622f-e5de-47bc-9171-92fdae933183")
 	)
 	(label "LORA_DIO1"
-		(at 121.92 179.07 0)
+		(at 104.14 170.18 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1760,6 +1857,16 @@
 		)
 		(uuid "8c5897f2-05d2-4953-9c5c-4417fbe22605")
 	)
+	(label "SPI_MISO"
+		(at 106.68 158.75 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8d2a8d9b-7bc4-4ae3-b651-fe00c4349594")
+	)
 	(label "SPI"
 		(at 93.98 101.6 90)
 		(effects
@@ -1871,7 +1978,7 @@
 		(uuid "a34b97e4-c58d-439a-b45c-2c5117086162")
 	)
 	(label "LORA_DIO2"
-		(at 121.92 181.61 0)
+		(at 104.14 172.72 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1991,7 +2098,7 @@
 		(uuid "bf6c0693-437a-4e44-9087-b3223f401702")
 	)
 	(label "LORA_DIO5"
-		(at 121.92 189.23 0)
+		(at 104.14 180.34 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2001,7 +2108,7 @@
 		(uuid "c57018ca-fb7e-43bb-9817-adb922b3342a")
 	)
 	(label "LORA_DIO3"
-		(at 121.92 184.15 0)
+		(at 104.14 175.26 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2009,6 +2116,16 @@
 			(justify left bottom)
 		)
 		(uuid "c7f1f34b-1a1a-40c8-af4e-155d47fb7bb9")
+	)
+	(label "SPI_MOSI"
+		(at 106.68 156.21 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cc06ef35-ab70-4f05-9f1b-80a05cf38a4e")
 	)
 	(label "{slash}GPS_SAFEBOOT"
 		(at 31.75 88.9 0)
@@ -2021,7 +2138,7 @@
 		(uuid "cc2b025f-8328-492a-8fc5-418bfc03e9c7")
 	)
 	(label "LORA_DIO0"
-		(at 121.92 176.53 0)
+		(at 104.14 167.64 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2081,7 +2198,7 @@
 		(uuid "d8859ab8-681a-47ec-9fc9-3aa890d00560")
 	)
 	(label "LORA_SEL"
-		(at 121.92 170.18 0)
+		(at 104.14 161.29 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2433,7 +2550,7 @@
 		)
 	)
 	(sheet
-		(at 134.62 160.02)
+		(at 116.84 151.13)
 		(size 17.145 31.75)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2449,7 +2566,7 @@
 		)
 		(uuid "b5b3f2b6-4604-4088-8488-54d61b2ee536")
 		(property "Sheetname" "Radio"
-			(at 134.62 159.3084 0)
+			(at 116.84 150.4184 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2458,7 +2575,7 @@
 			)
 		)
 		(property "Sheetfile" "Radio.kicad_sch"
-			(at 134.62 192.3546 0)
+			(at 116.84 183.4646 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2467,7 +2584,7 @@
 			)
 		)
 		(pin "SPI_SCK" input
-			(at 134.62 162.56 180)
+			(at 116.84 153.67 180)
 			(uuid "1577ca5b-81db-4a12-920b-9236fc58d89a")
 			(effects
 				(font
@@ -2477,7 +2594,7 @@
 			)
 		)
 		(pin "SPI_MOSI" input
-			(at 134.62 165.1 180)
+			(at 116.84 156.21 180)
 			(uuid "59cde148-26b7-4238-a9b6-09a2ce344cae")
 			(effects
 				(font
@@ -2487,7 +2604,7 @@
 			)
 		)
 		(pin "SPI_MISO" output
-			(at 134.62 167.64 180)
+			(at 116.84 158.75 180)
 			(uuid "408c7f15-0600-4591-a83c-0f160682acac")
 			(effects
 				(font
@@ -2497,7 +2614,7 @@
 			)
 		)
 		(pin "LORA_SEL" input
-			(at 134.62 170.18 180)
+			(at 116.84 161.29 180)
 			(uuid "63398841-c732-454f-b09a-d1af8d2464fc")
 			(effects
 				(font
@@ -2507,7 +2624,7 @@
 			)
 		)
 		(pin "LORA_DIO1" output
-			(at 134.62 179.07 180)
+			(at 116.84 170.18 180)
 			(uuid "a079ff00-e797-43fb-b230-5ad3de0f1c2b")
 			(effects
 				(font
@@ -2517,7 +2634,7 @@
 			)
 		)
 		(pin "LORA_RESET" output
-			(at 134.62 172.72 180)
+			(at 116.84 163.83 180)
 			(uuid "fb5c639f-bc92-4ad2-b7e4-b9d771c72c80")
 			(effects
 				(font
@@ -2527,7 +2644,7 @@
 			)
 		)
 		(pin "LORA_DIO4" output
-			(at 134.62 186.69 180)
+			(at 116.84 177.8 180)
 			(uuid "36d3e62f-d47d-4726-b013-3934b4e656f8")
 			(effects
 				(font
@@ -2537,7 +2654,7 @@
 			)
 		)
 		(pin "LORA_DIO2" output
-			(at 134.62 181.61 180)
+			(at 116.84 172.72 180)
 			(uuid "f9b282e4-b084-40b3-93fe-c5b7a42a9f9c")
 			(effects
 				(font
@@ -2547,7 +2664,7 @@
 			)
 		)
 		(pin "LORA_DIO5" output
-			(at 134.62 189.23 180)
+			(at 116.84 180.34 180)
 			(uuid "8ccaac17-d6d8-451f-a111-1273e40ead06")
 			(effects
 				(font
@@ -2557,7 +2674,7 @@
 			)
 		)
 		(pin "LORA_DIO0" output
-			(at 134.62 176.53 180)
+			(at 116.84 167.64 180)
 			(uuid "8ce601b7-de43-4279-b8f5-0e61b48f4914")
 			(effects
 				(font
@@ -2567,7 +2684,7 @@
 			)
 		)
 		(pin "LORA_DIO3" output
-			(at 134.62 184.15 180)
+			(at 116.84 175.26 180)
 			(uuid "c523c681-6821-4f74-9d17-4da602854b8d")
 			(effects
 				(font

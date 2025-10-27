@@ -10,15 +10,26 @@
 
 #include <DataContainer.h>
 
+
+/**
+ * @class	Subsystem
+ * @brief	The parent class for every subsystem
+ * @details	The parent class for every subsystem that has a init, and update functions and reference to the main DataContainer.
+ */
 class Subsystem {
 public:
-	Subsystem(DataContainer& data);
+	/**
+	 * Subsystem Constructor
+	 *
+	 * @param data Reference to the main DataContainer
+	 */
+	Subsystem(DataContainer* data);
 
-	virtual void init() = 0;
-	virtual void update() = 0;
+	virtual int init() = 0;
+	virtual int update() = 0;
 
 protected:
-	DataContainer& data;
+	DataContainer* data;
 };
 
 #endif /* INC_SUBSYSTEM_H_ */

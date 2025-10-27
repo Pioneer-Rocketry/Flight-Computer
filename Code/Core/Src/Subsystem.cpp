@@ -6,7 +6,7 @@
  */
 #include <Subsystem.h>
 
-Subsystem::Subsystem(DataContainer& data)
+Subsystem::Subsystem(DataContainer* data)
 	: data(data)
 {
 

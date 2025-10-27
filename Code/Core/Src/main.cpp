@@ -24,6 +24,8 @@
 
 #include "DataContainer.h"
 
+#include "Subsystems/Navigation.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,6 +55,8 @@ UART_HandleTypeDef huart4;
 /* USER CODE BEGIN PV */
 
 DataContainer data;
+
+Navigation nav(&data);
 
 /* USER CODE END PV */
 

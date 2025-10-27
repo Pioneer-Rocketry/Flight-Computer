@@ -8,17 +8,16 @@
 #ifndef INC_SUBSYSTEM_H_
 #define INC_SUBSYSTEM_H_
 
-#include "DataContainer.h"
+#include <DataContainer.h>
 
 class Subsystem {
 public:
-
 	Subsystem(DataContainer& data);
 
 	virtual void init() = 0;
 	virtual void update() = 0;
 
-private:
+protected:
 	DataContainer& data;
 };
 

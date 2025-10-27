@@ -16,7 +16,7 @@ private:
 
 
 public:
-
+	DataContainer();
 };
 
 

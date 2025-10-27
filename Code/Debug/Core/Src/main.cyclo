@@ -1,8 +1,8 @@
-../Core/Src/main.cpp:76:5:int main()	1
-../Core/Src/main.cpp:125:6:void SystemClock_Config()	3
-../Core/Src/main.cpp:172:13:void MX_ADC1_Init()	3
-../Core/Src/main.cpp:224:13:void MX_I2C2_Init()	2
-../Core/Src/main.cpp:258:13:void MX_SPI1_Init()	2
-../Core/Src/main.cpp:296:13:void MX_UART4_Init()	2
-../Core/Src/main.cpp:329:13:void MX_GPIO_Init()	1
-../Core/Src/main.cpp:414:6:void Error_Handler()	1
+../Core/Src/main.cpp:75:5:int main()	1
+../Core/Src/main.cpp:123:6:void SystemClock_Config()	3
+../Core/Src/main.cpp:170:13:void MX_ADC1_Init()	3
+../Core/Src/main.cpp:222:13:void MX_I2C2_Init()	2
+../Core/Src/main.cpp:256:13:void MX_SPI1_Init()	2
+../Core/Src/main.cpp:294:13:void MX_UART4_Init()	2
+../Core/Src/main.cpp:327:13:void MX_GPIO_Init()	1
+../Core/Src/main.cpp:412:6:void Error_Handler()	1

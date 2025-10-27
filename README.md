@@ -12,7 +12,7 @@
 ### Other Hardware Features
 - 3 Pyro Channels
 - I2C, SPI Breakout
-- 6 Servos
+- 4 Servos
 - Lora SX1262 Radio
 
 ## Software
@@ -20,7 +20,7 @@
 - Live Telemetery
 - Staging Logic/Inflight Events
 - Software will be written in c++
-- *Active Control* (Long term project to keep rocket pointing up)
+- Active Control
 
 ### State Machine/Flow
 The software will be a (mostly) linear state machine.

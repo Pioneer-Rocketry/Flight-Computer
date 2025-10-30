@@ -170,7 +170,7 @@
  * Configuration options are based on the official STMicroelectronics datasheet.
  * Default values are selected for typical performance-oriented operation.
  *
- * @see STMicroelectronics LSM6DSV320 Datasheet, Rev 3.0, June 2024
+ * @see STMicroelectronics LSM6DSV320 Datasheet, Rev 2.0, March 2025
  */
 class LSM6DSV320: public SPIDevice {
 public:
@@ -198,6 +198,28 @@ public:
 	 * @return int Status code (0 for success, negative for failure).
 	 */
 	int deviceInit() override;
+
+	/**
+	 * @brief Perform periodic updates for the LSM6DSV320 IMU.
+	 *
+	 * This method should be called regularly (e.g., in the main control loop)
+	 * to read sensor data from the accelerometer and gyroscope, process it
+	 * as needed, and update internal state or shared DataContainer values.
+	 *
+	 * Typical tasks performed by this method include:
+	 *  - Reading raw accelerometer and gyroscope registers via SPI
+	 *  - Converting raw readings into physical units using sensitivity constants
+	 *  - Updating the main DataContainer with latest sensor values
+	 *  - Performing basic filtering or status checks if required
+	 *
+	 * @return int Status code:
+	 *  - 0: Update successful
+	 *  - Negative value: Error reading data or SPI communication failure
+	 *
+	 * @note This function does not initialize the device; `deviceInit()` must
+	 *       be called first.
+	 */
+	int updateDevice() override;
 
 private:
 	// -------------------------------------------------------------
@@ -352,6 +374,8 @@ private:
 	float lowGSensitivity;
 	float highGSensitivity;
 	float gyroSensitivity;
+
+	uint8_t buffer[6];
 };
 
 #endif /* SRC_DEVICES_SPI_DEVICES_LSM6DSV320_H_ */

@@ -50,6 +50,22 @@ public:
 	 */
 	virtual int deviceInit() = 0;
 
+	/**
+	 * @brief Perform periodic device tasks or updates.
+	 *
+	 * This pure virtual method should be implemented by derived I2C device classes
+	 * to execute regular operations that need to run in the main loop, such as:
+	 *  - Reading sensor data
+	 *  - Updating internal state
+	 *  - Performing background processing or checks
+	 *
+	 * The method is intended to be called periodically, typically from the main
+	 * system loop or a scheduler.
+	 *
+	 * @return int Status code (0 for success, negative for failure).
+	 */
+	virtual int updateDevice() = 0;
+
 private:
 	I2C_HandleTypeDef *i2cHandler;	// I2C peripheral handle.
 	uint8_t address;				// 7-bit or 8-bit I2C device address.

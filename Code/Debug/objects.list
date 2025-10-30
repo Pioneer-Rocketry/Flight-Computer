@@ -1,4 +1,5 @@
-"./Core/Src/Sensors.o"
+"./Core/Src/Devices/I2CDevice.o"
+"./Core/Src/Devices/SPIDevice.o"
 "./Core/Src/Subsystem.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f4xx_hal_msp.o"

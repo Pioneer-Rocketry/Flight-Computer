@@ -5,11 +5,15 @@
  *      Author: colin
  */
 
-#include <Devices/SPIDevice.h>
+#include "Devices/SPIDevice.h"
 
-SPIDevice::SPIDevice(DataContainer* data)
+SPIDevice::SPIDevice(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin)
 {
 	this->data = data;
+
+	this->spiHandler = spi;
+	this->chipSelectPort = port;
+	this->chipSelectPin = pin;
 }
 
 HAL_StatusTypeDef SPIDevice::readSPI(uint8_t reg, uint8_t *data, uint8_t len)
@@ -35,7 +39,7 @@ HAL_StatusTypeDef SPIDevice::readSPI(uint8_t reg, uint8_t *data, uint8_t len)
 }
 
 
-HAL_StatusTypeDef SPIDevice::write_SPI(uint8_t reg, uint8_t *data, uint8_t len)
+HAL_StatusTypeDef SPIDevice::writeSPI(uint8_t reg, uint8_t *data, uint8_t len)
 {
 	uint8_t buffer[len + 1];
 	buffer[0] = reg;

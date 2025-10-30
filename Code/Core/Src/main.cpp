@@ -26,6 +26,9 @@
 
 #include "Subsystems/Navigation.h"
 
+#include "Devices/SPI_Devices/LSM6DSV320.h"
+#include "Devices/SPIDevice.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -57,6 +60,8 @@ UART_HandleTypeDef huart4;
 DataContainer data;
 
 Navigation nav(&data);
+
+LSM6DSV320 accl(&data, &hspi1, IMU_CS_GPIO_Port, IMU_CS_Pin);
 
 /* USER CODE END PV */
 

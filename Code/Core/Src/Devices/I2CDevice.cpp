@@ -5,7 +5,7 @@
  *      Author: colin
  */
 
-#include <Devices/I2CDevice.h>
+#include "Devices/I2CDevice.h"
 
 I2CDevice::I2CDevice(DataContainer* data)
 {

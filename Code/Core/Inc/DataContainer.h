@@ -31,6 +31,18 @@ private:
 
 
 public:
+
+	float LSM6DSV320GyroX;
+	float LSM6DSV320GyroY;
+	float LSM6DSV320GyroZ;
+
+	float LSM6DSV320LowGAccelX;
+	float LSM6DSV320LowGAccelY;
+	float LSM6DSV320LowGAccelZ;
+
+	float LSM6DSV320HighGAccelX;
+	float LSM6DSV320HighGAccelY;
+	float LSM6DSV320HighGAccelZ;
 };
 
 

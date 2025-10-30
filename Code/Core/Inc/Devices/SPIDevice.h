@@ -58,6 +58,22 @@ public:
 	 */
 	virtual int deviceInit() = 0;
 
+	/**
+	 * @brief Perform periodic device tasks or updates.
+	 *
+	 * This pure virtual method should be implemented by derived SPI device classes
+	 * to execute regular operations that need to run in the main loop, such as:
+	 *  - Reading sensor data
+	 *  - Updating internal state
+	 *  - Performing background processing or checks
+	 *
+	 * The method is intended to be called periodically, typically from the main
+	 * system loop or a scheduler.
+	 *
+	 * @return int Status code (0 for success, negative for failure).
+	 */
+	virtual int updateDevice() = 0;
+
 private:
 	HAL_StatusTypeDef status;		// SPI read/write status
 

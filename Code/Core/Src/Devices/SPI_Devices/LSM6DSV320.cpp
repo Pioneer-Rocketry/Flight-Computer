@@ -19,7 +19,7 @@ int LSM6DSV320::deviceInit()
 
 	readSPI(LSM6DSV320_WHO_AM_I, &whoAmI);
 	if (whoAmI != LSM6DSV320_ID) {
-		return false;
+		return -1;
 	}
 
 	/* Sensor Configuration */
@@ -211,43 +211,43 @@ int LSM6DSV320::deviceInit()
 int LSM6DSV320::updateDevice()
 {
 	// Read Gyroscope Measurements
-	    readSPI(LSM6DSV320_OUTX_L_G, &this->buffer[0]);
-	    readSPI(LSM6DSV320_OUTX_H_G, &this->buffer[1]);
-	    readSPI(LSM6DSV320_OUTY_L_G, &this->buffer[2]);
-	    readSPI(LSM6DSV320_OUTY_H_G, &this->buffer[3]);
-	    readSPI(LSM6DSV320_OUTZ_L_G, &this->buffer[4]);
-	    readSPI(LSM6DSV320_OUTZ_H_G, &this->buffer[5]);
+	readSPI(LSM6DSV320_OUTX_L_G, &this->buffer[0]);
+	readSPI(LSM6DSV320_OUTX_H_G, &this->buffer[1]);
+	readSPI(LSM6DSV320_OUTY_L_G, &this->buffer[2]);
+	readSPI(LSM6DSV320_OUTY_H_G, &this->buffer[3]);
+	readSPI(LSM6DSV320_OUTZ_L_G, &this->buffer[4]);
+	readSPI(LSM6DSV320_OUTZ_H_G, &this->buffer[5]);
 
-	    // Cast measurements to floats
-	    this->data->LSM6DSV320GyroZ = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->gyroSensitivity;
-	    this->data->LSM6DSV320GyroY = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->gyroSensitivity;
-	    this->data->LSM6DSV320GyroZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->gyroSensitivity;
+	// Cast measurements to floats
+	this->data->LSM6DSV320GyroZ = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->gyroSensitivity;
+	this->data->LSM6DSV320GyroY = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->gyroSensitivity;
+	this->data->LSM6DSV320GyroZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->gyroSensitivity;
 
-	    // Read Low G Accelerometer Measurements
-	    readSPI(LSM6DSV320_OUTX_L_A, &this->buffer[0]);
-	    readSPI(LSM6DSV320_OUTX_H_A, &this->buffer[1]);
-	    readSPI(LSM6DSV320_OUTY_L_A, &this->buffer[2]);
-	    readSPI(LSM6DSV320_OUTY_H_A, &this->buffer[3]);
-	    readSPI(LSM6DSV320_OUTZ_L_A, &this->buffer[4]);
-	    readSPI(LSM6DSV320_OUTZ_H_A, &this->buffer[5]);
+	// Read Low G Accelerometer Measurements
+	readSPI(LSM6DSV320_OUTX_L_A, &this->buffer[0]);
+	readSPI(LSM6DSV320_OUTX_H_A, &this->buffer[1]);
+	readSPI(LSM6DSV320_OUTY_L_A, &this->buffer[2]);
+	readSPI(LSM6DSV320_OUTY_H_A, &this->buffer[3]);
+	readSPI(LSM6DSV320_OUTZ_L_A, &this->buffer[4]);
+	readSPI(LSM6DSV320_OUTZ_H_A, &this->buffer[5]);
 
-	    // Cast measurements to floats
-	    this->data->LSM6DSV320LowGAccelX = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->lowGSensitivity;
-	    this->data->LSM6DSV320LowGAccelZ = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->lowGSensitivity;
-	    this->data->LSM6DSV320LowGAccelZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->lowGSensitivity;
+	// Cast measurements to floats
+	this->data->LSM6DSV320LowGAccelX = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->lowGSensitivity;
+	this->data->LSM6DSV320LowGAccelZ = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->lowGSensitivity;
+	this->data->LSM6DSV320LowGAccelZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->lowGSensitivity;
 
-	    // Read High G Accelerometer Measurements
-	    readSPI(LSM6DSV320_UI_OUTX_L_A_OIS_HG, &this->buffer[0]);
-	    readSPI(LSM6DSV320_UI_OUTX_H_A_OIS_HG, &this->buffer[1]);
-	    readSPI(LSM6DSV320_UI_OUTY_L_A_OIS_HG, &this->buffer[2]);
-	    readSPI(LSM6DSV320_UI_OUTY_H_A_OIS_HG, &this->buffer[3]);
-	    readSPI(LSM6DSV320_UI_OUTZ_L_A_OIS_HG, &this->buffer[4]);
-	    readSPI(LSM6DSV320_UI_OUTZ_H_A_OIS_HG, &this->buffer[5]);
+	// Read High G Accelerometer Measurements
+	readSPI(LSM6DSV320_UI_OUTX_L_A_OIS_HG, &this->buffer[0]);
+	readSPI(LSM6DSV320_UI_OUTX_H_A_OIS_HG, &this->buffer[1]);
+	readSPI(LSM6DSV320_UI_OUTY_L_A_OIS_HG, &this->buffer[2]);
+	readSPI(LSM6DSV320_UI_OUTY_H_A_OIS_HG, &this->buffer[3]);
+	readSPI(LSM6DSV320_UI_OUTZ_L_A_OIS_HG, &this->buffer[4]);
+	readSPI(LSM6DSV320_UI_OUTZ_H_A_OIS_HG, &this->buffer[5]);
 
-	    // Cast measurements to floats
-	    this->data->LSM6DSV320HighGAccelX = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->highGSensitivity;
-	    this->data->LSM6DSV320HighGAccelY = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->highGSensitivity;
-	    this->data->LSM6DSV320HighGAccelZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->highGSensitivity;
+	// Cast measurements to floats
+	this->data->LSM6DSV320HighGAccelX = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->highGSensitivity;
+	this->data->LSM6DSV320HighGAccelY = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->highGSensitivity;
+	this->data->LSM6DSV320HighGAccelZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->highGSensitivity;
 
-	    return 0;
+	return 0;
 }

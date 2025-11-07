@@ -27,9 +27,6 @@
 
 #include "Subsystems/Navigation.h"
 
-#include "Devices/SPI_Devices/LSM6DSV320.h"
-#include "Devices/SPIDevice.h"
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,9 +57,7 @@ UART_HandleTypeDef huart4;
 
 DataContainer data;
 
-Navigation nav(&data);
-
-LSM6DSV320 accl(&data, &hspi1, IMU_CS_GPIO_Port, IMU_CS_Pin);
+Navigation nav(&data, &hspi1);
 
 /* USER CODE END PV */
 
@@ -88,7 +83,6 @@ static void MX_UART4_Init(void);
   */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -118,6 +112,11 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
+  if (nav.init() < 0)
+  {
+	  while (1);
+  }
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -127,6 +126,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+	  nav.update();
   }
   /* USER CODE END 3 */
 }
@@ -293,7 +294,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;

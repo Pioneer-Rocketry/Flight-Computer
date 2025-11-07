@@ -10,6 +10,9 @@
 
 #include "Subsystem.h"
 
+#include "Devices/SPI_Devices/LSM6DSV320.h"
+#include "Devices/SPIDevice.h"
+
 /**
  * @class Navigation
  * @brief Handles flight navigation logic and sensor data fusion.
@@ -33,8 +36,9 @@ public:
 	 * @brief Navigation subsystem constructor.
 	 *
 	 * @param data Reference to the main DataContainer for shared data access.
+	 * @param spiBus Reference to the SPI Bus that is connected to the sensors
 	 */
-	Navigation(DataContainer* data);
+	Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus);
 
 	/**
 	 * @brief Initializes the navigation subsystem.
@@ -56,6 +60,10 @@ public:
 	 * @return 0 on success, or a negative error code if the update fails.
 	 */
 	int update() override;
+
+private:
+	LSM6DSV320 accl;
+
 };
 
 #endif /* SRC_SUBSYSTEMS_NAVIGATION_H_ */

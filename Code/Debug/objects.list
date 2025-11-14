@@ -1,6 +1,7 @@
 "./Core/Src/Devices/I2CDevice.o"
 "./Core/Src/Devices/SPIDevice.o"
 "./Core/Src/Devices/SPI_Devices/LSM6DSV320.o"
+"./Core/Src/Devices/SPI_Devices/MS560702BA03.o"
 "./Core/Src/Subsystem.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f4xx_hal_msp.o"

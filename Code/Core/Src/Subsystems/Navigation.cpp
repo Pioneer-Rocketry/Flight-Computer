@@ -11,7 +11,8 @@
 
 Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus)
 	: Subsystem(data),
-	  accl(data, spiBus, IMU_CS_GPIO_Port, IMU_CS_Pin)
+	  accl(data, spiBus, IMU_CS_GPIO_Port, IMU_CS_Pin),
+	  baro(data, spiBus, BARO_CS_GPIO_Port, BARO_CS_Pin)
 {
 
 }
@@ -19,7 +20,12 @@ Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus)
 
 int Navigation::init()
 {
-	if (accl.deviceInit() < 0)
+//	if (accl.deviceInit() < 0)
+//	{
+//		return -1;
+//	}
+
+	if (baro.deviceInit() < 0)
 	{
 		return -1;
 	}
@@ -34,7 +40,9 @@ int Navigation::update()
 	// Read Sensor Data
 	// -------------------------------------------------------------
 
-	accl.updateDevice();
+//	accl.updateDevice();
+
+	baro.updateDevice();
 
 	// -------------------------------------------------------------
 	// Quaterion Intergration

@@ -11,6 +11,8 @@
 #include "Subsystem.h"
 
 #include "Devices/SPI_Devices/LSM6DSV320.h"
+#include "Devices/SPI_Devices/MS560702BA03.h"
+
 #include "Devices/SPIDevice.h"
 
 /**
@@ -63,6 +65,7 @@ public:
 
 private:
 	LSM6DSV320 accl;
+	MS560702BA03 baro;
 
 };
 

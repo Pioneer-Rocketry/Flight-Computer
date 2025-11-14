@@ -21,7 +21,7 @@ HAL_StatusTypeDef SPIDevice::readSPI(uint8_t reg, uint8_t *data, uint8_t len)
 	uint8_t tx[len+1];
 	uint8_t rx[len+1];
 
-	tx[0] = reg;
+	tx[0] = reg | 0x80;
 	for (int i=1; i < len+1; i++) tx[i] = 0x00;
 	for (int i=0; i < len+1; i++) rx[i] = 0x00;
 

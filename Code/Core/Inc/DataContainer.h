@@ -43,6 +43,11 @@ public:
 	float LSM6DSV320HighGAccelX;
 	float LSM6DSV320HighGAccelY;
 	float LSM6DSV320HighGAccelZ;
+
+	float MS560702BA03Temperature;
+	float MS560702BA03Pressure;
+	float MS560702BA03Altitude;
+
 };
 
 

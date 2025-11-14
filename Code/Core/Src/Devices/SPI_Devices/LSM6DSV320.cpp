@@ -15,7 +15,7 @@ LSM6DSV320::LSM6DSV320(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef
 
 int LSM6DSV320::deviceInit()
 {
-	uint8_t whoAmI = 0;
+	uint8_t whoAmI;
 
 	readSPI(LSM6DSV320_WHO_AM_I, &whoAmI);
 	if (whoAmI != LSM6DSV320_ID) {

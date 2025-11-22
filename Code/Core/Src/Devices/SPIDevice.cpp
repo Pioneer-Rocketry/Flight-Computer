@@ -10,7 +10,6 @@
 SPIDevice::SPIDevice(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin)
 {
 	this->data = data;
-
 	this->spiHandler = spi;
 	this->chipSelectPort = port;
 	this->chipSelectPin = pin;
@@ -37,7 +36,6 @@ HAL_StatusTypeDef SPIDevice::readSPI(uint8_t reg, uint8_t *data, uint8_t len)
 
 	return status;
 }
-
 
 HAL_StatusTypeDef SPIDevice::writeSPI(uint8_t reg, uint8_t *data, uint8_t len)
 {

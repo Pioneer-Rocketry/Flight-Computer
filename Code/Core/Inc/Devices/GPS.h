@@ -4,7 +4,6 @@
  *  Created on: Nov 20, 2025
  *      Author: colin
  *
- *  Adapted from https://github.com/ibrahimcahit/stm32-ublox-ubx-parser
  */
 
 #ifndef INC_DEVICES_GPS_H_

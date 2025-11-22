@@ -1,3 +1,4 @@
+"./Core/Inc/Types/Quaternion.o"
 "./Core/Src/Devices/GPS.o"
 "./Core/Src/Devices/I2CDevice.o"
 "./Core/Src/Devices/SPIDevice.o"

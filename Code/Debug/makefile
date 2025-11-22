@@ -19,6 +19,7 @@ RM := rm -rf
 -include Core/Src/Devices/SPI_Devices/subdir.mk
 -include Core/Src/Devices/subdir.mk
 -include Core/Src/subdir.mk
+-include Core/Inc/Types/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

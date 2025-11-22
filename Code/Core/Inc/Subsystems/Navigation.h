@@ -13,6 +13,8 @@
 #include "Devices/SPI_Devices/LSM6DSV320.h"
 #include "Devices/SPI_Devices/MS560702BA03.h"
 
+#include "Devices/GPS.h"
+
 #include "Devices/SPIDevice.h"
 
 /**
@@ -39,8 +41,9 @@ public:
 	 *
 	 * @param data Reference to the main DataContainer for shared data access.
 	 * @param spiBus Reference to the SPI Bus that is connected to the sensors
+	 * @param uart Refrences the UART that is connected to the GPS
 	 */
-	Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus);
+	Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_HandleTypeDef* uart);
 
 	/**
 	 * @brief Initializes the navigation subsystem.
@@ -66,6 +69,7 @@ public:
 private:
 	LSM6DSV320 accl;
 	MS560702BA03 baro;
+	GPS gps;
 
 };
 

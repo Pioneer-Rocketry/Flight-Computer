@@ -1,3 +1,4 @@
+"./Core/Src/Devices/GPS.o"
 "./Core/Src/Devices/I2CDevice.o"
 "./Core/Src/Devices/SPIDevice.o"
 "./Core/Src/Devices/SPI_Devices/LSM6DSV320.o"

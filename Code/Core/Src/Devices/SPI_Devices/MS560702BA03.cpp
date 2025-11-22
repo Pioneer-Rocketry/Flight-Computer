@@ -10,6 +10,9 @@
 MS560702BA03::MS560702BA03(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin)
 	: SPIDevice(data, spi, port, pin)
 {
+	data->MS560702BA03Temperature = 0.0f;
+	data->MS560702BA03Pressure = 0.0f;
+	data->MS560702BA03Altitude = 0.0f;
 
 }
 
@@ -33,27 +36,28 @@ int MS560702BA03::deviceInit()
 	return readProm();
 }
 
-bool MS560702BA03::readProm() {
+int MS560702BA03::readProm() {
     for (uint8_t i = 0; i < 7; i++) {
         if (readSPI(MS5607_PROM_READ + (i * 2), buffer, 2) != HAL_OK)
-            return false;
+            return -1;
         C[i] = (buffer[0] << 8) | buffer[1];
     }
-    return true;
+    return 0;
 }
 
-uint32_t MS560702BA03::readAdc(uint8_t cmd) {
+uint32_t MS560702BA03::readADC(uint8_t cmd) {
     writeSPI(cmd, nullptr, 0);
     HAL_Delay(conversion_time);
 
     readSPI(MS5607_ADC_READ, buffer, 3);
+
     return (buffer[0] << 16) | (buffer[1] << 8) | buffer[2];
 }
 
 int MS560702BA03::updateDevice()
 {
-	D1 = readAdc(MS5607_CONVERT_D1 | (osr << 1));
-	D2 = readAdc(MS5607_CONVERT_D2 | (osr << 1));
+	D1 = readADC(MS5607_CONVERT_D1 | (osr << 1));
+	D2 = readADC(MS5607_CONVERT_D2 | (osr << 1));
 
 	dT = D2 - ((uint32_t)C[5] << 8);
 	TEMP = 2000 + ((int64_t)dT * C[6]) / (1 << 23);
@@ -62,9 +66,6 @@ int MS560702BA03::updateDevice()
 	SENS = ((int64_t)C[1] << 16) + (((int64_t)C[3] * dT) >> 7);
 
 	P = (((D1 * SENS) >> 21) - OFF) >> 15;
-
-//	if (this->data->startingAltitude == 0)
-//		this->data->startingAltitude = this->data->MS560702BA03Altitude;
 
 	this->data->MS560702BA03Temperature = TEMP / 100.0f;
 	this->data->MS560702BA03Pressure = P / 100.0f;

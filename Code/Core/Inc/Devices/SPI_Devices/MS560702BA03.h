@@ -44,7 +44,7 @@ public:
 	 * @brief Construct a new MS560702BA03 device.
 	 *
 	 * Initializes the MS560702BA03 SPI driver interface and sets default
-	 * configuration parameters for the IMU. The SPI interface, CS port,
+	 * configuration parameters for the Barometer. The SPI interface, CS port,
 	 * and pin are passed to the base `SPIDevice` class.
 	 *
 	 * @param data Pointer to the main DataContainer used for shared system data.
@@ -72,10 +72,9 @@ public:
 	 * as needed, and update internal state or shared DataContainer values.
 	 *
 	 * Typical tasks performed by this method include:
-	 *  - Reading raw accelerometer and gyroscope registers via SPI
+	 *  - Reading ADC registers via SPI
 	 *  - Converting raw readings into physical units using sensitivity constants
 	 *  - Updating the main DataContainer with latest sensor values
-	 *  - Performing basic filtering or status checks if required
 	 *
 	 * @return int Status code:
 	 *  - 0: Update successful
@@ -94,8 +93,31 @@ private:
 	int32_t dT, TEMP, P;
 	int64_t OFF, SENS;
 
-	bool readProm();
-	uint32_t readAdc(uint8_t cmd);
+	/**
+	 * @brief Read all factory calibration coefficients from the MS5607 PROM.
+	 *
+	 * This function reads the seven 16-bit calibration values (C0–C6) stored
+	 * in the sensor’s PROM using the PROM READ command sequence. These values
+	 * are required for computing temperature and pressure from raw ADC data.
+	 *
+	 * @note Each coefficient is read via SPI using two bytes.
+	 *
+	 * @return  0 If all coefficients were successfully read.
+	 * @return -1 If any SPI transaction fails.
+	 */
+	int readProm();
+
+	/**
+	 * @brief Trigger an ADC conversion and read the resulting 24-bit raw value.
+	 *
+	 * This function sends a conversion command to the MS5607, waits the
+	 * appropriate conversion time, and then reads the 24-bit raw ADC output.
+	 *
+	 * @param cmd The ADC conversion command (e.g., D1/D2 with OSR setting).
+	 *
+	 * @return uint32_t The 24-bit raw ADC result assembled into a 32-bit integer.
+	 */
+	uint32_t readADC(uint8_t cmd);
 
 	enum MS5607_OSR  {
 		OSR_256  = 0b000,

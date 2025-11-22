@@ -10,7 +10,17 @@
 LSM6DSV320::LSM6DSV320(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin)
 	: SPIDevice(data, spi, port, pin)
 {
+	data->LSM6DSV320GyroX = 0.0f;
+	data->LSM6DSV320GyroY = 0.0f;
+	data->LSM6DSV320GyroZ = 0.0f;
 
+	data->LSM6DSV320LowGAccelX = 0.0f;
+	data->LSM6DSV320LowGAccelY = 0.0f;
+	data->LSM6DSV320LowGAccelZ = 0.0f;
+
+	data->LSM6DSV320HighGAccelX = 0.0f;
+	data->LSM6DSV320HighGAccelY = 0.0f;
+	data->LSM6DSV320HighGAccelZ = 0.0f;
 }
 
 int LSM6DSV320::deviceInit()

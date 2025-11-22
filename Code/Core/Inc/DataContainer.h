@@ -8,6 +8,8 @@
 #ifndef INC_DATACONTAINER_H_
 #define INC_DATACONTAINER_H_
 
+#include <cstdint>
+
 /**
  * @class DataContainer
  * @brief Central data storage and communication hub for all subsystems.
@@ -32,6 +34,7 @@ private:
 
 public:
 
+	/* IMU Data*/
 	float LSM6DSV320GyroX;
 	float LSM6DSV320GyroY;
 	float LSM6DSV320GyroZ;
@@ -44,9 +47,13 @@ public:
 	float LSM6DSV320HighGAccelY;
 	float LSM6DSV320HighGAccelZ;
 
+	/* Barometer Data*/
 	float MS560702BA03Temperature;
 	float MS560702BA03Pressure;
 	float MS560702BA03Altitude;
+
+	/* GPS Data */
+
 
 };
 

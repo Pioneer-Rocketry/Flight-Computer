@@ -57,7 +57,7 @@ UART_HandleTypeDef huart4;
 
 DataContainer data;
 
-Navigation nav(&data, &hspi1);
+Navigation nav(&data, &hspi1, &huart4);
 
 /* USER CODE END PV */
 

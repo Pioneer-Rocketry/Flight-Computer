@@ -63,6 +63,14 @@ public:
 	/* GPS Data */
 
 
+	/* Kalman Filter Data */
+	float KalmanFilterPositionX;
+	float KalmanFilterPositionY;
+	float KalmanFilterPositionZ;
+
+	float KalmanFilterVelocityX;
+	float KalmanFilterVelocityY;
+	float KalmanFilterVelocityZ;
 };
 
 

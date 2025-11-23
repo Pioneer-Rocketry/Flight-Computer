@@ -92,6 +92,9 @@ private:
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		P;  // Estimate error covariance
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	K;  // Kalman gain
 
+	void initKalmanFilter();
+	bool isKalmanFilterInit = false;
+
 	// Timing
 	float lastLoop;	// Time of start of previous loop in ms
 	float freq;		// Frequency of the loop = 1/dt

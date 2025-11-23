@@ -128,6 +128,8 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 	  nav.update();
+
+	  HAL_Delay(1);
   }
   /* USER CODE END 3 */
 }

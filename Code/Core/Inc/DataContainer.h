@@ -10,6 +10,8 @@
 
 #include <cstdint>
 
+#include "Types/Quaternion.h"
+
 /**
  * @class DataContainer
  * @brief Central data storage and communication hub for all subsystems.
@@ -33,6 +35,12 @@ private:
 
 
 public:
+
+	Quaternion orientation;
+
+	float roll;
+	float pitch;
+	float yaw;
 
 	/* IMU Data*/
 	float LSM6DSV320GyroX;

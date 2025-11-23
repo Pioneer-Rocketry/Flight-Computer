@@ -8,14 +8,18 @@
 #ifndef SRC_SUBSYSTEMS_NAVIGATION_H_
 #define SRC_SUBSYSTEMS_NAVIGATION_H_
 
+#include <Eigen/Dense>
+
 #include "Subsystem.h"
+#include "main.h"
 
 #include "Devices/SPI_Devices/LSM6DSV320.h"
 #include "Devices/SPI_Devices/MS560702BA03.h"
-
 #include "Devices/GPS.h"
 
-#include "Devices/SPIDevice.h"
+#include "Types/Quaternion.h"
+
+#include "defines.h"
 
 /**
  * @class Navigation
@@ -67,9 +71,32 @@ public:
 	int update() override;
 
 private:
-	LSM6DSV320 accl;
-	MS560702BA03 baro;
-	GPS gps;
+	// Sensors
+	LSM6DSV320 imu;		// LSM6DSV320 IMU for measuring Low-G Accelerations, High-G Accelerations, and Angular Rates
+	MS560702BA03 baro;	// MS560702BA03 Barometer for measuring Barometric Altitude, and Temperature
+	GPS gps;			// GPR for Absolute Positioning: Latitude, Longitude, Altitude
+
+	// Orientation Tracking
+	float norm;				// Normal of the Roll, Pitch, Yaw Rates
+	float rollRate_rad;		// Roll Rate in radians/sec
+	float pitchRate_rad;	// Pitch Rate in radians/sec
+	float yawRate_rad;		// Yaw Rate in radians/sec
+
+	// Kalman Filter
+	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		1> 									x;  // State vector
+	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 1> 									Z;  // Measurements
+	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		F;  // State transition matrix
+	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, KALMAN_FILTER_NUM_OF_STATES> 		H;  // Measurement matrix
+	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		Q;  // Process noise covariance
+	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	R;  // Measurement noise covariance
+	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		P;  // Estimate error covariance
+	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	K;  // Kalman gain
+
+	// Timing
+	float lastLoop;	// Time of start of previous loop in ms
+	float freq;		// Frequency of the loop = 1/dt
+	float now;		// Current time in ms
+	float dt;		// Time since last loop in ms
 
 };
 

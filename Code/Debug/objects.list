@@ -1,4 +1,3 @@
-"./Core/Inc/Types/Quaternion.o"
 "./Core/Src/Devices/GPS.o"
 "./Core/Src/Devices/I2CDevice.o"
 "./Core/Src/Devices/SPIDevice.o"
@@ -12,6 +11,7 @@
 "./Core/Src/sysmem.o"
 "./Core/Src/system_stm32f4xx.o"
 "./Core/Src/Subsystems/Navigation.o"
+"./Core/Src/Types/Quaternion.o"
 "./Core/Startup/startup_stm32f446retx.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o"

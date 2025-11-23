@@ -32,6 +32,8 @@
 #ifndef INC_TYPES_QUATERNION_H_
 #define INC_TYPES_QUATERNION_H_
 
+#include <math.h>
+
 class Quaternion {
 public:
     float a;
@@ -86,6 +88,8 @@ public:
     // The input must be a pure vector (a == 0)
     const Quaternion rotate(const Quaternion& q) const;
     Quaternion & fractional(float f);
+
+    void to_eular(float* roll, float* pitch, float* yaw);
 };
 
 #endif /* INC_TYPES_QUATERNION_H_ */

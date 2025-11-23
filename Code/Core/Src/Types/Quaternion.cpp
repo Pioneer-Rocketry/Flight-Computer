@@ -29,11 +29,7 @@
  * SOFTWARE.
  */
 
-#include <Types/Quaternion.h>
-
-#include "Quaternion.h"
-
-#include <math.h>
+#include "Types/Quaternion.h"
 
 // http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/arithmetic/index.htm
 // 800B
@@ -185,4 +181,21 @@ Quaternion& Quaternion::fractional(float f) {
     c *= f;
     d *= f;
     return normalize();
+}
+
+void Quaternion::to_eular(float* roll, float* pitch, float* yaw)
+{
+	float sinr_cosp = 2 * (a * b + c * d);
+	float cosr_cosp = 1 - 2 * (b * b + c * c);
+	*roll = atan2(sinr_cosp, cosr_cosp);
+
+	float sinp = 2 * (a * c + -d * b);
+	if (abs(sinp) >= 1)
+		*pitch = copysign(M_PI / 2, sinp); // return 90 if out of range
+	else
+		*pitch = asin(sinp);
+
+	float siny_cosp = 2 * (a * d + b * c);
+	float cosy_cosp = 1 - 2 * (c * c + d * d);
+	*yaw = atan2(siny_cosp, cosy_cosp);
 }

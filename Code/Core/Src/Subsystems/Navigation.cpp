@@ -145,19 +145,23 @@ void Navigation::initKalmanFilter()
 	F(0, 1) = F(1, 2) = F(3, 4) = F(4, 5) = F(6, 7) = F(7, 8) = NAVIGATION_TARGET_DT;
 	F(0, 2) = F(3, 5) = F(7, 8) = (NAVIGATION_TARGET_DT * NAVIGATION_TARGET_DT) / 2;
 
-	// Measurement
+	// Get Initial Measurements
+	Z.setZero();
+	Z(0,0) = 0.0f; // Set initial Low G Acceleration X to 0
+	Z(1,1) = 0.0f; // Set initial Low G Acceleration Y to 0
+	Z(2,2) = 0.0f; // Set initial Low G Acceleration Z to 0
+	Z(3,3) = 0.0f; // Set initial High G Acceleration X to 0
+	Z(4,4) = 0.0f; // Set initial High G Acceleration Y to 0
+	Z(5,5) = 0.0f; // Set initial High G Acceleration Z to 0
+	Z(6,6) = data->MS560702BA03Altitude; // Set the initial Barometric Altitude to the current altitude
+
+	// Observation
 	H.setZero();
-	H(0,0) = 0.0f; // Set initial Low G Acceleration X to 0
-	H(1,1) = 0.0f; // Set initial Low G Acceleration Y to 0
-	H(2,2) = 0.0f; // Set initial Low G Acceleration Z to 0
-	H(3,3) = 0.0f; // Set initial High G Acceleration X to 0
-	H(4,4) = 0.0f; // Set initial High G Acceleration Y to 0
-	H(5,5) = 0.0f; // Set initial High G Acceleration Z to 0
-	H(6,6) = data->MS560702BA03Altitude; // Set the initial Barometric Altitude to the current altitude
+	H(0, 2) = H(1, 5) = H(2, 8) = H(3, 2) = H(4, 5) = H(5, 8) = H(6, 6) = 1;
 
 	// Process Noise
 
-	// Measurement Nose
+	// Measurement Noise
 
 	// Estimate Error
 	P.setIdentity();

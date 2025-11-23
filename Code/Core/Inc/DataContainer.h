@@ -71,6 +71,10 @@ public:
 	float KalmanFilterVelocityX;
 	float KalmanFilterVelocityY;
 	float KalmanFilterVelocityZ;
+
+	float KalmanFilterAccelerationX;
+	float KalmanFilterAccelerationY;
+	float KalmanFilterAccelerationZ;
 };
 
 

@@ -20,6 +20,10 @@ Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_Hand
 	data->KalmanFilterVelocityX = 0.0f;
 	data->KalmanFilterVelocityY = 0.0f;
 	data->KalmanFilterVelocityZ = 0.0f;
+
+	data->KalmanFilterAccelerationX = 0.0f;
+	data->KalmanFilterAccelerationY = 0.0f;
+	data->KalmanFilterAccelerationZ = 0.0f;
 }
 
 
@@ -52,6 +56,7 @@ int Navigation::update()
 {
 	now = HAL_GetTick();
 	dt = now - lastLoop;
+	dt2 = (dt * dt)/2;
 	freq = 1000.0f / dt;
 	lastLoop = now;
 
@@ -93,6 +98,10 @@ int Navigation::update()
 	Z(5) = data->LSM6DSV320HighGAccelZ;
 	Z(6) = data->MS560702BA03Altitude;
 
+	// Update State Transition Matrix
+	F(0, 1) = F(1, 2) = F(3, 4) = F(4, 5) = F(6, 7) = F(7, 8) = dt;
+	F(0, 2) = F(3, 5) = F(7, 8) = dt2;
+
 	// Predict State
 	x = F * x;
 
@@ -108,12 +117,17 @@ int Navigation::update()
 	// Computer the Error covariance
 	P = P - K * H * P;
 
-	data->KalmanFilterPositionX = x(0);
-	data->KalmanFilterPositionY = x(1);
-	data->KalmanFilterPositionZ = x(2);
-	data->KalmanFilterVelocityX = x(3);
-	data->KalmanFilterVelocityY = x(4);
-	data->KalmanFilterVelocityZ = x(5);
+	data->KalmanFilterPositionX 	= x(0);
+	data->KalmanFilterAccelerationX = x(1);
+	data->KalmanFilterVelocityX 	= x(2);
+
+	data->KalmanFilterPositionY 	= x(3);
+	data->KalmanFilterAccelerationY = x(4);
+	data->KalmanFilterVelocityY 	= x(5);
+
+	data->KalmanFilterPositionY 	= x(6);
+	data->KalmanFilterAccelerationY = x(7);
+	data->KalmanFilterVelocityY 	= x(8);
 
 	return 0;
 }
@@ -127,6 +141,9 @@ void Navigation::initKalmanFilter()
 	x.setZero();
 
 	// State Transition
+	F.setIdentity();
+	F(0, 1) = F(1, 2) = F(3, 4) = F(4, 5) = F(6, 7) = F(7, 8) = NAVIGATION_TARGET_DT;
+	F(0, 2) = F(3, 5) = F(7, 8) = (NAVIGATION_TARGET_DT * NAVIGATION_TARGET_DT) / 2;
 
 	// Measurement
 	H.setZero();
@@ -147,4 +164,6 @@ void Navigation::initKalmanFilter()
 	P *= 1.0;  // initial uncertainty
 
 	isKalmanFilterInit = true;
+
+	return;
 }

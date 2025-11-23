@@ -105,6 +105,7 @@ private:
 	float freq;		// Frequency of the loop = 1/dt
 	float now;		// Current time in ms
 	float dt;		// Time since last loop in ms
+	float dt2;		// dt^2/2 for kalman filter
 
 };
 

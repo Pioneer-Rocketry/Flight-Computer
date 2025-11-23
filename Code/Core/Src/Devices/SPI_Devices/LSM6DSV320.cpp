@@ -27,7 +27,7 @@ int LSM6DSV320::deviceInit()
 {
 	uint8_t whoAmI;
 
-	readSPI(LSM6DSV320_WHO_AM_I, &whoAmI);
+	readSPI(LSM6DSV320_WHO_AM_I | 0x80, &whoAmI);
 	if (whoAmI != LSM6DSV320_ID) {
 		return -1;
 	}
@@ -48,7 +48,7 @@ int LSM6DSV320::deviceInit()
 	config |= 0 << 0; // I2C_I3C_DISABLE disables I2C and I3C interface (default)
 	writeSPI(LSM6DSV320_IF_CFG, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_IF_CFG, out);
+	readSPI(LSM6DSV320_IF_CFG | 0x80, out);
 
 	HAL_Delay(1);
 
@@ -58,7 +58,7 @@ int LSM6DSV320::deviceInit()
 	config |= this->lowGODR    << 0; // ODR_XL
 	writeSPI(LSM6DSV320_CTRL1, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_CTRL1, out);
+	readSPI(LSM6DSV320_CTRL1 | 0x80, out);
 
 	HAL_Delay(1);
 
@@ -68,7 +68,7 @@ int LSM6DSV320::deviceInit()
 	config |= this->gyroODR    << 0; // ODR_G
 	writeSPI(LSM6DSV320_CTRL2, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_CTRL2, out);
+	readSPI(LSM6DSV320_CTRL2 | 0x80, out);
 
 	HAL_Delay(1);
 
@@ -80,7 +80,7 @@ int LSM6DSV320::deviceInit()
 	config |= 0b0 << 0; // SW_RESET set to normal mode
 	writeSPI(LSM6DSV320_CTRL3, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_CTRL3, out);
+	readSPI(LSM6DSV320_CTRL3 | 0x80, out);
 
 	HAL_Delay(1);
 
@@ -93,7 +93,7 @@ int LSM6DSV320::deviceInit()
 	config |= 0b0 << 0; // INT2_IN_LH set embedded functions active low
 	writeSPI(LSM6DSV320_CTRL4, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_CTRL4, out);
+	readSPI(LSM6DSV320_CTRL4 | 0x80, out);
 
 	HAL_Delay(1);
 
@@ -104,7 +104,7 @@ int LSM6DSV320::deviceInit()
 	config |= 0b0  << 0; // INT_EN_SPI disables INT pin when I3C is enabled (default)
 	writeSPI(LSM6DSV320_CTRL5, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_CTRL5, out);
+	readSPI(LSM6DSV320_CTRL5 | 0x80, out);
 
 	HAL_Delay(1);
 
@@ -114,7 +114,7 @@ int LSM6DSV320::deviceInit()
 	config |= this->gyroRange << 0; // FS_G
 	writeSPI(LSM6DSV320_CTRL6, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_CTRL6, out);
+	readSPI(LSM6DSV320_CTRL6 | 0x80, out);
 
 	HAL_Delay(1);
 
@@ -125,7 +125,7 @@ int LSM6DSV320::deviceInit()
 	config |= 0b1 << 0; // LPF1_G_EN enables low-pass filter for gyroscope (default)
 	writeSPI(LSM6DSV320_CTRL7, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_CTRL7, out);
+	readSPI(LSM6DSV320_CTRL7 | 0x80, out);
 
 	HAL_Delay(1);
 
@@ -135,7 +135,7 @@ int LSM6DSV320::deviceInit()
 	config |= this->lowGRange << 0; // FS_XL
 	writeSPI(LSM6DSV320_CTRL8, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_CTRL8, out);
+	readSPI(LSM6DSV320_CTRL8 | 0x80, out);
 
 	HAL_Delay(1);
 
@@ -149,7 +149,7 @@ int LSM6DSV320::deviceInit()
 	config |= 0b0 << 0; // USR_OFF_ON_OUT bypasses user offset correction block (default)
 	writeSPI(LSM6DSV320_CTRL9, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_CTRL9, out);
+	readSPI(LSM6DSV320_CTRL9 | 0x80, out);
 
 	HAL_Delay(1);
 
@@ -160,7 +160,7 @@ int LSM6DSV320::deviceInit()
 	config |= 0b00 << 0; // ST_XL sets the normal self-test mode (default)
 	writeSPI(LSM6DSV320_CTRL10, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_CTRL10, out);
+	readSPI(LSM6DSV320_CTRL10 | 0x80, out);
 
 	// CTRL1_XL_HG page 91, table 147
 	config  = 0;
@@ -170,7 +170,7 @@ int LSM6DSV320::deviceInit()
 	config |= this->highGRange << 0; // FS_XL_HG
 	writeSPI(LSM6DSV320_CTRL1_XL_HG, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_CTRL1_XL_HG, out);
+	readSPI(LSM6DSV320_CTRL1_XL_HG | 0x80, out);
 
 	HAL_Delay(1);
 
@@ -180,7 +180,7 @@ int LSM6DSV320::deviceInit()
 	config |= 0b00 << 0; // XL_HG_ST sets the normal self-test mode (default)
 	writeSPI(LSM6DSV320_CTRL2_XL_HG, &config);
 	out[0] = 0; out[1] = 0;
-	readSPI(LSM6DSV320_CTRL2_XL_HG, out);
+	readSPI(LSM6DSV320_CTRL2_XL_HG | 0x80, out);
 
 	HAL_Delay(1);
 
@@ -221,12 +221,12 @@ int LSM6DSV320::deviceInit()
 int LSM6DSV320::updateDevice()
 {
 	// Read Gyroscope Measurements
-	readSPI(LSM6DSV320_OUTX_L_G, &this->buffer[0]);
-	readSPI(LSM6DSV320_OUTX_H_G, &this->buffer[1]);
-	readSPI(LSM6DSV320_OUTY_L_G, &this->buffer[2]);
-	readSPI(LSM6DSV320_OUTY_H_G, &this->buffer[3]);
-	readSPI(LSM6DSV320_OUTZ_L_G, &this->buffer[4]);
-	readSPI(LSM6DSV320_OUTZ_H_G, &this->buffer[5]);
+	readSPI(LSM6DSV320_OUTX_L_G | 0x80, &this->buffer[0]);
+	readSPI(LSM6DSV320_OUTX_H_G | 0x80, &this->buffer[1]);
+	readSPI(LSM6DSV320_OUTY_L_G | 0x80, &this->buffer[2]);
+	readSPI(LSM6DSV320_OUTY_H_G | 0x80, &this->buffer[3]);
+	readSPI(LSM6DSV320_OUTZ_L_G | 0x80, &this->buffer[4]);
+	readSPI(LSM6DSV320_OUTZ_H_G | 0x80, &this->buffer[5]);
 
 	// Cast measurements to floats
 	this->data->LSM6DSV320GyroX = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->gyroSensitivity;
@@ -234,12 +234,12 @@ int LSM6DSV320::updateDevice()
 	this->data->LSM6DSV320GyroZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->gyroSensitivity;
 
 	// Read Low G Accelerometer Measurements
-	readSPI(LSM6DSV320_OUTX_L_A, &this->buffer[0]);
-	readSPI(LSM6DSV320_OUTX_H_A, &this->buffer[1]);
-	readSPI(LSM6DSV320_OUTY_L_A, &this->buffer[2]);
-	readSPI(LSM6DSV320_OUTY_H_A, &this->buffer[3]);
-	readSPI(LSM6DSV320_OUTZ_L_A, &this->buffer[4]);
-	readSPI(LSM6DSV320_OUTZ_H_A, &this->buffer[5]);
+	readSPI(LSM6DSV320_OUTX_L_A | 0x80, &this->buffer[0]);
+	readSPI(LSM6DSV320_OUTX_H_A | 0x80, &this->buffer[1]);
+	readSPI(LSM6DSV320_OUTY_L_A | 0x80, &this->buffer[2]);
+	readSPI(LSM6DSV320_OUTY_H_A | 0x80, &this->buffer[3]);
+	readSPI(LSM6DSV320_OUTZ_L_A | 0x80, &this->buffer[4]);
+	readSPI(LSM6DSV320_OUTZ_H_A | 0x80, &this->buffer[5]);
 
 	// Cast measurements to floats
 	this->data->LSM6DSV320LowGAccelX = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->lowGSensitivity;
@@ -247,12 +247,12 @@ int LSM6DSV320::updateDevice()
 	this->data->LSM6DSV320LowGAccelZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->lowGSensitivity;
 
 	// Read High G Accelerometer Measurements
-	readSPI(LSM6DSV320_UI_OUTX_L_A_OIS_HG, &this->buffer[0]);
-	readSPI(LSM6DSV320_UI_OUTX_H_A_OIS_HG, &this->buffer[1]);
-	readSPI(LSM6DSV320_UI_OUTY_L_A_OIS_HG, &this->buffer[2]);
-	readSPI(LSM6DSV320_UI_OUTY_H_A_OIS_HG, &this->buffer[3]);
-	readSPI(LSM6DSV320_UI_OUTZ_L_A_OIS_HG, &this->buffer[4]);
-	readSPI(LSM6DSV320_UI_OUTZ_H_A_OIS_HG, &this->buffer[5]);
+	readSPI(LSM6DSV320_UI_OUTX_L_A_OIS_HG | 0x80, &this->buffer[0]);
+	readSPI(LSM6DSV320_UI_OUTX_H_A_OIS_HG | 0x80, &this->buffer[1]);
+	readSPI(LSM6DSV320_UI_OUTY_L_A_OIS_HG | 0x80, &this->buffer[2]);
+	readSPI(LSM6DSV320_UI_OUTY_H_A_OIS_HG | 0x80, &this->buffer[3]);
+	readSPI(LSM6DSV320_UI_OUTZ_L_A_OIS_HG | 0x80, &this->buffer[4]);
+	readSPI(LSM6DSV320_UI_OUTZ_H_A_OIS_HG | 0x80, &this->buffer[5]);
 
 	// Cast measurements to floats
 	this->data->LSM6DSV320HighGAccelX = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->highGSensitivity;

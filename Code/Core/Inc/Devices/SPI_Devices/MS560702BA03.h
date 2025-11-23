@@ -8,6 +8,8 @@
 #ifndef SRC_DEVICES_SPI_DEVICES_MS560702BA03_H_
 #define SRC_DEVICES_SPI_DEVICES_MS560702BA03_H_
 
+#include <math.h>
+
 #include "Devices/SPIDevice.h"
 
 #include "defines.h"

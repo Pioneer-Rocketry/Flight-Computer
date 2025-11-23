@@ -69,7 +69,7 @@ int MS560702BA03::updateDevice()
 
 	this->data->MS560702BA03Temperature = TEMP / 100.0f;
 	this->data->MS560702BA03Pressure = P / 100.0f;
-//	this->data->MS560702BA03Altitude = (1-pow(this->data->MS560702BA03Pressure/1013.25, 0.190284))*145366.45; // * FT_TO_M;
+	this->data->MS560702BA03Altitude = (1-powf(this->data->MS560702BA03Pressure/1013.25, 0.190284))*145366.45; // * FT_TO_M;
 
 	return 0;
 }

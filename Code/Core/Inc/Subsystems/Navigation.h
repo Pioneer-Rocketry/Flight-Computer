@@ -92,6 +92,11 @@ private:
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		P;  // Estimate error covariance
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	K;  // Kalman gain
 
+	/**
+	 * @brief Initializes the Kalman Filter
+	 *
+	 * This function setups up the necessary matrices and variables for the Kalman Filter.
+	 */
 	void initKalmanFilter();
 	bool isKalmanFilterInit = false;
 

@@ -104,6 +104,11 @@ private:
 	 * This function setups up the necessary matrices and variables for the Kalman Filter.
 	 */
 	void initKalmanFilter();
+
+	void updateKalmanFilter();
+
+	void runKalmanFilter();
+
 	bool isKalmanFilterInit = false;
 
 	// Timing

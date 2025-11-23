@@ -88,43 +88,9 @@ int Navigation::update()
 	if (!isKalmanFilterInit)
 		initKalmanFilter();
 
-	// Update Measurements
-	Z(0) = data->LSM6DSV320LowGAccelX;
-	Z(1) = data->LSM6DSV320LowGAccelY;
-	Z(2) = data->LSM6DSV320LowGAccelZ;
-	Z(3) = data->LSM6DSV320HighGAccelX;
-	Z(4) = data->LSM6DSV320HighGAccelY;
-	Z(5) = data->LSM6DSV320HighGAccelZ;
-	Z(6) = data->MS560702BA03Altitude;
+	updateKalmanFilter();
 
-	// Update State Transition Matrix
-	F(0, 1) = F(1, 2) = F(3, 4) = F(4, 5) = F(6, 7) = F(7, 8) = dt;
-	F(0, 2) = F(3, 5) = F(7, 8) = powf(dt, 2) / 2.0f;
-
-	// Update Process Noise
-	Q.setZero();
-	Q(0, 0) = Q(3, 3) = Q(6, 6) = powf(dt, 4)/4.0f;
-	Q(0, 1) = Q(1, 0) = Q(3, 4) = Q(4, 3) = Q(6, 7) = Q(7, 6) = powf(dt, 3)/2.0f;
-	Q(0, 2) = Q(2, 0) = Q(3, 5) = Q(5, 3) = Q(6, 8) = Q(8, 6) = powf(dt, 2)/2.0f;
-	Q(1, 1) = Q(4, 4) = Q(7, 7) = powf(dt, 2);
-	Q(1, 2) = Q(2, 1) = Q(4, 5) = Q(5, 4) = Q(7, 8) = Q(8, 7) = dt;
-
-	Q *= processNoise;
-
-	// Predict State
-	x = F * x;
-
-	// Predict Error Covariance
-	P = F * P * F.transpose() + Q;
-
-	// Compute Kalman Gain
-	K = P * H.transpose() * (H * P * H.transpose() + R).inverse();
-
-	// Compute the Estimate
-	x = x + K * (Z - H * x);
-
-	// Computer the Error covariance
-	P = P - K * H * P;
+	runKalmanFilter();
 
 	data->KalmanFilterPositionX 	= x(0);
 	data->KalmanFilterAccelerationX = x(1);
@@ -194,4 +160,50 @@ void Navigation::initKalmanFilter()
 	isKalmanFilterInit = true;
 
 	return;
+}
+
+void Navigation::updateKalmanFilter()
+{
+	// Update Measurements
+	Z(0) = data->LSM6DSV320LowGAccelX;
+	Z(1) = data->LSM6DSV320LowGAccelY;
+	Z(2) = data->LSM6DSV320LowGAccelZ;
+	Z(3) = data->LSM6DSV320HighGAccelX;
+	Z(4) = data->LSM6DSV320HighGAccelY;
+	Z(5) = data->LSM6DSV320HighGAccelZ;
+	Z(6) = data->MS560702BA03Altitude;
+
+	// Update State Transition Matrix
+	F(0, 1) = F(1, 2) = F(3, 4) = F(4, 5) = F(6, 7) = F(7, 8) = dt;
+	F(0, 2) = F(3, 5) = F(7, 8) = powf(dt, 2) / 2.0f;
+
+	// Update Process Noise
+	Q.setZero();
+	Q(0, 0) = Q(3, 3) = Q(6, 6) = powf(dt, 4)/4.0f;
+	Q(0, 1) = Q(1, 0) = Q(3, 4) = Q(4, 3) = Q(6, 7) = Q(7, 6) = powf(dt, 3)/2.0f;
+	Q(0, 2) = Q(2, 0) = Q(3, 5) = Q(5, 3) = Q(6, 8) = Q(8, 6) = powf(dt, 2)/2.0f;
+	Q(1, 1) = Q(4, 4) = Q(7, 7) = powf(dt, 2);
+	Q(1, 2) = Q(2, 1) = Q(4, 5) = Q(5, 4) = Q(7, 8) = Q(8, 7) = dt;
+
+	Q *= processNoise;
+
+	runKalmanFilter();
+}
+
+void Navigation::runKalmanFilter()
+{
+	// Predict State
+	x = F * x;
+
+	// Predict Error Covariance
+	P = F * P * F.transpose() + Q;
+
+	// Compute Kalman Gain
+	K = P * H.transpose() * (H * P * H.transpose() + R).inverse();
+
+	// Compute the Estimate
+	x = x + K * (Z - H * x);
+
+	// Computer the Error covariance
+	P = P - K * H * P;
 }

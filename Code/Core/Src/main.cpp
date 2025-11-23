@@ -129,7 +129,7 @@ int main(void)
 
 	  nav.update();
 
-	  HAL_Delay(1);
+//	  HAL_Delay(1);
   }
   /* USER CODE END 3 */
 }

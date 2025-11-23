@@ -92,6 +92,12 @@ private:
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		P;  // Estimate error covariance
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	K;  // Kalman gain
 
+	float processNoise = 0.01f;
+
+	float lowGNoise		= 0.01f;
+	float highGNoise	= 0.01f;
+	float baroNoise 	= 0.01f;
+
 	/**
 	 * @brief Initializes the Kalman Filter
 	 *
@@ -105,8 +111,6 @@ private:
 	float freq;		// Frequency of the loop = 1/dt
 	float now;		// Current time in ms
 	float dt;		// Time since last loop in ms
-	float dt2;		// dt^2/2 for kalman filter
-
 };
 
 #endif /* SRC_SUBSYSTEMS_NAVIGATION_H_ */

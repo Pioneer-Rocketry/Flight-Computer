@@ -61,6 +61,18 @@ public:
 	float MS560702BA03Altitude;
 
 	/* GPS Data */
+	// Latitude in decimal degrees (+N, -S)
+	float GPSLatitude;
+	// Longitude in decimal degrees (+E, -W)
+	float GPSLongitude;
+	// Altitude in meters (from GPS)
+	float GPSAltitude;
+	// GPS fix status: 0 = invalid, 1 = GPS fix, 2 = DGPS
+	int GPSFix;
+	// Number of satellites used in fix
+	int GPSNumSatellites;
+	// UTC time string from GPS (hhmmss.sss)
+	char GPSUTCTime[16];
 
 
 	/* Kalman Filter Data */

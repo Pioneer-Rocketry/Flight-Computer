@@ -34,6 +34,8 @@
 
 #include <math.h>
 
+#include "defines.h"
+
 class Quaternion {
 public:
     float a;

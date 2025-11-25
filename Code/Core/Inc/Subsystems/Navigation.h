@@ -78,6 +78,7 @@ private:
 
 	// Orientation Tracking
 	float norm;				// Normal of the Roll, Pitch, Yaw Rates
+	float inverse;			// The inverse of nrom
 	float rollRate_rad;		// Roll Rate in radians/sec
 	float pitchRate_rad;	// Pitch Rate in radians/sec
 	float yawRate_rad;		// Yaw Rate in radians/sec
@@ -91,6 +92,10 @@ private:
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	R;  // Measurement noise covariance
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		P;  // Estimate error covariance
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	K;  // Kalman gain
+
+    Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, KALMAN_FILTER_NUM_OF_MEASUREMENTS>  S;
+	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		I;
+
 
 	float processNoise = 0.01f;
 
@@ -115,7 +120,9 @@ private:
 	float lastLoop;	// Time of start of previous loop in ms
 	float freq;		// Frequency of the loop = 1/dt
 	float now;		// Current time in ms
-	float dt;		// Time since last loop in ms
+	float dt_ms;	// Time since last loop in ms
+	float dt_s;		// Time since last loop in s
+	float dt2, dt3, dt4;	// dt^2, dt^3, dt^4
 };
 
 #endif /* SRC_SUBSYSTEMS_NAVIGATION_H_ */

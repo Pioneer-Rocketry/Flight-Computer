@@ -54,10 +54,15 @@ int Navigation::init()
 
 int Navigation::update()
 {
-	now = HAL_GetTick();
-	dt = now - lastLoop;
-	freq = 1000.0f / dt;
+	now 	= HAL_GetTick();
+	dt_ms 	= now - lastLoop;
+	dt_s  	= dt_ms / 1000.0f;
+	freq 	= 1.0f / dt_s;
 	lastLoop = now;
+
+	dt2 = dt_s * dt_s;
+	dt3 = dt2  * dt_s;
+	dt4 = dt3  * dt_s;
 
 	// -------------------------------------------------------------
 	// Read Sensor Data
@@ -75,11 +80,15 @@ int Navigation::update()
 	pitchRate_rad 	= data->LSM6DSV320GyroX * DEG_TO_RAD;
 	yawRate_rad 	= data->LSM6DSV320GyroZ * DEG_TO_RAD;
 
-	norm = sqrtf(powf(pitchRate_rad, 2) + powf(rollRate_rad, 2) + powf(yawRate_rad, 2));
-	norm = copysignf(fmax(abs(norm), 1e-9), norm);
+	norm = sqrtf(pitchRate_rad * pitchRate_rad + rollRate_rad*rollRate_rad + yawRate_rad*yawRate_rad);
+	if (norm >= 1e-9) {
+		// If the was a measurable rotation
+		inverse = 1.0f / norm;
 
-	data->orientation *= Quaternion::from_axis_angle(dt * norm, rollRate_rad / norm, pitchRate_rad / norm, yawRate_rad / norm);
-	data->orientation.to_eular(&data->roll, &data->pitch, &data->yaw);
+		data->orientation *= Quaternion::from_axis_angle(dt_s / norm, rollRate_rad / norm, pitchRate_rad / norm, yawRate_rad / norm);
+		data->orientation.to_eular(&data->roll, &data->pitch, &data->yaw);
+	}
+
 
 	// -------------------------------------------------------------
 	// Kalman Filter
@@ -89,7 +98,6 @@ int Navigation::update()
 		initKalmanFilter();
 
 	updateKalmanFilter();
-
 	runKalmanFilter();
 
 	data->KalmanFilterPositionX 	= x(0);
@@ -109,19 +117,41 @@ int Navigation::update()
 
 void Navigation::initKalmanFilter()
 {
+	dt_s = NAVIGATION_TARGET_DT;
+	dt2  = dt_s * dt_s;
+	dt3  = dt2  * dt_s;
+	dt4  = dt3  * dt_s;
+
 	// Initialize Kalman Filter Matricies
 
 	// Initial State
 	x.setZero();
-	x(1) = data->LSM6DSV320LowGAccelX;
-	x(4) = data->LSM6DSV320LowGAccelY;
-	x(6) = data->MS560702BA03Altitude; // Set the initial Barometric Altitude to the current altitude
-	x(8) = data->LSM6DSV320LowGAccelZ;
+	x(2) = data->LSM6DSV320LowGAccelX; // Acc X
+	x(5) = data->LSM6DSV320LowGAccelY; // Acc Y
+	x(6) = data->MS560702BA03Altitude; // Pos Z Set the initial Barometric Altitude to the current altitude
+	x(8) = data->LSM6DSV320LowGAccelZ; // Acc Z
 
 	// State Transition
 	F.setIdentity();
-	F(0, 1) = F(1, 2) = F(3, 4) = F(4, 5) = F(6, 7) = F(7, 8) = NAVIGATION_TARGET_DT;
-	F(0, 2) = F(3, 5) = F(7, 8) = (NAVIGATION_TARGET_DT * NAVIGATION_TARGET_DT) / 2;
+    // For each axis block:
+    // pos' = pos + vel*dt + 0.5*acc*dt^2
+    // vel' = vel + acc*dt
+    // acc' = acc
+
+	// X Axis
+	F(0,1) = dt_s;
+	F(0,2) = (dt_s * dt_s) / 2.0f;
+	F(1,2) = dt_s;
+
+	// Y Axis
+    F(3,4) = dt_s;
+    F(3,5) = (dt_s * dt_s) / 2.0f;
+    F(4,5) = dt_s;
+
+    // Z Axis
+    F(6,7) = dt_s;
+    F(6,8) = (dt_s * dt_s) / 2.0f;
+    F(7,8) = dt_s;
 
 	// Get Initial Measurements
 	Z.setZero();
@@ -135,15 +165,20 @@ void Navigation::initKalmanFilter()
 
 	// Observation
 	H.setZero();
-	H(0, 2) = H(1, 5) = H(2, 8) = H(3, 2) = H(4, 5) = H(5, 8) = H(6, 6) = 1;
+	H(0, 2) = H(1, 5) = H(2, 8) = H(3, 2) = H(4, 5) = H(5, 8) = H(6, 6) = 1.0f;
 
 	// Process Noise
 	Q.setZero();
-	Q(0, 0) = Q(3, 3) = Q(6, 6) = powf(NAVIGATION_TARGET_DT, 4)/4.0f;
-	Q(0, 1) = Q(1, 0) = Q(3, 4) = Q(4, 3) = Q(6, 7) = Q(7, 6) = powf(NAVIGATION_TARGET_DT, 3)/2.0f;
-	Q(0, 2) = Q(2, 0) = Q(3, 5) = Q(5, 3) = Q(6, 8) = Q(8, 6) = powf(NAVIGATION_TARGET_DT, 2)/2.0f;
-	Q(1, 1) = Q(4, 4) = Q(7, 7) = powf(NAVIGATION_TARGET_DT, 2);
-	Q(1, 2) = Q(2, 1) = Q(4, 5) = Q(5, 4) = Q(7, 8) = Q(8, 7) =NAVIGATION_TARGET_DT;
+	Q(0,0) = dt4 / 4.0f;
+	Q(0,1) = dt3 / 2.0f; Q(1,0) = Q(0,1);
+	Q(0,2) = dt2 / 2.0f; Q(2,0) = Q(0,2);
+	Q(1,1) = dt2;
+	Q(1,2) = dt_s; Q(2,1) = Q(1,2);
+	Q(2,2) = 1.0f; // keep small baseline
+
+	// copy blocks for Y (3..5) and Z (6..8)
+	Q.block<3,3>(3,3) = Q.block<3,3>(0,0);
+	Q.block<3,3>(6,6) = Q.block<3,3>(0,0);
 
 	Q *= processNoise;
 
@@ -156,6 +191,8 @@ void Navigation::initKalmanFilter()
 	// Estimate Error
 	P.setIdentity();
 	P *= 1.0;  // initial uncertainty
+
+	I.setIdentity();
 
 	isKalmanFilterInit = true;
 
@@ -174,20 +211,38 @@ void Navigation::updateKalmanFilter()
 	Z(6) = data->MS560702BA03Altitude;
 
 	// Update State Transition Matrix
-	F(0, 1) = F(1, 2) = F(3, 4) = F(4, 5) = F(6, 7) = F(7, 8) = dt;
-	F(0, 2) = F(3, 5) = F(7, 8) = powf(dt, 2) / 2.0f;
+
+	// X Axis
+	F(0,1) = dt_s;
+	F(0,2) = (dt_s * dt_s) / 2.0f;
+	F(1,2) = dt_s;
+
+	// Y Axis
+    F(3,4) = dt_s;
+    F(3,5) = (dt_s * dt_s) / 2.0f;
+    F(4,5) = dt_s;
+
+    // Z Axis
+    F(6,7) = dt_s;
+    F(6,8) = (dt_s * dt_s) / 2.0f;
+    F(7,8) = dt_s;
 
 	// Update Process Noise
 	Q.setZero();
-	Q(0, 0) = Q(3, 3) = Q(6, 6) = powf(dt, 4)/4.0f;
-	Q(0, 1) = Q(1, 0) = Q(3, 4) = Q(4, 3) = Q(6, 7) = Q(7, 6) = powf(dt, 3)/2.0f;
-	Q(0, 2) = Q(2, 0) = Q(3, 5) = Q(5, 3) = Q(6, 8) = Q(8, 6) = powf(dt, 2)/2.0f;
-	Q(1, 1) = Q(4, 4) = Q(7, 7) = powf(dt, 2);
-	Q(1, 2) = Q(2, 1) = Q(4, 5) = Q(5, 4) = Q(7, 8) = Q(8, 7) = dt;
+	Q(0,0) = dt4 / 4.0f;
+	Q(0,1) = dt3 / 2.0f; Q(1,0) = Q(0,1);
+	Q(0,2) = dt2 / 2.0f; Q(2,0) = Q(0,2);
+	Q(1,1) = dt2;
+	Q(1,2) = dt_s; Q(2,1) = Q(1,2);
+	Q(2,2) = 1.0f; // keep small baseline
+
+	// copy blocks for Y (3..5) and Z (6..8)
+	Q.block<3,3>(3,3) = Q.block<3,3>(0,0);
+	Q.block<3,3>(6,6) = Q.block<3,3>(0,0);
 
 	Q *= processNoise;
 
-	runKalmanFilter();
+	return;
 }
 
 void Navigation::runKalmanFilter()
@@ -196,14 +251,18 @@ void Navigation::runKalmanFilter()
 	x = F * x;
 
 	// Predict Error Covariance
-	P = F * P * F.transpose() + Q;
+    S = H * P * H.transpose() + R;
 
 	// Compute Kalman Gain
-	K = P * H.transpose() * (H * P * H.transpose() + R).inverse();
+    // Prefer an LDLT or LLT solve over explicit inverse:
+    // K = (P * H.transpose()) * S.inverse(); // less stable
+	K = P * H.transpose() * S.ldlt().solve(Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, KALMAN_FILTER_NUM_OF_MEASUREMENTS>::Identity());
 
 	// Compute the Estimate
 	x = x + K * (Z - H * x);
 
 	// Computer the Error covariance
-	P = P - K * H * P;
+	P = (I - K * H) * P * (I - K * H).transpose() + K * R * K.transpose();
+
+	return;
 }

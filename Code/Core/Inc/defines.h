@@ -9,7 +9,9 @@
 #define INC_DEFINES_H_
 
 #define GRAVITY 9.81f
-#define DEG_TO_RAD M_PI / 180
+
+#define DEG_TO_RAD M_PI / 180.0f
+#define RAD_TO_DEG 180.0f / M_PI
 
 #define NAVIGATION_TARGET_FREQ 	500 // hz
 #define NAVIGATION_TARGET_DT	1/NAVIGATION_TARGET_FREQ

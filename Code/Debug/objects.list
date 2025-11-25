@@ -11,7 +11,6 @@
 "./Core/Src/sysmem.o"
 "./Core/Src/system_stm32f4xx.o"
 "./Core/Src/Subsystems/Navigation.o"
-"./Core/Src/Types/Quaternion.o"
 "./Core/Startup/startup_stm32f446retx.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o"

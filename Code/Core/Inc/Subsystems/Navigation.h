@@ -9,6 +9,7 @@
 #define SRC_SUBSYSTEMS_NAVIGATION_H_
 
 #include <Eigen/Dense>
+#include <Eigen/Geometry>
 
 #include "Subsystem.h"
 #include "main.h"
@@ -16,8 +17,6 @@
 #include "Devices/SPI_Devices/LSM6DSV320.h"
 #include "Devices/SPI_Devices/MS560702BA03.h"
 #include "Devices/GPS.h"
-
-#include "Types/Quaternion.h"
 
 #include "defines.h"
 
@@ -77,11 +76,15 @@ private:
 	GPS gps;			// GPR for Absolute Positioning: Latitude, Longitude, Altitude
 
 	// Orientation Tracking
-	float norm;				// Normal of the Roll, Pitch, Yaw Rates
-	float inverse;			// The inverse of nrom
-	float rollRate_rad;		// Roll Rate in radians/sec
-	float pitchRate_rad;	// Pitch Rate in radians/sec
-	float yawRate_rad;		// Yaw Rate in radians/sec
+	Eigen::Quaternionf omega_q;
+	Eigen::Quaternionf q_dot;
+	Eigen::Vector4f qcoeffs;
+
+	float rollRate_rad	= data->LSM6DSV320GyroY * DEG_TO_RAD;
+	float pitchRate_rad = data->LSM6DSV320GyroX * DEG_TO_RAD;
+	float yawRate_rad 	= data->LSM6DSV320GyroZ * DEG_TO_RAD;
+
+	void integrateQuaternion();
 
 	// Kalman Filter
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		1> 									x;  // State vector

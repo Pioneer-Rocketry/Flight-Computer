@@ -9,8 +9,7 @@
 #define INC_DATACONTAINER_H_
 
 #include <cstdint>
-
-#include "Types/Quaternion.h"
+#include <Eigen/Geometry>
 
 /**
  * @class DataContainer
@@ -33,10 +32,9 @@
 class DataContainer {
 private:
 
-
 public:
-
-	Quaternion orientation;
+	Eigen::Quaternionf orientation_quat;
+	Eigen::Vector3f orientation_eular;
 
 	float roll;
 	float pitch;

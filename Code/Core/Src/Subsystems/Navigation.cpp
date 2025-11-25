@@ -24,14 +24,20 @@ Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_Hand
 	data->KalmanFilterAccelerationX = 0.0f;
 	data->KalmanFilterAccelerationY = 0.0f;
 	data->KalmanFilterAccelerationZ = 0.0f;
+
+	// orientation initial guess
+	data->orientation_quat = Eigen::Quaternionf::Identity();
+
+	data->roll = 0.0f;
+	data->pitch = 0.0f;
+	data->yaw = 0.0f;
+
+	lastLoop = HAL_GetTick();
 }
 
 
 int Navigation::init()
 {
-	data->roll = 0.0f;
-	data->pitch = 0.0f;
-	data->yaw = 0.0f;
 
 	if (imu.deviceInit() < 0)
 	{
@@ -74,21 +80,19 @@ int Navigation::update()
 
 	// -------------------------------------------------------------
 	// Quaterion Intergration
-	// Adapted from https://github.com/peregrine-developments/Orientation/blob/master/Orientation/Orientation.cpp
 	// -------------------------------------------------------------
 	rollRate_rad	= data->LSM6DSV320GyroY * DEG_TO_RAD;
 	pitchRate_rad 	= data->LSM6DSV320GyroX * DEG_TO_RAD;
 	yawRate_rad 	= data->LSM6DSV320GyroZ * DEG_TO_RAD;
 
-	norm = sqrtf(pitchRate_rad * pitchRate_rad + rollRate_rad*rollRate_rad + yawRate_rad*yawRate_rad);
-	if (norm >= 1e-9) {
-		// If the was a measurable rotation
-		inverse = 1.0f / norm;
+	// integrate quaternion
+	integrateQuaternion();
 
-		data->orientation *= Quaternion::from_axis_angle(dt_s / norm, rollRate_rad / norm, pitchRate_rad / norm, yawRate_rad / norm);
-		data->orientation.to_eular(&data->roll, &data->pitch, &data->yaw);
-	}
+	data->orientation_eular = data->orientation_quat.toRotationMatrix().eulerAngles(2, 1, 0) * RAD_TO_DEG;
 
+	data->yaw   = data->orientation_eular[0];   // yaw (Z) in degrees
+	data->pitch = data->orientation_eular[1];   // pitch (Y) in degrees
+	data->roll  = data->orientation_eular[2];   // roll (X) in degrees
 
 	// -------------------------------------------------------------
 	// Kalman Filter
@@ -114,6 +118,22 @@ int Navigation::update()
 
 	return 0;
 }
+
+void Navigation::integrateQuaternion()
+{
+    // Build the angular velocity quaternion: q_omega = [0, wx, wy, wz]
+    omega_q = Eigen::Quaternionf(0.0f, pitchRate_rad, rollRate_rad, yawRate_rad);
+
+    // q_dot = 0.5 * q * omega_q
+    q_dot = Eigen::Quaternionf(0,0,0,0); // initialize
+    q_dot.coeffs() = 0.5f * (data->orientation_quat * omega_q).coeffs();
+
+    // integrate (explicit Euler)
+    qcoeffs = data->orientation_quat.coeffs() + q_dot.coeffs() * dt_s;
+    data->orientation_quat = Eigen::Quaternionf(qcoeffs);
+    data->orientation_quat.normalize();
+}
+
 
 void Navigation::initKalmanFilter()
 {

@@ -23,7 +23,7 @@ public:
 private:
 	DataContainer* data;
 
-	UART_HandleTypeDef uart;
+	UART_HandleTypeDef* uart;
 
 };
 

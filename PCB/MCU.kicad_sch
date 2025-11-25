@@ -4371,7 +4371,7 @@
 		)
 		(uuid "1eb378e4-2400-404e-9f45-d1cfd23d8cf8")
 	)
-	(hierarchical_label "PB12"
+	(hierarchical_label "PB13"
 		(shape bidirectional)
 		(at 111.76 138.43 0)
 		(effects
@@ -4382,7 +4382,7 @@
 		)
 		(uuid "2202d4cb-a372-4137-8363-d34c62646b28")
 	)
-	(hierarchical_label "PB13"
+	(hierarchical_label "PB14"
 		(shape bidirectional)
 		(at 111.76 140.97 0)
 		(effects
@@ -4448,7 +4448,7 @@
 		)
 		(uuid "53c1a776-ed3a-4cfc-b6a1-1d7ca646fb63")
 	)
-	(hierarchical_label "PB11"
+	(hierarchical_label "PB12"
 		(shape bidirectional)
 		(at 111.76 135.89 0)
 		(effects
@@ -4472,7 +4472,7 @@
 	)
 	(hierarchical_label "SPI_MOSI"
 		(shape output)
-		(at 162.56 40.64 180)
+		(at 162.56 38.1 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4701,7 +4701,7 @@
 		)
 		(uuid "ca1f63e5-92c0-4035-a6cf-772bd45c274e")
 	)
-	(hierarchical_label "PB14"
+	(hierarchical_label "PB15"
 		(shape bidirectional)
 		(at 111.76 143.51 0)
 		(effects
@@ -4747,7 +4747,7 @@
 	)
 	(hierarchical_label "SPI_MISO"
 		(shape input)
-		(at 162.56 38.1 180)
+		(at 162.56 40.64 180)
 		(effects
 			(font
 				(size 1.27 1.27)

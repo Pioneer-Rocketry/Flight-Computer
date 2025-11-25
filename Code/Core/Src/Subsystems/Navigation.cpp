@@ -13,17 +13,17 @@ Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_Hand
 	  baro(data, spiBus, BARO_CS_GPIO_Port, BARO_CS_Pin),
 	  gps(data, uart)
 {
-	data->KalmanFilterPositionX = 0.0f;
-	data->KalmanFilterPositionY = 0.0f;
-	data->KalmanFilterPositionZ = 0.0f;
+	data->KalmanFilterPositionX_m = 0.0f;
+	data->KalmanFilterPositionY_m = 0.0f;
+	data->KalmanFilterPositionZ_m = 0.0f;
 
-	data->KalmanFilterVelocityX = 0.0f;
-	data->KalmanFilterVelocityY = 0.0f;
-	data->KalmanFilterVelocityZ = 0.0f;
+	data->KalmanFilterVelocityX_mps = 0.0f;
+	data->KalmanFilterVelocityY_mps = 0.0f;
+	data->KalmanFilterVelocityZ_mps = 0.0f;
 
-	data->KalmanFilterAccelerationX = 0.0f;
-	data->KalmanFilterAccelerationY = 0.0f;
-	data->KalmanFilterAccelerationZ = 0.0f;
+	data->KalmanFilterAccelerationX_mps2 = 0.0f;
+	data->KalmanFilterAccelerationY_mps2 = 0.0f;
+	data->KalmanFilterAccelerationZ_mps2 = 0.0f;
 
 	// orientation initial guess
 	data->orientation_quat = Eigen::Quaternionf::Identity();
@@ -78,20 +78,20 @@ int Navigation::update()
 
 	baro.updateDevice();
 
-	lowG[0] = data->LSM6DSV320LowGAccelX;
-	lowG[1] = data->LSM6DSV320LowGAccelY;
-	lowG[2] = data->LSM6DSV320LowGAccelZ;
+	lowG[0] = data->LSM6DSV320LowGAccelX_mps2;
+	lowG[1] = data->LSM6DSV320LowGAccelY_mps2;
+	lowG[2] = data->LSM6DSV320LowGAccelZ_mps2;
 
-	highG[0] = data->LSM6DSV320HighGAccelX;
-	highG[1] = data->LSM6DSV320HighGAccelY;
-	highG[2] = data->LSM6DSV320HighGAccelZ;
+	highG[0] = data->LSM6DSV320HighGAccelX_mps2;
+	highG[1] = data->LSM6DSV320HighGAccelY_mps2;
+	highG[2] = data->LSM6DSV320HighGAccelZ_mps2;
 
 	// -------------------------------------------------------------
 	// Quaterion Intergration
 	// -------------------------------------------------------------
-	rollRate_rad	= data->LSM6DSV320GyroY * DEG_TO_RAD;
-	pitchRate_rad 	= data->LSM6DSV320GyroX * DEG_TO_RAD;
-	yawRate_rad 	= data->LSM6DSV320GyroZ * DEG_TO_RAD;
+	rollRate_rad	= data->LSM6DSV320GyroY_dps * DEG_TO_RAD;
+	pitchRate_rad 	= data->LSM6DSV320GyroX_dps * DEG_TO_RAD;
+	yawRate_rad 	= data->LSM6DSV320GyroZ_dps * DEG_TO_RAD;
 
 	// integrate quaternion
 	integrateQuaternion();
@@ -116,17 +116,17 @@ int Navigation::update()
 	updateKalmanFilter();
 	runKalmanFilter();
 
-	data->KalmanFilterPositionX 	= x(0);
-	data->KalmanFilterAccelerationX = x(1);
-	data->KalmanFilterVelocityX 	= x(2);
+	data->KalmanFilterPositionX_m			= x(0);
+	data->KalmanFilterAccelerationX_mps2	= x(1);
+	data->KalmanFilterVelocityX_mps			= x(2);
 
-	data->KalmanFilterPositionY 	= x(3);
-	data->KalmanFilterAccelerationY = x(4);
-	data->KalmanFilterVelocityY 	= x(5);
+	data->KalmanFilterPositionY_m			= x(3);
+	data->KalmanFilterAccelerationY_mps2	= x(4);
+	data->KalmanFilterVelocityY_mps			= x(5);
 
-	data->KalmanFilterPositionZ 	= x(6);
-	data->KalmanFilterAccelerationZ = x(7);
-	data->KalmanFilterVelocityZ 	= x(8);
+	data->KalmanFilterPositionZ_m			= x(6);
+	data->KalmanFilterAccelerationZ_mps2	= x(7);
+	data->KalmanFilterVelocityZ_mps			= x(8);
 
 	return 0;
 }
@@ -160,7 +160,7 @@ void Navigation::initKalmanFilter()
 	x.setZero();
 	x(2) = lowG[0]; // Acc X
 	x(5) = lowG[1]; // Acc Y
-	x(6) = data->MS560702BA03Altitude; // Pos Z Set the initial Barometric Altitude to the current altitude
+	x(6) = data->MS560702BA03Altitude_m; // Pos Z Set the initial Barometric Altitude to the current altitude
 	x(8) = lowG[2]; // Acc Z
 
 	// State Transition
@@ -187,13 +187,13 @@ void Navigation::initKalmanFilter()
 
 	// Get Initial Measurements
 	Z.setZero();
-	Z(0) = data->LSM6DSV320LowGAccelX;
-	Z(1) = data->LSM6DSV320LowGAccelY;
-	Z(2) = data->LSM6DSV320LowGAccelZ;
-	Z(3) = data->LSM6DSV320HighGAccelX;
-	Z(4) = data->LSM6DSV320HighGAccelY;
-	Z(5) = data->LSM6DSV320HighGAccelZ;
-	Z(6) = data->MS560702BA03Altitude;
+	Z(0) = data->LSM6DSV320LowGAccelX_mps2;
+	Z(1) = data->LSM6DSV320LowGAccelY_mps2;
+	Z(2) = data->LSM6DSV320LowGAccelZ_mps2;
+	Z(3) = data->LSM6DSV320HighGAccelX_mps2;
+	Z(4) = data->LSM6DSV320HighGAccelY_mps2;
+	Z(5) = data->LSM6DSV320HighGAccelZ_mps2;
+	Z(6) = data->MS560702BA03Altitude_m;
 
 	// Observation
 	H.setZero();
@@ -240,7 +240,7 @@ void Navigation::updateKalmanFilter()
 	Z(3) = highG[0];
 	Z(4) = highG[1];
 	Z(5) = highG[2];
-	Z(6) = data->MS560702BA03Altitude;
+	Z(6) = data->MS560702BA03Altitude_m;
 
 	// Update State Transition Matrix
 
@@ -279,21 +279,21 @@ void Navigation::updateKalmanFilter()
 
 void Navigation::runKalmanFilter()
 {
-	// Predict State
+	// Predict State ~0.5 ms
 	x = F * x;
 
-	// Predict Error Covariance
+	// Predict Error Covariance ~3 ms
     S = H * P * H.transpose() + R;
 
-	// Compute Kalman Gain
+	// Compute Kalman Gain ~5 ms
     // Prefer an LDLT or LLT solve over explicit inverse:
     // K = (P * H.transpose()) * S.inverse(); // less stable
 	K = P * H.transpose() * S.ldlt().solve(Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, KALMAN_FILTER_NUM_OF_MEASUREMENTS>::Identity());
 
-	// Compute the Estimate
+	// Compute the Estimate ~0.5 ms
 	x = x + K * (Z - H * x);
 
-	// Computer the Error covariance
+	// Computer the Error covariance ~10 ms
 	P = (I - K * H) * P * (I - K * H).transpose() + K * R * K.transpose();
 
 	return;

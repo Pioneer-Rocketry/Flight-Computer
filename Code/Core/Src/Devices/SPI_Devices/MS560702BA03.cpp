@@ -10,9 +10,9 @@
 MS560702BA03::MS560702BA03(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin)
 	: SPIDevice(data, spi, port, pin)
 {
-	data->MS560702BA03Temperature = 0.0f;
-	data->MS560702BA03Pressure = 0.0f;
-	data->MS560702BA03Altitude = 0.0f;
+	data->MS560702BA03Temperature_C = 0.0f;
+	data->MS560702BA03Pressure_hPA = 0.0f;
+	data->MS560702BA03Altitude_m = 0.0f;
 
 }
 
@@ -67,9 +67,9 @@ int MS560702BA03::updateDevice()
 
 	P = (((D1 * SENS) >> 21) - OFF) >> 15;
 
-	this->data->MS560702BA03Temperature = TEMP / 100.0f;
-	this->data->MS560702BA03Pressure = P / 100.0f;
-	this->data->MS560702BA03Altitude = (1-powf(this->data->MS560702BA03Pressure/1013.25, 0.190284))*145366.45; // * FT_TO_M;
+	this->data->MS560702BA03Temperature_C = TEMP / 100.0f;
+	this->data->MS560702BA03Pressure_hPA = P / 100.0f;
+	this->data->MS560702BA03Altitude_m = (1-powf(this->data->MS560702BA03Pressure_hPA/1013.25, 0.190284))*145366.45 * FEET_TO_METER;
 
 	return 0;
 }

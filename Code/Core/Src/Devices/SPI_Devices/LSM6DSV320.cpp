@@ -10,17 +10,17 @@
 LSM6DSV320::LSM6DSV320(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin)
 	: SPIDevice(data, spi, port, pin)
 {
-	data->LSM6DSV320GyroX = 0.0f;
-	data->LSM6DSV320GyroY = 0.0f;
-	data->LSM6DSV320GyroZ = 0.0f;
+	data->LSM6DSV320GyroX_dps = 0.0f;
+	data->LSM6DSV320GyroY_dps = 0.0f;
+	data->LSM6DSV320GyroZ_dps = 0.0f;
 
-	data->LSM6DSV320LowGAccelX = 0.0f;
-	data->LSM6DSV320LowGAccelY = 0.0f;
-	data->LSM6DSV320LowGAccelZ = 0.0f;
+	data->LSM6DSV320LowGAccelX_mps2 = 0.0f;
+	data->LSM6DSV320LowGAccelY_mps2 = 0.0f;
+	data->LSM6DSV320LowGAccelZ_mps2 = 0.0f;
 
-	data->LSM6DSV320HighGAccelX = 0.0f;
-	data->LSM6DSV320HighGAccelY = 0.0f;
-	data->LSM6DSV320HighGAccelZ = 0.0f;
+	data->LSM6DSV320HighGAccelX_mps2 = 0.0f;
+	data->LSM6DSV320HighGAccelY_mps2 = 0.0f;
+	data->LSM6DSV320HighGAccelZ_mps2 = 0.0f;
 
 	gyroXBias = 0.0f;
 	gyroYBias = 0.0f;
@@ -235,13 +235,13 @@ int LSM6DSV320::deviceInit()
 		readSPI(LSM6DSV320_OUTZ_H_G | 0x80, &this->buffer[5]);
 
 		// Cast measurements to floats
-		this->data->LSM6DSV320GyroX = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->gyroSensitivity;
-		this->data->LSM6DSV320GyroY = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->gyroSensitivity;
-		this->data->LSM6DSV320GyroZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->gyroSensitivity;
+		this->data->LSM6DSV320GyroX_dps = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->gyroSensitivity;
+		this->data->LSM6DSV320GyroY_dps = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->gyroSensitivity;
+		this->data->LSM6DSV320GyroZ_dps = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->gyroSensitivity;
 
-		sumOfGyroX += this->data->LSM6DSV320GyroX;
-		sumOfGyroY += this->data->LSM6DSV320GyroY;
-		sumOfGyroZ += this->data->LSM6DSV320GyroZ;
+		sumOfGyroX += this->data->LSM6DSV320GyroX_dps;
+		sumOfGyroY += this->data->LSM6DSV320GyroY_dps;
+		sumOfGyroZ += this->data->LSM6DSV320GyroZ_dps;
 	}
 
 	// Set the bias
@@ -263,9 +263,9 @@ int LSM6DSV320::updateDevice()
 	readSPI(LSM6DSV320_OUTZ_H_G | 0x80, &this->buffer[5]);
 
 	// Cast measurements to floats
-	this->data->LSM6DSV320GyroX = (((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->gyroSensitivity) - gyroXBias;
-	this->data->LSM6DSV320GyroY = (((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->gyroSensitivity) - gyroYBias;
-	this->data->LSM6DSV320GyroZ = (((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->gyroSensitivity) - gyroZBias;
+	this->data->LSM6DSV320GyroX_dps = (((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->gyroSensitivity) - gyroXBias;
+	this->data->LSM6DSV320GyroY_dps = (((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->gyroSensitivity) - gyroYBias;
+	this->data->LSM6DSV320GyroZ_dps = (((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->gyroSensitivity) - gyroZBias;
 
 	// Read Low G Accelerometer Measurements
 	readSPI(LSM6DSV320_OUTX_L_A | 0x80, &this->buffer[0]);
@@ -276,9 +276,9 @@ int LSM6DSV320::updateDevice()
 	readSPI(LSM6DSV320_OUTZ_H_A | 0x80, &this->buffer[5]);
 
 	// Cast measurements to floats
-	this->data->LSM6DSV320LowGAccelX = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->lowGSensitivity;
-	this->data->LSM6DSV320LowGAccelY = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->lowGSensitivity;
-	this->data->LSM6DSV320LowGAccelZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->lowGSensitivity;
+	this->data->LSM6DSV320LowGAccelX_mps2 = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->lowGSensitivity;
+	this->data->LSM6DSV320LowGAccelY_mps2 = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->lowGSensitivity;
+	this->data->LSM6DSV320LowGAccelZ_mps2 = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->lowGSensitivity;
 
 	// Read High G Accelerometer Measurements
 	readSPI(LSM6DSV320_UI_OUTX_L_A_OIS_HG | 0x80, &this->buffer[0]);
@@ -289,9 +289,9 @@ int LSM6DSV320::updateDevice()
 	readSPI(LSM6DSV320_UI_OUTZ_H_A_OIS_HG | 0x80, &this->buffer[5]);
 
 	// Cast measurements to floats
-	this->data->LSM6DSV320HighGAccelX = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->highGSensitivity;
-	this->data->LSM6DSV320HighGAccelY = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->highGSensitivity;
-	this->data->LSM6DSV320HighGAccelZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->highGSensitivity;
+	this->data->LSM6DSV320HighGAccelX_mps2 = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->highGSensitivity;
+	this->data->LSM6DSV320HighGAccelY_mps2 = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->highGSensitivity;
+	this->data->LSM6DSV320HighGAccelZ_mps2 = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->highGSensitivity;
 
 	return 0;
 }

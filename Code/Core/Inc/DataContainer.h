@@ -41,22 +41,22 @@ public:
 	float yaw;
 
 	/* IMU Data*/
-	float LSM6DSV320GyroX;
-	float LSM6DSV320GyroY;
-	float LSM6DSV320GyroZ;
+	float LSM6DSV320GyroX_dps;
+	float LSM6DSV320GyroY_dps;
+	float LSM6DSV320GyroZ_dps;
 
-	float LSM6DSV320LowGAccelX;
-	float LSM6DSV320LowGAccelY;
-	float LSM6DSV320LowGAccelZ;
+	float LSM6DSV320LowGAccelX_mps2;
+	float LSM6DSV320LowGAccelY_mps2;
+	float LSM6DSV320LowGAccelZ_mps2;
 
-	float LSM6DSV320HighGAccelX;
-	float LSM6DSV320HighGAccelY;
-	float LSM6DSV320HighGAccelZ;
+	float LSM6DSV320HighGAccelX_mps2;
+	float LSM6DSV320HighGAccelY_mps2;
+	float LSM6DSV320HighGAccelZ_mps2;
 
 	/* Barometer Data*/
-	float MS560702BA03Temperature;
-	float MS560702BA03Pressure;
-	float MS560702BA03Altitude;
+	float MS560702BA03Temperature_C;
+	float MS560702BA03Pressure_hPA;
+	float MS560702BA03Altitude_m;
 
 	/* GPS Data */
 	// Latitude in decimal degrees (+N, -S)
@@ -64,7 +64,7 @@ public:
 	// Longitude in decimal degrees (+E, -W)
 	float GPSLongitude;
 	// Altitude in meters (from GPS)
-	float GPSAltitude;
+	float GPSAltitude_m;
 	// GPS fix status: 0 = invalid, 1 = GPS fix, 2 = DGPS
 	int GPSFix;
 	// Number of satellites used in fix
@@ -74,17 +74,17 @@ public:
 
 
 	/* Kalman Filter Data */
-	float KalmanFilterPositionX;
-	float KalmanFilterPositionY;
-	float KalmanFilterPositionZ;
+	float KalmanFilterPositionX_m;
+	float KalmanFilterPositionY_m;
+	float KalmanFilterPositionZ_m;
 
-	float KalmanFilterVelocityX;
-	float KalmanFilterVelocityY;
-	float KalmanFilterVelocityZ;
+	float KalmanFilterVelocityX_mps;
+	float KalmanFilterVelocityY_mps;
+	float KalmanFilterVelocityZ_mps;
 
-	float KalmanFilterAccelerationX;
-	float KalmanFilterAccelerationY;
-	float KalmanFilterAccelerationZ;
+	float KalmanFilterAccelerationX_mps2;
+	float KalmanFilterAccelerationY_mps2;
+	float KalmanFilterAccelerationZ_mps2;
 };
 
 

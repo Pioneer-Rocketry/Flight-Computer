@@ -81,9 +81,9 @@ private:
 	Eigen::Quaternionf q_dot;
 	Eigen::Vector4f qcoeffs;
 
-	float rollRate_rad	= data->LSM6DSV320GyroY * DEG_TO_RAD;
-	float pitchRate_rad = data->LSM6DSV320GyroX * DEG_TO_RAD;
-	float yawRate_rad 	= data->LSM6DSV320GyroZ * DEG_TO_RAD;
+	float rollRate_rad;
+	float pitchRate_rad;
+	float yawRate_rad;
 
 	void integrateQuaternion();
 

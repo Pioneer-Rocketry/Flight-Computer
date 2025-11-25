@@ -21,6 +21,10 @@ LSM6DSV320::LSM6DSV320(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef
 	data->LSM6DSV320HighGAccelX = 0.0f;
 	data->LSM6DSV320HighGAccelY = 0.0f;
 	data->LSM6DSV320HighGAccelZ = 0.0f;
+
+	gyroXBias = 0.0f;
+	gyroYBias = 0.0f;
+	gyroZBias = 0.0f;
 }
 
 int LSM6DSV320::deviceInit()
@@ -215,6 +219,36 @@ int LSM6DSV320::deviceInit()
 		default: return false;
 	}
 
+
+	/* Gyroscope Calibration */
+	float sumOfGyroX = 0;
+	float sumOfGyroY = 0;
+	float sumOfGyroZ = 0;
+	// Do a basic calibration of the gyro by reading 100 samples and averaging them
+	for (int i = 0; i < numOfSamples; i++) {
+		// Read Gyroscope Measurements
+		readSPI(LSM6DSV320_OUTX_L_G | 0x80, &this->buffer[0]);
+		readSPI(LSM6DSV320_OUTX_H_G | 0x80, &this->buffer[1]);
+		readSPI(LSM6DSV320_OUTY_L_G | 0x80, &this->buffer[2]);
+		readSPI(LSM6DSV320_OUTY_H_G | 0x80, &this->buffer[3]);
+		readSPI(LSM6DSV320_OUTZ_L_G | 0x80, &this->buffer[4]);
+		readSPI(LSM6DSV320_OUTZ_H_G | 0x80, &this->buffer[5]);
+
+		// Cast measurements to floats
+		this->data->LSM6DSV320GyroX = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->gyroSensitivity;
+		this->data->LSM6DSV320GyroY = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->gyroSensitivity;
+		this->data->LSM6DSV320GyroZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->gyroSensitivity;
+
+		sumOfGyroX += this->data->LSM6DSV320GyroX;
+		sumOfGyroY += this->data->LSM6DSV320GyroY;
+		sumOfGyroZ += this->data->LSM6DSV320GyroZ;
+	}
+
+	// Set the bias
+	this->gyroXBias = sumOfGyroX / numOfSamples;
+	this->gyroYBias = sumOfGyroY / numOfSamples;
+	this->gyroZBias = sumOfGyroZ / numOfSamples;
+
 	return 0;
 }
 
@@ -229,9 +263,9 @@ int LSM6DSV320::updateDevice()
 	readSPI(LSM6DSV320_OUTZ_H_G | 0x80, &this->buffer[5]);
 
 	// Cast measurements to floats
-	this->data->LSM6DSV320GyroX = ((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->gyroSensitivity;
-	this->data->LSM6DSV320GyroY = ((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->gyroSensitivity;
-	this->data->LSM6DSV320GyroZ = ((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->gyroSensitivity;
+	this->data->LSM6DSV320GyroX = (((float) (int16_t) (this->buffer[0] | this->buffer[1] << 8)) * this->gyroSensitivity) - gyroXBias;
+	this->data->LSM6DSV320GyroY = (((float) (int16_t) (this->buffer[2] | this->buffer[3] << 8)) * this->gyroSensitivity) - gyroYBias;
+	this->data->LSM6DSV320GyroZ = (((float) (int16_t) (this->buffer[4] | this->buffer[5] << 8)) * this->gyroSensitivity) - gyroZBias;
 
 	// Read Low G Accelerometer Measurements
 	readSPI(LSM6DSV320_OUTX_L_A | 0x80, &this->buffer[0]);

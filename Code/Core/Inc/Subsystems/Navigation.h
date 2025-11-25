@@ -76,6 +76,7 @@ private:
 	GPS gps;			// GPR for Absolute Positioning: Latitude, Longitude, Altitude
 
 	// Orientation Tracking
+
 	Eigen::Quaternionf omega_q;
 	Eigen::Quaternionf q_dot;
 	Eigen::Vector4f qcoeffs;
@@ -87,6 +88,9 @@ private:
 	void integrateQuaternion();
 
 	// Kalman Filter
+	Eigen::Vector3f lowG;
+	Eigen::Vector3f highG;
+
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		1> 									x;  // State vector
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 1> 									Z;  // Measurements
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		F;  // State transition matrix
@@ -98,7 +102,6 @@ private:
 
     Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, KALMAN_FILTER_NUM_OF_MEASUREMENTS>  S;
 	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		I;
-
 
 	float processNoise = 0.01f;
 

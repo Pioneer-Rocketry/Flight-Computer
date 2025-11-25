@@ -375,6 +375,16 @@ private:
 	float highGSensitivity;
 	float gyroSensitivity;
 
+
+	// -------------------------------------------------------------
+	// Bias Constants
+	// -------------------------------------------------------------
+	int numOfSamples = 1000;
+
+	float gyroXBias;
+	float gyroYBias;
+	float gyroZBias;
+
 	uint8_t buffer[6];
 };
 

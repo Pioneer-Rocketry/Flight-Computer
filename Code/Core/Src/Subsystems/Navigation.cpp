@@ -78,6 +78,14 @@ int Navigation::update()
 
 	baro.updateDevice();
 
+	lowG[0] = data->LSM6DSV320LowGAccelX;
+	lowG[1] = data->LSM6DSV320LowGAccelY;
+	lowG[2] = data->LSM6DSV320LowGAccelZ;
+
+	highG[0] = data->LSM6DSV320HighGAccelX;
+	highG[1] = data->LSM6DSV320HighGAccelY;
+	highG[2] = data->LSM6DSV320HighGAccelZ;
+
 	// -------------------------------------------------------------
 	// Quaterion Intergration
 	// -------------------------------------------------------------
@@ -90,9 +98,13 @@ int Navigation::update()
 
 	data->orientation_eular = data->orientation_quat.toRotationMatrix().eulerAngles(2, 1, 0) * RAD_TO_DEG;
 
-	data->yaw   = data->orientation_eular[0];   // yaw (Z) in degrees
-	data->pitch = data->orientation_eular[1];   // pitch (Y) in degrees
-	data->roll  = data->orientation_eular[2];   // roll (X) in degrees
+	data->yaw   = data->orientation_eular[0]; // yaw (Z) in degrees
+	data->pitch = data->orientation_eular[1]; // pitch (Y) in degrees
+	data->roll  = data->orientation_eular[2]; // roll (X) in degrees
+
+	// Rotate Accelerometer data by quaterion to get it to earth reference frame
+	lowG  = data->orientation_quat * lowG;
+	highG = data->orientation_quat * highG;
 
 	// -------------------------------------------------------------
 	// Kalman Filter
@@ -146,10 +158,10 @@ void Navigation::initKalmanFilter()
 
 	// Initial State
 	x.setZero();
-	x(2) = data->LSM6DSV320LowGAccelX; // Acc X
-	x(5) = data->LSM6DSV320LowGAccelY; // Acc Y
+	x(2) = lowG[0]; // Acc X
+	x(5) = lowG[1]; // Acc Y
 	x(6) = data->MS560702BA03Altitude; // Pos Z Set the initial Barometric Altitude to the current altitude
-	x(8) = data->LSM6DSV320LowGAccelZ; // Acc Z
+	x(8) = lowG[2]; // Acc Z
 
 	// State Transition
 	F.setIdentity();
@@ -222,12 +234,12 @@ void Navigation::initKalmanFilter()
 void Navigation::updateKalmanFilter()
 {
 	// Update Measurements
-	Z(0) = data->LSM6DSV320LowGAccelX;
-	Z(1) = data->LSM6DSV320LowGAccelY;
-	Z(2) = data->LSM6DSV320LowGAccelZ;
-	Z(3) = data->LSM6DSV320HighGAccelX;
-	Z(4) = data->LSM6DSV320HighGAccelY;
-	Z(5) = data->LSM6DSV320HighGAccelZ;
+	Z(0) = lowG[0];
+	Z(1) = lowG[1];
+	Z(2) = lowG[2];
+	Z(3) = highG[0];
+	Z(4) = highG[1];
+	Z(5) = highG[2];
 	Z(6) = data->MS560702BA03Altitude;
 
 	// Update State Transition Matrix

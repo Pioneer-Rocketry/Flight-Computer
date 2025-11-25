@@ -38,7 +38,10 @@ CPP_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Core/Src/Devices \
+Core/Src/Devices/SPI_Devices \
 Core/Src \
+Core/Src/Subsystems \
 Core/Startup \
 Drivers/STM32F4xx_HAL_Driver/Src \
 Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Src \

@@ -1,0 +1,31 @@
+name: Build
+
+on:
+    push:
+        paths:
+            - "Code/**"
+        paths-ignore::
+            - "**.md"
+            - "PCB/**"
+            - "Datasheets/**"
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+    workflow_dispatch:
+
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        container:
+            image: ghcr.io/pioneer-rocketry/flight-computer:main
+            # credentials:
+            #     username: ${{ github.actor }}
+            #     password: ${{ secrets.GITHUB_TOKEN }}
+
+        steps:
+            - name: Check out code
+              uses: actions/checkout@v4
+
+            - name: Build
+              run: make -C ./Code/Debug/ all

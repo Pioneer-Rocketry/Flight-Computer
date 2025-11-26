@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "group": "build",
+            "type": "shell",
+            "command": [ "make", "-C", "./Code/Debug/", "all" ],
+            "detail": "Build"
+        },
+        {
+            "label": "Clean Build",
+            "group": "build",
+            "type": "shell",
+            "command": [ "make", "-C", "./Code/Debug/", "all", "clean", "&&", "make", "-C", "./Code/Debug/", "all" ],
+            "detail": "Do a clean build"
+        },
+        {
+            "label": "Upload",
+            "group": "build",
+            "type": "shell",
+            "command": [ "arm-none-eabi-objcopy", "-O", "binary", "./Code/Debug/Code.elf", "./Code/Debug/Code.bin", "&&", "st-flash", "write", "./Code/Debug/Code.bin", "0x08000000" ],
+            "detail": "Upload"
+        },
+        {
+            "label": "Build and Upload",
+            "group": "build",
+            "type": "shell",
+            "command": [ "make", "-C", "./Code/Debug/", "all" , "&&", "arm-none-eabi-objcopy", "-O", "binary", "./Code/Debug/Code.elf", "./Code/Debug/Code.bin", "&&",  "st-flash", "write", "./Code/Debug/Code.bin", "0x08000000" ],
+            "detail": "Upload"
+        }
+    ]
+}

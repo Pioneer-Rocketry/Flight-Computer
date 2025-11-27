@@ -27,5 +27,8 @@ jobs:
             - name: Check out code
               uses: actions/checkout@v4
 
+            - name: Version Info
+              run: arm-none-eabi-gcc --version
+
             - name: Build
               run: make -C ./Code/Debug/ all

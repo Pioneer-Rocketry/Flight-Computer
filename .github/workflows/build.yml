@@ -19,9 +19,9 @@ jobs:
         runs-on: ubuntu-latest
         container:
             image: ghcr.io/pioneer-rocketry/flight-computer:main
-            # credentials:
-            #     username: ${{ github.actor }}
-            #     password: ${{ secrets.GITHUB_TOKEN }}
+            credentials:
+                username: ${{ github.actor }}
+                password: ${{ secrets.GITHUB_TOKEN }}
 
         steps:
             - name: Check out code

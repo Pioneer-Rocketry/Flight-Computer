@@ -1,16 +1,16 @@
 name: Build
 
 on:
-    # push:
-    #     paths:
-    #         - "Code/**"
-    #     paths-ignore::
-    #         - "**.md"
-    #         - "PCB/**"
-    #         - "Datasheets/**"
-    #     branches: [ main ]
-    # pull_request:
-    #     branches: [ main ]
+    push:
+        paths:
+            - "Code/**"
+        paths-ignore::
+            - "**.md"
+            - "PCB/**"
+            - "Datasheets/**"
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
     workflow_dispatch:
 
 

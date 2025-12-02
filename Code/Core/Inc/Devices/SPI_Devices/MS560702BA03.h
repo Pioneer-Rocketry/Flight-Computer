@@ -13,6 +13,8 @@
 #include "Devices/SPIDevice.h"
 
 #include "defines.h"
+#include "utils.h"
+
 // Address
 #define MS5607_ADDRESS 0b1110111 << 1 // or 0b1110110 if CSB is low
 
@@ -87,6 +89,15 @@ public:
 	 */
 	int updateDevice() override;
 
+	/**
+	 * @brief Start the pressure measurement conversion.
+	 *
+	 * This method should be called before `updateDevice()` to start the pressure measurement.
+	 *
+	 * @note This function must be called prior to `updateDevice()` to ensure valid data is read.
+	 */
+	void startConversion();
+
 private:
 
 	uint16_t C[7]; // Calibration coefficients
@@ -129,7 +140,10 @@ private:
 		OSR_4096 = 0b100
 	} osr = OSR_256;
 
-	int conversion_time;
+	uint32_t conversionTime_us;
+	uint32_t conversionStart_us;
+	uint32_t delay;
+	uint32_t now_us;
 
 	uint8_t buffer[3];
 };

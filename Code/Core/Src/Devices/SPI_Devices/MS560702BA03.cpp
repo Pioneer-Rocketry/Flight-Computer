@@ -25,11 +25,11 @@ int MS560702BA03::deviceInit()
 	HAL_Delay(3); // Max reset time
 
 	switch (osr) {
-		case OSR_256:   conversion_time = 1; break;
-		case OSR_512:   conversion_time = 1; break;
-		case OSR_1024:  conversion_time = 2; break;
-		case OSR_2048:  conversion_time = 5; break;
-		case OSR_4096:  conversion_time = 9; break;
+		case OSR_256:   conversionTime_us = 700; break;
+		case OSR_512:   conversionTime_us = 1000; break;
+		case OSR_1024:  conversionTime_us = 2000; break;
+		case OSR_2048:  conversionTime_us = 5000; break;
+		case OSR_4096:  conversionTime_us = 9000; break;
 		default: return false;
 	}
 
@@ -47,7 +47,7 @@ int MS560702BA03::readProm() {
 
 uint32_t MS560702BA03::readADC(uint8_t cmd) {
     writeSPI(cmd, nullptr, 0);
-    HAL_Delay(conversion_time);
+    delay_us(conversionTime_us);
 
     readSPI(MS5607_ADC_READ, buffer, 3);
 
@@ -56,7 +56,15 @@ uint32_t MS560702BA03::readADC(uint8_t cmd) {
 
 int MS560702BA03::updateDevice()
 {
-	D1 = readADC(MS5607_CONVERT_D1 | (osr << 1));
+	now_us = micros();
+	delay = now_us - conversionStart_us;
+	if (delay < conversionTime_us)
+		delay_us(conversionTime_us - delay);
+
+	readSPI(MS5607_ADC_READ, buffer, 3);
+    D1 = (buffer[0] << 16) | (buffer[1] << 8) | buffer[2];
+
+	// D1 = readADC(MS5607_CONVERT_D1 | (osr << 1));
 	D2 = readADC(MS5607_CONVERT_D2 | (osr << 1));
 
 	dT = D2 - ((uint32_t)C[5] << 8);
@@ -72,4 +80,11 @@ int MS560702BA03::updateDevice()
 	this->data->MS560702BA03Altitude_m = (1-powf(this->data->MS560702BA03Pressure_hPA/1013.25, 0.190284))*145366.45 * FEET_TO_METER;
 
 	return 0;
+}
+
+void MS560702BA03::startConversion()
+{
+	writeSPI(MS5607_CONVERT_D1 | (osr << 1), nullptr, 0);
+
+	conversionStart_us = micros();
 }

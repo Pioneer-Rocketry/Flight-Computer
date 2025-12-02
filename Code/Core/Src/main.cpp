@@ -27,6 +27,8 @@
 
 #include "Subsystems/Navigation.h"
 
+#include "utils.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -111,6 +113,8 @@ int main(void)
   MX_UART4_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
+
+  DWT_Init();
 
   if (nav.init() < 0)
   {

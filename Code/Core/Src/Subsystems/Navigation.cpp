@@ -39,10 +39,10 @@ Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_Hand
 int Navigation::init()
 {
 
-	if (imu.deviceInit() < 0)
-	{
-		return -1;
-	}
+	// if (imu.deviceInit() < 0)
+	// {
+	// 	return -1;
+	// }
 
 	if (baro.deviceInit() < 0)
 	{
@@ -74,9 +74,9 @@ int Navigation::update()
 	// Read Sensor Data
 	// -------------------------------------------------------------
 
-	imu.updateDevice();
+	baro.startConversion();
 
-	baro.updateDevice();
+	imu.updateDevice();
 
 	lowG[0] = data->LSM6DSV320LowGAccelX_mps2;
 	lowG[1] = data->LSM6DSV320LowGAccelY_mps2;
@@ -105,6 +105,8 @@ int Navigation::update()
 	// Rotate Accelerometer data by quaterion to get it to earth reference frame
 	lowG  = data->orientation_quat * lowG;
 	highG = data->orientation_quat * highG;
+
+	baro.updateDevice();
 
 	// -------------------------------------------------------------
 	// Kalman Filter

@@ -1,0 +1,3 @@
+[submodule "Code/Drivers/rfm95"]
+	path = Code/Drivers/rfm95
+	url = https://github.com/henriheimann/stm32-hal-rfm95.git

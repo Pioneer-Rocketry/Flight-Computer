@@ -26,6 +26,7 @@
 #include "DataContainer.h"
 
 #include "Subsystems/Navigation.h"
+#include "Subsystems/Logging.h"
 
 #include "utils.h"
 
@@ -60,6 +61,7 @@ UART_HandleTypeDef huart4;
 DataContainer data;
 
 Navigation nav(&data, &hspi1, &huart4);
+Logging logging(&data, &hspi1);
 
 /* USER CODE END PV */
 

@@ -24,4 +24,7 @@
 #define KALMAN_FILTER_NUM_OF_STATES 9		// Position (X, Y, Z), Velocity (X, Y, Z), Acceleration (X, Y, Z)
 #define KALMAN_FILTER_NUM_OF_MEASUREMENTS 7	// Low G Acceleration (X, Y, Z), High G Acceleration (X, Y, Z), Barometric Altitude
 
+#define NUM_PAGES 2
+#define PAGE_SIZE 256
+
 #endif /* INC_DEFINES_H_ */

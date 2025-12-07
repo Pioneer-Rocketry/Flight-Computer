@@ -12,7 +12,7 @@ RM := rm -rf
 -include USB_DEVICE/Target/subdir.mk
 -include USB_DEVICE/App/subdir.mk
 -include Middlewares/ST/STM32_USB_Device_Library/Core/Src/subdir.mk
--include Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Src/subdir.mk
+-include Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
@@ -88,8 +88,8 @@ all: main-build
 main-build: Code.elf secondary-outputs
 
 # Tool invocations
-Code.elf Code.map: $(OBJS) $(USER_OBJS) /home/colin/Downloads/Flight-Computer/Code/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "Code.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/colin/Downloads/Flight-Computer/Code/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Code.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Code.elf Code.map: $(OBJS) $(USER_OBJS) /home/colin/rocketry/Flight-Computer/Code/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "Code.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/colin/rocketry/Flight-Computer/Code/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Code.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

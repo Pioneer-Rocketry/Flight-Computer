@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "usbd_cdc_if.h"
+
 #include "DataContainer.h"
 
 /* USER CODE END Includes */
@@ -52,6 +54,14 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart4;
 
 /* USER CODE BEGIN PV */
+
+#define USB_BUF_LEN 128
+
+uint8_t usbTxBuffer[USB_BUF_LEN];
+uint8_t usbRxBuffer[USB_BUF_LEN];
+
+uint16_t usbTxBufferLen;
+uint16_t usbRxBufferLen;
 
 /* USER CODE END PV */
 
@@ -107,6 +117,8 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
+  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Hello from STM32!\r\n");
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -116,6 +128,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "%lu\r\n", HAL_GetTick());
+    CDC_Transmit_FS(usbTxBuffer, usbTxBufferLen);
+    HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }

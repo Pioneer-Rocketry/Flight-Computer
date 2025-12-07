@@ -124,11 +124,20 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
+  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Welcome to the Pioneer Rocketry Flight Computer!\r\n");
+  CDC_Transmit_FS(usbTxBuffer, usbTxBufferLen);
+
   DWT_Init();
 
   if (nav.init() < 0)
   {
-	  while (1);
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Navigation!\r\n");
+	  while (1)
+    {
+      // Send Error Message over USB CDC
+      CDC_Transmit_FS(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
   }
 
   /* USER CODE END 2 */

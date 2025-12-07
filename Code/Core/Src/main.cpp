@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "usbd_cdc_if.h"
+
 #include "DataContainer.h"
 
 #include "Subsystems/Navigation.h"
@@ -56,6 +58,14 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart4;
 
 /* USER CODE BEGIN PV */
+
+#define USB_BUF_LEN 128
+
+uint8_t usbTxBuffer[USB_BUF_LEN];
+uint8_t usbRxBuffer[USB_BUF_LEN];
+
+uint16_t usbTxBufferLen;
+uint16_t usbRxBufferLen;
 
 DataContainer data;
 

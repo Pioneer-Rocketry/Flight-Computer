@@ -44,7 +44,7 @@ Core/Src \
 Core/Src/Subsystems \
 Core/Startup \
 Drivers/STM32F4xx_HAL_Driver/Src \
-Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Src \
+Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src \
 USB_DEVICE/App \
 USB_DEVICE/Target \

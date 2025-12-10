@@ -9,7 +9,7 @@
 #include "main.h"
 #include "Subsystems/Telemetry/Radio.h"
 
-Radio::Radio(DataContainer* data, SPI_HandleTypeDef _spi) : Subsystem(data)
+Radio::Radio(DataContainer* data, SPI_HandleTypeDef* _spi) : Subsystem(data)
 {
 	spi = _spi;
 }
@@ -29,7 +29,7 @@ int Radio::init()
 {
 	// Create the handle for the RFM95 module.
 	rfm95_handle_t _rfm95_handle = {
-		.spi_handle = &spi,
+		.spi_handle = spi,
 		.nss_port = LORA_CS_GPIO_Port,
 		.nss_pin = LORA_CS_Pin,
 		.nrst_port = LORA_RESET_GPIO_Port,
@@ -53,6 +53,10 @@ int Radio::init()
 		printf("RFM95 init failed\n\r");
 		return -1;
 	};
+
+	config_set_channel(&rfm95_handle, 1, 915000000);
+
+	configure_channel(&rfm95_handle, 1);
 
 	uint8_t data_packet[] = {
 		0x01, 0x02, 0x03, 0x4

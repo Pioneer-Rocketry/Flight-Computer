@@ -23,6 +23,9 @@
 /* USER CODE BEGIN Includes */
 
 #include "DataContainer.h"
+#include "Subsystems/Telemetry/Radio.h"
+#include "Subsystems/Telemetry/Telemetry.h"
+
 
 /* USER CODE END Includes */
 
@@ -108,13 +111,27 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
+  uint32_t testVar1;
+  float testVar2;
+
+  Radio radio(&data, &hspi1);
+
+  radio.init();
+
+  Telemetry telemetry(&data, radio);
+
+  TelemetryPacketType* newPacketType = telemetry.createPacketType(500);
+  newPacketType->addPacketElement((uint8_t*)&testVar1, 4);
+  newPacketType->addPacketElement((uint8_t*)&testVar2, 4);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-
+	telemetry.update();
+	testVar1 += 1;
+	testVar2 += 0.12345;
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

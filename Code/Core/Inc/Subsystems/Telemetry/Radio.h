@@ -11,7 +11,9 @@
 #include <cstdint>
 #include "stm32f4xx_hal.h"
 #include "Subsystem.h"
-#include "../../Drivers/rfm95/rfm95.h"
+extern "C"{
+#include "rfm95.h"
+}
 
 
 /**
@@ -33,7 +35,7 @@ public:
 	 *
 	 * @param data Reference to the main DataContainer for shared data access.
 	 */
-	Radio(DataContainer* data, SPI_HandleTypeDef _spi);
+	Radio(DataContainer* data, SPI_HandleTypeDef* _spi);
 
 
 	/**
@@ -63,7 +65,7 @@ public:
 	 */
 	int send(uint8_t* data, int length);
 private:
-	SPI_HandleTypeDef spi;
+	SPI_HandleTypeDef* spi;
 	rfm95_handle_t rfm95_handle;
 };
 

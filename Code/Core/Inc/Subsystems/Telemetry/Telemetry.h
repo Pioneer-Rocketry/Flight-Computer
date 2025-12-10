@@ -56,7 +56,7 @@ public:
 	/* Creates a new type of packet
 	 * Transmitted every time interval
 	 */
-	TelemetryPacketType* CreatePacketType(uint32_t interval_ms);
+	TelemetryPacketType* createPacketType(uint32_t interval_ms);
 
 	/**
 	 * @brief Updates Radio data.
@@ -68,6 +68,8 @@ public:
 	 * @return 0 on success, or a negative error code if the update fails.
 	 */
 	int update() override;
+
+	int createBuffers();
 
 private:
 	Radio radio;

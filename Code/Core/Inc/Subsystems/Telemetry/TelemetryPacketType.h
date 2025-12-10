@@ -7,6 +7,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <vector>
+#include "stm32f4xx_hal.h"
+
 
 #ifndef INC_SUBSYSTEMS_TELEMETRY_PACKETTYPE_H_
 #define INC_SUBSYSTEMS_TELEMETRY_PACKETTYPE_H_
@@ -31,22 +33,28 @@ public:
 		return currentSize;
 	}
 
-	void collectData(uint8_t *buffer, size_t bufferSize){
+	uint8_t* collectData(){
 		//Structure is [ID][Total Size][Data byte 1][Data byte 2][...]
 
-		if (bufferSize < currentSize){
-			return;
-		}
+		uint32_t millisTimeInt = HAL_GetTick();
+		uint32_t* millisTimePtr = &millisTimeInt;
 
-		buffer[0] = packetID;
-		buffer[1] = currentSize;
+		permanentBuffer[0] = packetID;
+		permanentBuffer[1] = currentSize;
+		permanentBuffer[2] = index++;
+		permanentBuffer[3] = ((uint8_t*)millisTimePtr)[0];
+		permanentBuffer[4] = ((uint8_t*)millisTimePtr)[1];
+		permanentBuffer[5] = ((uint8_t*)millisTimePtr)[2];
+		permanentBuffer[6] = ((uint8_t*)millisTimePtr)[3];
 
-		uint32_t address = 2;
+		uint32_t address = 7;
 		for (uint32_t i = 0; i < packetDataSources.size(); i++){
-			buffer[address] = *(packetDataSources[i]);
+			permanentBuffer[address] = *(packetDataSources[i]);
 
 			address += packetDataElementSizes[i];
 		}
+
+		return permanentBuffer;
 	}
 
 	void addPacketElement(uint8_t *pointerToDataSource, size_t size){
@@ -57,13 +65,29 @@ public:
 		}
 		packetDataSources.push_back(pointerToDataSource);
 		packetDataElementSizes.push_back(size);
-		currentSize = newSize + 2; // +1 for packet ID and +1 for size
+		currentSize = newSize + 7; // +1 for packet ID and +1 for size
+	}
+
+	int setBuffer(uint8_t* buffer, size_t size){
+		if (locked) return -1;
+
+		if (size >= currentSize){
+			permanentBuffer = buffer;
+			bufferSize = size;
+			return 1;
+		} else {
+			return -1;
+		}
 	}
 
 private:
 	std::vector<uint8_t*> packetDataSources;
 	std::vector<size_t> packetDataElementSizes;
 	size_t currentSize;
+	uint8_t* permanentBuffer;
+	size_t bufferSize;
+	uint32_t index;
+	bool locked; //Lock when create buffers is called to stop from adding more elements
 };
 
 

@@ -6,6 +6,8 @@
  */
 
 #include "Subsystems/Telemetry/Telemetry.h"
+#include <stdio.h>
+
 
 /*	Implements something like:
  * 	Packet type list
@@ -22,7 +24,7 @@ Telemetry::Telemetry(DataContainer* data, Radio _radio) : Subsystem(data), radio
 
 //Create a new type of packet
 //Returns the new packet type object to allow for its initialization of adding data sources
-TelemetryPacketType* Telemetry::CreatePacketType(uint32_t interval_ms){
+TelemetryPacketType* Telemetry::createPacketType(uint32_t interval_ms){
 	TelemetryPacketType* newPacketType = new TelemetryPacketType(interval_ms);
 	newPacketType->packetID = packetTypes.size();
 	packetTypes.push_back(newPacketType);
@@ -34,21 +36,25 @@ int Telemetry::init()
 	return 0;
 }
 
+int Telemetry::createBuffers(){
+	for (TelemetryPacketType* packetType: packetTypes){
+		uint8_t* newBuffer = (uint8_t*)malloc(packetType->getPacketSize());
+		if (newBuffer == nullptr){
+			printf("Buffer allocation error in telemetry create buffers");
+			return -1;
+		}
+		packetType->setBuffer(newBuffer, packetType->getPacketSize());
+	}
+	return 1;
+}
+
 int Telemetry::update()
 {
 	for (TelemetryPacketType* packetType: packetTypes){
 		if (HAL_GetTick() >= packetType->globalTimeToSendNext_ms){
 
-			uint8_t * packetBuffer;
-			size_t size = packetType->getPacketSize();
 
-			if ((packetBuffer = (uint8_t*)malloc(size)) != nullptr){
-				packetType->collectData(packetBuffer, size);
-			}
-
-			radio.send(packetBuffer, size);
-
-			free(packetBuffer);
+			radio.send(packetType->collectData(), packetType->getPacketSize());
 
 			packetType->globalTimeToSendNext_ms = HAL_GetTick() + packetType->sendInterval_ms;
 		}

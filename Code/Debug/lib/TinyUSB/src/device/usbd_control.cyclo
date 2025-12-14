@@ -1,0 +1,9 @@
+../lib/TinyUSB/src/device/usbd_control.c:38:19:dcd_edpt0_status_complete	1
+../lib/TinyUSB/src/device/usbd_control.c:71:20:status_stage_xact	2
+../lib/TinyUSB/src/device/usbd_control.c:78:6:tud_control_status	1
+../lib/TinyUSB/src/device/usbd_control.c:90:13:data_stage_xact	9
+../lib/TinyUSB/src/device/usbd_control.c:106:6:tud_control_xfer	9
+../lib/TinyUSB/src/device/usbd_control.c:132:6:usbd_control_reset	1
+../lib/TinyUSB/src/device/usbd_control.c:137:6:usbd_control_set_complete_callback	1
+../lib/TinyUSB/src/device/usbd_control.c:142:6:usbd_control_set_request	1
+../lib/TinyUSB/src/device/usbd_control.c:152:6:usbd_control_xfer_cb	15

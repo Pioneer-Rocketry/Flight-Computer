@@ -18,12 +18,13 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include "usbd_cdc_if.h"
+#include <stdio.h>
+#include <ctype.h>
+#include "tusb.h"
 
 #include "DataContainer.h"
 
@@ -53,15 +54,9 @@ SPI_HandleTypeDef hspi1;
 
 UART_HandleTypeDef huart4;
 
+PCD_HandleTypeDef hpcd_USB_OTG_FS;
+
 /* USER CODE BEGIN PV */
-
-#define USB_BUF_LEN 128
-
-uint8_t usbTxBuffer[USB_BUF_LEN];
-uint8_t usbRxBuffer[USB_BUF_LEN];
-
-uint16_t usbTxBufferLen;
-uint16_t usbRxBufferLen;
 
 /* USER CODE END PV */
 
@@ -72,12 +67,18 @@ static void MX_ADC1_Init(void);
 static void MX_I2C2_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_UART4_Init(void);
+static void MX_USB_OTG_FS_PCD_Init(void);
 /* USER CODE BEGIN PFP */
+
+size_t cdc_send_string(const char* str, size_t len);
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+#define MAX_TICK_MSG_LEN 40
+static char usb_tx_buffer[MAX_TICK_MSG_LEN];
 
 /* USER CODE END 0 */
 
@@ -114,10 +115,14 @@ int main(void)
   MX_I2C2_Init();
   MX_SPI1_Init();
   MX_UART4_Init();
-  MX_USB_DEVICE_Init();
+  MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
 
-  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Hello from STM32!\r\n");
+  tud_init(BOARD_TUD_RHPORT);
+
+  uint32_t current_tick;
+  uint32_t last_send_tick = 0;
+  const uint32_t send_interval_ms = 100; // Send every 100ms
 
   /* USER CODE END 2 */
 
@@ -128,9 +133,22 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "%lu\r\n", HAL_GetTick());
-    CDC_Transmit_FS(usbTxBuffer, usbTxBufferLen);
-    HAL_Delay(1000);
+
+    tud_task();
+
+    current_tick = HAL_GetTick(); // Get the current system tick (ms)
+
+    // Check if it's time to send data
+    if (current_tick - last_send_tick >= send_interval_ms)
+    {
+      last_send_tick = current_tick;
+
+      // 1. Format the tick count into a string with a newline
+      int len = snprintf(usb_tx_buffer, MAX_TICK_MSG_LEN, "Tick: %lu ms\r\n", current_tick);
+
+      // 2. Use the new helper function to send the data
+      cdc_send_string(usb_tx_buffer, len);
+    }
   }
   /* USER CODE END 3 */
 }
@@ -346,6 +364,41 @@ static void MX_UART4_Init(void)
 }
 
 /**
+  * @brief USB_OTG_FS Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USB_OTG_FS_PCD_Init(void)
+{
+
+  /* USER CODE BEGIN USB_OTG_FS_Init 0 */
+
+  /* USER CODE END USB_OTG_FS_Init 0 */
+
+  /* USER CODE BEGIN USB_OTG_FS_Init 1 */
+
+  /* USER CODE END USB_OTG_FS_Init 1 */
+  hpcd_USB_OTG_FS.Instance = USB_OTG_FS;
+  hpcd_USB_OTG_FS.Init.dev_endpoints = 6;
+  hpcd_USB_OTG_FS.Init.speed = PCD_SPEED_FULL;
+  hpcd_USB_OTG_FS.Init.dma_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.phy_itface = PCD_PHY_EMBEDDED;
+  hpcd_USB_OTG_FS.Init.Sof_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.low_power_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.lpm_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.vbus_sensing_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.use_dedicated_ep1 = DISABLE;
+  if (HAL_PCD_Init(&hpcd_USB_OTG_FS) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USB_OTG_FS_Init 2 */
+
+  /* USER CODE END USB_OTG_FS_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -428,6 +481,40 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+/**
+ * @brief Sends a string over the TinyUSB CDC interface.
+ * * @param str Pointer to the character array (string) to send.
+ * @param len Length of the string (in bytes).
+ * @retval The number of bytes successfully written to the USB buffer.
+ */
+size_t cdc_send_string(const char* str, size_t len)
+{
+    // 1. Check if the USB CDC interface is connected to the host
+    if (!tud_cdc_connected())
+    {
+        return 0; // Not connected, nothing sent
+    }
+
+    // 2. Check if the USB transmit buffer has enough space for the whole string
+    if (tud_cdc_write_available() < len)
+    {
+        // Not enough space, we can either:
+        // a) Return 0 (what we do here, for simplicity)
+        // b) Write only what fits (more complex, but better for high throughput)
+        return 0; 
+    }
+
+    // 3. Write the string to the USB buffer
+    size_t written_len = tud_cdc_write(str, len);
+
+    // 4. Flush the buffer to ensure the data is sent immediately
+    // NOTE: For better performance, you might only flush periodically, 
+    // but for simple messages, flushing immediately is often best.
+    tud_cdc_write_flush();
+
+    return written_len;
+}
 
 /* USER CODE END 4 */
 

@@ -1,8 +1,10 @@
-../Core/Src/main.cpp:88:5:int main()	1
-../Core/Src/main.cpp:142:6:void SystemClock_Config()	4
-../Core/Src/main.cpp:196:13:void MX_ADC1_Init()	3
-../Core/Src/main.cpp:248:13:void MX_I2C2_Init()	2
-../Core/Src/main.cpp:282:13:void MX_SPI1_Init()	2
-../Core/Src/main.cpp:320:13:void MX_UART4_Init()	2
-../Core/Src/main.cpp:353:13:void MX_GPIO_Init()	1
-../Core/Src/main.cpp:438:6:void Error_Handler()	1
+../Core/Src/main.cpp:89:5:int main()	2
+../Core/Src/main.cpp:160:6:void SystemClock_Config()	4
+../Core/Src/main.cpp:214:13:void MX_ADC1_Init()	3
+../Core/Src/main.cpp:266:13:void MX_I2C2_Init()	2
+../Core/Src/main.cpp:300:13:void MX_SPI1_Init()	2
+../Core/Src/main.cpp:338:13:void MX_UART4_Init()	2
+../Core/Src/main.cpp:371:13:void MX_USB_OTG_FS_PCD_Init()	2
+../Core/Src/main.cpp:406:13:void MX_GPIO_Init()	1
+../Core/Src/main.cpp:491:8:size_t cdc_send_string(const char*, size_t)	3
+../Core/Src/main.cpp:525:6:void Error_Handler()	1

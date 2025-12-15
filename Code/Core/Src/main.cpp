@@ -18,12 +18,14 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include "usbd_cdc_if.h"
+#include <ctype.h>
+#include "tusb.h"
+#include "dfuBootloader.h"
+#include "usbHelper.h"
 
 #include "DataContainer.h"
 
@@ -40,7 +42,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -56,6 +57,8 @@ I2C_HandleTypeDef hi2c2;
 SPI_HandleTypeDef hspi1;
 
 UART_HandleTypeDef huart4;
+
+PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
 
@@ -80,6 +83,7 @@ static void MX_ADC1_Init(void);
 static void MX_I2C2_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_UART4_Init(void);
+static void MX_USB_OTG_FS_PCD_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -96,6 +100,8 @@ static void MX_UART4_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+
+  dfuCheckAndJumpBootloader();
 
   /* USER CODE END 1 */
 
@@ -121,10 +127,19 @@ int main(void)
   MX_I2C2_Init();
   MX_SPI1_Init();
   MX_UART4_Init();
-  MX_USB_DEVICE_Init();
+  MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
 
+  tud_init(BOARD_TUD_RHPORT);
+
+  uint32_t currentTick;
+  uint32_t lastSendTick = 0;
+  const uint32_t sendIntervalMs = 5000;
+
   usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Welcome to the Pioneer Rocketry Flight Computer!\r\n");
+  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+
+  
   CDC_Transmit_FS(usbTxBuffer, usbTxBufferLen);
 
   DWT_Init();
@@ -132,10 +147,11 @@ int main(void)
   if (nav.init() < 0)
   {
     usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Navigation!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
 	  while (1)
     {
       // Send Error Message over USB CDC
-      CDC_Transmit_FS(usbTxBuffer, usbTxBufferLen);
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
       HAL_Delay(1000);
     }
   }
@@ -151,8 +167,20 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 	  nav.update();
+    //	  HAL_Delay(1);
 
-//	  HAL_Delay(1);
+    tud_task();
+
+    currentTick = HAL_GetTick(); // Get the current system tick (ms)
+
+    // Check if it's time to send data
+    if (currentTick - lastSendTick >= sendIntervalMs)
+    {
+      lastSendTick = currentTick;
+
+      int len = snprintf(usb_tx_buffer, MAX_TICK_MSG_LEN, "Tick: %lu ms\r\n", currentTick);
+      cdcSendMessage(usb_tx_buffer, len);
+    }
   }
   /* USER CODE END 3 */
 }
@@ -368,6 +396,41 @@ static void MX_UART4_Init(void)
 }
 
 /**
+  * @brief USB_OTG_FS Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USB_OTG_FS_PCD_Init(void)
+{
+
+  /* USER CODE BEGIN USB_OTG_FS_Init 0 */
+
+  /* USER CODE END USB_OTG_FS_Init 0 */
+
+  /* USER CODE BEGIN USB_OTG_FS_Init 1 */
+
+  /* USER CODE END USB_OTG_FS_Init 1 */
+  hpcd_USB_OTG_FS.Instance = USB_OTG_FS;
+  hpcd_USB_OTG_FS.Init.dev_endpoints = 6;
+  hpcd_USB_OTG_FS.Init.speed = PCD_SPEED_FULL;
+  hpcd_USB_OTG_FS.Init.dma_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.phy_itface = PCD_PHY_EMBEDDED;
+  hpcd_USB_OTG_FS.Init.Sof_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.low_power_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.lpm_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.vbus_sensing_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.use_dedicated_ep1 = DISABLE;
+  if (HAL_PCD_Init(&hpcd_USB_OTG_FS) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USB_OTG_FS_Init 2 */
+
+  /* USER CODE END USB_OTG_FS_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -450,6 +513,47 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+
+void tud_dfu_runtime_reboot_to_dfu_cb(void)
+{
+  const char* reboot_msg = "Rebooting into DFU mode...\r\n";
+  cdcSendMessage(reboot_msg, strlen(reboot_msg));
+
+  // Ensure message is sent
+  for (int i = 0; i < 10; i++) {
+    tud_task();
+    HAL_Delay(5);
+  }
+
+  // Request bootloader entry (never returns)
+  dfuRequestBootloaderEntry();
+
+}
+
+void tud_dfu_download_cb(uint8_t alt, uint16_t block_num, uint8_t const* data, uint16_t length)
+{
+  (void)alt;
+  (void)block_num;
+  (void)data;
+  (void)length;
+
+  // This callback is called during the download process
+  // We don't need to do anything here since we're using runtime DFU
+}
+
+void tud_dfu_manifest_cb(uint8_t alt)
+{
+  (void)alt;
+
+  // DFU upload complete, reboot back to application
+  // Give a short delay to ensure USB transaction completes
+  HAL_Delay(100);
+
+  // System reset to return to application
+  NVIC_SystemReset();
+}
+
 
 /* USER CODE END 4 */
 

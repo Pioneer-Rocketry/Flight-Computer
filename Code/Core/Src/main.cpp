@@ -123,6 +123,11 @@ int main(void)
 	  while (1);
   }
 
+  if (logging.init() < 0)
+  {
+	  while (1);
+  }
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -134,6 +139,8 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 	  nav.update();
+
+	  logging.update();
 
 //	  HAL_Delay(1);
   }

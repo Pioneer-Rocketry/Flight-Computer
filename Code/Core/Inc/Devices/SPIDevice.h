@@ -121,6 +121,9 @@ protected:
 	 */
 	HAL_StatusTypeDef writeSPI(uint8_t reg, uint8_t *data, uint8_t len=1);
 
+	HAL_StatusTypeDef writeReadSPI(uint8_t writeReg, uint8_t *writeData, uint8_t writeLen, uint8_t readReg, uint8_t *readData, uint8_t readLen);
+
+
 };
 
 #endif /* INC_DEVICES_SPIDEVICE_H_ */

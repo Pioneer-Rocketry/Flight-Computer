@@ -15,6 +15,14 @@ W25Q128JV::W25Q128JV(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *
 
 int W25Q128JV::deviceInit()
 {
+	uint8_t manufacturer[2];
+
+	uint8_t requestID[4] = { 0x00, 0x00, 0x00, 0x00 };
+
+	writeReadSPI(W25Q128VJ_DEVICE_ID, requestID, 4, 0x00, manufacturer, 2);
+	if (manufacturer[0] != W25Q128VJ_MANUFACTURER) {
+		return -1;
+	}
 
 	return 0;
 }

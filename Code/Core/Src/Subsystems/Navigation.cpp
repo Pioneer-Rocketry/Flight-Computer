@@ -39,10 +39,10 @@ Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_Hand
 int Navigation::init()
 {
 
-	// if (imu.deviceInit() < 0)
-	// {
-	// 	return -1;
-	// }
+	 if (imu.deviceInit() < 0)
+	 {
+	 	return -1;
+	 }
 
 	if (baro.deviceInit() < 0)
 	{

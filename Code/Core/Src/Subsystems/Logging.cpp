@@ -17,6 +17,10 @@ Logging::Logging(DataContainer* data, SPI_HandleTypeDef* spiBus)
 
 int Logging::init()
 {
+	if (flashChip.deviceInit() < 0)
+	{
+		return -1;
+	}
 
 	return 0;
 }

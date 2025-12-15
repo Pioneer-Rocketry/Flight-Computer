@@ -1,1 +1,1 @@
-../Core/Src/usbHelper.cpp:9:8:size_t cdcSendMessage(const char*, size_t)	3
+../Core/Src/usbHelper.cpp:9:8:size_t cdcSendMessage(char*, size_t)	3

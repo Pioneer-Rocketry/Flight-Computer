@@ -64,8 +64,8 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 #define USB_BUF_LEN 128
 
-uint8_t usbTxBuffer[USB_BUF_LEN];
-uint8_t usbRxBuffer[USB_BUF_LEN];
+char usbTxBuffer[USB_BUF_LEN];
+char usbRxBuffer[USB_BUF_LEN];
 
 uint16_t usbTxBufferLen;
 uint16_t usbRxBufferLen;
@@ -139,8 +139,6 @@ int main(void)
   usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Welcome to the Pioneer Rocketry Flight Computer!\r\n");
   cdcSendMessage(usbTxBuffer, usbTxBufferLen);
 
-  
-  CDC_Transmit_FS(usbTxBuffer, usbTxBufferLen);
 
   DWT_Init();
 
@@ -178,8 +176,8 @@ int main(void)
     {
       lastSendTick = currentTick;
 
-      int len = snprintf(usb_tx_buffer, MAX_TICK_MSG_LEN, "Tick: %lu ms\r\n", currentTick);
-      cdcSendMessage(usb_tx_buffer, len);
+      int len = snprintf(usbTxBuffer, USB_BUF_LEN, "Tick: %lu ms\r\n", currentTick);
+      cdcSendMessage(usbTxBuffer, len);
     }
   }
   /* USER CODE END 3 */
@@ -517,7 +515,7 @@ static void MX_GPIO_Init(void)
 
 void tud_dfu_runtime_reboot_to_dfu_cb(void)
 {
-  const char* reboot_msg = "Rebooting into DFU mode...\r\n";
+  char reboot_msg[] = "Rebooting into DFU mode...\r\n";
   cdcSendMessage(reboot_msg, strlen(reboot_msg));
 
   // Ensure message is sent

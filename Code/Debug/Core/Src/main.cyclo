@@ -1,8 +1,13 @@
-../Core/Src/main.cpp:88:5:int main()	1
-../Core/Src/main.cpp:142:6:void SystemClock_Config()	4
-../Core/Src/main.cpp:196:13:void MX_ADC1_Init()	3
-../Core/Src/main.cpp:248:13:void MX_I2C2_Init()	2
-../Core/Src/main.cpp:282:13:void MX_SPI1_Init()	2
-../Core/Src/main.cpp:320:13:void MX_UART4_Init()	2
-../Core/Src/main.cpp:353:13:void MX_GPIO_Init()	1
-../Core/Src/main.cpp:438:6:void Error_Handler()	1
+../Drivers/CMSIS/Include/core_cm4.h:1938:34:void __NVIC_SystemReset()	1
+../Core/Src/main.cpp:84:5:int main()	2
+../Core/Src/main.cpp:154:6:void SystemClock_Config()	4
+../Core/Src/main.cpp:208:13:void MX_ADC1_Init()	3
+../Core/Src/main.cpp:260:13:void MX_I2C2_Init()	2
+../Core/Src/main.cpp:294:13:void MX_SPI1_Init()	2
+../Core/Src/main.cpp:332:13:void MX_UART4_Init()	2
+../Core/Src/main.cpp:365:13:void MX_USB_OTG_FS_PCD_Init()	2
+../Core/Src/main.cpp:400:13:void MX_GPIO_Init()	1
+../Core/Src/main.cpp:480:6:void tud_dfu_runtime_reboot_to_dfu_cb()	2
+../Core/Src/main.cpp:496:6:void tud_dfu_download_cb(uint8_t, uint16_t, const uint8_t*, uint16_t)	1
+../Core/Src/main.cpp:507:6:void tud_dfu_manifest_cb(uint8_t)	0
+../Core/Src/main.cpp:526:6:void Error_Handler()	1

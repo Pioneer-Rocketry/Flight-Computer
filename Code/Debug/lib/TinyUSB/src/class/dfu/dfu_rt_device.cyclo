@@ -1,0 +1,5 @@
+../lib/TinyUSB/src/class/dfu/dfu_rt_device.c:54:6:dfu_rtd_init	1
+../lib/TinyUSB/src/class/dfu/dfu_rt_device.c:57:6:dfu_rtd_deinit	1
+../lib/TinyUSB/src/class/dfu/dfu_rt_device.c:61:6:dfu_rtd_reset	1
+../lib/TinyUSB/src/class/dfu/dfu_rt_device.c:65:10:dfu_rtd_open	4
+../lib/TinyUSB/src/class/dfu/dfu_rt_device.c:89:6:dfu_rtd_control_xfer_cb	12

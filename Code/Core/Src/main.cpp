@@ -22,9 +22,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include <stdio.h>
 #include <ctype.h>
 #include "tusb.h"
+#include "dfuBootloader.h"
+#include "usbHelper.h"
 
 #include "DataContainer.h"
 
@@ -37,7 +38,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -70,15 +70,10 @@ static void MX_UART4_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
 /* USER CODE BEGIN PFP */
 
-size_t cdc_send_string(const char* str, size_t len);
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-#define MAX_TICK_MSG_LEN 40
-static char usb_tx_buffer[MAX_TICK_MSG_LEN];
 
 /* USER CODE END 0 */
 
@@ -90,6 +85,8 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+
+  dfuCheckAndJumpBootloader();
 
   /* USER CODE END 1 */
 
@@ -120,9 +117,9 @@ int main(void)
 
   tud_init(BOARD_TUD_RHPORT);
 
-  uint32_t current_tick;
-  uint32_t last_send_tick = 0;
-  const uint32_t send_interval_ms = 100; // Send every 100ms
+  uint32_t currentTick;
+  uint32_t lastSendTick = 0;
+  const uint32_t sendIntervalMs = 5000;
 
   /* USER CODE END 2 */
 
@@ -136,18 +133,15 @@ int main(void)
 
     tud_task();
 
-    current_tick = HAL_GetTick(); // Get the current system tick (ms)
+    currentTick = HAL_GetTick(); // Get the current system tick (ms)
 
     // Check if it's time to send data
-    if (current_tick - last_send_tick >= send_interval_ms)
+    if (currentTick - lastSendTick >= sendIntervalMs)
     {
-      last_send_tick = current_tick;
+      lastSendTick = currentTick;
 
-      // 1. Format the tick count into a string with a newline
-      int len = snprintf(usb_tx_buffer, MAX_TICK_MSG_LEN, "Tick: %lu ms\r\n", current_tick);
-
-      // 2. Use the new helper function to send the data
-      cdc_send_string(usb_tx_buffer, len);
+      int len = snprintf(usb_tx_buffer, MAX_TICK_MSG_LEN, "Tick: %lu ms\r\n", currentTick);
+      cdcSendMessage(usb_tx_buffer, len);
     }
   }
   /* USER CODE END 3 */
@@ -482,39 +476,46 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-/**
- * @brief Sends a string over the TinyUSB CDC interface.
- * * @param str Pointer to the character array (string) to send.
- * @param len Length of the string (in bytes).
- * @retval The number of bytes successfully written to the USB buffer.
- */
-size_t cdc_send_string(const char* str, size_t len)
+
+void tud_dfu_runtime_reboot_to_dfu_cb(void)
 {
-    // 1. Check if the USB CDC interface is connected to the host
-    if (!tud_cdc_connected())
-    {
-        return 0; // Not connected, nothing sent
-    }
+  const char* reboot_msg = "Rebooting into DFU mode...\r\n";
+  cdcSendMessage(reboot_msg, strlen(reboot_msg));
 
-    // 2. Check if the USB transmit buffer has enough space for the whole string
-    if (tud_cdc_write_available() < len)
-    {
-        // Not enough space, we can either:
-        // a) Return 0 (what we do here, for simplicity)
-        // b) Write only what fits (more complex, but better for high throughput)
-        return 0; 
-    }
+  // Ensure message is sent
+  for (int i = 0; i < 10; i++) {
+    tud_task();
+    HAL_Delay(5);
+  }
 
-    // 3. Write the string to the USB buffer
-    size_t written_len = tud_cdc_write(str, len);
+  // Request bootloader entry (never returns)
+  dfuRequestBootloaderEntry();
 
-    // 4. Flush the buffer to ensure the data is sent immediately
-    // NOTE: For better performance, you might only flush periodically, 
-    // but for simple messages, flushing immediately is often best.
-    tud_cdc_write_flush();
-
-    return written_len;
 }
+
+void tud_dfu_download_cb(uint8_t alt, uint16_t block_num, uint8_t const* data, uint16_t length)
+{
+  (void)alt;
+  (void)block_num;
+  (void)data;
+  (void)length;
+
+  // This callback is called during the download process
+  // We don't need to do anything here since we're using runtime DFU
+}
+
+void tud_dfu_manifest_cb(uint8_t alt)
+{
+  (void)alt;
+
+  // DFU upload complete, reboot back to application
+  // Give a short delay to ensure USB transaction completes
+  HAL_Delay(100);
+
+  // System reset to return to application
+  NVIC_SystemReset();
+}
+
 
 /* USER CODE END 4 */
 

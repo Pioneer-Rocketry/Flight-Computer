@@ -5,21 +5,21 @@
             "label": "Build",
             "group": "build",
             "type": "shell",
-            "command": [ "make", "-C", "./Code/Debug/", "all" ],
+            "command": [ "make", "-C", "./Code/Debug/", "all", "&&", "arm-none-eabi-objcopy", "-O", "binary", "./Code/Debug/Code.elf", "./Code/Debug/Code.bin" ],
             "detail": "Build"
         },
         {
             "label": "Clean Build",
             "group": "build",
             "type": "shell",
-            "command": [ "make", "-C", "./Code/Debug/", "all", "clean", "&&", "make", "-C", "./Code/Debug/", "all" ],
+            "command": [ "make", "-C", "./Code/Debug/", "all", "clean", "&&", "make", "-C", "./Code/Debug/", "all", "&&", "arm-none-eabi-objcopy", "-O", "binary", "./Code/Debug/Code.elf", "./Code/Debug/Code.bin" ],
             "detail": "Do a clean build"
         },
         {
             "label": "Upload",
             "group": "build",
             "type": "shell",
-            "command": [ "arm-none-eabi-objcopy", "-O", "binary", "./Code/Debug/Code.elf", "./Code/Debug/Code.bin", "&&", "st-flash", "write", "./Code/Debug/Code.bin", "0x08000000" ],
+            "command": [ "arm-none-eabi-objcopy", "-O", "binary", "./Code/Debug/Code.elf", "./Code/Debug/Code.bin", "&&", "st-flash", "write", "./Code/Debug/Code.bin", "0x08000000", "&&", "arm-none-eabi-objcopy", "-O", "binary", "./Code/Debug/Code.elf", "./Code/Debug/Code.bin" ],
             "detail": "Upload"
         },
         {

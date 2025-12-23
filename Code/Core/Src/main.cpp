@@ -29,6 +29,10 @@
 
 #include "DataContainer.h"
 
+#include "Subsystems/Navigation.h"
+
+#include "utils.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,6 +62,18 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
 
+#define USB_BUF_LEN 128
+
+char usbTxBuffer[USB_BUF_LEN];
+char usbRxBuffer[USB_BUF_LEN];
+
+uint16_t usbTxBufferLen;
+uint16_t usbRxBufferLen;
+
+DataContainer data;
+
+Navigation nav(&data, &hspi1, &huart4);
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -83,7 +99,6 @@ static void MX_USB_OTG_FS_PCD_Init(void);
   */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
 
   dfuCheckAndJumpBootloader();
@@ -121,6 +136,24 @@ int main(void)
   uint32_t lastSendTick = 0;
   const uint32_t sendIntervalMs = 5000;
 
+  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Welcome to the Pioneer Rocketry Flight Computer!\r\n");
+  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+
+
+  DWT_Init();
+
+  if (nav.init() < 0)
+  {
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Navigation!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+	  while (1)
+    {
+      // Send Error Message over USB CDC
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
+  }
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -131,6 +164,9 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
+	  nav.update();
+    //	  HAL_Delay(1);
+
     tud_task();
 
     currentTick = HAL_GetTick(); // Get the current system tick (ms)
@@ -140,8 +176,8 @@ int main(void)
     {
       lastSendTick = currentTick;
 
-      int len = snprintf(usb_tx_buffer, MAX_TICK_MSG_LEN, "Tick: %lu ms\r\n", currentTick);
-      cdcSendMessage(usb_tx_buffer, len);
+      int len = snprintf(usbTxBuffer, USB_BUF_LEN, "Tick: %lu ms\r\n", currentTick);
+      cdcSendMessage(usbTxBuffer, len);
     }
   }
   /* USER CODE END 3 */
@@ -309,7 +345,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -416,8 +452,10 @@ static void MX_GPIO_Init(void)
                           |PRYO1_TRIGGER_Pin|LORA_RESET_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|BARO_CS_Pin|FLASH_CS_Pin|FLASH_RESET_Pin
-                          |FLASH_WP_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|FLASH_CS_Pin|FLASH_RESET_Pin|FLASH_WP_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(BARO_CS_GPIO_Port, BARO_CS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : SPI_CS1_Pin LORA_DIO0_Pin PYRO3_TRIGGER_Pin PRYO2_TRIGGER_Pin
                            PRYO1_TRIGGER_Pin LORA_RESET_Pin */
@@ -479,7 +517,7 @@ static void MX_GPIO_Init(void)
 
 void tud_dfu_runtime_reboot_to_dfu_cb(void)
 {
-  const char* reboot_msg = "Rebooting into DFU mode...\r\n";
+  char reboot_msg[] = "Rebooting into DFU mode...\r\n";
   cdcSendMessage(reboot_msg, strlen(reboot_msg));
 
   // Ensure message is sent

@@ -6,7 +6,7 @@
  * @param len Length of the string (in bytes).
  * @retval The number of bytes successfully written to the USB buffer.
  */
-size_t cdcSendMessage(const char* str, size_t len)
+size_t cdcSendMessage(char* str, size_t len)
 {
   // 1. Check if the USB CDC interface is connected to the host
   if (!tud_cdc_connected())

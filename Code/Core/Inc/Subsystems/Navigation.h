@@ -18,6 +18,8 @@
 #include "Devices/SPI_Devices/MS560702BA03.h"
 #include "Devices/GPS.h"
 
+#include "Matrix.hpp"
+#include "utils.h"
 #include "defines.h"
 
 /**
@@ -91,17 +93,17 @@ private:
 	Eigen::Vector3f lowG;
 	Eigen::Vector3f highG;
 
-	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		1> 									x;  // State vector
-	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 1> 									Z;  // Measurements
-	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		F;  // State transition matrix
-	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, KALMAN_FILTER_NUM_OF_STATES> 		H;  // Observation matrix
-	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		Q;  // Process noise covariance
-	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	R;  // Measurement noise covariance
-	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		P;  // Estimate error covariance
-	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	K;  // Kalman gain
+	Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 			1> 									x;  // State vector
+	Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 	1> 									Z;  // Measurements
+	Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 			KALMAN_FILTER_NUM_OF_STATES> 		F;  // State transition matrix
+	Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 	KALMAN_FILTER_NUM_OF_STATES> 		H;  // Observation matrix
+	Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 			KALMAN_FILTER_NUM_OF_STATES> 		Q;  // Process noise covariance
+	Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 	KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	R;  // Measurement noise covariance
+	Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 			KALMAN_FILTER_NUM_OF_STATES> 		P;  // Estimate error covariance
+	Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 			KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	K;  // Kalman gain
 
-    Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, KALMAN_FILTER_NUM_OF_MEASUREMENTS>  S;
-	Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 		KALMAN_FILTER_NUM_OF_STATES> 		I;
+    Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 	KALMAN_FILTER_NUM_OF_MEASUREMENTS>	S;
+	Matrix<float, KALMAN_FILTER_NUM_OF_STATES,			KALMAN_FILTER_NUM_OF_STATES>		I;
 
 	float processNoise = 0.01f;
 
@@ -129,6 +131,10 @@ private:
 	float dt_ms;	// Time since last loop in ms
 	float dt_s;		// Time since last loop in s
 	float dt2, dt3, dt4;	// dt^2, dt^3, dt^4
+
+	float dt_us;
+	float freq_us;
+	float last_us;
 };
 
 #endif /* SRC_SUBSYSTEMS_NAVIGATION_H_ */

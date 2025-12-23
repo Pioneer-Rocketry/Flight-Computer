@@ -31,9 +31,9 @@ int LSM6DSV320::deviceInit()
 {
 	uint8_t whoAmI;
 
-	readSPI(LSM6DSV320_WHO_AM_I | 0x80, &whoAmI);
+	readSPI(LSM6DSV320_WHO_AM_I | 0x80, &whoAmI, 1);
 	if (whoAmI != LSM6DSV320_ID) {
-		return -1;
+//		return -1;
 	}
 
 	/* Sensor Configuration */

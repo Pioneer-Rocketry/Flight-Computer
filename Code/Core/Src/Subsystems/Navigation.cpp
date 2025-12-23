@@ -33,6 +33,7 @@ Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_Hand
 	data->yaw = 0.0f;
 
 	lastLoop = HAL_GetTick();
+	last_us = micros();
 }
 
 
@@ -65,6 +66,10 @@ int Navigation::update()
 	dt_s  	= dt_ms / 1000.0f;
 	freq 	= 1.0f / dt_s;
 	lastLoop = now;
+
+	dt_us = micros() - last_us;
+	freq_us = 1000000.0f / dt_us;
+	last_us = micros();
 
 	dt2 = dt_s * dt_s;
 	dt3 = dt2  * dt_s;
@@ -210,9 +215,21 @@ void Navigation::initKalmanFilter()
 	Q(1,2) = dt_s; Q(2,1) = Q(1,2);
 	Q(2,2) = 1.0f; // keep small baseline
 
+	Q(3,3) = dt4 / 4.0f;
+	Q(3,4) = dt3 / 2.0f; Q(4,3) = Q(3,4);
+	Q(3,5) = dt2 / 2.0f; Q(5,3) = Q(3,5);
+	Q(4,4) = dt2;
+	Q(4,5) = dt_s; Q(5,4) = Q(4,5);
+	Q(5,5) = 1.0f; // keep small baseline
+
+	Q(6,6) = dt4 / 4.0f;
+	Q(6,7) = dt3 / 2.0f; Q(7,6) = Q(6,7);
+	Q(6,8) = dt2 / 2.0f; Q(8,6) = Q(6,8);
+	Q(7,7) = dt2;
+	Q(7,8) = dt_s; Q(8,7) = Q(7,8);
+	Q(8,8) = 1.0f; // keep small baseline
+
 	// copy blocks for Y (3..5) and Z (6..8)
-	Q.block<3,3>(3,3) = Q.block<3,3>(0,0);
-	Q.block<3,3>(6,6) = Q.block<3,3>(0,0);
 
 	Q *= processNoise;
 
@@ -270,9 +287,19 @@ void Navigation::updateKalmanFilter()
 	Q(1,2) = dt_s; Q(2,1) = Q(1,2);
 	Q(2,2) = 1.0f; // keep small baseline
 
-	// copy blocks for Y (3..5) and Z (6..8)
-	Q.block<3,3>(3,3) = Q.block<3,3>(0,0);
-	Q.block<3,3>(6,6) = Q.block<3,3>(0,0);
+	Q(3,3) = dt4 / 4.0f;
+	Q(3,4) = dt3 / 2.0f; Q(4,3) = Q(3,4);
+	Q(3,5) = dt2 / 2.0f; Q(5,3) = Q(3,5);
+	Q(4,4) = dt2;
+	Q(4,5) = dt_s; Q(5,4) = Q(4,5);
+	Q(5,5) = 1.0f; // keep small baseline
+
+	Q(6,6) = dt4 / 4.0f;
+	Q(6,7) = dt3 / 2.0f; Q(7,6) = Q(6,7);
+	Q(6,8) = dt2 / 2.0f; Q(8,6) = Q(6,8);
+	Q(7,7) = dt2;
+	Q(7,8) = dt_s; Q(8,7) = Q(7,8);
+	Q(8,8) = 1.0f; // keep small baseline
 
 	Q *= processNoise;
 
@@ -289,8 +316,7 @@ void Navigation::runKalmanFilter()
 
 	// Compute Kalman Gain ~5 ms
     // Prefer an LDLT or LLT solve over explicit inverse:
-    // K = (P * H.transpose()) * S.inverse(); // less stable
-	K = P * H.transpose() * S.ldlt().solve(Eigen::Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, KALMAN_FILTER_NUM_OF_MEASUREMENTS>::Identity());
+    K = (P * H.transpose()) * S.inverse();
 
 	// Compute the Estimate ~0.5 ms
 	x = x + K * (Z - H * x);

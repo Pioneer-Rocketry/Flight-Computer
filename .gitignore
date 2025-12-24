@@ -1,52 +1,117 @@
-#settings
+############################
+# OS / Editor junk
+############################
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.tmp
+
+############################
+# STM32CubeIDE / Eclipse
+############################
 .settings/
-
-#metadata
 .metadata/
+.project
+.cproject
+*.launch
 
-#Debug
-# Code/Debug/
-# Code/debug/
-# Code/Release/
-# Code/release
+############################
+# Build directories
+############################
+Debug/
+Release/
+debug/
+release/
 
+Code/Debug/
+Code/Release/
+Code/debug/
+Code/release/
+
+############################
+# ARM / GCC build artifacts
+############################
 # Prerequisites
 *.d
 
 # Object files
 *.o
-*.ko
 *.obj
+*.ko
+
+# Executables / firmware
 *.elf
+*.hex
+*.bin
+*.out
 
 # Linker output
-*.ilk
 *.map
 *.exp
+*.ilk
 
 # Libraries
-*.lib
 *.a
+*.lib
 *.la
 *.lo
 
 # Shared objects
-*.dll
 *.so
 *.so.*
+*.dll
 *.dylib
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-*.bin
-
 # Debug files
-*.dSYM/
 *.su
 *.idb
 *.pdb
+*.dSYM/
+
+############################
+# STM32Cube-generated junk
+############################
+*.ioc.bak
+*.mxproject
+*.user
+
+############################
+# KiCad (v6+)
+############################
+# Backup and autosave files
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*_autosave-*
+*.tmp
+
+# KiCad cache / netlist
+*-cache.lib
+*-cache.kicad_sym
+*.net
+
+# KiCad footprints / symbol cache
+fp-info-cache
+
+# KiCad 3D cache
+3d/
+
+# KiCad plots / fabrication output
+*.gbr
+*.gbrjob
+*.drl
+*.rpt
+*.pos
+*.cmp
+*.csv
+*.svg
+*.pdf
+
+############################
+# Optional: keep generated docs out
+############################
+doc/
+docs/_build/

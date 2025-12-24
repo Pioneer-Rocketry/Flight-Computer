@@ -1,5 +1,0 @@
-../Drivers/CMSIS/Include/core_cm4.h:1938:34:void __NVIC_SystemReset()	1
-../Core/Src/dfuBootloader.cpp:23:6:void dfuJumpToBootloader()	2
-../Core/Src/dfuBootloader.cpp:66:6:bool dfuCheckAndJumpBootloader()	3
-../Core/Src/dfuBootloader.cpp:92:6:void dfuRequestBootloaderEntry()	0
-../Core/Src/dfuBootloader.cpp:110:6:void dfu_reboot_to_application()	0

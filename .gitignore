@@ -108,7 +108,6 @@ fp-info-cache
 *.cmp
 *.csv
 *.svg
-*.pdf
 
 ############################
 # Optional: keep generated docs out

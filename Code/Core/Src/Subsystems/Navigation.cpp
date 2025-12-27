@@ -7,6 +7,13 @@
 
 #include "Subsystems/Navigation.h"
 
+float softThreshold(float value, float threshold)
+{
+    if (fabsf(value) < threshold)
+        return value * (fabsf(value) / threshold); // Linear taper
+    return value;
+}
+
 Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_HandleTypeDef* uart)
 	: Subsystem(data),
 	  imu(data, spiBus, SPI_CS1_GPIO_Port, SPI_CS1_Pin),
@@ -25,13 +32,6 @@ Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_Hand
 	data->KalmanFilterAccelerationY_mps2 = 0.0f;
 	data->KalmanFilterAccelerationZ_mps2 = 0.0f;
 
-	// orientation initial guess
-	data->orientation_quat = Eigen::Quaternionf::Identity();
-
-	data->roll = 0.0f;
-	data->pitch = 0.0f;
-	data->yaw = 0.0f;
-
 	lastLoop = HAL_GetTick();
 	last_us = micros();
 }
@@ -40,10 +40,10 @@ Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_Hand
 int Navigation::init()
 {
 
-	// if (imu.deviceInit() < 0)
-	// {
-	// 	return -1;
-	// }
+	if (imu.deviceInit() < 0)
+	{
+		return -1;
+	}
 
 	if (baro.deviceInit() < 0)
 	{
@@ -55,21 +55,25 @@ int Navigation::init()
 		return -1;
 	}
 
+	initializeQuaternion();
+
 	return 0;
 }
 
 
 int Navigation::update()
 {
-	now 	= HAL_GetTick();
-	dt_ms 	= now - lastLoop;
-	dt_s  	= dt_ms / 1000.0f;
-	freq 	= 1.0f / dt_s;
-	lastLoop = now;
+	now 	= micros();
 
-	dt_us = micros() - last_us;
-	freq_us = 1000000.0f / dt_us;
-	last_us = micros();
+	// Handle micros() overflow
+	if (now > lastLoop)
+	{
+		dt_us 	= now - lastLoop;
+		dt_s  	= dt_us / 1000000.0f;
+		freq 	= 1.0f / dt_s;
+		lastLoop = now;
+	}
+	// If now < lastLoop, micros() has overflowed and pretend that the dt didn't change
 
 	dt2 = dt_s * dt_s;
 	dt3 = dt2  * dt_s;
@@ -101,15 +105,9 @@ int Navigation::update()
 	// integrate quaternion
 	integrateQuaternion();
 
-	data->orientation_eular = data->orientation_quat.toRotationMatrix().eulerAngles(2, 1, 0) * RAD_TO_DEG;
-
-	data->yaw   = data->orientation_eular[0]; // yaw (Z) in degrees
-	data->pitch = data->orientation_eular[1]; // pitch (Y) in degrees
-	data->roll  = data->orientation_eular[2]; // roll (X) in degrees
-
 	// Rotate Accelerometer data by quaterion to get it to earth reference frame
-	lowG  = data->orientation_quat * lowG;
-	highG = data->orientation_quat * highG;
+	// lowG  = data->orientation_quat * lowG;
+	// highG = data->orientation_quat * highG;
 
 	baro.updateDevice();
 
@@ -140,19 +138,97 @@ int Navigation::update()
 
 void Navigation::integrateQuaternion()
 {
-    // Build the angular velocity quaternion: q_omega = [0, wx, wy, wz]
-    omega_q = Eigen::Quaternionf(0.0f, pitchRate_rad, rollRate_rad, yawRate_rad);
+	pitchRate_rad = softThreshold(pitchRate_rad, GYRO_THRESHOLD_DPS);
+	rollRate_rad  = softThreshold(rollRate_rad,  GYRO_THRESHOLD_DPS);
+	yawRate_rad   = softThreshold(yawRate_rad,   GYRO_THRESHOLD_DPS);
 
-    // q_dot = 0.5 * q * omega_q
-    q_dot = Eigen::Quaternionf(0,0,0,0); // initialize
-    q_dot.coeffs() = 0.5f * (data->orientation_quat * omega_q).coeffs();
+	quaternionWDot = 0.5f * (-pitchRate_rad * data->quaternionX - rollRate_rad * data->quaternionY - yawRate_rad   * data->quaternionZ);
+	quaternionXDot = 0.5f * ( pitchRate_rad * data->quaternionW + yawRate_rad  * data->quaternionY - rollRate_rad  * data->quaternionZ);
+	quaternionYDot = 0.5f * ( rollRate_rad 	* data->quaternionW - yawRate_rad  * data->quaternionX + pitchRate_rad * data->quaternionZ);
+	quaternionZDot = 0.5f * ( yawRate_rad 	* data->quaternionW + rollRate_rad * data->quaternionX - pitchRate_rad * data->quaternionY);
 
-    // integrate (explicit Euler)
-    qcoeffs = data->orientation_quat.coeffs() + q_dot.coeffs() * dt_s;
-    data->orientation_quat = Eigen::Quaternionf(qcoeffs);
-    data->orientation_quat.normalize();
+	data->quaternionW += quaternionWDot * dt_s;
+	data->quaternionX += quaternionXDot * dt_s;
+	data->quaternionY += quaternionYDot * dt_s;
+	data->quaternionZ += quaternionZDot * dt_s;
+
+	data->quaternionNorm = sqrtf( data->quaternionW * data->quaternionW +
+								  data->quaternionX * data->quaternionX +
+								  data->quaternionY * data->quaternionY +
+								  data->quaternionZ * data->quaternionZ);
+
+	if (data->quaternionNorm > 1e-6f)
+	{
+		data->quaternionW /= data->quaternionNorm;
+		data->quaternionX /= data->quaternionNorm;
+		data->quaternionY /= data->quaternionNorm;
+		data->quaternionZ /= data->quaternionNorm;
+	} else {
+		data->quaternionW = 1.0f;
+		data->quaternionX = 0.0f;
+		data->quaternionY = 0.0f;
+		data->quaternionZ = 0.0f;
+	}
+
+	siny_cosp = 2.0f * (data->quaternionW * data->quaternionY - data->quaternionZ * data->quaternionX);
+    cosy_cosp = 1.0f - 2.0f * (data->quaternionX * data->quaternionX + data->quaternionY * data->quaternionY);
+    data->roll = atan2f(siny_cosp, cosy_cosp) * RAD_TO_DEG;
+
+    // Pitch (rotation about X-axis)
+    sinp = 2.0f * (data->quaternionW * data->quaternionX + data->quaternionY * data->quaternionZ);
+    if (fabsf(sinp) >= 1.0f)
+        data->pitch = copysignf(M_PI / 2.0f, sinp) * RAD_TO_DEG; // Use 90 degrees if out of range
+    else
+        data->pitch = asinf(sinp) * RAD_TO_DEG;
+
+    // Yaw (rotation about Z-axis)
+    sinr_cosp = 2.0f * (data->quaternionW * data->quaternionZ + data->quaternionX * data->quaternionY);
+    cosr_cosp = 1.0f - 2.0f * (data->quaternionY * data->quaternionY + data->quaternionZ * data->quaternionZ);
+    data->yaw = atan2f(sinr_cosp, cosr_cosp) * RAD_TO_DEG;
 }
 
+void Navigation::initializeQuaternion()
+{
+	float norm = sqrtf( data->LSM6DSV320LowGAccelX_mps2 * data->LSM6DSV320LowGAccelX_mps2 +
+						data->LSM6DSV320LowGAccelY_mps2 * data->LSM6DSV320LowGAccelY_mps2 +
+						data->LSM6DSV320LowGAccelZ_mps2 * data->LSM6DSV320LowGAccelZ_mps2);
+
+	if (norm < 1e-6f)
+	{
+		data->quaternionW = 1.0f;
+		data->quaternionX = 0.0f;
+		data->quaternionY = 0.0f;
+		data->quaternionZ = 0.0f;
+	}
+
+	float ax = data->LSM6DSV320LowGAccelX_mps2 / norm;
+	float ay = data->LSM6DSV320LowGAccelY_mps2 / norm;
+	float az = data->LSM6DSV320LowGAccelZ_mps2 / norm;
+
+	data->quaternionW = sqrtf(1 + ax + ay + az) / 2;
+	data->quaternionX = (ay - az) / (4 * data->quaternionW);
+	data->quaternionY = (az - ax) / (4 * data->quaternionW);
+	data->quaternionZ = (ax - ay) / (4 * data->quaternionW);
+
+	// Calculate initial roll and pitch from accelerometer
+	data->pitch = atan2f(-ax,  ay);
+	data->yaw 	= atan2f(-az, -ay);
+	data->roll 	= 0.0f;
+
+	// Convert to quaternion
+	float cr = cosf(data->roll * 0.5f);
+    float sr = sinf(data->roll * 0.5f);
+    float cp = cosf(data->pitch * 0.5f);
+    float sp = sinf(data->pitch * 0.5f);
+    float cy = cosf(data->yaw * 0.5f);
+    float sy = sinf(data->yaw * 0.5f);
+
+	// Quaternion from Euler angles
+    data->quaternionW = cr * cp * cy + sr * sp * sy;
+    data->quaternionX = cr * sp * cy + sr * cp * sy;
+    data->quaternionY = sr * cp * cy - cr * sp * sy;
+    data->quaternionZ = cr * cp * sy - sr * sp * cy;
+}
 
 void Navigation::initKalmanFilter()
 {

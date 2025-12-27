@@ -22,6 +22,8 @@
 #include "utils.h"
 #include "defines.h"
 
+#define GYRO_THRESHOLD_DPS 0.1f
+
 /**
  * @class Navigation
  * @brief Handles flight navigation logic and sensor data fusion.
@@ -78,16 +80,23 @@ private:
 	GPS gps;			// GPR for Absolute Positioning: Latitude, Longitude, Altitude
 
 	// Orientation Tracking
-
-	Eigen::Quaternionf omega_q;
-	Eigen::Quaternionf q_dot;
-	Eigen::Vector4f qcoeffs;
+	float quaternionWDot;
+	float quaternionXDot;
+	float quaternionYDot;
+	float quaternionZDot;
 
 	float rollRate_rad;
 	float pitchRate_rad;
 	float yawRate_rad;
 
+	float siny_cosp;
+	float cosy_cosp;
+	float sinp;
+	float sinr_cosp;
+	float cosr_cosp;
+
 	void integrateQuaternion();
+	void initializeQuaternion();
 
 	// Kalman Filter
 	Eigen::Vector3f lowG;

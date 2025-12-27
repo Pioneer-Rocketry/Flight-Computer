@@ -242,12 +242,17 @@ int LSM6DSV320::deviceInit()
 		sumOfGyroX += this->data->LSM6DSV320GyroX_dps;
 		sumOfGyroY += this->data->LSM6DSV320GyroY_dps;
 		sumOfGyroZ += this->data->LSM6DSV320GyroZ_dps;
+
+		HAL_Delay(1);
 	}
 
 	// Set the bias
 	this->gyroXBias = sumOfGyroX / numOfSamples;
 	this->gyroYBias = sumOfGyroY / numOfSamples;
 	this->gyroZBias = sumOfGyroZ / numOfSamples;
+
+	// Read 1 sample of each accelerometer
+	updateDevice();
 
 	return 0;
 }

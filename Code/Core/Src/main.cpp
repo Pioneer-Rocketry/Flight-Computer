@@ -132,13 +132,8 @@ int main(void)
 
   tud_init(BOARD_TUD_RHPORT);
 
-  uint32_t currentTick;
-  uint32_t lastSendTick = 0;
-  const uint32_t sendIntervalMs = 5000;
-
   usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Welcome to the Pioneer Rocketry Flight Computer!\r\n");
   cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-
 
   DWT_Init();
 
@@ -171,14 +166,15 @@ int main(void)
 
     currentTick = HAL_GetTick(); // Get the current system tick (ms)
 
-    // Check if it's time to send data
-    if (currentTick - lastSendTick >= sendIntervalMs)
-    {
-      lastSendTick = currentTick;
-
-      int len = snprintf(usbTxBuffer, USB_BUF_LEN, "Tick: %lu ms\r\n", currentTick);
-      cdcSendMessage(usbTxBuffer, len);
-    }
+    // Log the quaternion over USB CDC every sendIntervalMs
+    int len = snprintf(usbTxBuffer, USB_BUF_LEN,
+      "%.4f, %.4f, %.4f, %.4f\r\n",
+      data.quaternionW,
+      data.quaternionX,
+      data.quaternionY,
+      data.quaternionZ
+    );
+    cdcSendMessage(usbTxBuffer, len);
   }
   /* USER CODE END 3 */
 }

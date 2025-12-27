@@ -1,0 +1,4 @@
+/home/colin/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/arm-none-eabi/include/c++/13.3.1/arm-none-eabi/thumb/v7e-m+fp/hard/bits/gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	1
+../Core/Src/Devices/SPI_Devices/I2CDevice.cpp:10:1:I2CDevice::I2CDevice(DataContainer*)	1
+../Core/Src/Devices/SPI_Devices/I2CDevice.cpp:15:19:HAL_StatusTypeDef I2CDevice::readI2C(uint16_t, uint8_t*, uint16_t)	1
+../Core/Src/Devices/SPI_Devices/I2CDevice.cpp:20:19:HAL_StatusTypeDef I2CDevice::writeI2C(uint8_t, uint8_t*, uint8_t)	1

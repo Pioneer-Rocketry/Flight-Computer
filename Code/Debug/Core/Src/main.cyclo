@@ -1,16 +1,16 @@
 ../Drivers/CMSIS/Include/core_cm4.h:1938:34:void __NVIC_SystemReset()	1
 /home/colin/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/arm-none-eabi/include/c++/13.3.1/arm-none-eabi/thumb/v7e-m+fp/hard/bits/gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	1
 ../Core/Src/main.cpp:100:5:int main()	2
-../Core/Src/main.cpp:191:6:void SystemClock_Config()	4
-../Core/Src/main.cpp:245:13:void MX_ADC1_Init()	3
-../Core/Src/main.cpp:297:13:void MX_I2C2_Init()	2
-../Core/Src/main.cpp:331:13:void MX_SPI1_Init()	2
-../Core/Src/main.cpp:369:13:void MX_UART4_Init()	2
-../Core/Src/main.cpp:402:13:void MX_USB_OTG_FS_PCD_Init()	2
-../Core/Src/main.cpp:437:13:void MX_GPIO_Init()	1
-../Core/Src/main.cpp:519:6:void tud_dfu_runtime_reboot_to_dfu_cb()	2
-../Core/Src/main.cpp:535:6:void tud_dfu_download_cb(uint8_t, uint16_t, const uint8_t*, uint16_t)	1
-../Core/Src/main.cpp:546:6:void tud_dfu_manifest_cb(uint8_t)	0
-../Core/Src/main.cpp:565:6:void Error_Handler()	1
-../Core/Src/main.cpp:574:1:void __static_initialization_and_destruction_0()	1
-../Core/Src/main.cpp:574:1:cpp)	1
+../Core/Src/main.cpp:184:6:void SystemClock_Config()	4
+../Core/Src/main.cpp:238:13:void MX_ADC1_Init()	3
+../Core/Src/main.cpp:290:13:void MX_I2C2_Init()	2
+../Core/Src/main.cpp:324:13:void MX_SPI1_Init()	2
+../Core/Src/main.cpp:362:13:void MX_UART4_Init()	2
+../Core/Src/main.cpp:395:13:void MX_USB_OTG_FS_PCD_Init()	2
+../Core/Src/main.cpp:430:13:void MX_GPIO_Init()	1
+../Core/Src/main.cpp:512:6:void tud_dfu_runtime_reboot_to_dfu_cb()	2
+../Core/Src/main.cpp:528:6:void tud_dfu_download_cb(uint8_t, uint16_t, const uint8_t*, uint16_t)	1
+../Core/Src/main.cpp:539:6:void tud_dfu_manifest_cb(uint8_t)	0
+../Core/Src/main.cpp:558:6:void Error_Handler()	1
+../Core/Src/main.cpp:567:1:void __static_initialization_and_destruction_0()	1
+../Core/Src/main.cpp:567:1:cpp)	1

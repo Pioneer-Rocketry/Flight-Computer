@@ -9,7 +9,6 @@
 #define INC_DATACONTAINER_H_
 
 #include <cstdint>
-#include <Eigen/Geometry>
 
 /**
  * @class DataContainer

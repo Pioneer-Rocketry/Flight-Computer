@@ -8,9 +8,6 @@
 #ifndef SRC_SUBSYSTEMS_NAVIGATION_H_
 #define SRC_SUBSYSTEMS_NAVIGATION_H_
 
-#include <Eigen/Dense>
-#include <Eigen/Geometry>
-
 #include "Subsystem.h"
 #include "main.h"
 
@@ -98,9 +95,11 @@ private:
 	void integrateQuaternion();
 	void initializeQuaternion();
 
+	void rotateVectorByQuaternion(Matrix<float, 3, 1>& vec);
+
 	// Kalman Filter
-	Eigen::Vector3f lowG;
-	Eigen::Vector3f highG;
+	Matrix<float, 3, 1> lowG;
+	Matrix<float, 3, 1> highG;
 
 	Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 			1> 									x;  // State vector
 	Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 	1> 									Z;  // Measurements

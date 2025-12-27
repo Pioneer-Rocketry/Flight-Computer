@@ -1,25 +1,22 @@
 /home/colin/st/stm32cubeide_1.19.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.linux64_1.0.0.202410170706/tools/arm-none-eabi/include/c++/13.3.1/arm-none-eabi/thumb/v7e-m+fp/hard/bits/gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	1
 ../Core/Src/Subsystems/Navigation.cpp:10:7:float softThreshold(float, float)	2
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/DenseStorage.h:95:51:constexpr Eigen::internal::DenseStorage_impl<T, Size, Rows, Cols, Options>::DenseStorage_impl() [with T = float; int Size = 3; int Rows = 3; int Cols = 1; int Options = 0]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/DenseStorage.h:540:51:constexpr Eigen::DenseStorage<T, Size, Rows, Cols, Options, Trivial>::DenseStorage() [with T = float; int Size = 3; int Rows = 3; int Cols = 1; int Options = 0; bool Trivial = true]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/PlainObjectBase.h:449:51:constexpr Eigen::PlainObjectBase<Derived>::PlainObjectBase() [with Derived = Eigen::Matrix<float, 3, 1>]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/Matrix.h:254:51:constexpr Eigen::Matrix<Scalar_, Rows_, Cols_, Options_, MaxRows_, MaxCols_>::Matrix() [with Scalar_ = float; int Rows_ = 3; int Cols_ = 1; int Options_ = 0; int MaxRows_ = 3; int MaxCols_ = 1]	1
 ../Core/Src/Subsystems/Navigation.cpp:17:1:Navigation::Navigation(DataContainer*, SPI_HandleTypeDef*, UART_HandleTypeDef*)	1
 ../Core/Src/Subsystems/Navigation.cpp:40:5:virtual int Navigation::init()	4
 ../Core/Src/Subsystems/Navigation.cpp:64:5:virtual int Navigation::update()	3
-../Core/Src/Subsystems/Navigation.cpp:139:6:void Navigation::integrateQuaternion()	3
-../Core/Src/Subsystems/Navigation.cpp:190:6:void Navigation::initializeQuaternion()	2
-../Core/Src/Subsystems/Navigation.cpp:233:6:void Navigation::initKalmanFilter()	1
-../Core/Src/Subsystems/Navigation.cpp:329:6:void Navigation::updateKalmanFilter()	1
-../Core/Src/Subsystems/Navigation.cpp:385:6:void Navigation::runKalmanFilter()	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/DenseStorage.h:73:51:constexpr Eigen::internal::plain_array<T, Size, MatrixOrArrayOptions, 0>::plain_array() [with T = float; int Size = 3; int MatrixOrArrayOptions = 0]	1
+../Core/Src/Subsystems/Navigation.cpp:139:6:void Navigation::rotateVectorByQuaternion(Matrix<float, 3, 1>&)	1
+../Core/Src/Subsystems/Navigation.cpp:178:6:void Navigation::integrateQuaternion()	3
+../Core/Src/Subsystems/Navigation.cpp:229:6:void Navigation::initializeQuaternion()	2
+../Core/Src/Subsystems/Navigation.cpp:272:6:void Navigation::initKalmanFilter()	1
+../Core/Src/Subsystems/Navigation.cpp:368:6:void Navigation::updateKalmanFilter()	1
+../Core/Src/Subsystems/Navigation.cpp:424:6:void Navigation::runKalmanFilter()	1
+../Core/Inc/Matrix.hpp:14:5:Matrix<T, ROWS, COLS>::Matrix() [with T = float; int ROWS = 3; int COLS = 1]	3
 ../Core/Inc/Matrix.hpp:14:5:Matrix<T, ROWS, COLS>::Matrix() [with T = float; int ROWS = 9; int COLS = 1]	3
 ../Core/Inc/Matrix.hpp:14:5:Matrix<T, ROWS, COLS>::Matrix() [with T = float; int ROWS = 7; int COLS = 1]	3
 ../Core/Inc/Matrix.hpp:14:5:Matrix<T, ROWS, COLS>::Matrix() [with T = float; int ROWS = 9; int COLS = 9]	3
 ../Core/Inc/Matrix.hpp:14:5:Matrix<T, ROWS, COLS>::Matrix() [with T = float; int ROWS = 7; int COLS = 9]	3
 ../Core/Inc/Matrix.hpp:14:5:Matrix<T, ROWS, COLS>::Matrix() [with T = float; int ROWS = 7; int COLS = 7]	3
 ../Core/Inc/Matrix.hpp:14:5:Matrix<T, ROWS, COLS>::Matrix() [with T = float; int ROWS = 9; int COLS = 7]	3
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/DenseCoeffsBase.h:373:59:constexpr Eigen::DenseCoeffsBase<Derived, 1>::Scalar& Eigen::DenseCoeffsBase<Derived, 1>::operator[](Eigen::Index) [with Derived = Eigen::Matrix<float, 3, 1>]	2
+../Core/Inc/Matrix.hpp:67:8:T& Matrix<T, ROWS, COLS>::operator()(int) [with T = float; int ROWS = 3; int COLS = 1]	1
 ../Core/Inc/Matrix.hpp:67:8:T& Matrix<T, ROWS, COLS>::operator()(int) [with T = float; int ROWS = 9; int COLS = 1]	1
 ../Core/Inc/Matrix.hpp:183:10:void Matrix<T, ROWS, COLS>::setZero() [with T = float; int ROWS = 9; int COLS = 1]	3
 ../Core/Inc/Matrix.hpp:176:10:void Matrix<T, ROWS, COLS>::setIdentity() [with T = float; int ROWS = 9; int COLS = 9]	4
@@ -50,8 +47,6 @@
 ../Core/Inc/Matrix.hpp:119:27:Matrix<T, COLS, ROWS> Matrix<T, ROWS, COLS>::transpose() const [with T = float; int ROWS = 9; int COLS = 9]	3
 ../Core/Inc/Matrix.hpp:119:27:Matrix<T, COLS, ROWS> Matrix<T, ROWS, COLS>::transpose() const [with T = float; int ROWS = 9; int COLS = 7]	3
 ../Core/Inc/Matrix.hpp:83:27:Matrix<T, ROWS, COLS> Matrix<T, ROWS, COLS>::operator+(const Matrix<T, ROWS, COLS>&) const [with T = float; int ROWS = 9; int COLS = 9]	3
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/EigenBase.h:64:37:constexpr Eigen::EigenBase<Derived>::Index Eigen::EigenBase<Derived>::size() const [with Derived = Eigen::Matrix<float, 3, 1>]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/DenseCoeffsBase.h:359:59:constexpr Eigen::DenseCoeffsBase<Derived, 1>::Scalar& Eigen::DenseCoeffsBase<Derived, 1>::coeffRef(Eigen::Index) [with Derived = Eigen::Matrix<float, 3, 1>]	1
 ../Core/Inc/Matrix.hpp:55:8:T& Matrix<T, ROWS, COLS>::operator()(int, int) [with T = float; int ROWS = 9; int COLS = 1]	1
 ../Core/Inc/Matrix.hpp:61:14:const T& Matrix<T, ROWS, COLS>::operator()(int, int) const [with T = float; int ROWS = 9; int COLS = 1]	1
 ../Core/Inc/Matrix.hpp:61:14:const T& Matrix<T, ROWS, COLS>::operator()(int, int) const [with T = float; int ROWS = 9; int COLS = 9]	1
@@ -61,18 +56,3 @@
 ../Core/Inc/Matrix.hpp:55:8:T& Matrix<T, ROWS, COLS>::operator()(int, int) [with T = float; int ROWS = 7; int COLS = 1]	1
 ../Core/Inc/Matrix.hpp:61:14:const T& Matrix<T, ROWS, COLS>::operator()(int, int) const [with T = float; int ROWS = 7; int COLS = 1]	1
 ../Core/Inc/Matrix.hpp:61:14:const T& Matrix<T, ROWS, COLS>::operator()(int, int) const [with T = float; int ROWS = 7; int COLS = 9]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/EigenBase.h:59:37:constexpr Eigen::EigenBase<Derived>::Index Eigen::EigenBase<Derived>::rows() const [with Derived = Eigen::Matrix<float, 3, 1>]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/EigenBase.h:61:37:constexpr Eigen::EigenBase<Derived>::Index Eigen::EigenBase<Derived>::cols() const [with Derived = Eigen::Matrix<float, 3, 1>]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/EigenBase.h:49:40:constexpr Derived& Eigen::EigenBase<Derived>::derived() [with Derived = Eigen::Matrix<float, 3, 1>]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/CoreEvaluators.h:272:60:constexpr Eigen::internal::evaluator<Eigen::Matrix<Scalar, Rows, Cols, Options, MaxRows, MaxCols> >::evaluator(const XprType&) [with Scalar = float; int Rows = 3; int Cols = 1; int Options = 0; int MaxRows = 3; int MaxCols = 1]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/CoreEvaluators.h:210:59:constexpr Eigen::internal::evaluator<Eigen::PlainObjectBase<Derived> >::Scalar& Eigen::internal::evaluator<Eigen::PlainObjectBase<Derived> >::coeffRef(Eigen::Index) [with Derived = Eigen::Matrix<float, 3, 1>]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/EigenBase.h:51:46:constexpr const Derived& Eigen::EigenBase<Derived>::derived() const [with Derived = Eigen::Matrix<float, 3, 1>]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/PlainObjectBase.h:165:57:constexpr Eigen::Index Eigen::PlainObjectBase<Derived>::rows() const [with Derived = Eigen::Matrix<float, 3, 1>]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/PlainObjectBase.h:166:57:constexpr Eigen::Index Eigen::PlainObjectBase<Derived>::cols() const [with Derived = Eigen::Matrix<float, 3, 1>]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/CoreEvaluators.h:195:60:constexpr Eigen::internal::evaluator<Eigen::PlainObjectBase<Derived> >::evaluator(const PlainObjectType&) [with Derived = Eigen::Matrix<float, 3, 1>]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/DenseStorage.h:114:57:constexpr Eigen::Index Eigen::internal::DenseStorage_impl<T, Size, Rows, Cols, Options>::rows() const [with T = float; int Size = 3; int Rows = 3; int Cols = 1; int Options = 0]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/DenseStorage.h:115:57:constexpr Eigen::Index Eigen::internal::DenseStorage_impl<T, Size, Rows, Cols, Options>::cols() const [with T = float; int Size = 3; int Rows = 3; int Cols = 1; int Options = 0]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/PlainObjectBase.h:247:45:constexpr const Eigen::PlainObjectBase<Derived>::Scalar* Eigen::PlainObjectBase<Derived>::data() const [with Derived = Eigen::Matrix<float, 3, 1>]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/CoreEvaluators.h:145:51:constexpr Eigen::internal::plainobjectbase_evaluator_data<Scalar, OuterStride>::plainobjectbase_evaluator_data(const Scalar*, Eigen::Index) [with Scalar = float; int OuterStride = 0]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/DenseStorage.h:118:60:constexpr const T* Eigen::internal::DenseStorage_impl<T, Size, Rows, Cols, Options>::data() const [with T = float; int Size = 3; int Rows = 3; int Cols = 1; int Options = 0]	1
-/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/Eigen/src/Core/util/Macros.h:1020:54:constexpr void Eigen::internal::ignore_unused_variable(const T&) [with T = int]	1

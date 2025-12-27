@@ -159,12 +159,10 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-	  nav.update();
+	nav.update();
     //	  HAL_Delay(1);
 
     tud_task();
-
-    currentTick = HAL_GetTick(); // Get the current system tick (ms)
 
     // Log the quaternion over USB CDC every sendIntervalMs
     int len = snprintf(usbTxBuffer, USB_BUF_LEN,

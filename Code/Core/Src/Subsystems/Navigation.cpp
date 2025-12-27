@@ -87,13 +87,13 @@ int Navigation::update()
 
 	imu.updateDevice();
 
-	lowG[0] = data->LSM6DSV320LowGAccelX_mps2;
-	lowG[1] = data->LSM6DSV320LowGAccelY_mps2;
-	lowG[2] = data->LSM6DSV320LowGAccelZ_mps2;
+	lowG(0) = data->LSM6DSV320LowGAccelX_mps2;
+	lowG(1) = data->LSM6DSV320LowGAccelY_mps2;
+	lowG(2) = data->LSM6DSV320LowGAccelZ_mps2;
 
-	highG[0] = data->LSM6DSV320HighGAccelX_mps2;
-	highG[1] = data->LSM6DSV320HighGAccelY_mps2;
-	highG[2] = data->LSM6DSV320HighGAccelZ_mps2;
+	highG(0) = data->LSM6DSV320HighGAccelX_mps2;
+	highG(1) = data->LSM6DSV320HighGAccelY_mps2;
+	highG(2) = data->LSM6DSV320HighGAccelZ_mps2;
 
 	// -------------------------------------------------------------
 	// Quaterion Intergration
@@ -106,8 +106,8 @@ int Navigation::update()
 	integrateQuaternion();
 
 	// Rotate Accelerometer data by quaterion to get it to earth reference frame
-	// lowG  = data->orientation_quat * lowG;
-	// highG = data->orientation_quat * highG;
+	rotateVectorByQuaternion(lowG);
+    rotateVectorByQuaternion(highG);
 
 	baro.updateDevice();
 
@@ -134,6 +134,45 @@ int Navigation::update()
 	data->KalmanFilterVelocityZ_mps			= x(8);
 
 	return 0;
+}
+
+void Navigation::rotateVectorByQuaternion(Matrix<float, 3, 1>& vec)
+{
+    // Rotate vector from body frame to earth frame using quaternion
+    // Formula: v' = q * v * q^(-1)
+    // For unit quaternions: q^(-1) = q* (conjugate)
+
+    float qw = data->quaternionW;
+    float qx = data->quaternionX;
+    float qy = data->quaternionY;
+    float qz = data->quaternionZ;
+
+    float vx = vec(0);
+    float vy = vec(1);
+    float vz = vec(2);
+
+    // Optimized rotation: v' = v + 2*r x (r x v + w*v)
+    // where r = [qx, qy, qz] and w = qw
+
+    // First cross product: r x v
+    float cx = qy * vz - qz * vy;
+    float cy = qz * vx - qx * vz;
+    float cz = qx * vy - qy * vx;
+
+    // Add w*v
+    cx += qw * vx;
+    cy += qw * vy;
+    cz += qw * vz;
+
+    // Second cross product: r x (r x v + w*v)
+    float rx = qy * cz - qz * cy;
+    float ry = qz * cx - qx * cz;
+    float rz = qx * cy - qy * cx;
+
+    // Final result: v + 2 * (r x (r x v + w*v))
+    vec(0) = vx + 2.0f * rx;
+    vec(1) = vy + 2.0f * ry;
+    vec(2) = vz + 2.0f * rz;
 }
 
 void Navigation::integrateQuaternion()
@@ -241,10 +280,10 @@ void Navigation::initKalmanFilter()
 
 	// Initial State
 	x.setZero();
-	x(2) = lowG[0]; // Acc X
-	x(5) = lowG[1]; // Acc Y
+	x(2) = lowG(0); // Acc X
+	x(5) = lowG(1); // Acc Y
 	x(6) = data->MS560702BA03Altitude_m; // Pos Z Set the initial Barometric Altitude to the current altitude
-	x(8) = lowG[2]; // Acc Z
+	x(8) = lowG(2); // Acc Z
 
 	// State Transition
 	F.setIdentity();
@@ -329,12 +368,12 @@ void Navigation::initKalmanFilter()
 void Navigation::updateKalmanFilter()
 {
 	// Update Measurements
-	Z(0) = lowG[0];
-	Z(1) = lowG[1];
-	Z(2) = lowG[2];
-	Z(3) = highG[0];
-	Z(4) = highG[1];
-	Z(5) = highG[2];
+	Z(0) = lowG(0);
+	Z(1) = lowG(1);
+	Z(2) = lowG(2);
+	Z(3) = highG(0);
+	Z(4) = highG(1);
+	Z(5) = highG(2);
 	Z(6) = data->MS560702BA03Altitude_m;
 
 	// Update State Transition Matrix

@@ -49,4 +49,6 @@ Code/release
 *.dSYM/
 *.su
 *.idb
-*.pdb
+
+
+*.zip

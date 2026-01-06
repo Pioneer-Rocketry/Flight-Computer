@@ -1,0 +1,979 @@
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"dfu_rt_device.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.dfu_rtd_init,"ax",%progbits
+  20              		.align	1
+  21              		.global	dfu_rtd_init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	dfu_rtd_init:
+  27              	.LFB90:
+  28              		.file 1 "lib/TinyUSB/src/class/dfu/dfu_rt_device.c"
+   1:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** /*
+   2:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * The MIT License (MIT)
+   3:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  *
+   4:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * Copyright (c) 2019 Sylvain Munaut <tnt@246tNt.com>
+   5:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  *
+   6:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * Permission is hereby granted, free of charge, to any person obtaining a copy
+   7:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * of this software and associated documentation files (the "Software"), to deal
+   8:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * in the Software without restriction, including without limitation the rights
+   9:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  10:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * copies of the Software, and to permit persons to whom the Software is
+  11:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * furnished to do so, subject to the following conditions:
+  12:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  *
+  13:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * The above copyright notice and this permission notice shall be included in
+  14:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * all copies or substantial portions of the Software.
+  15:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  *
+  16:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  17:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  18:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  19:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  20:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  21:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  22:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * THE SOFTWARE.
+  23:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  *
+  24:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  * This file is part of the TinyUSB stack.
+  25:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****  */
+  26:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  27:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** #include "tusb_option.h"
+  28:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  29:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** #if (CFG_TUD_ENABLED && CFG_TUD_DFU_RUNTIME)
+  30:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 2
+
+
+  31:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** #include "device/usbd.h"
+  32:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** #include "device/usbd_pvt.h"
+  33:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  34:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** #include "dfu_rt_device.h"
+  35:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  36:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** //--------------------------------------------------------------------+
+  37:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** // MACRO CONSTANT TYPEDEF
+  38:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** //--------------------------------------------------------------------+
+  39:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  40:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** // Level where CFG_TUSB_DEBUG must be at least for this driver is logged
+  41:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** #ifndef CFG_TUD_DFU_RUNTIME_LOG_LEVEL
+  42:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   #define CFG_TUD_DFU_RUNTIME_LOG_LEVEL   CFG_TUD_LOG_LEVEL
+  43:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** #endif
+  44:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  45:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** #define TU_LOG_DRV(...)   TU_LOG(CFG_TUD_DFU_RUNTIME_LOG_LEVEL, __VA_ARGS__)
+  46:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  47:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** //--------------------------------------------------------------------+
+  48:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** // INTERNAL OBJECT & FUNCTION DECLARATION
+  49:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** //--------------------------------------------------------------------+
+  50:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  51:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** //--------------------------------------------------------------------+
+  52:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** // USBD Driver API
+  53:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** //--------------------------------------------------------------------+
+  54:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** void dfu_rtd_init(void) {
+  29              		.loc 1 54 25 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  55:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** }
+  34              		.loc 1 55 1 view .LVU1
+  35 0000 7047     		bx	lr
+  36              		.cfi_endproc
+  37              	.LFE90:
+  39              		.section	.text.dfu_rtd_deinit,"ax",%progbits
+  40              		.align	1
+  41              		.global	dfu_rtd_deinit
+  42              		.syntax unified
+  43              		.thumb
+  44              		.thumb_func
+  46              	dfu_rtd_deinit:
+  47              	.LFB91:
+  56:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  57:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** bool dfu_rtd_deinit(void) {
+  48              		.loc 1 57 27 view -0
+  49              		.cfi_startproc
+  50              		@ args = 0, pretend = 0, frame = 0
+  51              		@ frame_needed = 0, uses_anonymous_args = 0
+  52              		@ link register save eliminated.
+  58:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   return true;
+  53              		.loc 1 58 3 view .LVU3
+  59:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** }
+  54              		.loc 1 59 1 is_stmt 0 view .LVU4
+  55 0000 0120     		movs	r0, #1
+  56 0002 7047     		bx	lr
+  57              		.cfi_endproc
+  58              	.LFE91:
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 3
+
+
+  60              		.section	.text.dfu_rtd_reset,"ax",%progbits
+  61              		.align	1
+  62              		.global	dfu_rtd_reset
+  63              		.syntax unified
+  64              		.thumb
+  65              		.thumb_func
+  67              	dfu_rtd_reset:
+  68              	.LVL0:
+  69              	.LFB92:
+  60:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  61:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** void dfu_rtd_reset(uint8_t rhport) {
+  70              		.loc 1 61 36 is_stmt 1 view -0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74              		@ link register save eliminated.
+  62:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   (void) rhport;
+  75              		.loc 1 62 3 view .LVU6
+  63:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** }
+  76              		.loc 1 63 1 is_stmt 0 view .LVU7
+  77 0000 7047     		bx	lr
+  78              		.cfi_endproc
+  79              	.LFE92:
+  81              		.section	.text.dfu_rtd_open,"ax",%progbits
+  82              		.align	1
+  83              		.global	dfu_rtd_open
+  84              		.syntax unified
+  85              		.thumb
+  86              		.thumb_func
+  88              	dfu_rtd_open:
+  89              	.LVL1:
+  90              	.LFB93:
+  64:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  65:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** uint16_t dfu_rtd_open(uint8_t rhport, tusb_desc_interface_t const * itf_desc, uint16_t max_len)
+  66:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** {
+  91              		.loc 1 66 1 is_stmt 1 view -0
+  92              		.cfi_startproc
+  93              		@ args = 0, pretend = 0, frame = 0
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95              		@ link register save eliminated.
+  67:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   (void) rhport;
+  96              		.loc 1 67 3 view .LVU9
+  68:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   (void) max_len;
+  97              		.loc 1 68 3 view .LVU10
+  69:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  70:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   // Ensure this is DFU Runtime
+  71:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   TU_VERIFY((itf_desc->bInterfaceSubClass == TUD_DFU_APP_SUBCLASS) &&
+  98              		.loc 1 71 3 view .LVU11
+  99              		.loc 1 71 3 view .LVU12
+ 100 0000 8B79     		ldrb	r3, [r1, #6]	@ zero_extendqisi2
+ 101 0002 012B     		cmp	r3, #1
+ 102 0004 0CD1     		bne	.L6
+ 103              		.loc 1 71 3 is_stmt 0 discriminator 2 view .LVU13
+ 104 0006 CB79     		ldrb	r3, [r1, #7]	@ zero_extendqisi2
+ 105 0008 012B     		cmp	r3, #1
+ 106 000a 0BD1     		bne	.L7
+ 107              		.loc 1 71 3 is_stmt 1 view .LVU14
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 4
+
+
+  72:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****             (itf_desc->bInterfaceProtocol == DFU_PROTOCOL_RT), 0);
+  73:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  74:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   uint8_t const * p_desc = tu_desc_next( itf_desc );
+ 108              		.loc 1 74 3 view .LVU15
+ 109              	.LVL2:
+ 110              	.LBB13:
+ 111              	.LBI13:
+ 112              		.file 2 "lib/TinyUSB/src/common/tusb_common.h"
+   1:lib/TinyUSB/src/common/tusb_common.h **** /*
+   2:lib/TinyUSB/src/common/tusb_common.h ****  * The MIT License (MIT)
+   3:lib/TinyUSB/src/common/tusb_common.h ****  *
+   4:lib/TinyUSB/src/common/tusb_common.h ****  * Copyright (c) 2019 Ha Thach (tinyusb.org)
+   5:lib/TinyUSB/src/common/tusb_common.h ****  *
+   6:lib/TinyUSB/src/common/tusb_common.h ****  * Permission is hereby granted, free of charge, to any person obtaining a copy
+   7:lib/TinyUSB/src/common/tusb_common.h ****  * of this software and associated documentation files (the "Software"), to deal
+   8:lib/TinyUSB/src/common/tusb_common.h ****  * in the Software without restriction, including without limitation the rights
+   9:lib/TinyUSB/src/common/tusb_common.h ****  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  10:lib/TinyUSB/src/common/tusb_common.h ****  * copies of the Software, and to permit persons to whom the Software is
+  11:lib/TinyUSB/src/common/tusb_common.h ****  * furnished to do so, subject to the following conditions:
+  12:lib/TinyUSB/src/common/tusb_common.h ****  *
+  13:lib/TinyUSB/src/common/tusb_common.h ****  * The above copyright notice and this permission notice shall be included in
+  14:lib/TinyUSB/src/common/tusb_common.h ****  * all copies or substantial portions of the Software.
+  15:lib/TinyUSB/src/common/tusb_common.h ****  *
+  16:lib/TinyUSB/src/common/tusb_common.h ****  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  17:lib/TinyUSB/src/common/tusb_common.h ****  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  18:lib/TinyUSB/src/common/tusb_common.h ****  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  19:lib/TinyUSB/src/common/tusb_common.h ****  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  20:lib/TinyUSB/src/common/tusb_common.h ****  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  21:lib/TinyUSB/src/common/tusb_common.h ****  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  22:lib/TinyUSB/src/common/tusb_common.h ****  * THE SOFTWARE.
+  23:lib/TinyUSB/src/common/tusb_common.h ****  *
+  24:lib/TinyUSB/src/common/tusb_common.h ****  * This file is part of the TinyUSB stack.
+  25:lib/TinyUSB/src/common/tusb_common.h ****  */
+  26:lib/TinyUSB/src/common/tusb_common.h **** 
+  27:lib/TinyUSB/src/common/tusb_common.h **** #ifndef TUSB_COMMON_H_
+  28:lib/TinyUSB/src/common/tusb_common.h **** #define TUSB_COMMON_H_
+  29:lib/TinyUSB/src/common/tusb_common.h **** 
+  30:lib/TinyUSB/src/common/tusb_common.h **** #ifdef __cplusplus
+  31:lib/TinyUSB/src/common/tusb_common.h ****  extern "C" {
+  32:lib/TinyUSB/src/common/tusb_common.h **** #endif
+  33:lib/TinyUSB/src/common/tusb_common.h **** 
+  34:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+  35:lib/TinyUSB/src/common/tusb_common.h **** // Macros Helper
+  36:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+  37:lib/TinyUSB/src/common/tusb_common.h **** #define TU_ARRAY_SIZE(_arr)           ( sizeof(_arr) / sizeof(_arr[0]) )
+  38:lib/TinyUSB/src/common/tusb_common.h **** #define TU_FIELD_SIZE(_type, _field)  (sizeof(((_type *)0)->_field))
+  39:lib/TinyUSB/src/common/tusb_common.h **** #define TU_MIN(_x, _y)                ( ( (_x) < (_y) ) ? (_x) : (_y) )
+  40:lib/TinyUSB/src/common/tusb_common.h **** #define TU_MAX(_x, _y)                ( ( (_x) > (_y) ) ? (_x) : (_y) )
+  41:lib/TinyUSB/src/common/tusb_common.h **** #define TU_DIV_CEIL(n, d)             (((n) + (d) - 1) / (d))
+  42:lib/TinyUSB/src/common/tusb_common.h **** #define TU_DIV_ROUND_NEAREST(v, d)    (((v) + (d)/2) / (d) ) // round to nearest integer
+  43:lib/TinyUSB/src/common/tusb_common.h **** 
+  44:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U16(_high, _low)           ((uint16_t) ((((uint16_t) (_high)) << 8) | ((uint16_t) (_low)
+  45:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U16_HIGH(_u16)             ((uint8_t) (((uint16_t) (_u16) >> 8) & 0x00ffu))
+  46:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U16_LOW(_u16)              ((uint8_t) ((uint16_t) (_u16) & 0x00ffu))
+  47:lib/TinyUSB/src/common/tusb_common.h **** #define U16_TO_U8S_BE(_u16)           TU_U16_HIGH(_u16), TU_U16_LOW(_u16)
+  48:lib/TinyUSB/src/common/tusb_common.h **** #define U16_TO_U8S_LE(_u16)           TU_U16_LOW(_u16), TU_U16_HIGH(_u16)
+  49:lib/TinyUSB/src/common/tusb_common.h **** 
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 5
+
+
+  50:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U24(_high, _mid, _low)     ((uint32_t) ((((uint32_t) (_high)) << 16) | (((uint32_t) (_mi
+  51:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U24_HIGH(_u24)             ((uint8_t) (((uint32_t) (_u24) >> 16) & 0x0000ffu))
+  52:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U24_MID(_u24)              ((uint8_t) (((uint32_t) (_u24) >>  8) & 0x0000ffu))
+  53:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U24_LOW(_u24)              ((uint8_t) ((uint32_t) (_u24) & 0x0000ffu))
+  54:lib/TinyUSB/src/common/tusb_common.h **** #define U24_TO_U8S_BE(_u24)           TU_U24_HIGH(_u24), TU_U24_MID(_u24), TU_U24_LOW(_u24)
+  55:lib/TinyUSB/src/common/tusb_common.h **** #define U24_TO_U8S_LE(_u24)           TU_U24_LOW(_u24), TU_U24_MID(_u24), TU_U24_HIGH(_u24)
+  56:lib/TinyUSB/src/common/tusb_common.h **** 
+  57:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U32_BYTE3(_u32)            ((uint8_t) ((((uint32_t) _u32) >> 24) & 0x000000ff)) // MSB
+  58:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U32_BYTE2(_u32)            ((uint8_t) ((((uint32_t) _u32) >> 16) & 0x000000ff))
+  59:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U32_BYTE1(_u32)            ((uint8_t) ((((uint32_t) _u32) >>  8) & 0x000000ff))
+  60:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U32_BYTE0(_u32)            ((uint8_t) (((uint32_t)  _u32)        & 0x000000ff)) // LSB
+  61:lib/TinyUSB/src/common/tusb_common.h **** 
+  62:lib/TinyUSB/src/common/tusb_common.h **** #define U32_TO_U8S_BE(_u32)           TU_U32_BYTE3(_u32), TU_U32_BYTE2(_u32), TU_U32_BYTE1(_u32), T
+  63:lib/TinyUSB/src/common/tusb_common.h **** #define U32_TO_U8S_LE(_u32)           TU_U32_BYTE0(_u32), TU_U32_BYTE1(_u32), TU_U32_BYTE2(_u32), T
+  64:lib/TinyUSB/src/common/tusb_common.h **** 
+  65:lib/TinyUSB/src/common/tusb_common.h **** #define TU_BIT(n)                     (1UL << (n))
+  66:lib/TinyUSB/src/common/tusb_common.h **** 
+  67:lib/TinyUSB/src/common/tusb_common.h **** // Generate a mask with bit from high (31) to low (0) set, e.g TU_GENMASK(3, 0) = 0b1111
+  68:lib/TinyUSB/src/common/tusb_common.h **** #define TU_GENMASK(h, l)              ( (UINT32_MAX << (l)) & (UINT32_MAX >> (31 - (h))) )
+  69:lib/TinyUSB/src/common/tusb_common.h **** 
+  70:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+  71:lib/TinyUSB/src/common/tusb_common.h **** // Includes
+  72:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+  73:lib/TinyUSB/src/common/tusb_common.h **** 
+  74:lib/TinyUSB/src/common/tusb_common.h **** // Standard Headers
+  75:lib/TinyUSB/src/common/tusb_common.h **** #include <stdbool.h>
+  76:lib/TinyUSB/src/common/tusb_common.h **** #include <stdint.h>
+  77:lib/TinyUSB/src/common/tusb_common.h **** #include <inttypes.h>
+  78:lib/TinyUSB/src/common/tusb_common.h **** #include <stddef.h>
+  79:lib/TinyUSB/src/common/tusb_common.h **** #include <string.h>
+  80:lib/TinyUSB/src/common/tusb_common.h **** 
+  81:lib/TinyUSB/src/common/tusb_common.h **** // Tinyusb Common Headers
+  82:lib/TinyUSB/src/common/tusb_common.h **** #include "tusb_option.h"
+  83:lib/TinyUSB/src/common/tusb_common.h **** #include "tusb_compiler.h"
+  84:lib/TinyUSB/src/common/tusb_common.h **** #include "tusb_verify.h"
+  85:lib/TinyUSB/src/common/tusb_common.h **** #include "tusb_types.h"
+  86:lib/TinyUSB/src/common/tusb_common.h **** #include "tusb_debug.h"
+  87:lib/TinyUSB/src/common/tusb_common.h **** 
+  88:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+  89:lib/TinyUSB/src/common/tusb_common.h **** // API implemented by application if needed
+  90:lib/TinyUSB/src/common/tusb_common.h **** // TODO move to a more obvious place/file
+  91:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+  92:lib/TinyUSB/src/common/tusb_common.h **** 
+  93:lib/TinyUSB/src/common/tusb_common.h **** // Get current milliseconds, required by some port/configuration without RTOS
+  94:lib/TinyUSB/src/common/tusb_common.h **** extern uint32_t tusb_time_millis_api(void);
+  95:lib/TinyUSB/src/common/tusb_common.h **** 
+  96:lib/TinyUSB/src/common/tusb_common.h **** // Delay in milliseconds, use tusb_time_millis_api() by default. required by some port/configuratio
+  97:lib/TinyUSB/src/common/tusb_common.h **** extern void tusb_time_delay_ms_api(uint32_t ms);
+  98:lib/TinyUSB/src/common/tusb_common.h **** 
+  99:lib/TinyUSB/src/common/tusb_common.h **** // flush data cache
+ 100:lib/TinyUSB/src/common/tusb_common.h **** extern void tusb_app_dcache_flush(uintptr_t addr, uint32_t data_size);
+ 101:lib/TinyUSB/src/common/tusb_common.h **** 
+ 102:lib/TinyUSB/src/common/tusb_common.h **** // invalidate data cache
+ 103:lib/TinyUSB/src/common/tusb_common.h **** extern void tusb_app_dcache_invalidate(uintptr_t addr, uint32_t data_size);
+ 104:lib/TinyUSB/src/common/tusb_common.h **** 
+ 105:lib/TinyUSB/src/common/tusb_common.h **** // Optional physical <-> virtual address translation
+ 106:lib/TinyUSB/src/common/tusb_common.h **** extern void* tusb_app_virt_to_phys(void *virt_addr);
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 6
+
+
+ 107:lib/TinyUSB/src/common/tusb_common.h **** extern void* tusb_app_phys_to_virt(void *phys_addr);
+ 108:lib/TinyUSB/src/common/tusb_common.h **** 
+ 109:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+ 110:lib/TinyUSB/src/common/tusb_common.h **** // Internal Inline Functions
+ 111:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+ 112:lib/TinyUSB/src/common/tusb_common.h **** 
+ 113:lib/TinyUSB/src/common/tusb_common.h **** //------------- Mem -------------//
+ 114:lib/TinyUSB/src/common/tusb_common.h **** #define tu_memclr(buffer, size)  (void) memset((buffer), 0, (size))
+ 115:lib/TinyUSB/src/common/tusb_common.h **** #define tu_varclr(_var)          tu_memclr(_var, sizeof(*(_var)))
+ 116:lib/TinyUSB/src/common/tusb_common.h **** 
+ 117:lib/TinyUSB/src/common/tusb_common.h **** // This is a backport of memset_s from c11
+ 118:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline int tu_memset_s(void *dest, size_t destsz, int ch, size_t count
+ 119:lib/TinyUSB/src/common/tusb_common.h ****   // Validate parameters
+ 120:lib/TinyUSB/src/common/tusb_common.h ****   if (dest == NULL) {
+ 121:lib/TinyUSB/src/common/tusb_common.h ****     return -1;
+ 122:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 123:lib/TinyUSB/src/common/tusb_common.h **** 
+ 124:lib/TinyUSB/src/common/tusb_common.h ****   if (count == 0u) {
+ 125:lib/TinyUSB/src/common/tusb_common.h ****     return 0;
+ 126:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 127:lib/TinyUSB/src/common/tusb_common.h **** 
+ 128:lib/TinyUSB/src/common/tusb_common.h ****   if (count > destsz) {
+ 129:lib/TinyUSB/src/common/tusb_common.h ****     return -1;
+ 130:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 131:lib/TinyUSB/src/common/tusb_common.h **** 
+ 132:lib/TinyUSB/src/common/tusb_common.h ****   (void) memset(dest, ch, count);
+ 133:lib/TinyUSB/src/common/tusb_common.h ****   return 0;
+ 134:lib/TinyUSB/src/common/tusb_common.h **** }
+ 135:lib/TinyUSB/src/common/tusb_common.h **** 
+ 136:lib/TinyUSB/src/common/tusb_common.h **** // This is a backport of memcpy_s from c11
+ 137:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline int tu_memcpy_s(void *dest, size_t destsz, const void *src, siz
+ 138:lib/TinyUSB/src/common/tusb_common.h ****   if (dest == NULL) {
+ 139:lib/TinyUSB/src/common/tusb_common.h ****     return -1;
+ 140:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 141:lib/TinyUSB/src/common/tusb_common.h **** 
+ 142:lib/TinyUSB/src/common/tusb_common.h ****   if (count == 0u) {
+ 143:lib/TinyUSB/src/common/tusb_common.h ****     return 0;
+ 144:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 145:lib/TinyUSB/src/common/tusb_common.h **** 
+ 146:lib/TinyUSB/src/common/tusb_common.h ****   if (src == NULL) {
+ 147:lib/TinyUSB/src/common/tusb_common.h ****     return -1;
+ 148:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 149:lib/TinyUSB/src/common/tusb_common.h **** 
+ 150:lib/TinyUSB/src/common/tusb_common.h ****   if (count > destsz) {
+ 151:lib/TinyUSB/src/common/tusb_common.h ****     return -1;
+ 152:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 153:lib/TinyUSB/src/common/tusb_common.h **** 
+ 154:lib/TinyUSB/src/common/tusb_common.h ****   (void) memcpy(dest, src, count);
+ 155:lib/TinyUSB/src/common/tusb_common.h ****   return 0;
+ 156:lib/TinyUSB/src/common/tusb_common.h **** }
+ 157:lib/TinyUSB/src/common/tusb_common.h **** 
+ 158:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline bool tu_mem_is_zero(const void *buffer, size_t size) {
+ 159:lib/TinyUSB/src/common/tusb_common.h ****   const uint8_t* buf8 = (const uint8_t*) buffer;
+ 160:lib/TinyUSB/src/common/tusb_common.h ****   for (size_t i = 0; i < size; i++) {
+ 161:lib/TinyUSB/src/common/tusb_common.h ****     if (buf8[i] != 0) { return false; }
+ 162:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 163:lib/TinyUSB/src/common/tusb_common.h ****   return true;
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 7
+
+
+ 164:lib/TinyUSB/src/common/tusb_common.h **** }
+ 165:lib/TinyUSB/src/common/tusb_common.h **** 
+ 166:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline bool tu_mem_is_ff(const void *buffer, size_t size) {
+ 167:lib/TinyUSB/src/common/tusb_common.h ****   const uint8_t* buf8 = (const uint8_t*) buffer;
+ 168:lib/TinyUSB/src/common/tusb_common.h ****   for (size_t i = 0; i < size; i++) {
+ 169:lib/TinyUSB/src/common/tusb_common.h ****     if (buf8[i] != 0xff) { return false; }
+ 170:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 171:lib/TinyUSB/src/common/tusb_common.h ****   return true;
+ 172:lib/TinyUSB/src/common/tusb_common.h **** }
+ 173:lib/TinyUSB/src/common/tusb_common.h **** 
+ 174:lib/TinyUSB/src/common/tusb_common.h **** 
+ 175:lib/TinyUSB/src/common/tusb_common.h **** //------------- Bytes -------------//
+ 176:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_u32(uint8_t b3, uint8_t b2, uint8_t b1, uint8_t b0)
+ 177:lib/TinyUSB/src/common/tusb_common.h ****   return (((uint32_t)b3) << 24) | (((uint32_t)b2) << 16) | (((uint32_t)b1) << 8) | b0;
+ 178:lib/TinyUSB/src/common/tusb_common.h **** }
+ 179:lib/TinyUSB/src/common/tusb_common.h **** 
+ 180:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_u32_from_u16(uint16_t high, uint16_t low) {
+ 181:lib/TinyUSB/src/common/tusb_common.h ****   return (((uint32_t)high) << 16) | low;
+ 182:lib/TinyUSB/src/common/tusb_common.h **** }
+ 183:lib/TinyUSB/src/common/tusb_common.h **** 
+ 184:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_u16(uint8_t high, uint8_t low) {
+ 185:lib/TinyUSB/src/common/tusb_common.h ****   return (uint16_t)((((uint16_t)high) << 8) | low);
+ 186:lib/TinyUSB/src/common/tusb_common.h **** }
+ 187:lib/TinyUSB/src/common/tusb_common.h **** 
+ 188:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte3(uint32_t ui32) { return TU_U32_BYTE3(ui32)
+ 189:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte2(uint32_t ui32) { return TU_U32_BYTE2(ui32)
+ 190:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte1(uint32_t ui32) { return TU_U32_BYTE1(ui32)
+ 191:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte0(uint32_t ui32) { return TU_U32_BYTE0(ui32)
+ 192:lib/TinyUSB/src/common/tusb_common.h **** 
+ 193:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_u32_high16(uint32_t ui32) { return (uint16_t) (ui32
+ 194:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_u32_low16 (uint32_t ui32) { return (uint16_t) (ui32
+ 195:lib/TinyUSB/src/common/tusb_common.h **** 
+ 196:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u16_high(uint16_t ui16) { return TU_U16_HIGH(ui16); 
+ 197:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u16_low (uint16_t ui16) { return TU_U16_LOW(ui16); }
+ 198:lib/TinyUSB/src/common/tusb_common.h **** 
+ 199:lib/TinyUSB/src/common/tusb_common.h **** //------------- Bits -------------//
+ 200:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_bit_set  (uint32_t value, uint8_t pos) { return val
+ 201:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_bit_clear(uint32_t value, uint8_t pos) { return val
+ 202:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline bool     tu_bit_test (uint32_t value, uint8_t pos) { return (va
+ 203:lib/TinyUSB/src/common/tusb_common.h **** 
+ 204:lib/TinyUSB/src/common/tusb_common.h **** //------------- Min -------------//
+ 205:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t  tu_min8  (uint8_t  x, uint8_t y ) { return (x < y) ? x
+ 206:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_min16 (uint16_t x, uint16_t y) { return (x < y) ? x
+ 207:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_min32 (uint32_t x, uint32_t y) { return (x < y) ? x
+ 208:lib/TinyUSB/src/common/tusb_common.h **** 
+ 209:lib/TinyUSB/src/common/tusb_common.h **** //------------- Max -------------//
+ 210:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t  tu_max8  (uint8_t  x, uint8_t y ) { return (x > y) ? x
+ 211:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_max16 (uint16_t x, uint16_t y) { return (x > y) ? x
+ 212:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_max32 (uint32_t x, uint32_t y) { return (x > y) ? x
+ 213:lib/TinyUSB/src/common/tusb_common.h **** 
+ 214:lib/TinyUSB/src/common/tusb_common.h **** //------------- Align -------------//
+ 215:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_align(uint32_t value, uint32_t alignment) {
+ 216:lib/TinyUSB/src/common/tusb_common.h ****   return value & ((uint32_t) ~(alignment-1));
+ 217:lib/TinyUSB/src/common/tusb_common.h **** }
+ 218:lib/TinyUSB/src/common/tusb_common.h **** 
+ 219:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_align4  (uint32_t value) { return (value & 0xFFFFFF
+ 220:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_align8  (uint32_t value) { return (value & 0xFFFFFF
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 8
+
+
+ 221:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_align16 (uint32_t value) { return (value & 0xFFFFFF
+ 222:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_align32 (uint32_t value) { return (value & 0xFFFFFF
+ 223:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_align4k (uint32_t value) { return (value & 0xFFFFF0
+ 224:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_offset4k(uint32_t value) { return (value & 0xFFFUL)
+ 225:lib/TinyUSB/src/common/tusb_common.h **** 
+ 226:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline bool tu_is_aligned32(uint32_t value) { return (value & 0x1FUL) 
+ 227:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline bool tu_is_aligned64(uint64_t value) { return (value & 0x3FUL) 
+ 228:lib/TinyUSB/src/common/tusb_common.h **** 
+ 229:lib/TinyUSB/src/common/tusb_common.h **** //------------- Mathematics -------------//
+ 230:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_div_ceil(uint32_t v, uint32_t d) { return TU_DIV_CE
+ 231:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_div_round_nearest(uint32_t v, uint32_t d) { return 
+ 232:lib/TinyUSB/src/common/tusb_common.h **** 
+ 233:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_round_up(uint32_t v, uint32_t f) { return tu_div_ce
+ 234:lib/TinyUSB/src/common/tusb_common.h **** 
+ 235:lib/TinyUSB/src/common/tusb_common.h **** // log2 of a value is its MSB's position
+ 236:lib/TinyUSB/src/common/tusb_common.h **** // TODO use clz TODO remove
+ 237:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_log2(uint32_t value) {
+ 238:lib/TinyUSB/src/common/tusb_common.h ****   uint8_t result = 0;
+ 239:lib/TinyUSB/src/common/tusb_common.h ****   while ((value >>= 1u) != 0u) {
+ 240:lib/TinyUSB/src/common/tusb_common.h ****     result++;
+ 241:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 242:lib/TinyUSB/src/common/tusb_common.h ****   return result;
+ 243:lib/TinyUSB/src/common/tusb_common.h **** }
+ 244:lib/TinyUSB/src/common/tusb_common.h **** 
+ 245:lib/TinyUSB/src/common/tusb_common.h **** //static inline uint8_t tu_log2(uint32_t value)
+ 246:lib/TinyUSB/src/common/tusb_common.h **** //{
+ 247:lib/TinyUSB/src/common/tusb_common.h **** //   return sizeof(uint32_t) * CHAR_BIT - __builtin_clz(x) - 1;
+ 248:lib/TinyUSB/src/common/tusb_common.h **** //}
+ 249:lib/TinyUSB/src/common/tusb_common.h **** 
+ 250:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline bool tu_is_power_of_two(uint32_t value) {
+ 251:lib/TinyUSB/src/common/tusb_common.h ****    return (value != 0) && ((value & (value - 1)) == 0);
+ 252:lib/TinyUSB/src/common/tusb_common.h **** }
+ 253:lib/TinyUSB/src/common/tusb_common.h **** 
+ 254:lib/TinyUSB/src/common/tusb_common.h **** //------------- Unaligned Access -------------//
+ 255:lib/TinyUSB/src/common/tusb_common.h **** #if TUP_ARCH_STRICT_ALIGN
+ 256:lib/TinyUSB/src/common/tusb_common.h **** 
+ 257:lib/TinyUSB/src/common/tusb_common.h **** // Rely on compiler to generate correct code for unaligned access
+ 258:lib/TinyUSB/src/common/tusb_common.h **** typedef struct { uint16_t val; } TU_ATTR_PACKED tu_unaligned_uint16_t;
+ 259:lib/TinyUSB/src/common/tusb_common.h **** typedef struct { uint32_t val; } TU_ATTR_PACKED tu_unaligned_uint32_t;
+ 260:lib/TinyUSB/src/common/tusb_common.h **** 
+ 261:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_unaligned_read32(const void *mem) {
+ 262:lib/TinyUSB/src/common/tusb_common.h ****   tu_unaligned_uint32_t const *ua32 = (tu_unaligned_uint32_t const *) mem;
+ 263:lib/TinyUSB/src/common/tusb_common.h ****   return ua32->val;
+ 264:lib/TinyUSB/src/common/tusb_common.h **** }
+ 265:lib/TinyUSB/src/common/tusb_common.h **** 
+ 266:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline void tu_unaligned_write32(void *mem, uint32_t value) {
+ 267:lib/TinyUSB/src/common/tusb_common.h ****   tu_unaligned_uint32_t *ua32 = (tu_unaligned_uint32_t *) mem;
+ 268:lib/TinyUSB/src/common/tusb_common.h ****   ua32->val = value;
+ 269:lib/TinyUSB/src/common/tusb_common.h **** }
+ 270:lib/TinyUSB/src/common/tusb_common.h **** 
+ 271:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_unaligned_read16(const void *mem) {
+ 272:lib/TinyUSB/src/common/tusb_common.h ****   tu_unaligned_uint16_t const *ua16 = (tu_unaligned_uint16_t const *) mem;
+ 273:lib/TinyUSB/src/common/tusb_common.h ****   return ua16->val;
+ 274:lib/TinyUSB/src/common/tusb_common.h **** }
+ 275:lib/TinyUSB/src/common/tusb_common.h **** 
+ 276:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline void tu_unaligned_write16(void *mem, uint16_t value) {
+ 277:lib/TinyUSB/src/common/tusb_common.h ****   tu_unaligned_uint16_t *ua16 = (tu_unaligned_uint16_t *) mem;
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 9
+
+
+ 278:lib/TinyUSB/src/common/tusb_common.h ****   ua16->val = value;
+ 279:lib/TinyUSB/src/common/tusb_common.h **** }
+ 280:lib/TinyUSB/src/common/tusb_common.h **** 
+ 281:lib/TinyUSB/src/common/tusb_common.h **** #elif TUP_MCU_STRICT_ALIGN
+ 282:lib/TinyUSB/src/common/tusb_common.h **** 
+ 283:lib/TinyUSB/src/common/tusb_common.h **** // MCU such as LPC_IP3511 Highspeed cannot access unaligned memory on USB_RAM although it is ARM M4
+ 284:lib/TinyUSB/src/common/tusb_common.h **** // We have to manually pick up bytes since tu_unaligned_uint32_t will still generate unaligned code
+ 285:lib/TinyUSB/src/common/tusb_common.h **** // NOTE: volatile cast to memory to prevent compiler to optimize and generate unaligned code
+ 286:lib/TinyUSB/src/common/tusb_common.h **** // TODO Big Endian may need minor changes
+ 287:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_unaligned_read32(const void* mem) {
+ 288:lib/TinyUSB/src/common/tusb_common.h ****   volatile uint8_t const* buf8 = (uint8_t const*) mem;
+ 289:lib/TinyUSB/src/common/tusb_common.h ****   return tu_u32(buf8[3], buf8[2], buf8[1], buf8[0]);
+ 290:lib/TinyUSB/src/common/tusb_common.h **** }
+ 291:lib/TinyUSB/src/common/tusb_common.h **** 
+ 292:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline void tu_unaligned_write32(void* mem, uint32_t value) {
+ 293:lib/TinyUSB/src/common/tusb_common.h ****   volatile uint8_t* buf8 = (uint8_t*) mem;
+ 294:lib/TinyUSB/src/common/tusb_common.h ****   buf8[0] = tu_u32_byte0(value);
+ 295:lib/TinyUSB/src/common/tusb_common.h ****   buf8[1] = tu_u32_byte1(value);
+ 296:lib/TinyUSB/src/common/tusb_common.h ****   buf8[2] = tu_u32_byte2(value);
+ 297:lib/TinyUSB/src/common/tusb_common.h ****   buf8[3] = tu_u32_byte3(value);
+ 298:lib/TinyUSB/src/common/tusb_common.h **** }
+ 299:lib/TinyUSB/src/common/tusb_common.h **** 
+ 300:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_unaligned_read16(const void* mem) {
+ 301:lib/TinyUSB/src/common/tusb_common.h ****   volatile uint8_t const* buf8 = (uint8_t const*) mem;
+ 302:lib/TinyUSB/src/common/tusb_common.h ****   return tu_u16(buf8[1], buf8[0]);
+ 303:lib/TinyUSB/src/common/tusb_common.h **** }
+ 304:lib/TinyUSB/src/common/tusb_common.h **** 
+ 305:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline void tu_unaligned_write16(void* mem, uint16_t value) {
+ 306:lib/TinyUSB/src/common/tusb_common.h ****   volatile uint8_t* buf8 = (uint8_t*) mem;
+ 307:lib/TinyUSB/src/common/tusb_common.h ****   buf8[0] = tu_u16_low(value);
+ 308:lib/TinyUSB/src/common/tusb_common.h ****   buf8[1] = tu_u16_high(value);
+ 309:lib/TinyUSB/src/common/tusb_common.h **** }
+ 310:lib/TinyUSB/src/common/tusb_common.h **** 
+ 311:lib/TinyUSB/src/common/tusb_common.h **** #else
+ 312:lib/TinyUSB/src/common/tusb_common.h **** 
+ 313:lib/TinyUSB/src/common/tusb_common.h **** // MCU that could access unaligned memory natively
+ 314:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_unaligned_read32(const void *mem) {
+ 315:lib/TinyUSB/src/common/tusb_common.h ****   return *((uint32_t const *) mem);
+ 316:lib/TinyUSB/src/common/tusb_common.h **** }
+ 317:lib/TinyUSB/src/common/tusb_common.h **** 
+ 318:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_unaligned_read16(const void *mem) {
+ 319:lib/TinyUSB/src/common/tusb_common.h ****   return *((uint16_t const *) mem);
+ 320:lib/TinyUSB/src/common/tusb_common.h **** }
+ 321:lib/TinyUSB/src/common/tusb_common.h **** 
+ 322:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline void tu_unaligned_write32(void *mem, uint32_t value) {
+ 323:lib/TinyUSB/src/common/tusb_common.h ****   *((uint32_t *) mem) = value;
+ 324:lib/TinyUSB/src/common/tusb_common.h **** }
+ 325:lib/TinyUSB/src/common/tusb_common.h **** 
+ 326:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline void tu_unaligned_write16(void *mem, uint16_t value) {
+ 327:lib/TinyUSB/src/common/tusb_common.h ****   *((uint16_t *) mem) = value;
+ 328:lib/TinyUSB/src/common/tusb_common.h **** }
+ 329:lib/TinyUSB/src/common/tusb_common.h **** 
+ 330:lib/TinyUSB/src/common/tusb_common.h **** #endif
+ 331:lib/TinyUSB/src/common/tusb_common.h **** 
+ 332:lib/TinyUSB/src/common/tusb_common.h **** // scatter read 4 bytes from two buffers. Parameter are not checked
+ 333:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_scatter_read32(const uint8_t *buf1, uint8_t len1, c
+ 334:lib/TinyUSB/src/common/tusb_common.h ****                                                                uint8_t len2) {
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 10
+
+
+ 335:lib/TinyUSB/src/common/tusb_common.h ****   uint32_t result = 0;
+ 336:lib/TinyUSB/src/common/tusb_common.h ****   uint8_t  shift  = 0;
+ 337:lib/TinyUSB/src/common/tusb_common.h **** 
+ 338:lib/TinyUSB/src/common/tusb_common.h ****   for (uint8_t i = 0; i < len1; ++i) {
+ 339:lib/TinyUSB/src/common/tusb_common.h ****     result |= ((uint32_t)buf1[i]) << shift;
+ 340:lib/TinyUSB/src/common/tusb_common.h ****     shift += 8;
+ 341:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 342:lib/TinyUSB/src/common/tusb_common.h **** 
+ 343:lib/TinyUSB/src/common/tusb_common.h ****   for (uint8_t i = 0; i < len2; ++i) {
+ 344:lib/TinyUSB/src/common/tusb_common.h ****     result |= ((uint32_t)buf2[i]) << shift;
+ 345:lib/TinyUSB/src/common/tusb_common.h ****     shift += 8;
+ 346:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 347:lib/TinyUSB/src/common/tusb_common.h **** 
+ 348:lib/TinyUSB/src/common/tusb_common.h ****   return result;
+ 349:lib/TinyUSB/src/common/tusb_common.h **** }
+ 350:lib/TinyUSB/src/common/tusb_common.h **** 
+ 351:lib/TinyUSB/src/common/tusb_common.h **** // scatter write 4 bytes to two buffers. Parameter are not checked
+ 352:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline void tu_scatter_write32(uint32_t value, uint8_t *buf1, uint8_t 
+ 353:lib/TinyUSB/src/common/tusb_common.h ****                                                             uint8_t *buf2, uint8_t len2) {
+ 354:lib/TinyUSB/src/common/tusb_common.h ****   for (uint8_t i = 0; i < len1; ++i) {
+ 355:lib/TinyUSB/src/common/tusb_common.h ****     buf1[i] = (uint8_t)(value & 0xFF);
+ 356:lib/TinyUSB/src/common/tusb_common.h ****     value >>= 8;
+ 357:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 358:lib/TinyUSB/src/common/tusb_common.h **** 
+ 359:lib/TinyUSB/src/common/tusb_common.h ****   for (uint8_t i = 0; i < len2; ++i) {
+ 360:lib/TinyUSB/src/common/tusb_common.h ****     buf2[i] = (uint8_t)(value & 0xFF);
+ 361:lib/TinyUSB/src/common/tusb_common.h ****     value >>= 8;
+ 362:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 363:lib/TinyUSB/src/common/tusb_common.h **** }
+ 364:lib/TinyUSB/src/common/tusb_common.h **** 
+ 365:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+ 366:lib/TinyUSB/src/common/tusb_common.h **** // Descriptor helper
+ 367:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+ 368:lib/TinyUSB/src/common/tusb_common.h **** 
+ 369:lib/TinyUSB/src/common/tusb_common.h **** // return next descriptor
+ 370:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t const * tu_desc_next(void const* desc) {
+ 113              		.loc 2 370 53 view .LVU16
+ 114              	.LBB14:
+ 371:lib/TinyUSB/src/common/tusb_common.h ****   uint8_t const* desc8 = (uint8_t const*) desc;
+ 115              		.loc 2 371 3 view .LVU17
+ 372:lib/TinyUSB/src/common/tusb_common.h ****   return desc8 + desc8[DESC_OFFSET_LEN];
+ 116              		.loc 2 372 3 view .LVU18
+ 117              		.loc 2 372 23 is_stmt 0 view .LVU19
+ 118 000c 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 119              		.loc 2 372 16 view .LVU20
+ 120 000e CA18     		adds	r2, r1, r3
+ 121              	.LVL3:
+ 122              		.loc 2 372 16 view .LVU21
+ 123              	.LBE14:
+ 124              	.LBE13:
+  75:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   uint16_t drv_len = sizeof(tusb_desc_interface_t);
+ 125              		.loc 1 75 3 is_stmt 1 view .LVU22
+  76:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  77:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   if ( TUSB_DESC_FUNCTIONAL == tu_desc_type(p_desc) )
+ 126              		.loc 1 77 3 view .LVU23
+ 127              	.LBB15:
+ 128              	.LBI15:
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 11
+
+
+ 373:lib/TinyUSB/src/common/tusb_common.h **** }
+ 374:lib/TinyUSB/src/common/tusb_common.h **** 
+ 375:lib/TinyUSB/src/common/tusb_common.h **** // get descriptor length
+ 376:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_desc_len(void const* desc) {
+ 377:lib/TinyUSB/src/common/tusb_common.h ****   return ((uint8_t const*) desc)[DESC_OFFSET_LEN];
+ 378:lib/TinyUSB/src/common/tusb_common.h **** }
+ 379:lib/TinyUSB/src/common/tusb_common.h **** 
+ 380:lib/TinyUSB/src/common/tusb_common.h **** // get descriptor type
+ 381:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_desc_type(void const* desc) {
+ 129              		.loc 2 381 45 view .LVU24
+ 130              	.LBB16:
+ 382:lib/TinyUSB/src/common/tusb_common.h ****   return ((uint8_t const*) desc)[DESC_OFFSET_TYPE];
+ 131              		.loc 2 382 3 view .LVU25
+ 132              		.loc 2 382 33 is_stmt 0 view .LVU26
+ 133 0010 5278     		ldrb	r2, [r2, #1]	@ zero_extendqisi2
+ 134              	.LVL4:
+ 135              		.loc 2 382 33 view .LVU27
+ 136              	.LBE16:
+ 137              	.LBE15:
+ 138              		.loc 1 77 6 view .LVU28
+ 139 0012 212A     		cmp	r2, #33
+ 140 0014 01D0     		beq	.L9
+  75:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 141              		.loc 1 75 12 view .LVU29
+ 142 0016 0920     		movs	r0, #9
+ 143              	.LVL5:
+  78:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   {
+  79:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     drv_len += tu_desc_len(p_desc);
+  80:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     p_desc   = tu_desc_next(p_desc);
+  81:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   }
+  82:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  83:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   return drv_len;
+  84:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** }
+ 144              		.loc 1 84 1 view .LVU30
+ 145 0018 7047     		bx	lr
+ 146              	.LVL6:
+ 147              	.L9:
+  79:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     p_desc   = tu_desc_next(p_desc);
+ 148              		.loc 1 79 5 is_stmt 1 view .LVU31
+ 149              	.LBB17:
+ 150              	.LBI17:
+ 376:lib/TinyUSB/src/common/tusb_common.h ****   return ((uint8_t const*) desc)[DESC_OFFSET_LEN];
+ 151              		.loc 2 376 45 view .LVU32
+ 152              	.LBB18:
+ 377:lib/TinyUSB/src/common/tusb_common.h **** }
+ 153              		.loc 2 377 3 view .LVU33
+ 377:lib/TinyUSB/src/common/tusb_common.h **** }
+ 154              		.loc 2 377 3 is_stmt 0 view .LVU34
+ 155              	.LBE18:
+ 156              	.LBE17:
+  79:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     p_desc   = tu_desc_next(p_desc);
+ 157              		.loc 1 79 16 view .LVU35
+ 158 001a C85C     		ldrb	r0, [r1, r3]	@ zero_extendqisi2
+ 159              	.LVL7:
+  79:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     p_desc   = tu_desc_next(p_desc);
+ 160              		.loc 1 79 13 view .LVU36
+ 161 001c 0930     		adds	r0, r0, #9
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 12
+
+
+ 162              	.LVL8:
+  80:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   }
+ 163              		.loc 1 80 5 is_stmt 1 view .LVU37
+ 371:lib/TinyUSB/src/common/tusb_common.h ****   return desc8 + desc8[DESC_OFFSET_LEN];
+ 164              		.loc 2 371 3 view .LVU38
+ 372:lib/TinyUSB/src/common/tusb_common.h **** }
+ 165              		.loc 2 372 3 view .LVU39
+ 372:lib/TinyUSB/src/common/tusb_common.h **** }
+ 166              		.loc 2 372 3 is_stmt 0 view .LVU40
+ 167 001e 7047     		bx	lr
+ 168              	.LVL9:
+ 169              	.L6:
+  71:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****             (itf_desc->bInterfaceProtocol == DFU_PROTOCOL_RT), 0);
+ 170              		.loc 1 71 3 view .LVU41
+ 171 0020 0020     		movs	r0, #0
+ 172              	.LVL10:
+  71:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****             (itf_desc->bInterfaceProtocol == DFU_PROTOCOL_RT), 0);
+ 173              		.loc 1 71 3 view .LVU42
+ 174 0022 7047     		bx	lr
+ 175              	.LVL11:
+ 176              	.L7:
+  71:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****             (itf_desc->bInterfaceProtocol == DFU_PROTOCOL_RT), 0);
+ 177              		.loc 1 71 3 view .LVU43
+ 178 0024 0020     		movs	r0, #0
+ 179              	.LVL12:
+  71:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****             (itf_desc->bInterfaceProtocol == DFU_PROTOCOL_RT), 0);
+ 180              		.loc 1 71 3 view .LVU44
+ 181 0026 7047     		bx	lr
+ 182              		.cfi_endproc
+ 183              	.LFE93:
+ 185              		.section	.text.dfu_rtd_control_xfer_cb,"ax",%progbits
+ 186              		.align	1
+ 187              		.global	dfu_rtd_control_xfer_cb
+ 188              		.syntax unified
+ 189              		.thumb
+ 190              		.thumb_func
+ 192              	dfu_rtd_control_xfer_cb:
+ 193              	.LVL13:
+ 194              	.LFB94:
+  85:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  86:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** // Invoked when a control transfer occurred on an interface of this class
+  87:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** // Driver response accordingly to the request and the transfer stage (setup/data/ack)
+  88:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** // return false to stall control endpoint (e.g unsupported request)
+  89:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** bool dfu_rtd_control_xfer_cb(uint8_t rhport, uint8_t stage, tusb_control_request_t const * request)
+  90:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** {
+ 195              		.loc 1 90 1 is_stmt 1 view -0
+ 196              		.cfi_startproc
+ 197              		@ args = 0, pretend = 0, frame = 8
+ 198              		@ frame_needed = 0, uses_anonymous_args = 0
+  91:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   // nothing to do with DATA or ACK stage
+  92:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   if ( stage != CONTROL_STAGE_SETUP ) return true;
+ 199              		.loc 1 92 3 view .LVU46
+ 200              		.loc 1 92 6 is_stmt 0 view .LVU47
+ 201 0000 0129     		cmp	r1, #1
+ 202 0002 2ED1     		bne	.L15
+ 203 0004 9446     		mov	ip, r2
+  93:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 13
+
+
+  94:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   TU_VERIFY(request->bmRequestType_bit.recipient == TUSB_REQ_RCPT_INTERFACE);
+ 204              		.loc 1 94 3 is_stmt 1 view .LVU48
+ 205              		.loc 1 94 3 view .LVU49
+ 206 0006 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 207 0008 03F01F02 		and	r2, r3, #31
+ 208              	.LVL14:
+ 209              		.loc 1 94 3 is_stmt 0 view .LVU50
+ 210 000c 012A     		cmp	r2, #1
+ 211 000e 2AD1     		bne	.L16
+  90:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   // nothing to do with DATA or ACK stage
+ 212              		.loc 1 90 1 discriminator 2 view .LVU51
+ 213 0010 00B5     		push	{lr}
+ 214              	.LCFI0:
+ 215              		.cfi_def_cfa_offset 4
+ 216              		.cfi_offset 14, -4
+ 217 0012 83B0     		sub	sp, sp, #12
+ 218              	.LCFI1:
+ 219              		.cfi_def_cfa_offset 16
+ 220              		.loc 1 94 3 is_stmt 1 discriminator 2 view .LVU52
+  95:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+  96:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   // dfu-util will try to claim the interface with SET_INTERFACE request before sending DFU request
+  97:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   if ( TUSB_REQ_TYPE_STANDARD == request->bmRequestType_bit.type &&
+ 221              		.loc 1 97 3 discriminator 2 view .LVU53
+ 222              		.loc 1 97 6 is_stmt 0 discriminator 2 view .LVU54
+ 223 0014 13F06003 		ands	r3, r3, #96
+ 224 0018 03D1     		bne	.L12
+  98:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****        TUSB_REQ_SET_INTERFACE == request->bRequest )
+ 225              		.loc 1 98 41 discriminator 1 view .LVU55
+ 226 001a 9CF80120 		ldrb	r2, [ip, #1]	@ zero_extendqisi2
+  97:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****        TUSB_REQ_SET_INTERFACE == request->bRequest )
+ 227              		.loc 1 97 66 discriminator 1 view .LVU56
+ 228 001e 0B2A     		cmp	r2, #11
+ 229 0020 08D0     		beq	.L22
+ 230              	.L12:
+  99:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   {
+ 100:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     tud_control_status(rhport, request);
+ 101:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     return true;
+ 102:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   }
+ 103:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 104:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   // Handle class request only from here
+ 105:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   TU_VERIFY(request->bmRequestType_bit.type == TUSB_REQ_TYPE_CLASS);
+ 231              		.loc 1 105 3 is_stmt 1 view .LVU57
+ 232              		.loc 1 105 3 view .LVU58
+ 233 0022 202B     		cmp	r3, #32
+ 234 0024 21D1     		bne	.L17
+ 235              		.loc 1 105 3 discriminator 2 view .LVU59
+ 106:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 107:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   switch (request->bRequest)
+ 236              		.loc 1 107 3 discriminator 2 view .LVU60
+ 237              		.loc 1 107 18 is_stmt 0 discriminator 2 view .LVU61
+ 238 0026 9CF80130 		ldrb	r3, [ip, #1]	@ zero_extendqisi2
+ 239              		.loc 1 107 3 discriminator 2 view .LVU62
+ 240 002a 43B1     		cbz	r3, .L13
+ 241              		.loc 1 107 3 view .LVU63
+ 242 002c 032B     		cmp	r3, #3
+ 243 002e 0DD0     		beq	.L14
+ 244 0030 0020     		movs	r0, #0
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 14
+
+
+ 245              	.LVL15:
+ 246              		.loc 1 107 3 view .LVU64
+ 247 0032 1BE0     		b	.L11
+ 248              	.LVL16:
+ 249              	.L22:
+ 100:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     return true;
+ 250              		.loc 1 100 5 is_stmt 1 view .LVU65
+ 251 0034 6146     		mov	r1, ip
+ 252              	.LVL17:
+ 100:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     return true;
+ 253              		.loc 1 100 5 is_stmt 0 view .LVU66
+ 254 0036 FFF7FEFF 		bl	tud_control_status
+ 255              	.LVL18:
+ 101:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   }
+ 256              		.loc 1 101 5 is_stmt 1 view .LVU67
+ 101:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   }
+ 257              		.loc 1 101 12 is_stmt 0 view .LVU68
+ 258 003a 0120     		movs	r0, #1
+ 259 003c 16E0     		b	.L11
+ 260              	.LVL19:
+ 261              	.L13:
+ 108:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   {
+ 109:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     case DFU_REQUEST_DETACH:
+ 110:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     {
+ 111:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       TU_LOG_DRV("  DFU RT Request: DETACH\r\n");
+ 262              		.loc 1 111 49 is_stmt 1 view .LVU69
+ 112:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       tud_control_status(rhport, request);
+ 263              		.loc 1 112 7 view .LVU70
+ 264 003e 6146     		mov	r1, ip
+ 265              	.LVL20:
+ 266              		.loc 1 112 7 is_stmt 0 view .LVU71
+ 267 0040 FFF7FEFF 		bl	tud_control_status
+ 268              	.LVL21:
+ 113:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       tud_dfu_runtime_reboot_to_dfu_cb();
+ 269              		.loc 1 113 7 is_stmt 1 view .LVU72
+ 270 0044 FFF7FEFF 		bl	tud_dfu_runtime_reboot_to_dfu_cb
+ 271              	.LVL22:
+ 114:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     }
+ 115:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     break;
+ 272              		.loc 1 115 5 view .LVU73
+ 116:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 117:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     case DFU_REQUEST_GETSTATUS:
+ 118:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     {
+ 119:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       TU_LOG_DRV("  DFU RT Request: GETSTATUS\r\n");
+ 120:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       dfu_status_response_t resp;
+ 121:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       // Status = OK, Poll timeout is ignored during RT, State = APP_IDLE, IString = 0
+ 122:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       TU_VERIFY(tu_memset_s(&resp, sizeof(resp), 0x00, sizeof(resp))==0);
+ 123:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       tud_control_xfer(rhport, request, &resp, sizeof(dfu_status_response_t));
+ 124:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     }
+ 125:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     break;
+ 126:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 127:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     default:
+ 128:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     {
+ 129:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       TU_LOG_DRV("  DFU RT Unexpected Request: %d\r\n", request->bRequest);
+ 130:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       return false; // stall unsupported request
+ 131:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     }
+ 132:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   }
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 15
+
+
+ 133:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 134:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****   return true;
+ 273              		.loc 1 134 10 is_stmt 0 view .LVU74
+ 274 0048 0120     		movs	r0, #1
+ 115:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 275              		.loc 1 115 5 view .LVU75
+ 276 004a 0FE0     		b	.L11
+ 277              	.LVL23:
+ 278              	.L14:
+ 279              	.LBB19:
+ 119:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       dfu_status_response_t resp;
+ 280              		.loc 1 119 52 is_stmt 1 view .LVU76
+ 120:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       // Status = OK, Poll timeout is ignored during RT, State = APP_IDLE, IString = 0
+ 281              		.loc 1 120 7 view .LVU77
+ 122:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       tud_control_xfer(rhport, request, &resp, sizeof(dfu_status_response_t));
+ 282              		.loc 1 122 7 view .LVU78
+ 122:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       tud_control_xfer(rhport, request, &resp, sizeof(dfu_status_response_t));
+ 283              		.loc 1 122 7 view .LVU79
+ 284              	.LBB20:
+ 285              	.LBI20:
+ 118:lib/TinyUSB/src/common/tusb_common.h ****   // Validate parameters
+ 286              		.loc 2 118 41 view .LVU80
+ 287              	.LBB21:
+ 120:lib/TinyUSB/src/common/tusb_common.h ****     return -1;
+ 288              		.loc 2 120 3 view .LVU81
+ 124:lib/TinyUSB/src/common/tusb_common.h ****     return 0;
+ 289              		.loc 2 124 3 view .LVU82
+ 128:lib/TinyUSB/src/common/tusb_common.h ****     return -1;
+ 290              		.loc 2 128 3 view .LVU83
+ 132:lib/TinyUSB/src/common/tusb_common.h ****   return 0;
+ 291              		.loc 2 132 3 view .LVU84
+ 132:lib/TinyUSB/src/common/tusb_common.h ****   return 0;
+ 292              		.loc 2 132 10 is_stmt 0 view .LVU85
+ 293 004c 0023     		movs	r3, #0
+ 294 004e 0093     		str	r3, [sp]
+ 295 0050 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ 133:lib/TinyUSB/src/common/tusb_common.h **** }
+ 296              		.loc 2 133 3 is_stmt 1 view .LVU86
+ 297              	.LVL24:
+ 133:lib/TinyUSB/src/common/tusb_common.h **** }
+ 298              		.loc 2 133 3 is_stmt 0 view .LVU87
+ 299              	.LBE21:
+ 300              	.LBE20:
+ 122:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****       tud_control_xfer(rhport, request, &resp, sizeof(dfu_status_response_t));
+ 301              		.loc 1 122 7 is_stmt 1 view .LVU88
+ 123:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     }
+ 302              		.loc 1 123 7 view .LVU89
+ 303 0054 0623     		movs	r3, #6
+ 304 0056 6A46     		mov	r2, sp
+ 305 0058 6146     		mov	r1, ip
+ 306              	.LVL25:
+ 123:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     }
+ 307              		.loc 1 123 7 is_stmt 0 view .LVU90
+ 308 005a FFF7FEFF 		bl	tud_control_xfer
+ 309              	.LVL26:
+ 123:lib/TinyUSB/src/class/dfu/dfu_rt_device.c ****     }
+ 310              		.loc 1 123 7 view .LVU91
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 16
+
+
+ 311              	.LBE19:
+ 125:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 312              		.loc 1 125 5 is_stmt 1 view .LVU92
+ 313              		.loc 1 134 10 is_stmt 0 view .LVU93
+ 314 005e 0120     		movs	r0, #1
+ 125:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 315              		.loc 1 125 5 view .LVU94
+ 316 0060 04E0     		b	.L11
+ 317              	.LVL27:
+ 318              	.L15:
+ 319              	.LCFI2:
+ 320              		.cfi_def_cfa_offset 0
+ 321              		.cfi_restore 14
+  92:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 322              		.loc 1 92 46 view .LVU95
+ 323 0062 0120     		movs	r0, #1
+ 324              	.LVL28:
+  92:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 325              		.loc 1 92 46 view .LVU96
+ 326 0064 7047     		bx	lr
+ 327              	.LVL29:
+ 328              	.L16:
+  94:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 329              		.loc 1 94 3 view .LVU97
+ 330 0066 0020     		movs	r0, #0
+ 331              	.LVL30:
+ 135:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** }
+ 332              		.loc 1 135 1 view .LVU98
+ 333 0068 7047     		bx	lr
+ 334              	.LVL31:
+ 335              	.L17:
+ 336              	.LCFI3:
+ 337              		.cfi_def_cfa_offset 16
+ 338              		.cfi_offset 14, -4
+ 105:lib/TinyUSB/src/class/dfu/dfu_rt_device.c **** 
+ 339              		.loc 1 105 3 view .LVU99
+ 340 006a 0020     		movs	r0, #0
+ 341              	.LVL32:
+ 342              	.L11:
+ 343              		.loc 1 135 1 view .LVU100
+ 344 006c 03B0     		add	sp, sp, #12
+ 345              	.LCFI4:
+ 346              		.cfi_def_cfa_offset 4
+ 347              		@ sp needed
+ 348 006e 5DF804FB 		ldr	pc, [sp], #4
+ 349              		.cfi_endproc
+ 350              	.LFE94:
+ 352              		.text
+ 353              	.Letext0:
+ 354              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 355              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 356              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\lib\\gcc\\arm-none-eabi\
+ 357              		.file 6 "lib/TinyUSB/src/common/tusb_types.h"
+ 358              		.file 7 "lib/TinyUSB/src/class/dfu/dfu.h"
+ 359              		.file 8 "lib/TinyUSB/src/device/usbd.h"
+ 360              		.file 9 "lib/TinyUSB/src/class/dfu/dfu_rt_device.h"
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 dfu_rt_device.c
+C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s:20     .text.dfu_rtd_init:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s:26     .text.dfu_rtd_init:00000000 dfu_rtd_init
+C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s:40     .text.dfu_rtd_deinit:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s:46     .text.dfu_rtd_deinit:00000000 dfu_rtd_deinit
+C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s:61     .text.dfu_rtd_reset:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s:67     .text.dfu_rtd_reset:00000000 dfu_rtd_reset
+C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s:82     .text.dfu_rtd_open:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s:88     .text.dfu_rtd_open:00000000 dfu_rtd_open
+C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s:186    .text.dfu_rtd_control_xfer_cb:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccqtGsEV.s:192    .text.dfu_rtd_control_xfer_cb:00000000 dfu_rtd_control_xfer_cb
+
+UNDEFINED SYMBOLS
+tud_control_status
+tud_dfu_runtime_reboot_to_dfu_cb
+tud_control_xfer

@@ -1,0 +1,2590 @@
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"dwc2_common.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.reset_core,"ax",%progbits
+  20              		.align	1
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	reset_core:
+  26              	.LFB326:
+  27              		.file 1 "lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c"
+   1:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** /*
+   2:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * The MIT License (MIT)
+   3:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  *
+   4:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * Copyright (c) 2024-2025 Ha Thach (tinyusb.org)
+   5:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  *
+   6:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * Permission is hereby granted, free of charge, to any person obtaining a copy
+   7:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * of this software and associated documentation files (the "Software"), to deal
+   8:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * in the Software without restriction, including without limitation the rights
+   9:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  10:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * copies of the Software, and to permit persons to whom the Software is
+  11:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * furnished to do so, subject to the following conditions:
+  12:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  *
+  13:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * The above copyright notice and this permission notice shall be included in
+  14:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * all copies or substantial portions of the Software.
+  15:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  *
+  16:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  17:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  18:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  19:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  20:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  21:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  22:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * THE SOFTWARE.
+  23:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  *
+  24:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * This file is part of the TinyUSB stack.
+  25:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  */
+  26:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  27:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** #include "tusb_option.h"
+  28:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  29:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** #define DWC2_COMMON_DEBUG   2
+  30:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  31:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** #if defined(TUP_USBIP_DWC2) && (CFG_TUH_ENABLED || CFG_TUD_ENABLED)
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 2
+
+
+  32:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** #include "dwc2_common.h"
+  33:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  34:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //--------------------------------------------------------------------
+  35:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //
+  36:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //--------------------------------------------------------------------
+  37:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** static void reset_core(dwc2_regs_t* dwc2) {
+  28              		.loc 1 37 43 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  34              	.L2:
+  38:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // The software must check that bit 31 in this register is set to 1 (AHB Master is Idle) before s
+  39:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   while (!(dwc2->grstctl & GRSTCTL_AHBIDL)) {
+  40:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+  35              		.loc 1 40 3 discriminator 1 view .LVU1
+  39:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+  36              		.loc 1 39 9 discriminator 1 view .LVU2
+  39:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+  37              		.loc 1 39 16 is_stmt 0 discriminator 1 view .LVU3
+  38 0000 0369     		ldr	r3, [r0, #16]
+  39:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+  39              		.loc 1 39 9 discriminator 1 view .LVU4
+  40 0002 002B     		cmp	r3, #0
+  41 0004 FCDA     		bge	.L2
+  41:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  42:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // load gsnpsid (it is not readable after reset is asserted)
+  43:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   const uint32_t gsnpsid = dwc2->gsnpsid;
+  42              		.loc 1 43 3 is_stmt 1 view .LVU5
+  43              		.loc 1 43 18 is_stmt 0 view .LVU6
+  44 0006 036C     		ldr	r3, [r0, #64]
+  45              	.LVL1:
+  44:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  45:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // reset core
+  46:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->grstctl |= GRSTCTL_CSRST;
+  46              		.loc 1 46 3 is_stmt 1 view .LVU7
+  47              		.loc 1 46 17 is_stmt 0 view .LVU8
+  48 0008 0269     		ldr	r2, [r0, #16]
+  49 000a 42F00102 		orr	r2, r2, #1
+  50 000e 0261     		str	r2, [r0, #16]
+  47:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  48:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   if ((gsnpsid & DWC2_CORE_REV_MASK) < (DWC2_CORE_REV_4_20a & DWC2_CORE_REV_MASK)) {
+  51              		.loc 1 48 3 is_stmt 1 view .LVU9
+  52              		.loc 1 48 16 is_stmt 0 view .LVU10
+  53 0010 9BB2     		uxth	r3, r3
+  54              	.LVL2:
+  55              		.loc 1 48 6 view .LVU11
+  56 0012 44F20922 		movw	r2, #16905
+  57 0016 9342     		cmp	r3, r2
+  58 0018 07D8     		bhi	.L3
+  59              	.L4:
+  49:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // prior v4.20a: CSRST is self-clearing and the core clears this bit after all the necessary lo
+  50:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // the core, which can take several clocks, depending on the current state of the core. Once th
+  51:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // cleared, the software must wait at least 3 PHY clocks before accessing the PHY domain (synch
+  52:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     while (dwc2->grstctl & GRSTCTL_CSRST) {}
+  60              		.loc 1 52 44 is_stmt 1 discriminator 1 view .LVU12
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 3
+
+
+  61              		.loc 1 52 11 discriminator 1 view .LVU13
+  62              		.loc 1 52 16 is_stmt 0 discriminator 1 view .LVU14
+  63 001a 0369     		ldr	r3, [r0, #16]
+  64              		.loc 1 52 11 discriminator 1 view .LVU15
+  65 001c 13F0010F 		tst	r3, #1
+  66 0020 FBD1     		bne	.L4
+  67              	.L6:
+  53:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   } else {
+  54:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // From v4.20a: CSRST bit is write only. The application must clear this bit after checking the
+  55:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // register i.e Core Soft Reset Done CSRT_DONE (w1c)
+  56:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     while (!(dwc2->grstctl & GRSTCTL_CSRST_DONE)) {}
+  57:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     dwc2->grstctl = (dwc2->grstctl & ~GRSTCTL_CSRST) | GRSTCTL_CSRST_DONE;
+  58:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+  59:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  60:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   while (!(dwc2->grstctl & GRSTCTL_AHBIDL)) {} // wait for AHB master IDLE
+  68              		.loc 1 60 46 is_stmt 1 discriminator 1 view .LVU16
+  69              		.loc 1 60 9 discriminator 1 view .LVU17
+  70              		.loc 1 60 16 is_stmt 0 discriminator 1 view .LVU18
+  71 0022 0369     		ldr	r3, [r0, #16]
+  72              		.loc 1 60 9 discriminator 1 view .LVU19
+  73 0024 002B     		cmp	r3, #0
+  74 0026 FCDA     		bge	.L6
+  61:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** }
+  75              		.loc 1 61 1 view .LVU20
+  76 0028 7047     		bx	lr
+  77              	.L3:
+  56:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     dwc2->grstctl = (dwc2->grstctl & ~GRSTCTL_CSRST) | GRSTCTL_CSRST_DONE;
+  78              		.loc 1 56 52 is_stmt 1 discriminator 1 view .LVU21
+  56:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     dwc2->grstctl = (dwc2->grstctl & ~GRSTCTL_CSRST) | GRSTCTL_CSRST_DONE;
+  79              		.loc 1 56 11 discriminator 1 view .LVU22
+  56:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     dwc2->grstctl = (dwc2->grstctl & ~GRSTCTL_CSRST) | GRSTCTL_CSRST_DONE;
+  80              		.loc 1 56 18 is_stmt 0 discriminator 1 view .LVU23
+  81 002a 0369     		ldr	r3, [r0, #16]
+  56:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     dwc2->grstctl = (dwc2->grstctl & ~GRSTCTL_CSRST) | GRSTCTL_CSRST_DONE;
+  82              		.loc 1 56 11 discriminator 1 view .LVU24
+  83 002c 13F0005F 		tst	r3, #536870912
+  84 0030 FBD0     		beq	.L3
+  57:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+  85              		.loc 1 57 5 is_stmt 1 view .LVU25
+  57:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+  86              		.loc 1 57 26 is_stmt 0 view .LVU26
+  87 0032 0369     		ldr	r3, [r0, #16]
+  57:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+  88              		.loc 1 57 54 view .LVU27
+  89 0034 23F00053 		bic	r3, r3, #536870912
+  90 0038 23F00103 		bic	r3, r3, #1
+  91 003c 43F00053 		orr	r3, r3, #536870912
+  57:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+  92              		.loc 1 57 19 view .LVU28
+  93 0040 0361     		str	r3, [r0, #16]
+  94 0042 EEE7     		b	.L6
+  95              		.cfi_endproc
+  96              	.LFE326:
+  98              		.section	.text.phy_hs_init,"ax",%progbits
+  99              		.align	1
+ 100              		.syntax unified
+ 101              		.thumb
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 4
+
+
+ 102              		.thumb_func
+ 104              	phy_hs_init:
+ 105              	.LVL3:
+ 106              	.LFB328:
+  62:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  63:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** static void phy_fs_init(dwc2_regs_t* dwc2) {
+  64:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   TU_LOG(DWC2_COMMON_DEBUG, "Fullspeed PHY init\r\n");
+  65:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  66:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   uint32_t gusbcfg = dwc2->gusbcfg;
+  67:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  68:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Select FS PHY
+  69:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   gusbcfg |= GUSBCFG_PHYSEL;
+  70:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gusbcfg = gusbcfg;
+  71:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  72:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // MCU specific PHY init before reset
+  73:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2_phy_init(dwc2, GHWCFG2_HSPHY_NOT_SUPPORTED);
+  74:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  75:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Reset core after selecting PHY
+  76:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   reset_core(dwc2);
+  77:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  78:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // USB turnaround time is critical for certification where long cables and 5-Hubs are used.
+  79:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // So if you need the AHB to run at less than 30 MHz, and if USB turnaround time is not critical,
+  80:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // these bits can be programmed to a larger value. Default is 5
+  81:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   gusbcfg &= ~GUSBCFG_TRDT_Msk;
+  82:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   gusbcfg |= 5u << GUSBCFG_TRDT_Pos;
+  83:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gusbcfg = gusbcfg;
+  84:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  85:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // MCU specific PHY update post reset
+  86:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2_phy_update(dwc2, GHWCFG2_HSPHY_NOT_SUPPORTED);
+  87:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** }
+  88:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  89:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** static void phy_hs_init(dwc2_regs_t* dwc2) {
+ 107              		.loc 1 89 44 is_stmt 1 view -0
+ 108              		.cfi_startproc
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111              		.loc 1 89 44 is_stmt 0 view .LVU30
+ 112 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 113              	.LCFI0:
+ 114              		.cfi_def_cfa_offset 24
+ 115              		.cfi_offset 3, -24
+ 116              		.cfi_offset 4, -20
+ 117              		.cfi_offset 5, -16
+ 118              		.cfi_offset 6, -12
+ 119              		.cfi_offset 7, -8
+ 120              		.cfi_offset 14, -4
+ 121 0002 0446     		mov	r4, r0
+  90:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   uint32_t gusbcfg = dwc2->gusbcfg;
+ 122              		.loc 1 90 3 is_stmt 1 view .LVU31
+ 123              		.loc 1 90 12 is_stmt 0 view .LVU32
+ 124 0004 C568     		ldr	r5, [r0, #12]
+ 125              	.LVL4:
+  91:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   const dwc2_ghwcfg2_t ghwcfg2 = {.value = dwc2->ghwcfg2};
+ 126              		.loc 1 91 3 is_stmt 1 view .LVU33
+ 127              		.loc 1 91 48 is_stmt 0 view .LVU34
+ 128 0006 836C     		ldr	r3, [r0, #72]
+  92:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   const dwc2_ghwcfg4_t ghwcfg4 = {.value = dwc2->ghwcfg4};
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 5
+
+
+ 129              		.loc 1 92 3 is_stmt 1 view .LVU35
+ 130              		.loc 1 92 48 is_stmt 0 view .LVU36
+ 131 0008 026D     		ldr	r2, [r0, #80]
+  93:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+  94:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   uint8_t phy_width;
+ 132              		.loc 1 94 3 is_stmt 1 view .LVU37
+  95:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   if (CFG_TUSB_MCU != OPT_MCU_AT32F402_405 && // at32f402_405 does not support 16-bit
+ 133              		.loc 1 95 3 view .LVU38
+ 134              		.loc 1 95 44 is_stmt 0 view .LVU39
+ 135 000a C2F30722 		ubfx	r2, r2, #8, #8
+ 136              		.loc 1 95 6 view .LVU40
+ 137 000e 12F0C00F 		tst	r2, #192
+ 138 0012 1DD0     		beq	.L17
+  96:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****       ghwcfg4.phy_data_width) {
+  97:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     phy_width = 16; // 16-bit PHY interface if supported
+ 139              		.loc 1 97 15 view .LVU41
+ 140 0014 1026     		movs	r6, #16
+ 141              	.L8:
+ 142              	.LVL5:
+  98:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   } else {
+  99:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     phy_width = 8; // 8-bit PHY interface
+ 100:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 101:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 102:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // De-select FS PHY
+ 103:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   gusbcfg &= ~GUSBCFG_PHYSEL;
+ 143              		.loc 1 103 3 is_stmt 1 view .LVU42
+ 104:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 105:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   if (ghwcfg2.hs_phy_type == GHWCFG2_HSPHY_ULPI) {
+ 144              		.loc 1 105 3 view .LVU43
+ 145              		.loc 1 105 27 is_stmt 0 view .LVU44
+ 146 0016 03F0C002 		and	r2, r3, #192
+ 147              		.loc 1 105 6 view .LVU45
+ 148 001a 802A     		cmp	r2, #128
+ 149 001c 1AD0     		beq	.L29
+ 106:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     TU_LOG(DWC2_COMMON_DEBUG, "Highspeed ULPI PHY init\r\n");
+ 107:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 108:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // Select ULPI PHY (external)
+ 109:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     gusbcfg |= GUSBCFG_ULPI_UTMI_SEL;
+ 110:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 111:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // ULPI is always 8-bit interface
+ 112:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     gusbcfg &= ~GUSBCFG_PHYIF16;
+ 113:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 114:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // ULPI select single data rate
+ 115:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     gusbcfg &= ~GUSBCFG_DDRSEL;
+ 116:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 117:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // default internal VBUS Indicator and Drive
+ 118:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     gusbcfg &= ~(GUSBCFG_ULPIEVBUSD | GUSBCFG_ULPIEVBUSI);
+ 119:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 120:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // Disable FS/LS ULPI
+ 121:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     gusbcfg &= ~(GUSBCFG_ULPIFSLS | GUSBCFG_ULPICSM);
+ 122:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   } else {
+ 123:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     TU_LOG(DWC2_COMMON_DEBUG, "Highspeed UTMI+ PHY init\r\n");
+ 150              		.loc 1 123 62 is_stmt 1 view .LVU46
+ 124:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 125:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // Select UTMI+ PHY (internal)
+ 126:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     gusbcfg &= ~GUSBCFG_ULPI_UTMI_SEL;
+ 151              		.loc 1 126 5 view .LVU47
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 6
+
+
+ 152              		.loc 1 126 13 is_stmt 0 view .LVU48
+ 153 001e 25F05002 		bic	r2, r5, #80
+ 154              	.LVL6:
+ 127:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 128:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // Set 16-bit interface if supported
+ 129:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     if (phy_width == 16) {
+ 155              		.loc 1 129 5 is_stmt 1 view .LVU49
+ 156              		.loc 1 129 8 is_stmt 0 view .LVU50
+ 157 0022 102E     		cmp	r6, #16
+ 158 0024 1DD0     		beq	.L30
+ 130:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****       gusbcfg |= GUSBCFG_PHYIF16;
+ 131:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     } else {
+ 132:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****       gusbcfg &= ~GUSBCFG_PHYIF16;
+ 159              		.loc 1 132 7 is_stmt 1 view .LVU51
+ 160              		.loc 1 132 15 is_stmt 0 view .LVU52
+ 161 0026 25F05805 		bic	r5, r5, #88
+ 162              	.LVL7:
+ 163              	.L10:
+ 133:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     }
+ 134:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 135:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 136:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Apply config
+ 137:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gusbcfg = gusbcfg;
+ 164              		.loc 1 137 3 is_stmt 1 view .LVU53
+ 165              		.loc 1 137 17 is_stmt 0 view .LVU54
+ 166 002a E560     		str	r5, [r4, #12]
+ 138:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 139:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // mcu specific phy init
+ 140:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2_phy_init(dwc2, ghwcfg2.hs_phy_type);
+ 167              		.loc 1 140 3 is_stmt 1 view .LVU55
+ 168              		.loc 1 140 30 is_stmt 0 view .LVU56
+ 169 002c C3F38117 		ubfx	r7, r3, #6, #2
+ 170              	.LVL8:
+ 171              	.LBB28:
+ 172              	.LBI28:
+ 173              		.file 2 "lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h"
+   1:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** /*
+   2:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * The MIT License (MIT)
+   3:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  *
+   4:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * Copyright (c) 2021, Ha Thach (tinyusb.org)
+   5:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  *
+   6:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * Permission is hereby granted, free of charge, to any person obtaining a copy
+   7:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * of this software and associated documentation files (the "Software"), to deal
+   8:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * in the Software without restriction, including without limitation the rights
+   9:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  10:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * copies of the Software, and to permit persons to whom the Software is
+  11:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * furnished to do so, subject to the following conditions:
+  12:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  *
+  13:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * The above copyright notice and this permission notice shall be included in
+  14:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * all copies or substantial portions of the Software.
+  15:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  *
+  16:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  17:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  18:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  19:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  20:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  21:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 7
+
+
+  22:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * THE SOFTWARE.
+  23:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  *
+  24:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  * This file is part of the TinyUSB stack.
+  25:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****  */
+  26:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  27:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #ifndef DWC2_STM32_H_
+  28:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #define DWC2_STM32_H_
+  29:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  30:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #ifdef __cplusplus
+  31:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** extern "C" {
+  32:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #endif
+  33:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  34:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** // EP_MAX       : Max number of bi-directional endpoints including EP0
+  35:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** // EP_FIFO_SIZE : Size of dedicated USB SRAM
+  36:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #if CFG_TUSB_MCU == OPT_MCU_STM32F1
+  37:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #include "stm32f1xx.h"
+  38:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_FS       4
+  39:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_FS 1280
+  40:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  41:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #elif CFG_TUSB_MCU == OPT_MCU_STM32F2
+  42:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #include "stm32f2xx.h"
+  43:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_FS       USB_OTG_FS_MAX_IN_ENDPOINTS
+  44:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_FS USB_OTG_FS_TOTAL_FIFO_SIZE
+  45:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  46:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_HS       USB_OTG_HS_MAX_IN_ENDPOINTS
+  47:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_HS USB_OTG_HS_TOTAL_FIFO_SIZE
+  48:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  49:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #elif CFG_TUSB_MCU == OPT_MCU_STM32F4
+  50:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #include "stm32f4xx.h"
+  51:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_FS       USB_OTG_FS_MAX_IN_ENDPOINTS
+  52:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_FS USB_OTG_FS_TOTAL_FIFO_SIZE
+  53:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  54:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_HS       USB_OTG_HS_MAX_IN_ENDPOINTS
+  55:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_HS USB_OTG_HS_TOTAL_FIFO_SIZE
+  56:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  57:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #elif CFG_TUSB_MCU == OPT_MCU_STM32H7
+  58:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #include "stm32h7xx.h"
+  59:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_FS       9
+  60:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_FS 4096
+  61:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  62:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_HS       9
+  63:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_HS 4096
+  64:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  65:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   // NOTE: H7 with only 1 USB port: H72x / H73x / H7Ax / H7Bx
+  66:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   // USB_OTG_FS_PERIPH_BASE and OTG_FS_IRQn not defined
+  67:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #if (! defined USB2_OTG_FS)
+  68:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #define USB_OTG_FS_PERIPH_BASE  USB1_OTG_HS_PERIPH_BASE
+  69:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #define OTG_FS_IRQn             OTG_HS_IRQn
+  70:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #endif
+  71:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  72:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #elif CFG_TUSB_MCU == OPT_MCU_STM32H7RS
+  73:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #include "stm32h7rsxx.h"
+  74:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_FS       6
+  75:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_FS 1280
+  76:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  77:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_HS       9
+  78:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_HS 4096
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 8
+
+
+  79:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  80:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #elif CFG_TUSB_MCU == OPT_MCU_STM32N6
+  81:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #include "stm32n6xx.h"
+  82:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_FS       9
+  83:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_FS 4096
+  84:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  85:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_HS       9
+  86:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_HS 4096
+  87:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  88:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define USB_OTG_HS_PERIPH_BASE    USB1_OTG_HS_BASE
+  89:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define OTG_HS_IRQn               USB1_OTG_HS_IRQn
+  90:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  91:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #elif CFG_TUSB_MCU == OPT_MCU_STM32F7
+  92:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #include "stm32f7xx.h"
+  93:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_FS       6
+  94:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_FS 1280
+  95:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  96:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_HS       9
+  97:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_HS 4096
+  98:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+  99:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #elif CFG_TUSB_MCU == OPT_MCU_STM32L4
+ 100:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #include "stm32l4xx.h"
+ 101:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_FS       6
+ 102:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_FS 1280
+ 103:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 104:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #elif CFG_TUSB_MCU == OPT_MCU_STM32U5
+ 105:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #include "stm32u5xx.h"
+ 106:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   // U59x/5Ax/5Fx/5Gx are highspeed with built-in HS PHY
+ 107:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #ifdef USB_OTG_FS
+ 108:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #define USB_OTG_FS_PERIPH_BASE    USB_OTG_FS_BASE
+ 109:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #define EP_MAX_FS                 6
+ 110:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #define EP_FIFO_SIZE_FS           1280
+ 111:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #else
+ 112:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #define USB_OTG_HS_PERIPH_BASE    USB_OTG_HS_BASE
+ 113:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #define EP_MAX_HS                 9
+ 114:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #define EP_FIFO_SIZE_HS           4096
+ 115:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #endif
+ 116:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 117:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #elif CFG_TUSB_MCU == OPT_MCU_STM32WBA
+ 118:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #if defined(STM32WBA62xx)
+ 119:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #include "stm32wba62xx.h"
+ 120:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #elif defined(STM32WBA64xx)
+ 121:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #include "stm32wba64xx.h"
+ 122:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #elif defined(STM32WBA65xx)
+ 123:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #include "stm32wba65xx.h"
+ 124:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #else
+ 125:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #error "The selected STM32WBA series chip does not support OTG USB HS"
+ 126:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #endif
+ 127:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 128:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define USB_OTG_HS_PERIPH_BASE    USB_OTG_HS_BASE_NS
+ 129:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define OTG_HS_IRQn               USB_OTG_HS_IRQn
+ 130:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_MAX_HS                 9
+ 131:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define EP_FIFO_SIZE_HS           4096
+ 132:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #else
+ 133:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #error "Unsupported MCUs"
+ 134:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #endif
+ 135:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 9
+
+
+ 136:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** // OTG HS always has higher number of endpoints than FS
+ 137:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #ifdef USB_OTG_HS_PERIPH_BASE
+ 138:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define DWC2_EP_MAX   EP_MAX_HS
+ 139:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #else
+ 140:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   #define DWC2_EP_MAX   EP_MAX_FS
+ 141:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #endif
+ 142:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 143:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** // On STM32 for consistency we associate
+ 144:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** // - Port0 to OTG_FS, and Port1 to OTG_HS
+ 145:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** static const dwc2_controller_t _dwc2_controller[] = {
+ 146:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #ifdef USB_OTG_FS_PERIPH_BASE
+ 147:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     { .reg_base = USB_OTG_FS_PERIPH_BASE, .irqnum = OTG_FS_IRQn, .ep_count = EP_MAX_FS, .ep_fifo_si
+ 148:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #endif
+ 149:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 150:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #ifdef USB_OTG_HS_PERIPH_BASE
+ 151:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     { .reg_base = USB_OTG_HS_PERIPH_BASE, .irqnum = OTG_HS_IRQn, .ep_count = EP_MAX_HS, .ep_fifo_si
+ 152:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #endif
+ 153:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** };
+ 154:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 155:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** //--------------------------------------------------------------------+
+ 156:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** //
+ 157:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** //--------------------------------------------------------------------+
+ 158:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 159:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** // SystemCoreClock is already included by family header
+ 160:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** // extern uint32_t SystemCoreClock;
+ 161:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 162:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** TU_ATTR_ALWAYS_INLINE static inline void dwc2_int_set(uint8_t rhport, tusb_role_t role, bool enable
+ 163:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   (void) role;
+ 164:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   const IRQn_Type irqn = (IRQn_Type) _dwc2_controller[rhport].irqnum;
+ 165:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   if (enabled) {
+ 166:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     NVIC_EnableIRQ(irqn);
+ 167:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   } else {
+ 168:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     NVIC_DisableIRQ(irqn);
+ 169:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   }
+ 170:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** }
+ 171:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 172:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #define dwc2_dcd_int_enable(_rhport)  dwc2_int_set(_rhport, TUSB_ROLE_DEVICE, true)
+ 173:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #define dwc2_dcd_int_disable(_rhport) dwc2_int_set(_rhport, TUSB_ROLE_DEVICE, false)
+ 174:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 175:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 176:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** TU_ATTR_ALWAYS_INLINE static inline void dwc2_remote_wakeup_delay(void) {
+ 177:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   // try to delay for 1 ms
+ 178:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   uint32_t count = SystemCoreClock / 1000;
+ 179:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   while (count--) {
+ 180:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     __NOP();
+ 181:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   }
+ 182:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** }
+ 183:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 184:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** // MCU specific PHY init, called BEFORE core reset
+ 185:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** // - dwc2 3.30a (H5) use USB_HS_PHYC
+ 186:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** // - dwc2 4.11a (U5) use femtoPHY
+ 187:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** // - dwc2 x.xxx (WBA) use USB_OTG_HS
+ 188:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** static inline void dwc2_phy_init(dwc2_regs_t* dwc2, uint8_t hs_phy_type) {
+ 174              		.loc 2 188 20 is_stmt 1 view .LVU57
+ 175              	.LBB29:
+ 189:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   if (hs_phy_type == GHWCFG2_HSPHY_NOT_SUPPORTED) {
+ 176              		.loc 2 189 3 view .LVU58
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 10
+
+
+ 177              		.loc 2 189 6 is_stmt 0 view .LVU59
+ 178 0030 13F0C00F 		tst	r3, #192
+ 179 0034 18D1     		bne	.L12
+ 190:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     // Enable on-chip FS PHY
+ 191:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     dwc2->stm32_gccfg |= STM32_GCCFG_PWRDWN;
+ 180              		.loc 2 191 5 is_stmt 1 view .LVU60
+ 181              		.loc 2 191 23 is_stmt 0 view .LVU61
+ 182 0036 A36B     		ldr	r3, [r4, #56]
+ 183              	.LVL9:
+ 184              		.loc 2 191 23 view .LVU62
+ 185 0038 43F48033 		orr	r3, r3, #65536
+ 186 003c A363     		str	r3, [r4, #56]
+ 192:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 193:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     // https://community.st.com/t5/stm32cubemx-mcus/why-stm32h743-usb-fs-doesn-t-work-if-freertos-t
+ 194:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     // H7 running on full-speed phy need to disable ULPI clock in sleep mode.
+ 195:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     // Otherwise, USB won't work when mcu executing WFI/WFE instruction i.e tick-less RTOS.
+ 196:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     // Note: there may be other family that is affected by this, but only H7 and F7 is tested so fa
+ 197:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #if defined(USB_OTG_FS_PERIPH_BASE) && defined(RCC_AHB1LPENR_USB2OTGFSULPILPEN)
+ 198:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     if ( USB_OTG_FS_PERIPH_BASE == (uint32_t) dwc2 ) {
+ 199:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       RCC->AHB1LPENR &= ~RCC_AHB1LPENR_USB2OTGFSULPILPEN;
+ 200:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 201:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #endif
+ 202:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 203:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #if defined(USB_OTG_HS_PERIPH_BASE) && defined(RCC_AHB1LPENR_USB1OTGHSULPILPEN)
+ 204:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     if ( USB_OTG_HS_PERIPH_BASE == (uint32_t) dwc2 ) {
+ 205:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       RCC->AHB1LPENR &= ~RCC_AHB1LPENR_USB1OTGHSULPILPEN;
+ 206:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 207:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #endif
+ 208:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 209:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #if defined(USB_OTG_HS_PERIPH_BASE) && defined(RCC_AHB1LPENR_OTGHSULPILPEN)
+ 210:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     if ( USB_OTG_HS_PERIPH_BASE == (uint32_t) dwc2 ) {
+ 187              		.loc 2 210 5 is_stmt 1 view .LVU63
+ 188              		.loc 2 210 8 is_stmt 0 view .LVU64
+ 189 003e 324B     		ldr	r3, .L32
+ 190 0040 9C42     		cmp	r4, r3
+ 191 0042 15D1     		bne	.L13
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       RCC->AHB1LPENR &= ~RCC_AHB1LPENR_OTGHSULPILPEN;
+ 192              		.loc 2 211 7 is_stmt 1 view .LVU65
+ 193              		.loc 2 211 22 is_stmt 0 view .LVU66
+ 194 0044 314A     		ldr	r2, .L32+4
+ 195 0046 136D     		ldr	r3, [r2, #80]
+ 196 0048 23F08043 		bic	r3, r3, #1073741824
+ 197 004c 1365     		str	r3, [r2, #80]
+ 198 004e 0FE0     		b	.L13
+ 199              	.LVL10:
+ 200              	.L17:
+ 201              		.loc 2 211 22 view .LVU67
+ 202              	.LBE29:
+ 203              	.LBE28:
+  99:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 204              		.loc 1 99 15 view .LVU68
+ 205 0050 0826     		movs	r6, #8
+ 206 0052 E0E7     		b	.L8
+ 207              	.LVL11:
+ 208              	.L29:
+ 106:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 209              		.loc 1 106 61 is_stmt 1 view .LVU69
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 11
+
+
+ 109:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 210              		.loc 1 109 5 view .LVU70
+ 112:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 211              		.loc 1 112 5 view .LVU71
+ 115:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 212              		.loc 1 115 5 view .LVU72
+ 118:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 213              		.loc 1 118 5 view .LVU73
+ 121:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   } else {
+ 214              		.loc 1 121 5 view .LVU74
+ 215 0054 25F46815 		bic	r5, r5, #3801088
+ 216              	.LVL12:
+ 121:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   } else {
+ 217              		.loc 1 121 5 is_stmt 0 view .LVU75
+ 218 0058 25F0C805 		bic	r5, r5, #200
+ 121:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   } else {
+ 219              		.loc 1 121 13 view .LVU76
+ 220 005c 45F01005 		orr	r5, r5, #16
+ 221              	.LVL13:
+ 121:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   } else {
+ 222              		.loc 1 121 13 view .LVU77
+ 223 0060 E3E7     		b	.L10
+ 224              	.LVL14:
+ 225              	.L30:
+ 130:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     } else {
+ 226              		.loc 1 130 7 is_stmt 1 view .LVU78
+ 130:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     } else {
+ 227              		.loc 1 130 15 is_stmt 0 view .LVU79
+ 228 0062 42F00805 		orr	r5, r2, #8
+ 229              	.LVL15:
+ 130:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     } else {
+ 230              		.loc 1 130 15 view .LVU80
+ 231 0066 E0E7     		b	.L10
+ 232              	.LVL16:
+ 233              	.L12:
+ 234              	.LBB31:
+ 235              	.LBB30:
+ 212:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 213:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     #endif
+ 214:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 215:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   } else {
+ 216:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #if CFG_TUSB_MCU != OPT_MCU_STM32U5 && CFG_TUSB_MCU != OPT_MCU_STM32WBA
+ 217:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     // Disable FS PHY, TODO on U5A5 (dwc2 4.11a) 16th bit is 'Host CDP behavior enable'
+ 218:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     dwc2->stm32_gccfg &= ~STM32_GCCFG_PWRDWN;
+ 236              		.loc 2 218 5 is_stmt 1 view .LVU81
+ 237              		.loc 2 218 23 is_stmt 0 view .LVU82
+ 238 0068 A36B     		ldr	r3, [r4, #56]
+ 239              	.LVL17:
+ 240              		.loc 2 218 23 view .LVU83
+ 241 006a 23F48033 		bic	r3, r3, #65536
+ 242 006e A363     		str	r3, [r4, #56]
+ 219:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** #endif
+ 220:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     // Enable on-chip HS PHY
+ 221:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     if (hs_phy_type == GHWCFG2_HSPHY_UTMI || hs_phy_type == GHWCFG2_HSPHY_UTMI_ULPI) {
+ 243              		.loc 2 221 5 is_stmt 1 view .LVU84
+ 244              	.L13:
+ 222:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       #ifdef USB_HS_PHYC
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 12
+
+
+ 223:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       // Enable UTMI HS PHY
+ 224:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       dwc2->stm32_gccfg |= STM32_GCCFG_PHYHSEN;
+ 225:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 226:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       // Enable LDO
+ 227:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       USB_HS_PHYC->USB_HS_PHYC_LDO |= USB_HS_PHYC_LDO_ENABLE;
+ 228:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 229:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       // Wait until LDO ready
+ 230:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       while ( 0 == (USB_HS_PHYC->USB_HS_PHYC_LDO & USB_HS_PHYC_LDO_STATUS) ) {}
+ 231:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 232:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       uint32_t phyc_pll = 0;
+ 233:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 234:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       // TODO Try to get HSE_VALUE from registers instead of depending CFLAGS
+ 235:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       switch ( HSE_VALUE )
+ 236:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       {
+ 237:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****         case 12000000: phyc_pll = USB_HS_PHYC_PLL1_PLLSEL_12MHZ   ; break;
+ 238:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****         case 12500000: phyc_pll = USB_HS_PHYC_PLL1_PLLSEL_12_5MHZ ; break;
+ 239:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****         case 16000000: phyc_pll = USB_HS_PHYC_PLL1_PLLSEL_16MHZ   ; break;
+ 240:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****         case 24000000: phyc_pll = USB_HS_PHYC_PLL1_PLLSEL_24MHZ   ; break;
+ 241:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****         case 25000000: phyc_pll = USB_HS_PHYC_PLL1_PLLSEL_25MHZ   ; break;
+ 242:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****         case 32000000: phyc_pll = USB_HS_PHYC_PLL1_PLLSEL_Msk     ; break; // Value not defined in 
+ 243:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****         default:
+ 244:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****           TU_ASSERT(false, );
+ 245:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       }
+ 246:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       USB_HS_PHYC->USB_HS_PHYC_PLL = phyc_pll;
+ 247:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 248:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       // Control the tuning interface of the High Speed PHY
+ 249:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       // Use magic value (USB_HS_PHYC_TUNE_VALUE) from ST driver for F7
+ 250:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       USB_HS_PHYC->USB_HS_PHYC_TUNE |= 0x00000F13U;
+ 251:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 252:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       // Enable PLL internal PHY
+ 253:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       USB_HS_PHYC->USB_HS_PHYC_PLL |= USB_HS_PHYC_PLL_PLLEN;
+ 254:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 255:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       // Wait ~2ms until the PLL is ready (there's no RDY bit to query)
+ 256:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       tusb_time_delay_ms_api(2);
+ 257:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       #else
+ 258:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 259:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       #endif
+ 260:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 245              		.loc 2 260 5 view .LVU85
+ 246              	.LVL18:
+ 247              		.loc 2 260 5 is_stmt 0 view .LVU86
+ 248              	.LBE30:
+ 249              	.LBE31:
+ 141:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 142:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Reset core after selecting PHY
+ 143:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   reset_core(dwc2);
+ 250              		.loc 1 143 3 is_stmt 1 view .LVU87
+ 251 0070 2046     		mov	r0, r4
+ 252              	.LVL19:
+ 253              		.loc 1 143 3 is_stmt 0 view .LVU88
+ 254 0072 FFF7FEFF 		bl	reset_core
+ 255              	.LVL20:
+ 144:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 145:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Set turn-around, must after core reset otherwise it will be clear
+ 146:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // - 9 if using 8-bit PHY interface
+ 147:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // - 5 if using 16-bit PHY interface
+ 148:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   gusbcfg &= ~GUSBCFG_TRDT_Msk;
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 13
+
+
+ 256              		.loc 1 148 3 is_stmt 1 view .LVU89
+ 257              		.loc 1 148 11 is_stmt 0 view .LVU90
+ 258 0076 25F47055 		bic	r5, r5, #15360
+ 259              	.LVL21:
+ 149:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   gusbcfg |= (phy_width == 16 ? 5u : 9u) << GUSBCFG_TRDT_Pos;
+ 260              		.loc 1 149 3 is_stmt 1 view .LVU91
+ 261              		.loc 1 149 42 is_stmt 0 view .LVU92
+ 262 007a 102E     		cmp	r6, #16
+ 263 007c 29D0     		beq	.L31
+ 264 007e 4FF41053 		mov	r3, #9216
+ 265              	.L14:
+ 266              		.loc 1 149 11 discriminator 4 view .LVU93
+ 267 0082 1D43     		orrs	r5, r5, r3
+ 268              	.LVL22:
+ 150:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gusbcfg = gusbcfg;
+ 269              		.loc 1 150 3 is_stmt 1 discriminator 4 view .LVU94
+ 270              		.loc 1 150 17 is_stmt 0 discriminator 4 view .LVU95
+ 271 0084 E560     		str	r5, [r4, #12]
+ 151:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 152:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // MCU specific PHY update post reset
+ 153:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2_phy_update(dwc2, ghwcfg2.hs_phy_type);
+ 272              		.loc 1 153 3 is_stmt 1 discriminator 4 view .LVU96
+ 273              	.LVL23:
+ 274              	.LBB32:
+ 275              	.LBI32:
+ 261:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   }
+ 262:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** }
+ 263:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 264:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** // MCU specific PHY update, it is called AFTER init() and core reset
+ 265:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** static inline void dwc2_phy_update(dwc2_regs_t* dwc2, uint8_t hs_phy_type) {
+ 276              		.loc 2 265 20 discriminator 4 view .LVU97
+ 277              	.LBB33:
+ 266:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   // used to set turnaround time for fullspeed, nothing to do in highspeed mode
+ 267:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   if (hs_phy_type == GHWCFG2_HSPHY_NOT_SUPPORTED) {
+ 278              		.loc 2 267 3 discriminator 4 view .LVU98
+ 279              		.loc 2 267 6 is_stmt 0 discriminator 4 view .LVU99
+ 280 0086 77BB     		cbnz	r7, .L7
+ 281              	.LBB34:
+ 268:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     // Turnaround timeout depends on the AHB clock dictated by STM32 Reference Manual
+ 269:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     uint32_t turnaround;
+ 282              		.loc 2 269 5 is_stmt 1 view .LVU100
+ 270:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 271:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     if (SystemCoreClock >= 32000000u) {
+ 283              		.loc 2 271 5 view .LVU101
+ 284              		.loc 2 271 25 is_stmt 0 view .LVU102
+ 285 0088 214B     		ldr	r3, .L32+8
+ 286 008a 1B68     		ldr	r3, [r3]
+ 287              		.loc 2 271 8 view .LVU103
+ 288 008c 214A     		ldr	r2, .L32+12
+ 289 008e 9342     		cmp	r3, r2
+ 290 0090 22D2     		bcs	.L19
+ 272:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x6u;
+ 273:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     } else if (SystemCoreClock >= 27500000u) {
+ 291              		.loc 2 273 12 is_stmt 1 view .LVU104
+ 292              		.loc 2 273 15 is_stmt 0 view .LVU105
+ 293 0092 214A     		ldr	r2, .L32+16
+ 294 0094 9342     		cmp	r3, r2
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 14
+
+
+ 295 0096 27D8     		bhi	.L20
+ 274:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x7u;
+ 275:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     } else if (SystemCoreClock >= 24000000u) {
+ 296              		.loc 2 275 12 is_stmt 1 view .LVU106
+ 297              		.loc 2 275 15 is_stmt 0 view .LVU107
+ 298 0098 204A     		ldr	r2, .L32+20
+ 299 009a 9342     		cmp	r3, r2
+ 300 009c 26D2     		bcs	.L21
+ 276:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x8u;
+ 277:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     } else if (SystemCoreClock >= 21800000u) {
+ 301              		.loc 2 277 12 is_stmt 1 view .LVU108
+ 302              		.loc 2 277 15 is_stmt 0 view .LVU109
+ 303 009e 204A     		ldr	r2, .L32+24
+ 304 00a0 9342     		cmp	r3, r2
+ 305 00a2 25D8     		bhi	.L22
+ 278:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x9u;
+ 279:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 280:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     else if (SystemCoreClock >= 20000000u) {
+ 306              		.loc 2 280 10 is_stmt 1 view .LVU110
+ 307              		.loc 2 280 13 is_stmt 0 view .LVU111
+ 308 00a4 A2F5DB12 		sub	r2, r2, #1794048
+ 309 00a8 A2F5BA52 		sub	r2, r2, #5952
+ 310 00ac 9342     		cmp	r3, r2
+ 311 00ae 21D8     		bhi	.L23
+ 281:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xAu;
+ 282:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 283:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     else if (SystemCoreClock >= 18500000u) {
+ 312              		.loc 2 283 10 is_stmt 1 view .LVU112
+ 313              		.loc 2 283 13 is_stmt 0 view .LVU113
+ 314 00b0 A2F5B712 		sub	r2, r2, #1499136
+ 315 00b4 A2F55872 		sub	r2, r2, #864
+ 316 00b8 9342     		cmp	r3, r2
+ 317 00ba 1DD8     		bhi	.L24
+ 284:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xBu;
+ 285:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 286:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     else if (SystemCoreClock >= 17200000u) {
+ 318              		.loc 2 286 10 is_stmt 1 view .LVU114
+ 319              		.loc 2 286 13 is_stmt 0 view .LVU115
+ 320 00bc 194A     		ldr	r2, .L32+28
+ 321 00be 9342     		cmp	r3, r2
+ 322 00c0 1CD2     		bcs	.L25
+ 287:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xCu;
+ 288:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 289:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     else if (SystemCoreClock >= 16000000u) {
+ 323              		.loc 2 289 10 is_stmt 1 view .LVU116
+ 324              		.loc 2 289 13 is_stmt 0 view .LVU117
+ 325 00c2 194A     		ldr	r2, .L32+32
+ 326 00c4 9342     		cmp	r3, r2
+ 327 00c6 1BD2     		bcs	.L26
+ 290:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xDu;
+ 291:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 292:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     else if (SystemCoreClock >= 15000000u) {
+ 328              		.loc 2 292 10 is_stmt 1 view .LVU118
+ 329              		.loc 2 292 13 is_stmt 0 view .LVU119
+ 330 00c8 184A     		ldr	r2, .L32+36
+ 331 00ca 9342     		cmp	r3, r2
+ 332 00cc 1AD3     		bcc	.L27
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 15
+
+
+ 293:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xEu;
+ 333              		.loc 2 293 18 view .LVU120
+ 334 00ce 0E22     		movs	r2, #14
+ 335 00d0 03E0     		b	.L16
+ 336              	.LVL24:
+ 337              	.L31:
+ 338              		.loc 2 293 18 view .LVU121
+ 339              	.LBE34:
+ 340              	.LBE33:
+ 341              	.LBE32:
+ 149:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gusbcfg = gusbcfg;
+ 342              		.loc 1 149 42 view .LVU122
+ 343 00d2 4FF4A053 		mov	r3, #5120
+ 344 00d6 D4E7     		b	.L14
+ 345              	.LVL25:
+ 346              	.L19:
+ 347              	.LBB39:
+ 348              	.LBB37:
+ 349              	.LBB35:
+ 272:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     } else if (SystemCoreClock >= 27500000u) {
+ 350              		.loc 2 272 18 view .LVU123
+ 351 00d8 0622     		movs	r2, #6
+ 352              	.L16:
+ 353              	.LVL26:
+ 294:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 295:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     else {
+ 296:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xFu;
+ 297:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 298:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 299:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     dwc2->gusbcfg = (dwc2->gusbcfg & ~GUSBCFG_TRDT_Msk) | (turnaround << GUSBCFG_TRDT_Pos);
+ 354              		.loc 2 299 5 is_stmt 1 view .LVU124
+ 355              		.loc 2 299 26 is_stmt 0 view .LVU125
+ 356 00da E368     		ldr	r3, [r4, #12]
+ 357              		.loc 2 299 36 view .LVU126
+ 358 00dc 23F47053 		bic	r3, r3, #15360
+ 359              		.loc 2 299 57 view .LVU127
+ 360 00e0 43EA8223 		orr	r3, r3, r2, lsl #10
+ 361              		.loc 2 299 19 view .LVU128
+ 362 00e4 E360     		str	r3, [r4, #12]
+ 363              	.LVL27:
+ 364              	.L7:
+ 365              		.loc 2 299 19 view .LVU129
+ 366              	.LBE35:
+ 367              	.LBE37:
+ 368              	.LBE39:
+ 154:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** }
+ 369              		.loc 1 154 1 view .LVU130
+ 370 00e6 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 371              	.LVL28:
+ 372              	.L20:
+ 373              	.LBB40:
+ 374              	.LBB38:
+ 375              	.LBB36:
+ 274:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     } else if (SystemCoreClock >= 24000000u) {
+ 376              		.loc 2 274 18 view .LVU131
+ 377 00e8 0722     		movs	r2, #7
+ 378 00ea F6E7     		b	.L16
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 16
+
+
+ 379              	.L21:
+ 276:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     } else if (SystemCoreClock >= 21800000u) {
+ 380              		.loc 2 276 18 view .LVU132
+ 381 00ec 0822     		movs	r2, #8
+ 382 00ee F4E7     		b	.L16
+ 383              	.L22:
+ 278:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 384              		.loc 2 278 18 view .LVU133
+ 385 00f0 0922     		movs	r2, #9
+ 386 00f2 F2E7     		b	.L16
+ 387              	.L23:
+ 281:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 388              		.loc 2 281 18 view .LVU134
+ 389 00f4 0A22     		movs	r2, #10
+ 390 00f6 F0E7     		b	.L16
+ 391              	.L24:
+ 284:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 392              		.loc 2 284 18 view .LVU135
+ 393 00f8 0B22     		movs	r2, #11
+ 394 00fa EEE7     		b	.L16
+ 395              	.L25:
+ 287:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 396              		.loc 2 287 18 view .LVU136
+ 397 00fc 0C22     		movs	r2, #12
+ 398 00fe ECE7     		b	.L16
+ 399              	.L26:
+ 290:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 400              		.loc 2 290 18 view .LVU137
+ 401 0100 0D22     		movs	r2, #13
+ 402 0102 EAE7     		b	.L16
+ 403              	.L27:
+ 296:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 404              		.loc 2 296 18 view .LVU138
+ 405 0104 0F22     		movs	r2, #15
+ 406 0106 E8E7     		b	.L16
+ 407              	.L33:
+ 408              		.align	2
+ 409              	.L32:
+ 410 0108 00000440 		.word	1074003968
+ 411 010c 00380240 		.word	1073887232
+ 412 0110 00000000 		.word	SystemCoreClock
+ 413 0114 0048E801 		.word	32000000
+ 414 0118 DF9DA301 		.word	27499999
+ 415 011c 00366E01 		.word	24000000
+ 416 0120 3FA44C01 		.word	21799999
+ 417 0124 80730601 		.word	17200000
+ 418 0128 0024F400 		.word	16000000
+ 419 012c C0E1E400 		.word	15000000
+ 420              	.LBE36:
+ 421              	.LBE38:
+ 422              	.LBE40:
+ 423              		.cfi_endproc
+ 424              	.LFE328:
+ 426              		.section	.text.check_dwc2,"ax",%progbits
+ 427              		.align	1
+ 428              		.syntax unified
+ 429              		.thumb
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 17
+
+
+ 430              		.thumb_func
+ 432              	check_dwc2:
+ 433              	.LVL29:
+ 434              	.LFB329:
+ 155:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 156:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** static bool check_dwc2(dwc2_regs_t* dwc2) {
+ 435              		.loc 1 156 43 is_stmt 1 view -0
+ 436              		.cfi_startproc
+ 437              		@ args = 0, pretend = 0, frame = 0
+ 438              		@ frame_needed = 0, uses_anonymous_args = 0
+ 439              		@ link register save eliminated.
+ 157:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** #if CFG_TUSB_DEBUG >= DWC2_COMMON_DEBUG
+ 158:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // print guid, gsnpsid, ghwcfg1, ghwcfg2, ghwcfg3, ghwcfg4
+ 159:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Run 'python dwc2_info.py' and check dwc2_info.md for bit-field value and comparison with other
+ 160:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   volatile uint32_t const* p = (volatile uint32_t const*) &dwc2->guid;
+ 161:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   TU_LOG1("guid, gsnpsid, ghwcfg1, ghwcfg2, ghwcfg3, ghwcfg4\r\n");
+ 162:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   for (size_t i = 0; i < 5; i++) {
+ 163:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     TU_LOG1("0x%08" PRIX32 ", ", p[i]);
+ 164:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 165:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   TU_LOG1("0x%08" PRIX32 "\r\n", p[5]);
+ 166:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** #endif
+ 167:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 168:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // For some reason: GD32VF103 gsnpsid and all hwcfg register are always zero (skip it)
+ 169:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   (void)dwc2;
+ 440              		.loc 1 169 3 view .LVU140
+ 170:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** #if !TU_CHECK_MCU(OPT_MCU_GD32VF103)
+ 171:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   enum { GSNPSID_ID_MASK = TU_GENMASK(31, 16) };
+ 441              		.loc 1 171 3 view .LVU141
+ 172:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   const uint32_t gsnpsid = dwc2->gsnpsid & GSNPSID_ID_MASK;
+ 442              		.loc 1 172 3 view .LVU142
+ 443              		.loc 1 172 32 is_stmt 0 view .LVU143
+ 444 0000 036C     		ldr	r3, [r0, #64]
+ 445              		.loc 1 172 18 view .LVU144
+ 446 0002 1B0C     		lsrs	r3, r3, #16
+ 447 0004 1B04     		lsls	r3, r3, #16
+ 448              	.LVL30:
+ 173:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   TU_ASSERT(gsnpsid == DWC2_OTG_ID || gsnpsid == DWC2_FS_IOT_ID || gsnpsid == DWC2_HS_IOT_ID);
+ 449              		.loc 1 173 3 is_stmt 1 view .LVU145
+ 450              		.loc 1 173 3 view .LVU146
+ 451 0006 0D4A     		ldr	r2, .L40
+ 452 0008 9342     		cmp	r3, r2
+ 453 000a 10D0     		beq	.L37
+ 454              		.loc 1 173 3 is_stmt 0 discriminator 1 view .LVU147
+ 455 000c 0C4A     		ldr	r2, .L40+4
+ 456 000e 9342     		cmp	r3, r2
+ 457 0010 0FD0     		beq	.L38
+ 458              		.loc 1 173 3 discriminator 3 view .LVU148
+ 459 0012 02F58032 		add	r2, r2, #65536
+ 460 0016 9342     		cmp	r3, r2
+ 461 0018 0DD0     		beq	.L39
+ 462              		.loc 1 173 3 is_stmt 1 discriminator 5 view .LVU149
+ 463              		.loc 1 173 3 discriminator 5 view .LVU150
+ 464              		.loc 1 173 3 discriminator 5 view .LVU151
+ 465              		.loc 1 173 3 discriminator 5 view .LVU152
+ 466              	.LBB41:
+ 467              		.loc 1 173 3 discriminator 5 view .LVU153
+ 468              	.LVL31:
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 18
+
+
+ 469              		.loc 1 173 3 discriminator 5 view .LVU154
+ 470 001a 4FF0E023 		mov	r3, #-536813568
+ 471              	.LVL32:
+ 472              		.loc 1 173 3 is_stmt 0 discriminator 5 view .LVU155
+ 473 001e D3F8F03D 		ldr	r3, [r3, #3568]
+ 474 0022 13F0010F 		tst	r3, #1
+ 475 0026 00D0     		beq	.L36
+ 476              		.loc 1 173 3 is_stmt 1 discriminator 7 view .LVU156
+ 477              		.syntax unified
+ 478              	@ 173 "lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c" 1
+ 479 0028 00BE     		BKPT #0
+ 480              	
+ 481              	@ 0 "" 2
+ 482              		.thumb
+ 483              		.syntax unified
+ 484              	.L36:
+ 485              	.LBE41:
+ 486              		.loc 1 173 3 discriminator 9 view .LVU157
+ 487              		.loc 1 173 3 discriminator 9 view .LVU158
+ 488 002a 0020     		movs	r0, #0
+ 489              	.LVL33:
+ 490              		.loc 1 173 3 is_stmt 0 discriminator 9 view .LVU159
+ 491 002c 7047     		bx	lr
+ 492              	.LVL34:
+ 493              	.L37:
+ 174:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** #endif
+ 175:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 176:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   return true;
+ 494              		.loc 1 176 10 view .LVU160
+ 495 002e 0120     		movs	r0, #1
+ 496              	.LVL35:
+ 497              		.loc 1 176 10 view .LVU161
+ 498 0030 7047     		bx	lr
+ 499              	.LVL36:
+ 500              	.L38:
+ 501              		.loc 1 176 10 view .LVU162
+ 502 0032 0120     		movs	r0, #1
+ 503              	.LVL37:
+ 504              		.loc 1 176 10 view .LVU163
+ 505 0034 7047     		bx	lr
+ 506              	.LVL38:
+ 507              	.L39:
+ 508              		.loc 1 176 10 view .LVU164
+ 509 0036 0120     		movs	r0, #1
+ 510              	.LVL39:
+ 177:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** }
+ 511              		.loc 1 177 1 view .LVU165
+ 512 0038 7047     		bx	lr
+ 513              	.L41:
+ 514 003a 00BF     		.align	2
+ 515              	.L40:
+ 516 003c 0000544F 		.word	1330905088
+ 517 0040 00003155 		.word	1429274624
+ 518              		.cfi_endproc
+ 519              	.LFE329:
+ 521              		.section	.text.phy_fs_init,"ax",%progbits
+ 522              		.align	1
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 19
+
+
+ 523              		.syntax unified
+ 524              		.thumb
+ 525              		.thumb_func
+ 527              	phy_fs_init:
+ 528              	.LVL40:
+ 529              	.LFB327:
+  63:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   TU_LOG(DWC2_COMMON_DEBUG, "Fullspeed PHY init\r\n");
+ 530              		.loc 1 63 44 is_stmt 1 view -0
+ 531              		.cfi_startproc
+ 532              		@ args = 0, pretend = 0, frame = 0
+ 533              		@ frame_needed = 0, uses_anonymous_args = 0
+  63:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   TU_LOG(DWC2_COMMON_DEBUG, "Fullspeed PHY init\r\n");
+ 534              		.loc 1 63 44 is_stmt 0 view .LVU167
+ 535 0000 38B5     		push	{r3, r4, r5, lr}
+ 536              	.LCFI1:
+ 537              		.cfi_def_cfa_offset 16
+ 538              		.cfi_offset 3, -16
+ 539              		.cfi_offset 4, -12
+ 540              		.cfi_offset 5, -8
+ 541              		.cfi_offset 14, -4
+ 542 0002 0446     		mov	r4, r0
+  64:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 543              		.loc 1 64 54 is_stmt 1 view .LVU168
+  66:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 544              		.loc 1 66 3 view .LVU169
+  66:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 545              		.loc 1 66 12 is_stmt 0 view .LVU170
+ 546 0004 C568     		ldr	r5, [r0, #12]
+ 547              	.LVL41:
+  69:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gusbcfg = gusbcfg;
+ 548              		.loc 1 69 3 is_stmt 1 view .LVU171
+  69:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gusbcfg = gusbcfg;
+ 549              		.loc 1 69 11 is_stmt 0 view .LVU172
+ 550 0006 45F04003 		orr	r3, r5, #64
+ 551              	.LVL42:
+  70:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 552              		.loc 1 70 3 is_stmt 1 view .LVU173
+  70:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 553              		.loc 1 70 17 is_stmt 0 view .LVU174
+ 554 000a C360     		str	r3, [r0, #12]
+  73:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 555              		.loc 1 73 3 is_stmt 1 view .LVU175
+ 556              	.LVL43:
+ 557              	.LBB47:
+ 558              	.LBI47:
+ 188:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   if (hs_phy_type == GHWCFG2_HSPHY_NOT_SUPPORTED) {
+ 559              		.loc 2 188 20 view .LVU176
+ 560              	.LBB48:
+ 189:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     // Enable on-chip FS PHY
+ 561              		.loc 2 189 3 view .LVU177
+ 191:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 562              		.loc 2 191 5 view .LVU178
+ 191:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 563              		.loc 2 191 23 is_stmt 0 view .LVU179
+ 564 000c 836B     		ldr	r3, [r0, #56]
+ 565              	.LVL44:
+ 191:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 20
+
+
+ 566              		.loc 2 191 23 view .LVU180
+ 567 000e 43F48033 		orr	r3, r3, #65536
+ 568 0012 8363     		str	r3, [r0, #56]
+ 569              	.LVL45:
+ 210:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       RCC->AHB1LPENR &= ~RCC_AHB1LPENR_OTGHSULPILPEN;
+ 570              		.loc 2 210 5 is_stmt 1 view .LVU181
+ 210:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       RCC->AHB1LPENR &= ~RCC_AHB1LPENR_OTGHSULPILPEN;
+ 571              		.loc 2 210 8 is_stmt 0 view .LVU182
+ 572 0014 264B     		ldr	r3, .L56
+ 573 0016 9842     		cmp	r0, r3
+ 574 0018 2CD0     		beq	.L55
+ 575              	.L43:
+ 260:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   }
+ 576              		.loc 2 260 5 is_stmt 1 view .LVU183
+ 577              	.LVL46:
+ 260:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   }
+ 578              		.loc 2 260 5 is_stmt 0 view .LVU184
+ 579              	.LBE48:
+ 580              	.LBE47:
+  76:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 581              		.loc 1 76 3 is_stmt 1 view .LVU185
+ 582 001a 2046     		mov	r0, r4
+ 583              	.LVL47:
+  76:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 584              		.loc 1 76 3 is_stmt 0 view .LVU186
+ 585 001c FFF7FEFF 		bl	reset_core
+ 586              	.LVL48:
+  81:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   gusbcfg |= 5u << GUSBCFG_TRDT_Pos;
+ 587              		.loc 1 81 3 is_stmt 1 view .LVU187
+ 588 0020 25F47055 		bic	r5, r5, #15360
+ 589              	.LVL49:
+  82:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gusbcfg = gusbcfg;
+ 590              		.loc 1 82 3 view .LVU188
+  82:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gusbcfg = gusbcfg;
+ 591              		.loc 1 82 11 is_stmt 0 view .LVU189
+ 592 0024 45F4A255 		orr	r5, r5, #5184
+ 593              	.LVL50:
+  83:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 594              		.loc 1 83 3 is_stmt 1 view .LVU190
+  83:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 595              		.loc 1 83 17 is_stmt 0 view .LVU191
+ 596 0028 E560     		str	r5, [r4, #12]
+  86:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** }
+ 597              		.loc 1 86 3 is_stmt 1 view .LVU192
+ 598              	.LVL51:
+ 599              	.LBB50:
+ 600              	.LBI50:
+ 265:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****   // used to set turnaround time for fullspeed, nothing to do in highspeed mode
+ 601              		.loc 2 265 20 view .LVU193
+ 602              	.LBE50:
+ 267:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     // Turnaround timeout depends on the AHB clock dictated by STM32 Reference Manual
+ 603              		.loc 2 267 3 view .LVU194
+ 604              	.LBB54:
+ 605              	.LBB51:
+ 269:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h **** 
+ 606              		.loc 2 269 5 view .LVU195
+ 271:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x6u;
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 21
+
+
+ 607              		.loc 2 271 5 view .LVU196
+ 271:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x6u;
+ 608              		.loc 2 271 25 is_stmt 0 view .LVU197
+ 609 002a 224B     		ldr	r3, .L56+4
+ 610 002c 1B68     		ldr	r3, [r3]
+ 271:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x6u;
+ 611              		.loc 2 271 8 view .LVU198
+ 612 002e 224A     		ldr	r2, .L56+8
+ 613 0030 9342     		cmp	r3, r2
+ 614 0032 25D2     		bcs	.L45
+ 273:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x7u;
+ 615              		.loc 2 273 12 is_stmt 1 view .LVU199
+ 273:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x7u;
+ 616              		.loc 2 273 15 is_stmt 0 view .LVU200
+ 617 0034 214A     		ldr	r2, .L56+12
+ 618 0036 9342     		cmp	r3, r2
+ 619 0038 2AD8     		bhi	.L46
+ 275:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x8u;
+ 620              		.loc 2 275 12 is_stmt 1 view .LVU201
+ 275:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x8u;
+ 621              		.loc 2 275 15 is_stmt 0 view .LVU202
+ 622 003a 214A     		ldr	r2, .L56+16
+ 623 003c 9342     		cmp	r3, r2
+ 624 003e 29D2     		bcs	.L47
+ 277:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x9u;
+ 625              		.loc 2 277 12 is_stmt 1 view .LVU203
+ 277:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0x9u;
+ 626              		.loc 2 277 15 is_stmt 0 view .LVU204
+ 627 0040 204A     		ldr	r2, .L56+20
+ 628 0042 9342     		cmp	r3, r2
+ 629 0044 28D8     		bhi	.L48
+ 280:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xAu;
+ 630              		.loc 2 280 10 is_stmt 1 view .LVU205
+ 280:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xAu;
+ 631              		.loc 2 280 13 is_stmt 0 view .LVU206
+ 632 0046 A2F5DB12 		sub	r2, r2, #1794048
+ 633 004a A2F5BA52 		sub	r2, r2, #5952
+ 634 004e 9342     		cmp	r3, r2
+ 635 0050 24D8     		bhi	.L49
+ 283:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xBu;
+ 636              		.loc 2 283 10 is_stmt 1 view .LVU207
+ 283:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xBu;
+ 637              		.loc 2 283 13 is_stmt 0 view .LVU208
+ 638 0052 A2F5B712 		sub	r2, r2, #1499136
+ 639 0056 A2F55872 		sub	r2, r2, #864
+ 640 005a 9342     		cmp	r3, r2
+ 641 005c 20D8     		bhi	.L50
+ 286:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xCu;
+ 642              		.loc 2 286 10 is_stmt 1 view .LVU209
+ 286:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xCu;
+ 643              		.loc 2 286 13 is_stmt 0 view .LVU210
+ 644 005e 1A4A     		ldr	r2, .L56+24
+ 645 0060 9342     		cmp	r3, r2
+ 646 0062 1FD2     		bcs	.L51
+ 289:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xDu;
+ 647              		.loc 2 289 10 is_stmt 1 view .LVU211
+ 289:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xDu;
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 22
+
+
+ 648              		.loc 2 289 13 is_stmt 0 view .LVU212
+ 649 0064 194A     		ldr	r2, .L56+28
+ 650 0066 9342     		cmp	r3, r2
+ 651 0068 1ED2     		bcs	.L52
+ 292:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xEu;
+ 652              		.loc 2 292 10 is_stmt 1 view .LVU213
+ 292:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****       turnaround = 0xEu;
+ 653              		.loc 2 292 13 is_stmt 0 view .LVU214
+ 654 006a 194A     		ldr	r2, .L56+32
+ 655 006c 9342     		cmp	r3, r2
+ 656 006e 1DD3     		bcc	.L53
+ 293:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 657              		.loc 2 293 18 view .LVU215
+ 658 0070 0E22     		movs	r2, #14
+ 659 0072 06E0     		b	.L44
+ 660              	.LVL52:
+ 661              	.L55:
+ 293:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 662              		.loc 2 293 18 view .LVU216
+ 663              	.LBE51:
+ 664              	.LBE54:
+ 665              	.LBB55:
+ 666              	.LBB49:
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 667              		.loc 2 211 7 is_stmt 1 view .LVU217
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 668              		.loc 2 211 22 is_stmt 0 view .LVU218
+ 669 0074 174A     		ldr	r2, .L56+36
+ 670 0076 136D     		ldr	r3, [r2, #80]
+ 671 0078 23F08043 		bic	r3, r3, #1073741824
+ 672 007c 1365     		str	r3, [r2, #80]
+ 673 007e CCE7     		b	.L43
+ 674              	.LVL53:
+ 675              	.L45:
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 676              		.loc 2 211 22 view .LVU219
+ 677              	.LBE49:
+ 678              	.LBE55:
+ 679              	.LBB56:
+ 680              	.LBB52:
+ 272:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     } else if (SystemCoreClock >= 27500000u) {
+ 681              		.loc 2 272 18 view .LVU220
+ 682 0080 0622     		movs	r2, #6
+ 683              	.L44:
+ 684              	.LVL54:
+ 685              		.loc 2 299 5 is_stmt 1 view .LVU221
+ 686              		.loc 2 299 26 is_stmt 0 view .LVU222
+ 687 0082 E368     		ldr	r3, [r4, #12]
+ 688              		.loc 2 299 36 view .LVU223
+ 689 0084 23F47053 		bic	r3, r3, #15360
+ 690              		.loc 2 299 57 view .LVU224
+ 691 0088 43EA8223 		orr	r3, r3, r2, lsl #10
+ 692              		.loc 2 299 19 view .LVU225
+ 693 008c E360     		str	r3, [r4, #12]
+ 694              	.LVL55:
+ 695              		.loc 2 299 19 view .LVU226
+ 696              	.LBE52:
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 23
+
+
+ 697              	.LBE56:
+  87:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 698              		.loc 1 87 1 view .LVU227
+ 699 008e 38BD     		pop	{r3, r4, r5, pc}
+ 700              	.LVL56:
+ 701              	.L46:
+ 702              	.LBB57:
+ 703              	.LBB53:
+ 274:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     } else if (SystemCoreClock >= 24000000u) {
+ 704              		.loc 2 274 18 view .LVU228
+ 705 0090 0722     		movs	r2, #7
+ 706 0092 F6E7     		b	.L44
+ 707              	.L47:
+ 276:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     } else if (SystemCoreClock >= 21800000u) {
+ 708              		.loc 2 276 18 view .LVU229
+ 709 0094 0822     		movs	r2, #8
+ 710 0096 F4E7     		b	.L44
+ 711              	.L48:
+ 278:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 712              		.loc 2 278 18 view .LVU230
+ 713 0098 0922     		movs	r2, #9
+ 714 009a F2E7     		b	.L44
+ 715              	.L49:
+ 281:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 716              		.loc 2 281 18 view .LVU231
+ 717 009c 0A22     		movs	r2, #10
+ 718 009e F0E7     		b	.L44
+ 719              	.L50:
+ 284:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 720              		.loc 2 284 18 view .LVU232
+ 721 00a0 0B22     		movs	r2, #11
+ 722 00a2 EEE7     		b	.L44
+ 723              	.L51:
+ 287:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 724              		.loc 2 287 18 view .LVU233
+ 725 00a4 0C22     		movs	r2, #12
+ 726 00a6 ECE7     		b	.L44
+ 727              	.L52:
+ 290:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 728              		.loc 2 290 18 view .LVU234
+ 729 00a8 0D22     		movs	r2, #13
+ 730 00aa EAE7     		b	.L44
+ 731              	.L53:
+ 296:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h ****     }
+ 732              		.loc 2 296 18 view .LVU235
+ 733 00ac 0F22     		movs	r2, #15
+ 734 00ae E8E7     		b	.L44
+ 735              	.L57:
+ 736              		.align	2
+ 737              	.L56:
+ 738 00b0 00000440 		.word	1074003968
+ 739 00b4 00000000 		.word	SystemCoreClock
+ 740 00b8 0048E801 		.word	32000000
+ 741 00bc DF9DA301 		.word	27499999
+ 742 00c0 00366E01 		.word	24000000
+ 743 00c4 3FA44C01 		.word	21799999
+ 744 00c8 80730601 		.word	17200000
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 24
+
+
+ 745 00cc 0024F400 		.word	16000000
+ 746 00d0 C0E1E400 		.word	15000000
+ 747 00d4 00380240 		.word	1073887232
+ 748              	.LBE53:
+ 749              	.LBE57:
+ 750              		.cfi_endproc
+ 751              	.LFE327:
+ 753              		.section	.text.dwc2_core_is_highspeed,"ax",%progbits
+ 754              		.align	1
+ 755              		.global	dwc2_core_is_highspeed
+ 756              		.syntax unified
+ 757              		.thumb
+ 758              		.thumb_func
+ 760              	dwc2_core_is_highspeed:
+ 761              	.LVL57:
+ 762              	.LFB330:
+ 178:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 179:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //--------------------------------------------------------------------
+ 180:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //
+ 181:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //--------------------------------------------------------------------
+ 182:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** bool dwc2_core_is_highspeed(dwc2_regs_t* dwc2, tusb_role_t role) {
+ 763              		.loc 1 182 66 is_stmt 1 view -0
+ 764              		.cfi_startproc
+ 765              		@ args = 0, pretend = 0, frame = 0
+ 766              		@ frame_needed = 0, uses_anonymous_args = 0
+ 767              		@ link register save eliminated.
+ 183:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   (void)dwc2;
+ 768              		.loc 1 183 3 view .LVU237
+ 184:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** #if CFG_TUD_ENABLED
+ 185:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   if (role == TUSB_ROLE_DEVICE && !TUD_OPT_HIGH_SPEED) {
+ 769              		.loc 1 185 3 view .LVU238
+ 770              		.loc 1 185 6 is_stmt 0 view .LVU239
+ 771 0000 0129     		cmp	r1, #1
+ 772 0002 06D0     		beq	.L60
+ 186:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     return false;
+ 187:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 188:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** #endif
+ 189:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** #if CFG_TUH_ENABLED
+ 190:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   if (role == TUSB_ROLE_HOST && !TUH_OPT_HIGH_SPEED) {
+ 191:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     return false;
+ 192:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 193:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** #endif
+ 194:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 195:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   const dwc2_ghwcfg2_t ghwcfg2 = {.value = dwc2->ghwcfg2};
+ 773              		.loc 1 195 3 is_stmt 1 view .LVU240
+ 774              		.loc 1 195 48 is_stmt 0 view .LVU241
+ 775 0004 836C     		ldr	r3, [r0, #72]
+ 196:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   return ghwcfg2.hs_phy_type != GHWCFG2_HSPHY_NOT_SUPPORTED;
+ 776              		.loc 1 196 3 is_stmt 1 view .LVU242
+ 777              		.loc 1 196 30 is_stmt 0 view .LVU243
+ 778 0006 13F0C00F 		tst	r3, #192
+ 779 000a 14BF     		ite	ne
+ 780 000c 0120     		movne	r0, #1
+ 781              	.LVL58:
+ 782              		.loc 1 196 30 view .LVU244
+ 783 000e 0020     		moveq	r0, #0
+ 784 0010 7047     		bx	lr
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 25
+
+
+ 785              	.LVL59:
+ 786              	.L60:
+ 186:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     return false;
+ 787              		.loc 1 186 12 view .LVU245
+ 788 0012 0020     		movs	r0, #0
+ 789              	.LVL60:
+ 197:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** }
+ 790              		.loc 1 197 1 view .LVU246
+ 791 0014 7047     		bx	lr
+ 792              		.cfi_endproc
+ 793              	.LFE330:
+ 795              		.section	.text.dwc2_core_init,"ax",%progbits
+ 796              		.align	1
+ 797              		.global	dwc2_core_init
+ 798              		.syntax unified
+ 799              		.thumb
+ 800              		.thumb_func
+ 802              	dwc2_core_init:
+ 803              	.LVL61:
+ 804              	.LFB331:
+ 198:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 199:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** /* dwc2 has several PHYs option
+ 200:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * - UTMI+ is internal highspeed PHY, clock can be 30 Mhz (8-bit) or 60 Mhz (16-bit)
+ 201:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * - ULPI is external highspeed PHY, clock is 60Mhz with only 8-bit interface
+ 202:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * - Dedicated FS PHY is internal with clock 48Mhz.
+ 203:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  *
+ 204:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  * In addition, UTMI+/ULPI can be shared to run at fullspeed mode with 48Mhz
+ 205:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****  *
+ 206:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** */
+ 207:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** bool dwc2_core_init(uint8_t rhport, bool is_highspeed, bool is_dma) {
+ 805              		.loc 1 207 69 is_stmt 1 view -0
+ 806              		.cfi_startproc
+ 807              		@ args = 0, pretend = 0, frame = 0
+ 808              		@ frame_needed = 0, uses_anonymous_args = 0
+ 809              		.loc 1 207 69 is_stmt 0 view .LVU248
+ 810 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 811              	.LCFI2:
+ 812              		.cfi_def_cfa_offset 24
+ 813              		.cfi_offset 3, -24
+ 814              		.cfi_offset 4, -20
+ 815              		.cfi_offset 5, -16
+ 816              		.cfi_offset 6, -12
+ 817              		.cfi_offset 7, -8
+ 818              		.cfi_offset 14, -4
+ 819 0002 0E46     		mov	r6, r1
+ 820 0004 1546     		mov	r5, r2
+ 208:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2_regs_t* dwc2 = DWC2_REG(rhport);
+ 821              		.loc 1 208 3 is_stmt 1 view .LVU249
+ 822              	.LVL62:
+ 823              	.LBB58:
+ 824              	.LBI58:
+ 825              		.file 3 "lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h"
+   1:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** /*
+   2:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** * The MIT License (MIT)
+   3:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  *
+   4:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * Copyright (c) 2024 Ha Thach (tinyusb.org)
+   5:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  *
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 26
+
+
+   6:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * Permission is hereby granted, free of charge, to any person obtaining a copy
+   7:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * of this software and associated documentation files (the "Software"), to deal
+   8:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * in the Software without restriction, including without limitation the rights
+   9:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  10:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * copies of the Software, and to permit persons to whom the Software is
+  11:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * furnished to do so, subject to the following conditions:
+  12:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  *
+  13:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * The above copyright notice and this permission notice shall be included in
+  14:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * all copies or substantial portions of the Software.
+  15:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  *
+  16:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  17:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  18:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  19:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  20:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  21:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  22:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * THE SOFTWARE.
+  23:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  *
+  24:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  * This file is part of the TinyUSB stack.
+  25:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****  */
+  26:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** 
+  27:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #ifndef TUSB_DWC2_COMMON_H
+  28:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #define TUSB_DWC2_COMMON_H
+  29:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** 
+  30:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #include "common/tusb_common.h"
+  31:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #include "dwc2_type.h"
+  32:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** 
+  33:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #if CFG_TUD_ENABLED
+  34:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #include "device/dcd.h"
+  35:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #endif
+  36:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** 
+  37:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #if CFG_TUH_ENABLED
+  38:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #include "host/hcd.h"
+  39:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #endif
+  40:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** 
+  41:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** // Following symbols must be defined by port header
+  42:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** // - _dwc2_controller[]: array of controllers
+  43:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** // - DWC2_EP_MAX: largest EP counts of all controllers
+  44:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** // - dwc2_phy_init/dwc2_phy_update: phy init called before and after core reset
+  45:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** // - dwc2_dcd_int_enable/dwc2_dcd_int_disable
+  46:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** // - dwc2_remote_wakeup_delay
+  47:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** 
+  48:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #if defined(TUP_USBIP_DWC2_STM32)
+  49:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   #include "dwc2_stm32.h"
+  50:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #elif defined(TUP_USBIP_DWC2_ESP32)
+  51:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   #include "dwc2_esp32.h"
+  52:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #elif TU_CHECK_MCU(OPT_MCU_GD32VF103)
+  53:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   #include "dwc2_gd32.h"
+  54:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #elif TU_CHECK_MCU(OPT_MCU_BCM2711, OPT_MCU_BCM2835, OPT_MCU_BCM2837)
+  55:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   #include "dwc2_bcm.h"
+  56:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #elif TU_CHECK_MCU(OPT_MCU_EFM32GG)
+  57:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   #include "dwc2_efm32.h"
+  58:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #elif TU_CHECK_MCU(OPT_MCU_XMC4000)
+  59:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   #include "dwc2_xmc.h"
+  60:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #elif defined(TUP_USBIP_DWC2_AT32)
+  61:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   #include "dwc2_at32.h"
+  62:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #elif defined(TUP_USBIP_DWC2_NRF)
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 27
+
+
+  63:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   #include "dwc2_nrf.h"
+  64:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #else
+  65:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   #error "Unsupported MCUs"
+  66:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** #endif
+  67:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** 
+  68:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** enum {
+  69:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   DWC2_CONTROLLER_COUNT = TU_ARRAY_SIZE(_dwc2_controller)
+  70:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** };
+  71:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** 
+  72:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** enum {
+  73:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   OTG_INT_COMMON = 0 // GINTSTS_DISCINT | GINTSTS_CONIDSTSCHNG
+  74:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** };
+  75:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** 
+  76:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** //--------------------------------------------------------------------+
+  77:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** // Core/Controller
+  78:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** //--------------------------------------------------------------------+
+  79:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** TU_ATTR_ALWAYS_INLINE static inline dwc2_regs_t* DWC2_REG(uint8_t rhport) {
+ 826              		.loc 3 79 50 view .LVU250
+ 827              	.LBB59:
+  80:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   if (rhport >= DWC2_CONTROLLER_COUNT) {
+ 828              		.loc 3 80 3 view .LVU251
+ 829              		.loc 3 80 6 is_stmt 0 view .LVU252
+ 830 0006 0128     		cmp	r0, #1
+ 831 0008 00D9     		bls	.L62
+  81:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****     // user mis-configured, ignore and use first controller
+  82:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****     rhport = 0;
+ 832              		.loc 3 82 12 view .LVU253
+ 833 000a 0020     		movs	r0, #0
+ 834              	.LVL63:
+ 835              	.L62:
+  83:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   }
+  84:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   return (dwc2_regs_t*)_dwc2_controller[rhport].reg_base;
+ 836              		.loc 3 84 3 is_stmt 1 view .LVU254
+ 837              		.loc 3 84 48 is_stmt 0 view .LVU255
+ 838 000c 0001     		lsls	r0, r0, #4
+ 839              	.LVL64:
+ 840              		.loc 3 84 48 view .LVU256
+ 841 000e 234B     		ldr	r3, .L74
+ 842 0010 1C58     		ldr	r4, [r3, r0]
+ 843              	.LVL65:
+ 844              		.loc 3 84 48 view .LVU257
+ 845              	.LBE59:
+ 846              	.LBE58:
+ 209:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 210:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Check Synopsys ID register, failed if controller clock/power is not enabled
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   TU_ASSERT(check_dwc2(dwc2));
+ 847              		.loc 1 211 3 is_stmt 1 view .LVU258
+ 848              		.loc 1 211 3 view .LVU259
+ 849 0012 2046     		mov	r0, r4
+ 850 0014 FFF7FEFF 		bl	check_dwc2
+ 851              	.LVL66:
+ 852              		.loc 1 211 3 is_stmt 0 view .LVU260
+ 853 0018 0746     		mov	r7, r0
+ 854 001a 60B3     		cbz	r0, .L73
+ 855              		.loc 1 211 3 is_stmt 1 discriminator 2 view .LVU261
+ 212:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 213:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // disable global interrupt
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 28
+
+
+ 214:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gahbcfg &= ~GAHBCFG_GINT;
+ 856              		.loc 1 214 3 discriminator 2 view .LVU262
+ 857              		.loc 1 214 17 is_stmt 0 discriminator 2 view .LVU263
+ 858 001c A368     		ldr	r3, [r4, #8]
+ 859 001e 23F00103 		bic	r3, r3, #1
+ 860 0022 A360     		str	r3, [r4, #8]
+ 215:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 216:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   if (is_highspeed) {
+ 861              		.loc 1 216 3 is_stmt 1 discriminator 2 view .LVU264
+ 862              		.loc 1 216 6 is_stmt 0 discriminator 2 view .LVU265
+ 863 0024 86B3     		cbz	r6, .L66
+ 217:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     phy_hs_init(dwc2);
+ 864              		.loc 1 217 5 is_stmt 1 view .LVU266
+ 865 0026 2046     		mov	r0, r4
+ 866 0028 FFF7FEFF 		bl	phy_hs_init
+ 867              	.LVL67:
+ 868              	.L67:
+ 218:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   } else {
+ 219:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     phy_fs_init(dwc2);
+ 220:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 221:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 222:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   /* Set HS/FS Timeout Calibration to 7 (max available value).
+ 223:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****    * The number of PHY clocks that the application programs in
+ 224:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****    * this field is added to the high/full speed interpacket timeout
+ 225:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****    * duration in the core to account for any additional delays
+ 226:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****    * introduced by the PHY. This can be required, because the delay
+ 227:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****    * introduced by the PHY in generating the linestate condition
+ 228:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****    * can vary from one PHY to another. */
+ 229:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gusbcfg |= (7ul << GUSBCFG_TOCAL_Pos);
+ 869              		.loc 1 229 3 view .LVU267
+ 870              		.loc 1 229 17 is_stmt 0 view .LVU268
+ 871 002c E368     		ldr	r3, [r4, #12]
+ 872 002e 43F00703 		orr	r3, r3, #7
+ 873 0032 E360     		str	r3, [r4, #12]
+ 230:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 231:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Enable PHY clock TODO stop/gate clock when suspended mode
+ 232:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->pcgcctl &= ~(PCGCCTL_STOPPCLK | PCGCCTL_GATEHCLK | PCGCCTL_PWRCLMP | PCGCCTL_RSTPDWNMODULE)
+ 874              		.loc 1 232 3 is_stmt 1 view .LVU269
+ 875              		.loc 1 232 17 is_stmt 0 view .LVU270
+ 876 0034 D4F8003E 		ldr	r3, [r4, #3584]
+ 877 0038 23F00F03 		bic	r3, r3, #15
+ 878 003c C4F8003E 		str	r3, [r4, #3584]
+ 233:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 234:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dfifo_flush_tx(dwc2, 0x10); // all tx fifo
+ 879              		.loc 1 234 3 is_stmt 1 view .LVU271
+ 880              	.LVL68:
+ 881              	.LBB60:
+ 882              	.LBI60:
+  85:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** }
+  86:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** 
+  87:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** bool dwc2_core_is_highspeed(dwc2_regs_t* dwc2, tusb_role_t role);
+  88:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** bool dwc2_core_init(uint8_t rhport, bool is_highspeed, bool is_dma);
+  89:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** void dwc2_core_handle_common_irq(uint8_t rhport, bool in_isr);
+  90:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** 
+  91:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** //--------------------------------------------------------------------+
+  92:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** // DFIFO
+  93:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** //--------------------------------------------------------------------+
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 29
+
+
+  94:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** TU_ATTR_ALWAYS_INLINE static inline void dfifo_flush_tx(dwc2_regs_t* dwc2, uint8_t fnum) {
+ 883              		.loc 3 94 42 view .LVU272
+ 884              	.LBB61:
+  95:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   // flush TX fifo and wait for it cleared
+  96:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   dwc2->grstctl = GRSTCTL_TXFFLSH | (fnum << GRSTCTL_TXFNUM_Pos);
+ 885              		.loc 3 96 3 view .LVU273
+ 886              		.loc 3 96 17 is_stmt 0 view .LVU274
+ 887 0040 4FF48463 		mov	r3, #1056
+ 888 0044 2361     		str	r3, [r4, #16]
+  97:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   while (0 != (dwc2->grstctl & GRSTCTL_TXFFLSH_Msk)) {}
+ 889              		.loc 3 97 3 is_stmt 1 view .LVU275
+ 890              	.L68:
+ 891              		.loc 3 97 55 view .LVU276
+ 892              		.loc 3 97 9 view .LVU277
+ 893              		.loc 3 97 20 is_stmt 0 view .LVU278
+ 894 0046 2369     		ldr	r3, [r4, #16]
+ 895              		.loc 3 97 9 view .LVU279
+ 896 0048 13F0200F 		tst	r3, #32
+ 897 004c FBD1     		bne	.L68
+ 898              	.LVL69:
+ 899              		.loc 3 97 9 view .LVU280
+ 900              	.LBE61:
+ 901              	.LBE60:
+ 235:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dfifo_flush_rx(dwc2);
+ 902              		.loc 1 235 3 is_stmt 1 view .LVU281
+ 903              	.LBB62:
+ 904              	.LBI62:
+  98:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** }
+  99:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** 
+ 100:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h **** TU_ATTR_ALWAYS_INLINE static inline void dfifo_flush_rx(dwc2_regs_t* dwc2) {
+ 905              		.loc 3 100 42 view .LVU282
+ 906              	.LBB63:
+ 101:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   // flush RX fifo and wait for it cleared
+ 102:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   dwc2->grstctl = GRSTCTL_RXFFLSH;
+ 907              		.loc 3 102 3 view .LVU283
+ 908              		.loc 3 102 17 is_stmt 0 view .LVU284
+ 909 004e 1023     		movs	r3, #16
+ 910 0050 2361     		str	r3, [r4, #16]
+ 103:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.h ****   while (0 != (dwc2->grstctl & GRSTCTL_RXFFLSH_Msk)) {}
+ 911              		.loc 3 103 3 is_stmt 1 view .LVU285
+ 912              	.L69:
+ 913              		.loc 3 103 55 view .LVU286
+ 914              		.loc 3 103 9 view .LVU287
+ 915              		.loc 3 103 20 is_stmt 0 view .LVU288
+ 916 0052 2369     		ldr	r3, [r4, #16]
+ 917              		.loc 3 103 9 view .LVU289
+ 918 0054 13F0100F 		tst	r3, #16
+ 919 0058 FBD1     		bne	.L69
+ 920              	.LVL70:
+ 921              		.loc 3 103 9 view .LVU290
+ 922              	.LBE63:
+ 923              	.LBE62:
+ 236:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 237:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Clear pending and disable all interrupts
+ 238:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gintsts = 0xFFFFFFFFU;
+ 924              		.loc 1 238 3 is_stmt 1 view .LVU291
+ 925              		.loc 1 238 17 is_stmt 0 view .LVU292
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 30
+
+
+ 926 005a 4FF0FF33 		mov	r3, #-1
+ 927 005e 6361     		str	r3, [r4, #20]
+ 239:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gotgint = 0xFFFFFFFFU;
+ 928              		.loc 1 239 3 is_stmt 1 view .LVU293
+ 929              		.loc 1 239 17 is_stmt 0 view .LVU294
+ 930 0060 6360     		str	r3, [r4, #4]
+ 240:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   dwc2->gintmsk = 0;
+ 931              		.loc 1 240 3 is_stmt 1 view .LVU295
+ 932              		.loc 1 240 17 is_stmt 0 view .LVU296
+ 933 0062 0023     		movs	r3, #0
+ 934 0064 A361     		str	r3, [r4, #24]
+ 241:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 242:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   TU_LOG(DWC2_COMMON_DEBUG, "DMA = %u\r\n", is_dma);
+ 935              		.loc 1 242 52 is_stmt 1 view .LVU297
+ 243:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 244:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   if (is_dma) {
+ 936              		.loc 1 244 3 view .LVU298
+ 937              		.loc 1 244 6 is_stmt 0 view .LVU299
+ 938 0066 9DB1     		cbz	r5, .L70
+ 245:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     // DMA seems to be only settable after a core reset, and not possible to switch on-the-fly
+ 246:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     dwc2->gahbcfg |= GAHBCFG_DMAEN | GAHBCFG_HBSTLEN_2;
+ 939              		.loc 1 246 5 is_stmt 1 view .LVU300
+ 940              		.loc 1 246 19 is_stmt 0 view .LVU301
+ 941 0068 A368     		ldr	r3, [r4, #8]
+ 942 006a 43F02603 		orr	r3, r3, #38
+ 943 006e A360     		str	r3, [r4, #8]
+ 247:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   } else {
+ 248:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     dwc2->gintmsk |= GINTSTS_RXFLVL;
+ 249:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 250:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 251:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   return true;
+ 944              		.loc 1 251 10 view .LVU302
+ 945 0070 2F46     		mov	r7, r5
+ 946              	.L65:
+ 252:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** }
+ 947              		.loc 1 252 1 view .LVU303
+ 948 0072 3846     		mov	r0, r7
+ 949 0074 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 950              	.LVL71:
+ 951              	.L73:
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 952              		.loc 1 211 3 is_stmt 1 discriminator 1 view .LVU304
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 953              		.loc 1 211 3 discriminator 1 view .LVU305
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 954              		.loc 1 211 3 discriminator 1 view .LVU306
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 955              		.loc 1 211 3 discriminator 1 view .LVU307
+ 956              	.LBB64:
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 957              		.loc 1 211 3 discriminator 1 view .LVU308
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 958              		.loc 1 211 3 discriminator 1 view .LVU309
+ 959 0076 4FF0E023 		mov	r3, #-536813568
+ 960 007a D3F8F03D 		ldr	r3, [r3, #3568]
+ 961 007e 13F0010F 		tst	r3, #1
+ 962 0082 F6D0     		beq	.L65
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 31
+
+
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 963              		.loc 1 211 3 discriminator 3 view .LVU310
+ 964              		.syntax unified
+ 965              	@ 211 "lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c" 1
+ 966 0084 00BE     		BKPT #0
+ 967              	
+ 968              	@ 0 "" 2
+ 969              		.thumb
+ 970              		.syntax unified
+ 971              	.LBE64:
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 972              		.loc 1 211 3 discriminator 3 view .LVU311
+ 211:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 973              		.loc 1 211 3 discriminator 3 view .LVU312
+ 974 0086 F4E7     		b	.L65
+ 975              	.LVL72:
+ 976              	.L66:
+ 219:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 977              		.loc 1 219 5 view .LVU313
+ 978 0088 2046     		mov	r0, r4
+ 979 008a FFF7FEFF 		bl	phy_fs_init
+ 980              	.LVL73:
+ 981 008e CDE7     		b	.L67
+ 982              	.L70:
+ 248:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 983              		.loc 1 248 5 view .LVU314
+ 248:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 984              		.loc 1 248 19 is_stmt 0 view .LVU315
+ 985 0090 A369     		ldr	r3, [r4, #24]
+ 986 0092 43F01003 		orr	r3, r3, #16
+ 987 0096 A361     		str	r3, [r4, #24]
+ 988 0098 EBE7     		b	.L65
+ 989              	.L75:
+ 990 009a 00BF     		.align	2
+ 991              	.L74:
+ 992 009c 00000000 		.word	.LANCHOR0
+ 993              		.cfi_endproc
+ 994              	.LFE331:
+ 996              		.section	.text.dfifo_read_packet,"ax",%progbits
+ 997              		.align	1
+ 998              		.global	dfifo_read_packet
+ 999              		.syntax unified
+ 1000              		.thumb
+ 1001              		.thumb_func
+ 1003              	dfifo_read_packet:
+ 1004              	.LVL74:
+ 1005              	.LFB332:
+ 253:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 254:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** // void dwc2_core_handle_common_irq(uint8_t rhport, bool in_isr) {
+ 255:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //   (void) in_isr;
+ 256:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //   dwc2_regs_t * const dwc2 = DWC2_REG(rhport);
+ 257:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //   const uint32_t int_mask = dwc2->gintmsk;
+ 258:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //   const uint32_t int_status = dwc2->gintsts & int_mask;
+ 259:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //
+ 260:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //   // Device disconnect
+ 261:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //   if (int_status & GINTSTS_DISCINT) {
+ 262:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //     dwc2->gintsts = GINTSTS_DISCINT;
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 32
+
+
+ 263:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //   }
+ 264:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //
+ 265:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** // }
+ 266:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 267:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //--------------------------------------------------------------------
+ 268:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** // DFIFO
+ 269:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** //--------------------------------------------------------------------
+ 270:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** // Read a single data packet from receive DFIFO
+ 271:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** void dfifo_read_packet(dwc2_regs_t* dwc2, uint8_t* dst, uint16_t len) {
+ 1006              		.loc 1 271 71 is_stmt 1 view -0
+ 1007              		.cfi_startproc
+ 1008              		@ args = 0, pretend = 0, frame = 0
+ 1009              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1010              		@ link register save eliminated.
+ 1011              		.loc 1 271 71 is_stmt 0 view .LVU317
+ 1012 0000 10B4     		push	{r4}
+ 1013              	.LCFI3:
+ 1014              		.cfi_def_cfa_offset 4
+ 1015              		.cfi_offset 4, -4
+ 272:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   const volatile uint32_t* rx_fifo = dwc2->fifo[0];
+ 1016              		.loc 1 272 3 is_stmt 1 view .LVU318
+ 1017              	.LVL75:
+ 273:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 274:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Reading full available 32 bit words from fifo
+ 275:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   uint16_t word_count = len >> 2;
+ 1018              		.loc 1 275 3 view .LVU319
+ 1019              		.loc 1 275 12 is_stmt 0 view .LVU320
+ 1020 0002 9408     		lsrs	r4, r2, #2
+ 1021              	.LVL76:
+ 276:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   while (word_count--) {
+ 1022              		.loc 1 276 3 is_stmt 1 view .LVU321
+ 1023              		.loc 1 276 9 is_stmt 0 view .LVU322
+ 1024 0004 05E0     		b	.L77
+ 1025              	.LVL77:
+ 1026              	.L78:
+ 277:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     tu_unaligned_write32(dst, *rx_fifo);
+ 1027              		.loc 1 277 5 is_stmt 1 view .LVU323
+ 1028 0006 00F58054 		add	r4, r0, #4096
+ 1029 000a 2468     		ldr	r4, [r4]
+ 1030              	.LVL78:
+ 1031              	.LBB65:
+ 1032              	.LBI65:
+ 1033              		.file 4 "lib/TinyUSB/src/common/tusb_common.h"
+   1:lib/TinyUSB/src/common/tusb_common.h **** /*
+   2:lib/TinyUSB/src/common/tusb_common.h ****  * The MIT License (MIT)
+   3:lib/TinyUSB/src/common/tusb_common.h ****  *
+   4:lib/TinyUSB/src/common/tusb_common.h ****  * Copyright (c) 2019 Ha Thach (tinyusb.org)
+   5:lib/TinyUSB/src/common/tusb_common.h ****  *
+   6:lib/TinyUSB/src/common/tusb_common.h ****  * Permission is hereby granted, free of charge, to any person obtaining a copy
+   7:lib/TinyUSB/src/common/tusb_common.h ****  * of this software and associated documentation files (the "Software"), to deal
+   8:lib/TinyUSB/src/common/tusb_common.h ****  * in the Software without restriction, including without limitation the rights
+   9:lib/TinyUSB/src/common/tusb_common.h ****  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  10:lib/TinyUSB/src/common/tusb_common.h ****  * copies of the Software, and to permit persons to whom the Software is
+  11:lib/TinyUSB/src/common/tusb_common.h ****  * furnished to do so, subject to the following conditions:
+  12:lib/TinyUSB/src/common/tusb_common.h ****  *
+  13:lib/TinyUSB/src/common/tusb_common.h ****  * The above copyright notice and this permission notice shall be included in
+  14:lib/TinyUSB/src/common/tusb_common.h ****  * all copies or substantial portions of the Software.
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 33
+
+
+  15:lib/TinyUSB/src/common/tusb_common.h ****  *
+  16:lib/TinyUSB/src/common/tusb_common.h ****  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  17:lib/TinyUSB/src/common/tusb_common.h ****  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  18:lib/TinyUSB/src/common/tusb_common.h ****  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  19:lib/TinyUSB/src/common/tusb_common.h ****  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  20:lib/TinyUSB/src/common/tusb_common.h ****  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  21:lib/TinyUSB/src/common/tusb_common.h ****  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  22:lib/TinyUSB/src/common/tusb_common.h ****  * THE SOFTWARE.
+  23:lib/TinyUSB/src/common/tusb_common.h ****  *
+  24:lib/TinyUSB/src/common/tusb_common.h ****  * This file is part of the TinyUSB stack.
+  25:lib/TinyUSB/src/common/tusb_common.h ****  */
+  26:lib/TinyUSB/src/common/tusb_common.h **** 
+  27:lib/TinyUSB/src/common/tusb_common.h **** #ifndef TUSB_COMMON_H_
+  28:lib/TinyUSB/src/common/tusb_common.h **** #define TUSB_COMMON_H_
+  29:lib/TinyUSB/src/common/tusb_common.h **** 
+  30:lib/TinyUSB/src/common/tusb_common.h **** #ifdef __cplusplus
+  31:lib/TinyUSB/src/common/tusb_common.h ****  extern "C" {
+  32:lib/TinyUSB/src/common/tusb_common.h **** #endif
+  33:lib/TinyUSB/src/common/tusb_common.h **** 
+  34:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+  35:lib/TinyUSB/src/common/tusb_common.h **** // Macros Helper
+  36:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+  37:lib/TinyUSB/src/common/tusb_common.h **** #define TU_ARRAY_SIZE(_arr)           ( sizeof(_arr) / sizeof(_arr[0]) )
+  38:lib/TinyUSB/src/common/tusb_common.h **** #define TU_FIELD_SIZE(_type, _field)  (sizeof(((_type *)0)->_field))
+  39:lib/TinyUSB/src/common/tusb_common.h **** #define TU_MIN(_x, _y)                ( ( (_x) < (_y) ) ? (_x) : (_y) )
+  40:lib/TinyUSB/src/common/tusb_common.h **** #define TU_MAX(_x, _y)                ( ( (_x) > (_y) ) ? (_x) : (_y) )
+  41:lib/TinyUSB/src/common/tusb_common.h **** #define TU_DIV_CEIL(n, d)             (((n) + (d) - 1) / (d))
+  42:lib/TinyUSB/src/common/tusb_common.h **** #define TU_DIV_ROUND_NEAREST(v, d)    (((v) + (d)/2) / (d) ) // round to nearest integer
+  43:lib/TinyUSB/src/common/tusb_common.h **** 
+  44:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U16(_high, _low)           ((uint16_t) ((((uint16_t) (_high)) << 8) | ((uint16_t) (_low)
+  45:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U16_HIGH(_u16)             ((uint8_t) (((uint16_t) (_u16) >> 8) & 0x00ffu))
+  46:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U16_LOW(_u16)              ((uint8_t) ((uint16_t) (_u16) & 0x00ffu))
+  47:lib/TinyUSB/src/common/tusb_common.h **** #define U16_TO_U8S_BE(_u16)           TU_U16_HIGH(_u16), TU_U16_LOW(_u16)
+  48:lib/TinyUSB/src/common/tusb_common.h **** #define U16_TO_U8S_LE(_u16)           TU_U16_LOW(_u16), TU_U16_HIGH(_u16)
+  49:lib/TinyUSB/src/common/tusb_common.h **** 
+  50:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U24(_high, _mid, _low)     ((uint32_t) ((((uint32_t) (_high)) << 16) | (((uint32_t) (_mi
+  51:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U24_HIGH(_u24)             ((uint8_t) (((uint32_t) (_u24) >> 16) & 0x0000ffu))
+  52:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U24_MID(_u24)              ((uint8_t) (((uint32_t) (_u24) >>  8) & 0x0000ffu))
+  53:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U24_LOW(_u24)              ((uint8_t) ((uint32_t) (_u24) & 0x0000ffu))
+  54:lib/TinyUSB/src/common/tusb_common.h **** #define U24_TO_U8S_BE(_u24)           TU_U24_HIGH(_u24), TU_U24_MID(_u24), TU_U24_LOW(_u24)
+  55:lib/TinyUSB/src/common/tusb_common.h **** #define U24_TO_U8S_LE(_u24)           TU_U24_LOW(_u24), TU_U24_MID(_u24), TU_U24_HIGH(_u24)
+  56:lib/TinyUSB/src/common/tusb_common.h **** 
+  57:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U32_BYTE3(_u32)            ((uint8_t) ((((uint32_t) _u32) >> 24) & 0x000000ff)) // MSB
+  58:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U32_BYTE2(_u32)            ((uint8_t) ((((uint32_t) _u32) >> 16) & 0x000000ff))
+  59:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U32_BYTE1(_u32)            ((uint8_t) ((((uint32_t) _u32) >>  8) & 0x000000ff))
+  60:lib/TinyUSB/src/common/tusb_common.h **** #define TU_U32_BYTE0(_u32)            ((uint8_t) (((uint32_t)  _u32)        & 0x000000ff)) // LSB
+  61:lib/TinyUSB/src/common/tusb_common.h **** 
+  62:lib/TinyUSB/src/common/tusb_common.h **** #define U32_TO_U8S_BE(_u32)           TU_U32_BYTE3(_u32), TU_U32_BYTE2(_u32), TU_U32_BYTE1(_u32), T
+  63:lib/TinyUSB/src/common/tusb_common.h **** #define U32_TO_U8S_LE(_u32)           TU_U32_BYTE0(_u32), TU_U32_BYTE1(_u32), TU_U32_BYTE2(_u32), T
+  64:lib/TinyUSB/src/common/tusb_common.h **** 
+  65:lib/TinyUSB/src/common/tusb_common.h **** #define TU_BIT(n)                     (1UL << (n))
+  66:lib/TinyUSB/src/common/tusb_common.h **** 
+  67:lib/TinyUSB/src/common/tusb_common.h **** // Generate a mask with bit from high (31) to low (0) set, e.g TU_GENMASK(3, 0) = 0b1111
+  68:lib/TinyUSB/src/common/tusb_common.h **** #define TU_GENMASK(h, l)              ( (UINT32_MAX << (l)) & (UINT32_MAX >> (31 - (h))) )
+  69:lib/TinyUSB/src/common/tusb_common.h **** 
+  70:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+  71:lib/TinyUSB/src/common/tusb_common.h **** // Includes
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 34
+
+
+  72:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+  73:lib/TinyUSB/src/common/tusb_common.h **** 
+  74:lib/TinyUSB/src/common/tusb_common.h **** // Standard Headers
+  75:lib/TinyUSB/src/common/tusb_common.h **** #include <stdbool.h>
+  76:lib/TinyUSB/src/common/tusb_common.h **** #include <stdint.h>
+  77:lib/TinyUSB/src/common/tusb_common.h **** #include <inttypes.h>
+  78:lib/TinyUSB/src/common/tusb_common.h **** #include <stddef.h>
+  79:lib/TinyUSB/src/common/tusb_common.h **** #include <string.h>
+  80:lib/TinyUSB/src/common/tusb_common.h **** 
+  81:lib/TinyUSB/src/common/tusb_common.h **** // Tinyusb Common Headers
+  82:lib/TinyUSB/src/common/tusb_common.h **** #include "tusb_option.h"
+  83:lib/TinyUSB/src/common/tusb_common.h **** #include "tusb_compiler.h"
+  84:lib/TinyUSB/src/common/tusb_common.h **** #include "tusb_verify.h"
+  85:lib/TinyUSB/src/common/tusb_common.h **** #include "tusb_types.h"
+  86:lib/TinyUSB/src/common/tusb_common.h **** #include "tusb_debug.h"
+  87:lib/TinyUSB/src/common/tusb_common.h **** 
+  88:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+  89:lib/TinyUSB/src/common/tusb_common.h **** // API implemented by application if needed
+  90:lib/TinyUSB/src/common/tusb_common.h **** // TODO move to a more obvious place/file
+  91:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+  92:lib/TinyUSB/src/common/tusb_common.h **** 
+  93:lib/TinyUSB/src/common/tusb_common.h **** // Get current milliseconds, required by some port/configuration without RTOS
+  94:lib/TinyUSB/src/common/tusb_common.h **** extern uint32_t tusb_time_millis_api(void);
+  95:lib/TinyUSB/src/common/tusb_common.h **** 
+  96:lib/TinyUSB/src/common/tusb_common.h **** // Delay in milliseconds, use tusb_time_millis_api() by default. required by some port/configuratio
+  97:lib/TinyUSB/src/common/tusb_common.h **** extern void tusb_time_delay_ms_api(uint32_t ms);
+  98:lib/TinyUSB/src/common/tusb_common.h **** 
+  99:lib/TinyUSB/src/common/tusb_common.h **** // flush data cache
+ 100:lib/TinyUSB/src/common/tusb_common.h **** extern void tusb_app_dcache_flush(uintptr_t addr, uint32_t data_size);
+ 101:lib/TinyUSB/src/common/tusb_common.h **** 
+ 102:lib/TinyUSB/src/common/tusb_common.h **** // invalidate data cache
+ 103:lib/TinyUSB/src/common/tusb_common.h **** extern void tusb_app_dcache_invalidate(uintptr_t addr, uint32_t data_size);
+ 104:lib/TinyUSB/src/common/tusb_common.h **** 
+ 105:lib/TinyUSB/src/common/tusb_common.h **** // Optional physical <-> virtual address translation
+ 106:lib/TinyUSB/src/common/tusb_common.h **** extern void* tusb_app_virt_to_phys(void *virt_addr);
+ 107:lib/TinyUSB/src/common/tusb_common.h **** extern void* tusb_app_phys_to_virt(void *phys_addr);
+ 108:lib/TinyUSB/src/common/tusb_common.h **** 
+ 109:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+ 110:lib/TinyUSB/src/common/tusb_common.h **** // Internal Inline Functions
+ 111:lib/TinyUSB/src/common/tusb_common.h **** //--------------------------------------------------------------------+
+ 112:lib/TinyUSB/src/common/tusb_common.h **** 
+ 113:lib/TinyUSB/src/common/tusb_common.h **** //------------- Mem -------------//
+ 114:lib/TinyUSB/src/common/tusb_common.h **** #define tu_memclr(buffer, size)  (void) memset((buffer), 0, (size))
+ 115:lib/TinyUSB/src/common/tusb_common.h **** #define tu_varclr(_var)          tu_memclr(_var, sizeof(*(_var)))
+ 116:lib/TinyUSB/src/common/tusb_common.h **** 
+ 117:lib/TinyUSB/src/common/tusb_common.h **** // This is a backport of memset_s from c11
+ 118:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline int tu_memset_s(void *dest, size_t destsz, int ch, size_t count
+ 119:lib/TinyUSB/src/common/tusb_common.h ****   // Validate parameters
+ 120:lib/TinyUSB/src/common/tusb_common.h ****   if (dest == NULL) {
+ 121:lib/TinyUSB/src/common/tusb_common.h ****     return -1;
+ 122:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 123:lib/TinyUSB/src/common/tusb_common.h **** 
+ 124:lib/TinyUSB/src/common/tusb_common.h ****   if (count == 0u) {
+ 125:lib/TinyUSB/src/common/tusb_common.h ****     return 0;
+ 126:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 127:lib/TinyUSB/src/common/tusb_common.h **** 
+ 128:lib/TinyUSB/src/common/tusb_common.h ****   if (count > destsz) {
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 35
+
+
+ 129:lib/TinyUSB/src/common/tusb_common.h ****     return -1;
+ 130:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 131:lib/TinyUSB/src/common/tusb_common.h **** 
+ 132:lib/TinyUSB/src/common/tusb_common.h ****   (void) memset(dest, ch, count);
+ 133:lib/TinyUSB/src/common/tusb_common.h ****   return 0;
+ 134:lib/TinyUSB/src/common/tusb_common.h **** }
+ 135:lib/TinyUSB/src/common/tusb_common.h **** 
+ 136:lib/TinyUSB/src/common/tusb_common.h **** // This is a backport of memcpy_s from c11
+ 137:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline int tu_memcpy_s(void *dest, size_t destsz, const void *src, siz
+ 138:lib/TinyUSB/src/common/tusb_common.h ****   if (dest == NULL) {
+ 139:lib/TinyUSB/src/common/tusb_common.h ****     return -1;
+ 140:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 141:lib/TinyUSB/src/common/tusb_common.h **** 
+ 142:lib/TinyUSB/src/common/tusb_common.h ****   if (count == 0u) {
+ 143:lib/TinyUSB/src/common/tusb_common.h ****     return 0;
+ 144:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 145:lib/TinyUSB/src/common/tusb_common.h **** 
+ 146:lib/TinyUSB/src/common/tusb_common.h ****   if (src == NULL) {
+ 147:lib/TinyUSB/src/common/tusb_common.h ****     return -1;
+ 148:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 149:lib/TinyUSB/src/common/tusb_common.h **** 
+ 150:lib/TinyUSB/src/common/tusb_common.h ****   if (count > destsz) {
+ 151:lib/TinyUSB/src/common/tusb_common.h ****     return -1;
+ 152:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 153:lib/TinyUSB/src/common/tusb_common.h **** 
+ 154:lib/TinyUSB/src/common/tusb_common.h ****   (void) memcpy(dest, src, count);
+ 155:lib/TinyUSB/src/common/tusb_common.h ****   return 0;
+ 156:lib/TinyUSB/src/common/tusb_common.h **** }
+ 157:lib/TinyUSB/src/common/tusb_common.h **** 
+ 158:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline bool tu_mem_is_zero(const void *buffer, size_t size) {
+ 159:lib/TinyUSB/src/common/tusb_common.h ****   const uint8_t* buf8 = (const uint8_t*) buffer;
+ 160:lib/TinyUSB/src/common/tusb_common.h ****   for (size_t i = 0; i < size; i++) {
+ 161:lib/TinyUSB/src/common/tusb_common.h ****     if (buf8[i] != 0) { return false; }
+ 162:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 163:lib/TinyUSB/src/common/tusb_common.h ****   return true;
+ 164:lib/TinyUSB/src/common/tusb_common.h **** }
+ 165:lib/TinyUSB/src/common/tusb_common.h **** 
+ 166:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline bool tu_mem_is_ff(const void *buffer, size_t size) {
+ 167:lib/TinyUSB/src/common/tusb_common.h ****   const uint8_t* buf8 = (const uint8_t*) buffer;
+ 168:lib/TinyUSB/src/common/tusb_common.h ****   for (size_t i = 0; i < size; i++) {
+ 169:lib/TinyUSB/src/common/tusb_common.h ****     if (buf8[i] != 0xff) { return false; }
+ 170:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 171:lib/TinyUSB/src/common/tusb_common.h ****   return true;
+ 172:lib/TinyUSB/src/common/tusb_common.h **** }
+ 173:lib/TinyUSB/src/common/tusb_common.h **** 
+ 174:lib/TinyUSB/src/common/tusb_common.h **** 
+ 175:lib/TinyUSB/src/common/tusb_common.h **** //------------- Bytes -------------//
+ 176:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_u32(uint8_t b3, uint8_t b2, uint8_t b1, uint8_t b0)
+ 177:lib/TinyUSB/src/common/tusb_common.h ****   return (((uint32_t)b3) << 24) | (((uint32_t)b2) << 16) | (((uint32_t)b1) << 8) | b0;
+ 178:lib/TinyUSB/src/common/tusb_common.h **** }
+ 179:lib/TinyUSB/src/common/tusb_common.h **** 
+ 180:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_u32_from_u16(uint16_t high, uint16_t low) {
+ 181:lib/TinyUSB/src/common/tusb_common.h ****   return (((uint32_t)high) << 16) | low;
+ 182:lib/TinyUSB/src/common/tusb_common.h **** }
+ 183:lib/TinyUSB/src/common/tusb_common.h **** 
+ 184:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_u16(uint8_t high, uint8_t low) {
+ 185:lib/TinyUSB/src/common/tusb_common.h ****   return (uint16_t)((((uint16_t)high) << 8) | low);
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 36
+
+
+ 186:lib/TinyUSB/src/common/tusb_common.h **** }
+ 187:lib/TinyUSB/src/common/tusb_common.h **** 
+ 188:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte3(uint32_t ui32) { return TU_U32_BYTE3(ui32)
+ 189:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte2(uint32_t ui32) { return TU_U32_BYTE2(ui32)
+ 190:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte1(uint32_t ui32) { return TU_U32_BYTE1(ui32)
+ 191:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte0(uint32_t ui32) { return TU_U32_BYTE0(ui32)
+ 192:lib/TinyUSB/src/common/tusb_common.h **** 
+ 193:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_u32_high16(uint32_t ui32) { return (uint16_t) (ui32
+ 194:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_u32_low16 (uint32_t ui32) { return (uint16_t) (ui32
+ 195:lib/TinyUSB/src/common/tusb_common.h **** 
+ 196:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u16_high(uint16_t ui16) { return TU_U16_HIGH(ui16); 
+ 197:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u16_low (uint16_t ui16) { return TU_U16_LOW(ui16); }
+ 198:lib/TinyUSB/src/common/tusb_common.h **** 
+ 199:lib/TinyUSB/src/common/tusb_common.h **** //------------- Bits -------------//
+ 200:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_bit_set  (uint32_t value, uint8_t pos) { return val
+ 201:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_bit_clear(uint32_t value, uint8_t pos) { return val
+ 202:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline bool     tu_bit_test (uint32_t value, uint8_t pos) { return (va
+ 203:lib/TinyUSB/src/common/tusb_common.h **** 
+ 204:lib/TinyUSB/src/common/tusb_common.h **** //------------- Min -------------//
+ 205:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t  tu_min8  (uint8_t  x, uint8_t y ) { return (x < y) ? x
+ 206:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_min16 (uint16_t x, uint16_t y) { return (x < y) ? x
+ 207:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_min32 (uint32_t x, uint32_t y) { return (x < y) ? x
+ 208:lib/TinyUSB/src/common/tusb_common.h **** 
+ 209:lib/TinyUSB/src/common/tusb_common.h **** //------------- Max -------------//
+ 210:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t  tu_max8  (uint8_t  x, uint8_t y ) { return (x > y) ? x
+ 211:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_max16 (uint16_t x, uint16_t y) { return (x > y) ? x
+ 212:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_max32 (uint32_t x, uint32_t y) { return (x > y) ? x
+ 213:lib/TinyUSB/src/common/tusb_common.h **** 
+ 214:lib/TinyUSB/src/common/tusb_common.h **** //------------- Align -------------//
+ 215:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_align(uint32_t value, uint32_t alignment) {
+ 216:lib/TinyUSB/src/common/tusb_common.h ****   return value & ((uint32_t) ~(alignment-1));
+ 217:lib/TinyUSB/src/common/tusb_common.h **** }
+ 218:lib/TinyUSB/src/common/tusb_common.h **** 
+ 219:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_align4  (uint32_t value) { return (value & 0xFFFFFF
+ 220:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_align8  (uint32_t value) { return (value & 0xFFFFFF
+ 221:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_align16 (uint32_t value) { return (value & 0xFFFFFF
+ 222:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_align32 (uint32_t value) { return (value & 0xFFFFFF
+ 223:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_align4k (uint32_t value) { return (value & 0xFFFFF0
+ 224:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_offset4k(uint32_t value) { return (value & 0xFFFUL)
+ 225:lib/TinyUSB/src/common/tusb_common.h **** 
+ 226:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline bool tu_is_aligned32(uint32_t value) { return (value & 0x1FUL) 
+ 227:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline bool tu_is_aligned64(uint64_t value) { return (value & 0x3FUL) 
+ 228:lib/TinyUSB/src/common/tusb_common.h **** 
+ 229:lib/TinyUSB/src/common/tusb_common.h **** //------------- Mathematics -------------//
+ 230:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_div_ceil(uint32_t v, uint32_t d) { return TU_DIV_CE
+ 231:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_div_round_nearest(uint32_t v, uint32_t d) { return 
+ 232:lib/TinyUSB/src/common/tusb_common.h **** 
+ 233:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_round_up(uint32_t v, uint32_t f) { return tu_div_ce
+ 234:lib/TinyUSB/src/common/tusb_common.h **** 
+ 235:lib/TinyUSB/src/common/tusb_common.h **** // log2 of a value is its MSB's position
+ 236:lib/TinyUSB/src/common/tusb_common.h **** // TODO use clz TODO remove
+ 237:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_log2(uint32_t value) {
+ 238:lib/TinyUSB/src/common/tusb_common.h ****   uint8_t result = 0;
+ 239:lib/TinyUSB/src/common/tusb_common.h ****   while ((value >>= 1u) != 0u) {
+ 240:lib/TinyUSB/src/common/tusb_common.h ****     result++;
+ 241:lib/TinyUSB/src/common/tusb_common.h ****   }
+ 242:lib/TinyUSB/src/common/tusb_common.h ****   return result;
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 37
+
+
+ 243:lib/TinyUSB/src/common/tusb_common.h **** }
+ 244:lib/TinyUSB/src/common/tusb_common.h **** 
+ 245:lib/TinyUSB/src/common/tusb_common.h **** //static inline uint8_t tu_log2(uint32_t value)
+ 246:lib/TinyUSB/src/common/tusb_common.h **** //{
+ 247:lib/TinyUSB/src/common/tusb_common.h **** //   return sizeof(uint32_t) * CHAR_BIT - __builtin_clz(x) - 1;
+ 248:lib/TinyUSB/src/common/tusb_common.h **** //}
+ 249:lib/TinyUSB/src/common/tusb_common.h **** 
+ 250:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline bool tu_is_power_of_two(uint32_t value) {
+ 251:lib/TinyUSB/src/common/tusb_common.h ****    return (value != 0) && ((value & (value - 1)) == 0);
+ 252:lib/TinyUSB/src/common/tusb_common.h **** }
+ 253:lib/TinyUSB/src/common/tusb_common.h **** 
+ 254:lib/TinyUSB/src/common/tusb_common.h **** //------------- Unaligned Access -------------//
+ 255:lib/TinyUSB/src/common/tusb_common.h **** #if TUP_ARCH_STRICT_ALIGN
+ 256:lib/TinyUSB/src/common/tusb_common.h **** 
+ 257:lib/TinyUSB/src/common/tusb_common.h **** // Rely on compiler to generate correct code for unaligned access
+ 258:lib/TinyUSB/src/common/tusb_common.h **** typedef struct { uint16_t val; } TU_ATTR_PACKED tu_unaligned_uint16_t;
+ 259:lib/TinyUSB/src/common/tusb_common.h **** typedef struct { uint32_t val; } TU_ATTR_PACKED tu_unaligned_uint32_t;
+ 260:lib/TinyUSB/src/common/tusb_common.h **** 
+ 261:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_unaligned_read32(const void *mem) {
+ 262:lib/TinyUSB/src/common/tusb_common.h ****   tu_unaligned_uint32_t const *ua32 = (tu_unaligned_uint32_t const *) mem;
+ 263:lib/TinyUSB/src/common/tusb_common.h ****   return ua32->val;
+ 264:lib/TinyUSB/src/common/tusb_common.h **** }
+ 265:lib/TinyUSB/src/common/tusb_common.h **** 
+ 266:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline void tu_unaligned_write32(void *mem, uint32_t value) {
+ 267:lib/TinyUSB/src/common/tusb_common.h ****   tu_unaligned_uint32_t *ua32 = (tu_unaligned_uint32_t *) mem;
+ 268:lib/TinyUSB/src/common/tusb_common.h ****   ua32->val = value;
+ 269:lib/TinyUSB/src/common/tusb_common.h **** }
+ 270:lib/TinyUSB/src/common/tusb_common.h **** 
+ 271:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_unaligned_read16(const void *mem) {
+ 272:lib/TinyUSB/src/common/tusb_common.h ****   tu_unaligned_uint16_t const *ua16 = (tu_unaligned_uint16_t const *) mem;
+ 273:lib/TinyUSB/src/common/tusb_common.h ****   return ua16->val;
+ 274:lib/TinyUSB/src/common/tusb_common.h **** }
+ 275:lib/TinyUSB/src/common/tusb_common.h **** 
+ 276:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline void tu_unaligned_write16(void *mem, uint16_t value) {
+ 277:lib/TinyUSB/src/common/tusb_common.h ****   tu_unaligned_uint16_t *ua16 = (tu_unaligned_uint16_t *) mem;
+ 278:lib/TinyUSB/src/common/tusb_common.h ****   ua16->val = value;
+ 279:lib/TinyUSB/src/common/tusb_common.h **** }
+ 280:lib/TinyUSB/src/common/tusb_common.h **** 
+ 281:lib/TinyUSB/src/common/tusb_common.h **** #elif TUP_MCU_STRICT_ALIGN
+ 282:lib/TinyUSB/src/common/tusb_common.h **** 
+ 283:lib/TinyUSB/src/common/tusb_common.h **** // MCU such as LPC_IP3511 Highspeed cannot access unaligned memory on USB_RAM although it is ARM M4
+ 284:lib/TinyUSB/src/common/tusb_common.h **** // We have to manually pick up bytes since tu_unaligned_uint32_t will still generate unaligned code
+ 285:lib/TinyUSB/src/common/tusb_common.h **** // NOTE: volatile cast to memory to prevent compiler to optimize and generate unaligned code
+ 286:lib/TinyUSB/src/common/tusb_common.h **** // TODO Big Endian may need minor changes
+ 287:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_unaligned_read32(const void* mem) {
+ 288:lib/TinyUSB/src/common/tusb_common.h ****   volatile uint8_t const* buf8 = (uint8_t const*) mem;
+ 289:lib/TinyUSB/src/common/tusb_common.h ****   return tu_u32(buf8[3], buf8[2], buf8[1], buf8[0]);
+ 290:lib/TinyUSB/src/common/tusb_common.h **** }
+ 291:lib/TinyUSB/src/common/tusb_common.h **** 
+ 292:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline void tu_unaligned_write32(void* mem, uint32_t value) {
+ 293:lib/TinyUSB/src/common/tusb_common.h ****   volatile uint8_t* buf8 = (uint8_t*) mem;
+ 294:lib/TinyUSB/src/common/tusb_common.h ****   buf8[0] = tu_u32_byte0(value);
+ 295:lib/TinyUSB/src/common/tusb_common.h ****   buf8[1] = tu_u32_byte1(value);
+ 296:lib/TinyUSB/src/common/tusb_common.h ****   buf8[2] = tu_u32_byte2(value);
+ 297:lib/TinyUSB/src/common/tusb_common.h ****   buf8[3] = tu_u32_byte3(value);
+ 298:lib/TinyUSB/src/common/tusb_common.h **** }
+ 299:lib/TinyUSB/src/common/tusb_common.h **** 
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 38
+
+
+ 300:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_unaligned_read16(const void* mem) {
+ 301:lib/TinyUSB/src/common/tusb_common.h ****   volatile uint8_t const* buf8 = (uint8_t const*) mem;
+ 302:lib/TinyUSB/src/common/tusb_common.h ****   return tu_u16(buf8[1], buf8[0]);
+ 303:lib/TinyUSB/src/common/tusb_common.h **** }
+ 304:lib/TinyUSB/src/common/tusb_common.h **** 
+ 305:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline void tu_unaligned_write16(void* mem, uint16_t value) {
+ 306:lib/TinyUSB/src/common/tusb_common.h ****   volatile uint8_t* buf8 = (uint8_t*) mem;
+ 307:lib/TinyUSB/src/common/tusb_common.h ****   buf8[0] = tu_u16_low(value);
+ 308:lib/TinyUSB/src/common/tusb_common.h ****   buf8[1] = tu_u16_high(value);
+ 309:lib/TinyUSB/src/common/tusb_common.h **** }
+ 310:lib/TinyUSB/src/common/tusb_common.h **** 
+ 311:lib/TinyUSB/src/common/tusb_common.h **** #else
+ 312:lib/TinyUSB/src/common/tusb_common.h **** 
+ 313:lib/TinyUSB/src/common/tusb_common.h **** // MCU that could access unaligned memory natively
+ 314:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint32_t tu_unaligned_read32(const void *mem) {
+ 315:lib/TinyUSB/src/common/tusb_common.h ****   return *((uint32_t const *) mem);
+ 316:lib/TinyUSB/src/common/tusb_common.h **** }
+ 317:lib/TinyUSB/src/common/tusb_common.h **** 
+ 318:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint16_t tu_unaligned_read16(const void *mem) {
+ 319:lib/TinyUSB/src/common/tusb_common.h ****   return *((uint16_t const *) mem);
+ 320:lib/TinyUSB/src/common/tusb_common.h **** }
+ 321:lib/TinyUSB/src/common/tusb_common.h **** 
+ 322:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline void tu_unaligned_write32(void *mem, uint32_t value) {
+ 1034              		.loc 4 322 42 view .LVU324
+ 1035              	.LBB66:
+ 323:lib/TinyUSB/src/common/tusb_common.h ****   *((uint32_t *) mem) = value;
+ 1036              		.loc 4 323 3 view .LVU325
+ 1037              		.loc 4 323 23 is_stmt 0 view .LVU326
+ 1038 000c 41F8044B 		str	r4, [r1], #4
+ 1039              	.LVL79:
+ 1040              		.loc 4 323 23 view .LVU327
+ 1041              	.LBE66:
+ 1042              	.LBE65:
+ 278:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     dst += 4;
+ 1043              		.loc 1 278 5 is_stmt 1 view .LVU328
+ 276:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     tu_unaligned_write32(dst, *rx_fifo);
+ 1044              		.loc 1 276 20 is_stmt 0 view .LVU329
+ 1045 0010 1C46     		mov	r4, r3
+ 1046              	.LVL80:
+ 1047              	.L77:
+ 276:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     tu_unaligned_write32(dst, *rx_fifo);
+ 1048              		.loc 1 276 9 is_stmt 1 view .LVU330
+ 276:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     tu_unaligned_write32(dst, *rx_fifo);
+ 1049              		.loc 1 276 20 is_stmt 0 view .LVU331
+ 1050 0012 631E     		subs	r3, r4, #1
+ 1051 0014 9BB2     		uxth	r3, r3
+ 1052              	.LVL81:
+ 276:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     tu_unaligned_write32(dst, *rx_fifo);
+ 1053              		.loc 1 276 9 view .LVU332
+ 1054 0016 002C     		cmp	r4, #0
+ 1055 0018 F5D1     		bne	.L78
+ 279:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 280:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 281:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Read the remaining 1-3 bytes from fifo
+ 282:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   const uint8_t bytes_rem = len & 0x03;
+ 1056              		.loc 1 282 3 is_stmt 1 view .LVU333
+ 1057              		.loc 1 282 33 is_stmt 0 view .LVU334
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 39
+
+
+ 1058 001a D4B2     		uxtb	r4, r2
+ 1059              	.LVL82:
+ 283:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   if (bytes_rem != 0) {
+ 1060              		.loc 1 283 3 is_stmt 1 view .LVU335
+ 1061              		.loc 1 283 6 is_stmt 0 view .LVU336
+ 1062 001c 12F00302 		ands	r2, r2, #3
+ 1063              	.LVL83:
+ 1064              		.loc 1 283 6 view .LVU337
+ 1065 0020 0ED0     		beq	.L76
+ 1066              	.LBB67:
+ 284:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     const uint32_t tmp = *rx_fifo;
+ 1067              		.loc 1 284 5 is_stmt 1 view .LVU338
+ 1068              		.loc 1 284 20 is_stmt 0 view .LVU339
+ 1069 0022 00F58050 		add	r0, r0, #4096
+ 1070              	.LVL84:
+ 1071              		.loc 1 284 20 view .LVU340
+ 1072 0026 0368     		ldr	r3, [r0]
+ 1073              	.LVL85:
+ 285:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     dst[0] = tu_u32_byte0(tmp);
+ 1074              		.loc 1 285 5 is_stmt 1 view .LVU341
+ 1075              	.LBB68:
+ 1076              	.LBI68:
+ 191:lib/TinyUSB/src/common/tusb_common.h **** 
+ 1077              		.loc 4 191 45 view .LVU342
+ 1078              	.LBB69:
+ 191:lib/TinyUSB/src/common/tusb_common.h **** 
+ 1079              		.loc 4 191 75 view .LVU343
+ 191:lib/TinyUSB/src/common/tusb_common.h **** 
+ 1080              		.loc 4 191 75 is_stmt 0 view .LVU344
+ 1081              	.LBE69:
+ 1082              	.LBE68:
+ 1083              		.loc 1 285 12 view .LVU345
+ 1084 0028 0B70     		strb	r3, [r1]
+ 286:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     if (bytes_rem > 1) {
+ 1085              		.loc 1 286 5 is_stmt 1 view .LVU346
+ 1086              		.loc 1 286 8 is_stmt 0 view .LVU347
+ 1087 002a 14F0020F 		tst	r4, #2
+ 1088 002e 02D0     		beq	.L80
+ 287:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****       dst[1] = tu_u32_byte1(tmp);
+ 1089              		.loc 1 287 7 is_stmt 1 view .LVU348
+ 1090              	.LVL86:
+ 1091              	.LBB70:
+ 1092              	.LBI70:
+ 190:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte0(uint32_t ui32) { return TU_U32_BYTE0(ui32)
+ 1093              		.loc 4 190 45 view .LVU349
+ 1094              	.LBB71:
+ 190:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte0(uint32_t ui32) { return TU_U32_BYTE0(ui32)
+ 1095              		.loc 4 190 75 view .LVU350
+ 190:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte0(uint32_t ui32) { return TU_U32_BYTE0(ui32)
+ 1096              		.loc 4 190 82 is_stmt 0 view .LVU351
+ 1097 0030 C3F30720 		ubfx	r0, r3, #8, #8
+ 1098              	.LVL87:
+ 190:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte0(uint32_t ui32) { return TU_U32_BYTE0(ui32)
+ 1099              		.loc 4 190 82 view .LVU352
+ 1100              	.LBE71:
+ 1101              	.LBE70:
+ 1102              		.loc 1 287 14 view .LVU353
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 40
+
+
+ 1103 0034 4870     		strb	r0, [r1, #1]
+ 1104              	.L80:
+ 288:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     }
+ 289:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     if (bytes_rem > 2) {
+ 1105              		.loc 1 289 5 is_stmt 1 view .LVU354
+ 1106              		.loc 1 289 8 is_stmt 0 view .LVU355
+ 1107 0036 022A     		cmp	r2, #2
+ 1108 0038 02D9     		bls	.L76
+ 290:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****       dst[2] = tu_u32_byte2(tmp);
+ 1109              		.loc 1 290 7 is_stmt 1 view .LVU356
+ 1110              	.LVL88:
+ 1111              	.LBB72:
+ 1112              	.LBI72:
+ 189:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte1(uint32_t ui32) { return TU_U32_BYTE1(ui32)
+ 1113              		.loc 4 189 45 view .LVU357
+ 1114              	.LBB73:
+ 189:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte1(uint32_t ui32) { return TU_U32_BYTE1(ui32)
+ 1115              		.loc 4 189 75 view .LVU358
+ 189:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte1(uint32_t ui32) { return TU_U32_BYTE1(ui32)
+ 1116              		.loc 4 189 82 is_stmt 0 view .LVU359
+ 1117 003a C3F30743 		ubfx	r3, r3, #16, #8
+ 1118              	.LVL89:
+ 189:lib/TinyUSB/src/common/tusb_common.h **** TU_ATTR_ALWAYS_INLINE static inline uint8_t tu_u32_byte1(uint32_t ui32) { return TU_U32_BYTE1(ui32)
+ 1119              		.loc 4 189 82 view .LVU360
+ 1120              	.LBE73:
+ 1121              	.LBE72:
+ 1122              		.loc 1 290 14 view .LVU361
+ 1123 003e 8B70     		strb	r3, [r1, #2]
+ 1124              	.L76:
+ 1125              		.loc 1 290 14 view .LVU362
+ 1126              	.LBE67:
+ 291:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     }
+ 292:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 293:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** }
+ 1127              		.loc 1 293 1 view .LVU363
+ 1128 0040 5DF8044B 		ldr	r4, [sp], #4
+ 1129              	.LCFI4:
+ 1130              		.cfi_restore 4
+ 1131              		.cfi_def_cfa_offset 0
+ 1132 0044 7047     		bx	lr
+ 1133              		.cfi_endproc
+ 1134              	.LFE332:
+ 1136              		.section	.text.dfifo_write_packet,"ax",%progbits
+ 1137              		.align	1
+ 1138              		.global	dfifo_write_packet
+ 1139              		.syntax unified
+ 1140              		.thumb
+ 1141              		.thumb_func
+ 1143              	dfifo_write_packet:
+ 1144              	.LVL90:
+ 1145              	.LFB333:
+ 294:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 295:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** // Write a single data packet to DFIFO
+ 296:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** void dfifo_write_packet(dwc2_regs_t* dwc2, uint8_t fifo_num, const uint8_t* src, uint16_t len) {
+ 1146              		.loc 1 296 96 is_stmt 1 view -0
+ 1147              		.cfi_startproc
+ 1148              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 41
+
+
+ 1149              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1150              		.loc 1 296 96 is_stmt 0 view .LVU365
+ 1151 0000 10B5     		push	{r4, lr}
+ 1152              	.LCFI5:
+ 1153              		.cfi_def_cfa_offset 8
+ 1154              		.cfi_offset 4, -8
+ 1155              		.cfi_offset 14, -4
+ 297:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   volatile uint32_t* tx_fifo = dwc2->fifo[fifo_num];
+ 1156              		.loc 1 297 3 is_stmt 1 view .LVU366
+ 1157              		.loc 1 297 22 is_stmt 0 view .LVU367
+ 1158 0002 01F1010C 		add	ip, r1, #1
+ 1159 0006 4FEA0C3E 		lsl	lr, ip, #12
+ 1160 000a 00EB0C3C 		add	ip, r0, ip, lsl #12
+ 1161              	.LVL91:
+ 298:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 299:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Pushing full available 32 bit words to fifo
+ 300:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   uint16_t word_count = len >> 2;
+ 1162              		.loc 1 300 3 is_stmt 1 view .LVU368
+ 1163              		.loc 1 300 12 is_stmt 0 view .LVU369
+ 1164 000e 9C08     		lsrs	r4, r3, #2
+ 1165              	.LVL92:
+ 301:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   while (word_count--) {
+ 1166              		.loc 1 301 3 is_stmt 1 view .LVU370
+ 1167              		.loc 1 301 9 is_stmt 0 view .LVU371
+ 1168 0010 04E0     		b	.L83
+ 1169              	.LVL93:
+ 1170              	.L84:
+ 302:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     *tx_fifo = tu_unaligned_read32(src);
+ 1171              		.loc 1 302 5 is_stmt 1 view .LVU372
+ 1172              	.LBB74:
+ 1173              	.LBI74:
+ 314:lib/TinyUSB/src/common/tusb_common.h ****   return *((uint32_t const *) mem);
+ 1174              		.loc 4 314 46 view .LVU373
+ 1175              	.LBB75:
+ 315:lib/TinyUSB/src/common/tusb_common.h **** }
+ 1176              		.loc 4 315 3 view .LVU374
+ 315:lib/TinyUSB/src/common/tusb_common.h **** }
+ 1177              		.loc 4 315 10 is_stmt 0 view .LVU375
+ 1178 0012 52F8044B 		ldr	r4, [r2], #4
+ 1179              	.LVL94:
+ 315:lib/TinyUSB/src/common/tusb_common.h **** }
+ 1180              		.loc 4 315 10 view .LVU376
+ 1181              	.LBE75:
+ 1182              	.LBE74:
+ 1183              		.loc 1 302 14 view .LVU377
+ 1184 0016 CCF80040 		str	r4, [ip]
+ 303:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     src += 4;
+ 1185              		.loc 1 303 5 is_stmt 1 view .LVU378
+ 1186              	.LVL95:
+ 301:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     *tx_fifo = tu_unaligned_read32(src);
+ 1187              		.loc 1 301 20 is_stmt 0 view .LVU379
+ 1188 001a 0C46     		mov	r4, r1
+ 1189              	.LVL96:
+ 1190              	.L83:
+ 301:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     *tx_fifo = tu_unaligned_read32(src);
+ 1191              		.loc 1 301 9 is_stmt 1 view .LVU380
+ 301:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     *tx_fifo = tu_unaligned_read32(src);
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 42
+
+
+ 1192              		.loc 1 301 20 is_stmt 0 view .LVU381
+ 1193 001c 611E     		subs	r1, r4, #1
+ 1194 001e 89B2     		uxth	r1, r1
+ 1195              	.LVL97:
+ 301:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     *tx_fifo = tu_unaligned_read32(src);
+ 1196              		.loc 1 301 9 view .LVU382
+ 1197 0020 002C     		cmp	r4, #0
+ 1198 0022 F6D1     		bne	.L84
+ 304:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 305:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 306:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   // Write the remaining 1-3 bytes into fifo
+ 307:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   const uint8_t bytes_rem = len & 0x03;
+ 1199              		.loc 1 307 3 is_stmt 1 view .LVU383
+ 1200              		.loc 1 307 33 is_stmt 0 view .LVU384
+ 1201 0024 DCB2     		uxtb	r4, r3
+ 1202              	.LVL98:
+ 308:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   if (bytes_rem) {
+ 1203              		.loc 1 308 3 is_stmt 1 view .LVU385
+ 1204              		.loc 1 308 6 is_stmt 0 view .LVU386
+ 1205 0026 13F00303 		ands	r3, r3, #3
+ 1206              	.LVL99:
+ 1207              		.loc 1 308 6 view .LVU387
+ 1208 002a 0DD0     		beq	.L82
+ 1209              	.LBB76:
+ 309:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     uint32_t tmp_word = src[0];
+ 1210              		.loc 1 309 5 is_stmt 1 view .LVU388
+ 1211              		.loc 1 309 28 is_stmt 0 view .LVU389
+ 1212 002c 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+ 1213              	.LVL100:
+ 310:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     if (bytes_rem > 1) {
+ 1214              		.loc 1 310 5 is_stmt 1 view .LVU390
+ 1215              		.loc 1 310 8 is_stmt 0 view .LVU391
+ 1216 002e 14F0020F 		tst	r4, #2
+ 1217 0032 02D0     		beq	.L86
+ 311:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****       tmp_word |= (src[1] << 8);
+ 1218              		.loc 1 311 7 is_stmt 1 view .LVU392
+ 1219              		.loc 1 311 23 is_stmt 0 view .LVU393
+ 1220 0034 5478     		ldrb	r4, [r2, #1]	@ zero_extendqisi2
+ 1221              		.loc 1 311 16 view .LVU394
+ 1222 0036 41EA0421 		orr	r1, r1, r4, lsl #8
+ 1223              	.LVL101:
+ 1224              	.L86:
+ 312:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     }
+ 313:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     if (bytes_rem > 2) {
+ 1225              		.loc 1 313 5 is_stmt 1 view .LVU395
+ 1226              		.loc 1 313 8 is_stmt 0 view .LVU396
+ 1227 003a 022B     		cmp	r3, #2
+ 1228 003c 02D9     		bls	.L87
+ 314:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****       tmp_word |= (src[2] << 16);
+ 1229              		.loc 1 314 7 is_stmt 1 view .LVU397
+ 1230              		.loc 1 314 23 is_stmt 0 view .LVU398
+ 1231 003e 9378     		ldrb	r3, [r2, #2]	@ zero_extendqisi2
+ 1232              		.loc 1 314 16 view .LVU399
+ 1233 0040 41EA0341 		orr	r1, r1, r3, lsl #16
+ 1234              	.LVL102:
+ 1235              	.L87:
+ 315:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     }
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 43
+
+
+ 316:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** 
+ 317:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****     *tx_fifo = tmp_word;
+ 1236              		.loc 1 317 5 is_stmt 1 view .LVU400
+ 1237              		.loc 1 317 14 is_stmt 0 view .LVU401
+ 1238 0044 40F80E10 		str	r1, [r0, lr]
+ 1239              	.LVL103:
+ 1240              	.L82:
+ 1241              		.loc 1 317 14 view .LVU402
+ 1242              	.LBE76:
+ 318:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c ****   }
+ 319:lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_common.c **** }
+ 1243              		.loc 1 319 1 view .LVU403
+ 1244 0048 10BD     		pop	{r4, pc}
+ 1245              		.cfi_endproc
+ 1246              	.LFE333:
+ 1248              		.section	.rodata._dwc2_controller,"a"
+ 1249              		.align	2
+ 1250              		.set	.LANCHOR0,. + 0
+ 1253              	_dwc2_controller:
+ 1254 0000 00000050 		.word	1342177280
+ 1255 0004 43000000 		.word	67
+ 1256 0008 06       		.byte	6
+ 1257 0009 000000   		.space	3
+ 1258 000c 00050000 		.word	1280
+ 1259 0010 00000440 		.word	1074003968
+ 1260 0014 4D000000 		.word	77
+ 1261 0018 09       		.byte	9
+ 1262 0019 000000   		.space	3
+ 1263 001c 00100000 		.word	4096
+ 1264              		.text
+ 1265              	.Letext0:
+ 1266              		.file 5 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1267              		.file 6 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 1268              		.file 7 "lib/TinyUSB/src/common/tusb_types.h"
+ 1269              		.file 8 "lib/TinyUSB/src/portable/synopsys/dwc2/dwc2_type.h"
+ 1270              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 1271              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\ccretiGe.s 			page 44
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 dwc2_common.c
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:20     .text.reset_core:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:25     .text.reset_core:00000000 reset_core
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:99     .text.phy_hs_init:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:104    .text.phy_hs_init:00000000 phy_hs_init
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:410    .text.phy_hs_init:00000108 $d
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:427    .text.check_dwc2:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:432    .text.check_dwc2:00000000 check_dwc2
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:516    .text.check_dwc2:0000003c $d
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:522    .text.phy_fs_init:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:527    .text.phy_fs_init:00000000 phy_fs_init
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:738    .text.phy_fs_init:000000b0 $d
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:754    .text.dwc2_core_is_highspeed:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:760    .text.dwc2_core_is_highspeed:00000000 dwc2_core_is_highspeed
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:796    .text.dwc2_core_init:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:802    .text.dwc2_core_init:00000000 dwc2_core_init
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:992    .text.dwc2_core_init:0000009c $d
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:997    .text.dfifo_read_packet:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:1003   .text.dfifo_read_packet:00000000 dfifo_read_packet
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:1137   .text.dfifo_write_packet:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:1143   .text.dfifo_write_packet:00000000 dfifo_write_packet
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:1249   .rodata._dwc2_controller:00000000 $d
+C:\Users\krisa\AppData\Local\Temp\ccretiGe.s:1253   .rodata._dwc2_controller:00000000 _dwc2_controller
+
+UNDEFINED SYMBOLS
+SystemCoreClock

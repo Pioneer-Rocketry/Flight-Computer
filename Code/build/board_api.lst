@@ -1,0 +1,155 @@
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\cciI8hcr.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"board_api.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.board_get_unique_id,"ax",%progbits
+  20              		.align	1
+  21              		.global	board_get_unique_id
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	board_get_unique_id:
+  27              	.LVL0:
+  28              	.LFB0:
+  29              		.file 1 "Core/Src/board_api.c"
+   1:Core/Src/board_api.c **** #include <stddef.h>
+   2:Core/Src/board_api.c **** #include <stdint.h>
+   3:Core/Src/board_api.c **** 
+   4:Core/Src/board_api.c **** // Minimal stub for board_get_unique_id required by tinyusb board API.
+   5:Core/Src/board_api.c **** // Returns 0 bytes (no unique id available).
+   6:Core/Src/board_api.c **** size_t board_get_unique_id(uint8_t id[], size_t max_len) {
+  30              		.loc 1 6 58 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+   7:Core/Src/board_api.c ****     (void)id;
+  35              		.loc 1 7 5 view .LVU1
+   8:Core/Src/board_api.c ****     (void)max_len;
+  36              		.loc 1 8 5 view .LVU2
+   9:Core/Src/board_api.c ****     return 0;
+  37              		.loc 1 9 5 view .LVU3
+  10:Core/Src/board_api.c **** }
+  38              		.loc 1 10 1 is_stmt 0 view .LVU4
+  39 0000 0020     		movs	r0, #0
+  40              	.LVL1:
+  41              		.loc 1 10 1 view .LVU5
+  42 0002 7047     		bx	lr
+  43              		.cfi_endproc
+  44              	.LFE0:
+  46              		.section	.rodata.board_usb_get_serial.str1.4,"aMS",%progbits,1
+  47              		.align	2
+  48              	.LC0:
+  49 0000 30303030 		.ascii	"00000000\000"
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\cciI8hcr.s 			page 2
+
+
+  49      30303030 
+  49      00
+  50              		.section	.text.board_usb_get_serial,"ax",%progbits
+  51              		.align	1
+  52              		.global	board_usb_get_serial
+  53              		.syntax unified
+  54              		.thumb
+  55              		.thumb_func
+  57              	board_usb_get_serial:
+  58              	.LVL2:
+  59              	.LFB1:
+  11:Core/Src/board_api.c **** 
+  12:Core/Src/board_api.c **** // Minimal implementation to provide a USB serial string. This writes
+  13:Core/Src/board_api.c **** // up to `max_len` UTF-16 code units into `buf` and returns the number
+  14:Core/Src/board_api.c **** // of code units written.
+  15:Core/Src/board_api.c **** size_t board_usb_get_serial(uint16_t buf[], size_t max_len) {
+  60              		.loc 1 15 61 is_stmt 1 view -0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64              		@ link register save eliminated.
+  65              		.loc 1 15 61 is_stmt 0 view .LVU7
+  66 0000 0246     		mov	r2, r0
+  16:Core/Src/board_api.c ****     const char *s = "00000000"; // fallback placeholder
+  67              		.loc 1 16 5 is_stmt 1 view .LVU8
+  68              	.LVL3:
+  17:Core/Src/board_api.c ****     size_t i = 0;
+  69              		.loc 1 17 5 view .LVU9
+  18:Core/Src/board_api.c ****     while (i < max_len && s[i]) {
+  70              		.loc 1 18 5 view .LVU10
+  17:Core/Src/board_api.c ****     size_t i = 0;
+  71              		.loc 1 17 12 is_stmt 0 view .LVU11
+  72 0002 0020     		movs	r0, #0
+  73              	.LVL4:
+  74              		.loc 1 18 11 view .LVU12
+  75 0004 02E0     		b	.L3
+  76              	.LVL5:
+  77              	.L5:
+  19:Core/Src/board_api.c ****         buf[i] = (uint16_t)s[i];
+  78              		.loc 1 19 9 is_stmt 1 view .LVU13
+  79              		.loc 1 19 16 is_stmt 0 view .LVU14
+  80 0006 22F81030 		strh	r3, [r2, r0, lsl #1]	@ movhi
+  20:Core/Src/board_api.c ****         ++i;
+  81              		.loc 1 20 9 is_stmt 1 view .LVU15
+  82 000a 0130     		adds	r0, r0, #1
+  83              	.LVL6:
+  84              	.L3:
+  18:Core/Src/board_api.c ****     while (i < max_len && s[i]) {
+  85              		.loc 1 18 11 view .LVU16
+  86 000c 8842     		cmp	r0, r1
+  87 000e 03D2     		bcs	.L2
+  18:Core/Src/board_api.c ****     while (i < max_len && s[i]) {
+  88              		.loc 1 18 28 is_stmt 0 discriminator 1 view .LVU17
+  89 0010 024B     		ldr	r3, .L6
+  90 0012 C35C     		ldrb	r3, [r0, r3]	@ zero_extendqisi2
+  18:Core/Src/board_api.c ****     while (i < max_len && s[i]) {
+  91              		.loc 1 18 24 discriminator 1 view .LVU18
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\cciI8hcr.s 			page 3
+
+
+  92 0014 002B     		cmp	r3, #0
+  93 0016 F6D1     		bne	.L5
+  94              	.L2:
+  21:Core/Src/board_api.c ****     }
+  22:Core/Src/board_api.c ****     return i;
+  23:Core/Src/board_api.c **** }
+  95              		.loc 1 23 1 view .LVU19
+  96 0018 7047     		bx	lr
+  97              	.L7:
+  98 001a 00BF     		.align	2
+  99              	.L6:
+ 100 001c 00000000 		.word	.LC0
+ 101              		.cfi_endproc
+ 102              	.LFE1:
+ 104              		.text
+ 105              	.Letext0:
+ 106              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\lib\\gcc\\arm-none-eabi\
+ 107              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ 108              		.file 4 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+ARM GAS  C:\Users\krisa\AppData\Local\Temp\cciI8hcr.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 board_api.c
+C:\Users\krisa\AppData\Local\Temp\cciI8hcr.s:20     .text.board_get_unique_id:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\cciI8hcr.s:26     .text.board_get_unique_id:00000000 board_get_unique_id
+C:\Users\krisa\AppData\Local\Temp\cciI8hcr.s:47     .rodata.board_usb_get_serial.str1.4:00000000 $d
+C:\Users\krisa\AppData\Local\Temp\cciI8hcr.s:51     .text.board_usb_get_serial:00000000 $t
+C:\Users\krisa\AppData\Local\Temp\cciI8hcr.s:57     .text.board_usb_get_serial:00000000 board_usb_get_serial
+C:\Users\krisa\AppData\Local\Temp\cciI8hcr.s:100    .text.board_usb_get_serial:0000001c $d
+
+NO UNDEFINED SYMBOLS

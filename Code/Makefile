@@ -245,4 +245,14 @@ endif
 #######################################
 -include $(wildcard $(BUILD_DIR)/*.d)
 
+# Flash with ST-LINK
+stflash: $(BUILD_DIR)/$(TARGET).bin
+	st-flash --reset write $< 0x08000000
+	
+# Clean build
+cleanbuild: clean all
+
+# Build and Flash
+buildflash: all stflash
+
 # *** EOF ***

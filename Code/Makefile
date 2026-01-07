@@ -50,49 +50,21 @@ endif
 ######################################
 # C sources
 C_SOURCES =  \
-Core/Src/stm32f4xx_it.c \
-Core/Src/stm32f4xx_hal_msp.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c \
-Core/Src/system_stm32f4xx.c \
-Core/Src/sysmem.c \
-Core/Src/syscalls.c \
-Core/Src/board_api.c \
-Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c
+$(shell find Core/Src -type f -name '*.c') \
+$(shell find Drivers/STM32F4xx_HAL_Driver/Src -type f -name '*.c')
 
 # C++ sources
 CXX_SOURCES =  \
-Core/Src/main.cpp \
-Core/Src/dfuBootloader.cpp \
-Core/Src/Subsystem.cpp \
-Core/Src/usbHelper.cpp \
-Core/Src/usb_descriptors.cpp
+$(shell find Core/Src -type f -name '*.cpp') \
+
 
 # TinyUSB library
 -include lib/TinyUSB/src/tinyusb.mk
 # Add DWC2 (Synopsys) device driver (STM32F4 uses DWC2)
-TINYUSB_SRC_C += src/portable/synopsys/dwc2/dcd_dwc2.c \
-                  src/portable/synopsys/dwc2/dwc2_common.c \
-                  src/portable/synopsys/dwc2/hcd_dwc2.c
+# Expand actual files then convert to paths relative to lib/TinyUSB
+DWC2_FILES := $(wildcard lib/TinyUSB/src/portable/synopsys/dwc2/*.c)
+DWC2_REL := $(patsubst lib/TinyUSB/%,%,$(DWC2_FILES))
+TINYUSB_SRC_C += $(DWC2_REL)
 C_SOURCES += $(addprefix lib/TinyUSB/,$(TINYUSB_SRC_C))
 
 # ASM sources
@@ -200,7 +172,8 @@ all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET
 # build the application
 #######################################
 # list of objects (preserve directory structure under build/)
-OBJECTS = $(addprefix $(BUILD_DIR)/,$(C_SOURCES:.c=.o) $(CXX_SOURCES:.cpp=.o) $(ASM_SOURCES:.s=.o) $(ASMM_SOURCES:.S=.o))
+# Use $(sort ...) to remove any duplicate entries from generated lists
+OBJECTS = $(sort $(addprefix $(BUILD_DIR)/,$(C_SOURCES:.c=.o) $(CXX_SOURCES:.cpp=.o) $(ASM_SOURCES:.s=.o) $(ASMM_SOURCES:.S=.o)))
 
 $(BUILD_DIR)/%.o: %.c Makefile | $(BUILD_DIR) 
 	$(call MKDIR,$(@D))

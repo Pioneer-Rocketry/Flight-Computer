@@ -18,7 +18,7 @@ Before building this project, ensure you have the following tools installed and 
 
 ### VS Code Extensions
 Install the following extensions within VS Code:
-* **[Cortex Debug](https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug)** (Official by STMicroelectronics)
+* **[Cortex Debug](https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug)**
 
 ---
 

@@ -15,7 +15,7 @@
 #include "Devices/SPI_Devices/MS560702BA03.h"
 #include "Devices/GPS.h"
 
-#include "Matrix.hpp"
+#include "matrix.hpp"
 #include "utils.h"
 #include "defines.h"
 

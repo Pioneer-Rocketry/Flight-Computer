@@ -68,6 +68,8 @@ Code/release/
 *.pdb
 *.dSYM/
 
+*.lst
+
 ############################
 # STM32Cube-generated junk
 ############################

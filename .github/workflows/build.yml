@@ -26,6 +26,8 @@ jobs:
         steps:
             - name: Check out code
               uses: actions/checkout@v4
+              with:
+                submodules: recursive
 
             - name: Version Info
               run: arm-none-eabi-gcc --version

@@ -1,6 +1,6 @@
-# Pioneer Rocketry Flight Computer V3
+# Pioneer Rocketry Flight Computer
 
-Pioneer Rocketry’s third-generation flight computer is a high-performance, STM32-based avionics system designed for experimental high-power rockets. It provides state estimation, real-time telemetry, staging logic, and fully active control capabilities.
+Pioneer Rocketry’s latest generation flight computer for high power, STM32-based avionics system designed for experimental high-power rockets. It provides state estimation, real-time telemetry, staging logic, and fully active control capabilities.
 This repository contains the firmware, test tools, and documentation for the system.
 
 
@@ -10,17 +10,15 @@ This repository contains the firmware, test tools, and documentation for the sys
 
 Before building this project, ensure you have the following tools installed and added to your system `PATH`:
 
-1.  **[Visual Studio Code](https://code.visualstudio.com/)**
+1.  **[Visual Studio Code](https://code.visualstudio.com/)** or **[STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html#get-software)**
 2.  **[STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html)** (v6.13 or newer) - Required to generate hardware config.
 3.  **Make** Use `winget install ezwinports.make` or `choco install make` - Build system generator.
-4.  **[Ninja Build](https://github.com/ninja-build/ninja/releases)** (Optional) - A faster build system than Make.
-5.  **[Arm GNU Toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads)** - The compiler (e.g., `arm-none-eabi-gcc`).
-6.  **[STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html#get-software)** (Optional) - IDE for loading the project and settings.
+4.  **[Arm GNU Toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads)** - The compiler (e.g., `arm-none-eabi-gcc`).
+5.  **[Ninja Build](https://github.com/ninja-build/ninja/releases)** (Optional) - A faster build system than Make.
 
 ### VS Code Extensions
 Install the following extensions within VS Code:
-* **[STM32 VS Code Extension](https://marketplace.visualstudio.com/items?itemName=stmicroelectronics.stm32-vscode-extension)** (Official by STMicroelectronics)
-* **[CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)** (by Microsoft)
+* **[Cortex Debug](https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug)** (Official by STMicroelectronics)
 
 ---
 
@@ -29,17 +27,9 @@ Install the following extensions within VS Code:
 ### 1. Clone and Open
 Clone the repository and open the folder in VS Code:
 ```bash
-git clone https://github.com/Pioneer-Rocketry/Flight-Computer.git
+git clone --recurse-submodules https://github.com/Pioneer-Rocketry/Flight-Computer.git
 ```
-
-### 2. Initialize Project
-
-When you open the folder, the **STM32 VS Code Extension** should automatically detect the `CMakeLists.txt`.
-
-* If prompted to select a **Kit** or **Compiler**, choose `arm-none-eabi-gcc`.
-* If the project configuration is missing, open the `.ioc` file inside VS Code (or externally in CubeMX) and click **Generate Code** to refresh the CMake files. **DO NOT PUSH THE CHANGED MAKE FILES TO THE GIT!**
-
-### 3. Build the Firmware
+### 2. Build the Firmware
 
 You can build the project using the status bar at the bottom or the Command Palette:
 
@@ -48,7 +38,7 @@ You can build the project using the status bar at the bottom or the Command Pale
 
 *Successful build output will create a `Code.elf` and `Code.bin` file in the `./Code/build/` directory.*
 
-### 4. Flash and Debug
+### 3. Flash and Debug
 
 Connect your STM32 board via ST-Link.
 
@@ -57,8 +47,6 @@ Connect your STM32 board via ST-Link.
 * Build the latest code.
 * Flash the board using OpenOCD/ST-Link.
 * Open the debug console.
-
-
 
 ### Troubleshooting
 

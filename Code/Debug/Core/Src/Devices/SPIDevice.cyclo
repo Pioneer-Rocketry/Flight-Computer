@@ -1,3 +1,0 @@
-../Core/Src/Devices/SPIDevice.cpp:10:1:SPIDevice::SPIDevice(DataContainer*, SPI_HandleTypeDef*, GPIO_TypeDef*, uint16_t)	1
-../Core/Src/Devices/SPIDevice.cpp:18:19:HAL_StatusTypeDef SPIDevice::readSPI(uint8_t, uint8_t*, uint8_t)	3
-../Core/Src/Devices/SPIDevice.cpp:40:19:HAL_StatusTypeDef SPIDevice::writeSPI(uint8_t, uint8_t*, uint8_t)	1

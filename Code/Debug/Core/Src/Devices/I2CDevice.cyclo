@@ -1,3 +1,0 @@
-../Core/Src/Devices/I2CDevice.cpp:10:1:I2CDevice::I2CDevice(DataContainer*)	1
-../Core/Src/Devices/I2CDevice.cpp:15:19:HAL_StatusTypeDef I2CDevice::readI2C(uint16_t, uint8_t*, uint16_t)	1
-../Core/Src/Devices/I2CDevice.cpp:20:19:HAL_StatusTypeDef I2CDevice::writeI2C(uint8_t, uint8_t*, uint8_t)	1

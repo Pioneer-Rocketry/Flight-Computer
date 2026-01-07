@@ -1,3 +1,0 @@
-../Core/Src/Devices/SPI_Devices/LSM6DSV320.cpp:10:1:LSM6DSV320::LSM6DSV320(DataContainer*, SPI_HandleTypeDef*, GPIO_TypeDef*, uint16_t)	1
-../Core/Src/Devices/SPI_Devices/LSM6DSV320.cpp:30:5:virtual int LSM6DSV320::deviceInit()	16
-../Core/Src/Devices/SPI_Devices/LSM6DSV320.cpp:260:5:virtual int LSM6DSV320::updateDevice()	1

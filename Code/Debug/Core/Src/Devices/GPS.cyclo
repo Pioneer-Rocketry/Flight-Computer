@@ -1,3 +1,0 @@
-../Core/Src/Devices/GPS.cpp:11:1:GPS::GPS(DataContainer*, UART_HandleTypeDef*)	1
-../Core/Src/Devices/GPS.cpp:17:5:int GPS::deviceInit()	1
-../Core/Src/Devices/GPS.cpp:22:5:int GPS::updateDevice()	1

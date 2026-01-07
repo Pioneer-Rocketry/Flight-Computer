@@ -1,6 +1,0 @@
-../Core/Src/Devices/SPI_Devices/MS560702BA03.cpp:10:1:MS560702BA03::MS560702BA03(DataContainer*, SPI_HandleTypeDef*, GPIO_TypeDef*, uint16_t)	1
-../Core/Src/Devices/SPI_Devices/MS560702BA03.cpp:19:5:virtual int MS560702BA03::deviceInit()	7
-../Core/Src/Devices/SPI_Devices/MS560702BA03.cpp:39:5:int MS560702BA03::readProm()	3
-../Core/Src/Devices/SPI_Devices/MS560702BA03.cpp:48:10:uint32_t MS560702BA03::readADC(uint8_t)	1
-../Core/Src/Devices/SPI_Devices/MS560702BA03.cpp:57:5:virtual int MS560702BA03::updateDevice()	3
-../Core/Src/Devices/SPI_Devices/MS560702BA03.cpp:85:6:void MS560702BA03::startConversion()	1

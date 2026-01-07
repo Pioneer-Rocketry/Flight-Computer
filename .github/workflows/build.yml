@@ -31,4 +31,14 @@ jobs:
               run: arm-none-eabi-gcc --version
 
             - name: Build
-              run: make -C ./Code/Debug/ all
+              run: make -C ./Code all
+            
+            - name: Upload build artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                name: flight-computer-build
+                path: |
+                    Code/build/*.elf
+                    Code/build/*.bin
+                    Code/build/*.hex
+                    Code/build/*.map

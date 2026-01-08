@@ -49,6 +49,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -79,6 +81,8 @@ void Error_Handler(void);
 #define LORA_RESET_GPIO_Port GPIOC
 #define IMU_INT1_Pin GPIO_PIN_8
 #define IMU_INT1_GPIO_Port GPIOC
+#define SERVO4_Pin GPIO_PIN_9
+#define SERVO4_GPIO_Port GPIOC
 #define SERVO3_Pin GPIO_PIN_8
 #define SERVO3_GPIO_Port GPIOA
 #define SERVO2_Pin GPIO_PIN_9

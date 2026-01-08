@@ -8,6 +8,8 @@
 #ifndef INC_DATACONTAINER_H_
 #define INC_DATACONTAINER_H_
 
+#include <cstdint>
+
 /**
  * @class DataContainer
  * @brief Central data storage and communication hub for all subsystems.
@@ -28,9 +30,13 @@
  */
 class DataContainer {
 private:
-
-
 public:
+
+    int16_t servo1Angle;
+    int16_t servo2Angle;
+    int16_t servo3Angle;
+    int16_t servo4Angle;
+
 };
 
 

@@ -1,0 +1,90 @@
+/*
+ * MS560702BA03.cpp
+ *
+ *  Created on: Oct 29, 2025
+ *      Author: colin
+ */
+
+#include "Devices/SPI_Devices/MS560702BA03.h"
+
+MS560702BA03::MS560702BA03(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin)
+	: SPIDevice(data, spi, port, pin)
+{
+	data->MS560702BA03Temperature_C = 0.0f;
+	data->MS560702BA03Pressure_hPA = 0.0f;
+	data->MS560702BA03Altitude_m = 0.0f;
+
+}
+
+int MS560702BA03::deviceInit()
+{
+	if (writeSPI(MS5607_RESET, nullptr, 0) != HAL_OK) {
+		return false;
+	}
+
+	HAL_Delay(3); // Max reset time
+
+	switch (osr) {
+		case OSR_256:   conversionTime_us = 700; break;
+		case OSR_512:   conversionTime_us = 1000; break;
+		case OSR_1024:  conversionTime_us = 2000; break;
+		case OSR_2048:  conversionTime_us = 5000; break;
+		case OSR_4096:  conversionTime_us = 9000; break;
+		default: return false;
+	}
+
+	return readProm();
+}
+
+int MS560702BA03::readProm() {
+    for (uint8_t i = 0; i < 7; i++) {
+        if (readSPI(MS5607_PROM_READ + (i * 2), buffer, 2) != HAL_OK)
+            return -1;
+        C[i] = (buffer[0] << 8) | buffer[1];
+    }
+    return 0;
+}
+
+uint32_t MS560702BA03::readADC(uint8_t cmd) {
+    writeSPI(cmd, nullptr, 0);
+    delay_us(conversionTime_us);
+
+    readSPI(MS5607_ADC_READ, buffer, 3);
+
+    return (buffer[0] << 16) | (buffer[1] << 8) | buffer[2];
+}
+
+int MS560702BA03::updateDevice()
+{
+	now_us = micros();
+	delay = now_us - conversionStart_us;
+	if (delay < conversionTime_us)
+		delay_us(conversionTime_us - delay);
+
+	readSPI(MS5607_ADC_READ, buffer, 3);
+    D1 = (buffer[0] << 16) | (buffer[1] << 8) | buffer[2];
+
+	// D1 = readADC(MS5607_CONVERT_D1 | (osr << 1));
+	D2 = readADC(MS5607_CONVERT_D2 | (osr << 1));
+
+	dT = D2 - ((uint32_t)C[5] << 8);
+	TEMP = 2000 + ((int64_t)dT * C[6]) / (1 << 23);
+
+	OFF = ((int64_t)C[2] << 17) + (((int64_t)C[4] * dT) >> 6);
+	SENS = ((int64_t)C[1] << 16) + (((int64_t)C[3] * dT) >> 7);
+
+	P = (((D1 * SENS) >> 21) - OFF) >> 15;
+
+	this->data->MS560702BA03Temperature_C = TEMP / 100.0f;
+	this->data->MS560702BA03Pressure_hPA = P / 100.0f;
+	this->data->MS560702BA03Altitude_m = (1-powf(this->data->MS560702BA03Pressure_hPA/1013.25, 0.190284))*145366.45 * FEET_TO_METER;
+
+	return 0;
+}
+
+void MS560702BA03::startConversion()
+{
+	writeSPI(MS5607_CONVERT_D1 | (osr << 1), nullptr, 0);
+
+	conversionStart_us = micros();
+}

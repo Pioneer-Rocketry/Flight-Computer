@@ -9,7 +9,6 @@
 #define INC_DATACONTAINER_H_
 
 #include <cstdint>
-#include <Eigen/Geometry>
 
 /**
  * @class DataContainer
@@ -33,13 +32,6 @@ class DataContainer {
 private:
 
 public:
-	Eigen::Quaternionf orientation_quat;
-	Eigen::Vector3f orientation_eular;
-
-	float roll;
-	float pitch;
-	float yaw;
-
 	/* IMU Data*/
 	float LSM6DSV320GyroX_dps;
 	float LSM6DSV320GyroY_dps;
@@ -72,6 +64,18 @@ public:
 	// UTC time string from GPS (hhmmss.sss)
 	char GPSUTCTime[16];
 
+	/* Quaternion Data */
+	float quaternionW;
+	float quaternionX;
+	float quaternionY;
+	float quaternionZ;
+
+	float quaternionNorm;
+
+	/* Euler Angles */
+	float roll;
+	float pitch;
+	float yaw;
 
 	/* Kalman Filter Data */
 	float KalmanFilterPositionX_m;

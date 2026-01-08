@@ -18,10 +18,18 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
+#include <stdio.h>
+#include <stdint.h>
+#include <inttypes.h>
+#include <ctype.h>
+
+#include "tusb.h"
+#include "dfuBootloader.h"
+#include "usbHelper.h"
 
 #include "DataContainer.h"
 
@@ -39,7 +47,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -55,12 +62,27 @@ I2C_HandleTypeDef hi2c2;
 SPI_HandleTypeDef hspi1;
 
 UART_HandleTypeDef huart4;
+DMA_HandleTypeDef hdma_uart4_rx;
+
+PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
 
+#define USB_BUF_LEN 512
+
+char usbTxBuffer[USB_BUF_LEN];
+char usbRxBuffer[USB_BUF_LEN];
+
+uint16_t usbTxBufferLen;
+uint16_t usbRxBufferLen;
+
+#define GPS_BUFFER_SIZE 512
+
+uint8_t gpsRxBuffer[GPS_BUFFER_SIZE];
+
 DataContainer data;
 
-Navigation nav(&data, &hspi1, &huart4);
+Navigation nav(&data, &hspi1, &huart4, gpsRxBuffer);
 Logging logging(&data, &hspi1);
 
 /* USER CODE END PV */
@@ -68,10 +90,12 @@ Logging logging(&data, &hspi1);
 /* Private function prototypes -----------------------------------------------*/
 extern "C" void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_I2C2_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_UART4_Init(void);
+static void MX_USB_OTG_FS_PCD_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -88,6 +112,8 @@ static void MX_UART4_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+
+  dfuCheckAndJumpBootloader();
 
   /* USER CODE END 1 */
 
@@ -109,24 +135,41 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ADC1_Init();
   MX_I2C2_Init();
   MX_SPI1_Init();
   MX_UART4_Init();
-  MX_USB_DEVICE_Init();
+  MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
+
+  HAL_UART_Receive_DMA(&huart4, gpsRxBuffer, GPS_BUFFER_SIZE);
+
+  tud_init(BOARD_TUD_RHPORT);
+
+  cdcSendMessage("Welcome to the Pioneer Rocketry Flight Computer!\r\n", USB_BUF_LEN);
 
   DWT_Init();
 
   if (nav.init() < 0)
   {
-	  while (1);
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Navigation!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+	  while (1)
+    { 
+      // Send Error Message over USB CDC
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
   }
 
   if (logging.init() < 0)
   {
 	  while (1);
   }
+
+  cdcSendMessage("Initialization Complete \r\n", USB_BUF_LEN);
+
 
   /* USER CODE END 2 */
 
@@ -139,10 +182,10 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 	  nav.update();
+    logging.update();
 
-	  logging.update();
 
-//	  HAL_Delay(1);
+    tud_task();
   }
   /* USER CODE END 3 */
 }
@@ -340,7 +383,7 @@ static void MX_UART4_Init(void)
 
   /* USER CODE END UART4_Init 1 */
   huart4.Instance = UART4;
-  huart4.Init.BaudRate = 115200;
+  huart4.Init.BaudRate = 9600;
   huart4.Init.WordLength = UART_WORDLENGTH_8B;
   huart4.Init.StopBits = UART_STOPBITS_1;
   huart4.Init.Parity = UART_PARITY_NONE;
@@ -354,6 +397,57 @@ static void MX_UART4_Init(void)
   /* USER CODE BEGIN UART4_Init 2 */
 
   /* USER CODE END UART4_Init 2 */
+
+}
+
+/**
+  * @brief USB_OTG_FS Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USB_OTG_FS_PCD_Init(void)
+{
+
+  /* USER CODE BEGIN USB_OTG_FS_Init 0 */
+
+  /* USER CODE END USB_OTG_FS_Init 0 */
+
+  /* USER CODE BEGIN USB_OTG_FS_Init 1 */
+
+  /* USER CODE END USB_OTG_FS_Init 1 */
+  hpcd_USB_OTG_FS.Instance = USB_OTG_FS;
+  hpcd_USB_OTG_FS.Init.dev_endpoints = 6;
+  hpcd_USB_OTG_FS.Init.speed = PCD_SPEED_FULL;
+  hpcd_USB_OTG_FS.Init.dma_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.phy_itface = PCD_PHY_EMBEDDED;
+  hpcd_USB_OTG_FS.Init.Sof_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.low_power_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.lpm_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.vbus_sensing_enable = DISABLE;
+  hpcd_USB_OTG_FS.Init.use_dedicated_ep1 = DISABLE;
+  if (HAL_PCD_Init(&hpcd_USB_OTG_FS) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USB_OTG_FS_Init 2 */
+
+  /* USER CODE END USB_OTG_FS_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Stream2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream2_IRQn);
 
 }
 
@@ -381,8 +475,10 @@ static void MX_GPIO_Init(void)
                           |PRYO1_TRIGGER_Pin|LORA_RESET_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|BARO_CS_Pin|FLASH_CS_Pin|FLASH_RESET_Pin
-                          |FLASH_WP_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|FLASH_CS_Pin|FLASH_RESET_Pin|FLASH_WP_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(BARO_CS_GPIO_Port, BARO_CS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : SPI_CS1_Pin LORA_DIO0_Pin PYRO3_TRIGGER_Pin PRYO2_TRIGGER_Pin
                            PRYO1_TRIGGER_Pin LORA_RESET_Pin */
@@ -440,6 +536,51 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+
+void tud_dfu_runtime_reboot_to_dfu_cb(void)
+{
+  char reboot_msg[] = "Rebooting into DFU mode...\r\n";
+  cdcSendMessage(reboot_msg, strlen(reboot_msg));
+
+  // Ensure message is sent
+  for (int i = 0; i < 10; i++) {
+    tud_task();
+    HAL_Delay(5);
+  }
+
+  // Request bootloader entry (never returns)
+  dfuRequestBootloaderEntry();
+
+}
+
+void tud_dfu_download_cb(uint8_t alt, uint16_t block_num, uint8_t const* data, uint16_t length)
+{
+  (void)alt;
+  (void)block_num;
+  (void)data;
+  (void)length;
+
+  // This callback is called during the download process
+  // We don't need to do anything here since we're using runtime DFU
+}
+
+void tud_dfu_manifest_cb(uint8_t alt)
+{
+  (void)alt;
+
+  // DFU upload complete, reboot back to application
+  // Give a short delay to ensure USB transaction completes
+  HAL_Delay(100);
+
+  // System reset to return to application
+  NVIC_SystemReset();
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  
+}
 
 /* USER CODE END 4 */
 

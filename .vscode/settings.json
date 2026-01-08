@@ -1,3 +1,5 @@
 {
-    "cmake.sourceDirectory": "/home/colin/rocketry/Flight-Computer/Code/lib/Eigen/scripts"
+    "cortex-debug.gdbPath.linux": "/usr/bin/arm-none-eabi-gdb",
+    "cortex-debug.stutilPath.linux": "/usr/bin/st-util",
+    "cortex-debug.variableUseNaturalFormat": true
 }

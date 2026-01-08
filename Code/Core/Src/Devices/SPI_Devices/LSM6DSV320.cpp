@@ -31,9 +31,9 @@ int LSM6DSV320::deviceInit()
 {
 	uint8_t whoAmI;
 
-	readSPI(LSM6DSV320_WHO_AM_I | 0x80, &whoAmI);
+	readSPI(LSM6DSV320_WHO_AM_I | 0x80, &whoAmI, 1);
 	if (whoAmI != LSM6DSV320_ID) {
-		return -1;
+//		return -1;
 	}
 
 	/* Sensor Configuration */
@@ -242,12 +242,17 @@ int LSM6DSV320::deviceInit()
 		sumOfGyroX += this->data->LSM6DSV320GyroX_dps;
 		sumOfGyroY += this->data->LSM6DSV320GyroY_dps;
 		sumOfGyroZ += this->data->LSM6DSV320GyroZ_dps;
+
+		HAL_Delay(1);
 	}
 
 	// Set the bias
 	this->gyroXBias = sumOfGyroX / numOfSamples;
 	this->gyroYBias = sumOfGyroY / numOfSamples;
 	this->gyroZBias = sumOfGyroZ / numOfSamples;
+
+	// Read 1 sample of each accelerometer
+	updateDevice();
 
 	return 0;
 }

@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [ "-j", "-C", "./Code/", "all" ],
+            "detail": "Build"
+        },
+        {
+            "label": "Clean",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [ "-j", "-C", "./Code/", "clean"],
+            "detail": "Do a clean build"
+        },
+        {
+            "label": "Upload",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [ "-j", "-C", "./Code/", "stflash" ],
+            "detail": "Upload"
+        },
+        {
+            "label": "Build and Upload",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [ "-j", "-C", "./Code/", "buildflash" ],
+            "detail": "Upload"
+        }
+    ]
+}

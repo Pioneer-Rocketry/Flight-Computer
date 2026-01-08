@@ -379,7 +379,7 @@ private:
 	// -------------------------------------------------------------
 	// Bias Constants
 	// -------------------------------------------------------------
-	int numOfSamples = 1000;
+	int numOfSamples = 5000;
 
 	float gyroXBias;
 	float gyroYBias;

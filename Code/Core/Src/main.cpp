@@ -165,7 +165,14 @@ int main(void)
 
   if (logging.init() < 0)
   {
-	  while (1);
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Logging!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+	  while (1)
+    { 
+      // Send Error Message over USB CDC
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
   }
 
   cdcSendMessage("Initialization Complete \r\n", USB_BUF_LEN);

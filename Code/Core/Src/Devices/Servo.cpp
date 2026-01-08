@@ -43,6 +43,8 @@ Servo::Servo(DataContainer* data, TIM_HandleTypeDef* htim, servo servoId)
             // Handle invalid servoId if necessary
             break;
     }
+
+    HAL_TIM_PWM_Start(this->htim, this->channel);
 }
 
 int Servo::init()

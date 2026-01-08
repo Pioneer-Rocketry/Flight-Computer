@@ -22,7 +22,11 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include <stdio.h>
+#include <stdint.h>
+#include <inttypes.h>
 #include <ctype.h>
+
 #include "tusb.h"
 #include "dfuBootloader.h"
 #include "usbHelper.h"
@@ -57,12 +61,13 @@ I2C_HandleTypeDef hi2c2;
 SPI_HandleTypeDef hspi1;
 
 UART_HandleTypeDef huart4;
+DMA_HandleTypeDef hdma_uart4_rx;
 
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
 
-#define USB_BUF_LEN 128
+#define USB_BUF_LEN 512
 
 char usbTxBuffer[USB_BUF_LEN];
 char usbRxBuffer[USB_BUF_LEN];
@@ -70,15 +75,20 @@ char usbRxBuffer[USB_BUF_LEN];
 uint16_t usbTxBufferLen;
 uint16_t usbRxBufferLen;
 
+#define GPS_BUFFER_SIZE 512
+
+uint8_t gpsRxBuffer[GPS_BUFFER_SIZE];
+
 DataContainer data;
 
-Navigation nav(&data, &hspi1, &huart4);
+Navigation nav(&data, &hspi1, &huart4, gpsRxBuffer);
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 extern "C" void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_I2C2_Init(void);
 static void MX_SPI1_Init(void);
@@ -123,6 +133,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ADC1_Init();
   MX_I2C2_Init();
   MX_SPI1_Init();
@@ -130,10 +141,11 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
 
+  HAL_UART_Receive_DMA(&huart4, gpsRxBuffer, GPS_BUFFER_SIZE);
+
   tud_init(BOARD_TUD_RHPORT);
 
-  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Welcome to the Pioneer Rocketry Flight Computer!\r\n");
-  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+  cdcSendMessage("Welcome to the Pioneer Rocketry Flight Computer!\r\n", USB_BUF_LEN);
 
   DWT_Init();
 
@@ -142,12 +154,14 @@ int main(void)
     usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Navigation!\r\n");
     cdcSendMessage(usbTxBuffer, usbTxBufferLen);
 	  while (1)
-    {
+    { 
       // Send Error Message over USB CDC
       cdcSendMessage(usbTxBuffer, usbTxBufferLen);
       HAL_Delay(1000);
     }
   }
+
+  cdcSendMessage("Initialization Complete \r\n", USB_BUF_LEN);
 
   /* USER CODE END 2 */
 
@@ -159,20 +173,10 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-	nav.update();
+	  nav.update();
     //	  HAL_Delay(1);
 
     tud_task();
-
-    // Log the quaternion over USB CDC every sendIntervalMs
-    int len = snprintf(usbTxBuffer, USB_BUF_LEN,
-      "%.4f, %.4f, %.4f, %.4f\r\n",
-      data.quaternionW,
-      data.quaternionX,
-      data.quaternionY,
-      data.quaternionZ
-    );
-    cdcSendMessage(usbTxBuffer, len);
   }
   /* USER CODE END 3 */
 }
@@ -370,7 +374,7 @@ static void MX_UART4_Init(void)
 
   /* USER CODE END UART4_Init 1 */
   huart4.Instance = UART4;
-  huart4.Init.BaudRate = 115200;
+  huart4.Init.BaudRate = 9600;
   huart4.Init.WordLength = UART_WORDLENGTH_8B;
   huart4.Init.StopBits = UART_STOPBITS_1;
   huart4.Init.Parity = UART_PARITY_NONE;
@@ -419,6 +423,22 @@ static void MX_USB_OTG_FS_PCD_Init(void)
   /* USER CODE BEGIN USB_OTG_FS_Init 2 */
 
   /* USER CODE END USB_OTG_FS_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Stream2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream2_IRQn);
 
 }
 
@@ -548,6 +568,10 @@ void tud_dfu_manifest_cb(uint8_t alt)
   NVIC_SystemReset();
 }
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  
+}
 
 /* USER CODE END 4 */
 

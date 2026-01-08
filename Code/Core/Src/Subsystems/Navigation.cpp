@@ -14,11 +14,11 @@ float softThreshold(float value, float threshold)
     return value;
 }
 
-Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_HandleTypeDef* uart)
+Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_HandleTypeDef* uart, uint8_t* gpsRxBuffer)
 	: Subsystem(data),
 	  imu(data, spiBus, SPI_CS1_GPIO_Port, SPI_CS1_Pin),
 	  baro(data, spiBus, BARO_CS_GPIO_Port, BARO_CS_Pin),
-	  gps(data, uart)
+	  gps(data, uart, gpsRxBuffer)
 {
 	data->KalmanFilterPositionX_m = 0.0f;
 	data->KalmanFilterPositionY_m = 0.0f;
@@ -63,7 +63,7 @@ int Navigation::init()
 
 int Navigation::update()
 {
-	now 	= micros();
+	now = micros();
 
 	// Handle micros() overflow
 	if (now > lastLoop)
@@ -110,6 +110,7 @@ int Navigation::update()
     rotateVectorByQuaternion(highG);
 
 	baro.updateDevice();
+	gps.updateDevice();
 
 	// -------------------------------------------------------------
 	// Kalman Filter

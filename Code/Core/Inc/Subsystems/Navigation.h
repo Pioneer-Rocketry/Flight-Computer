@@ -47,7 +47,7 @@ public:
 	 * @param spiBus Reference to the SPI Bus that is connected to the sensors
 	 * @param uart Refrences the UART that is connected to the GPS
 	 */
-	Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_HandleTypeDef* uart);
+	Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_HandleTypeDef* uart, uint8_t* gpsRxBuffer);
 
 	/**
 	 * @brief Initializes the navigation subsystem.

@@ -1,3 +1,6 @@
-[submodule "Code/Drivers/rfm95"]
-	path = Code/Drivers/rfm95
+[submodule "Code/lib/rfm95"]
+	path = Code/lib/rfm95
 	url = https://github.com/henriheimann/stm32-hal-rfm95.git
+[submodule "Code/lib/TinyUSB"]
+	path = Code/lib/TinyUSB
+	url = https://github.com/hathach/tinyusb

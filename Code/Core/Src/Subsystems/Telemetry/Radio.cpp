@@ -54,9 +54,9 @@ int Radio::init()
 		return -1;
 	};
 
-	config_set_channel(&rfm95_handle, 1, 915000000);
+	// config_set_channel(&rfm95_handle, 1, 915000000);
 
-	configure_channel(&rfm95_handle, 1);
+	// configure_channel(&rfm95_handle, 1);
 
 	uint8_t data_packet[] = {
 		0x01, 0x02, 0x03, 0x4

@@ -1,0 +1,46 @@
+name: Build
+
+on:
+    push:
+        paths:
+            - "Code/**"
+        paths-ignore::
+            - "**.md"
+            - "PCB/**"
+            - "Datasheets/**"
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+    workflow_dispatch:
+
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        container:
+            image: ghcr.io/pioneer-rocketry/flight-computer:feature-actions
+            credentials:
+                username: ${{ github.actor }}
+                password: ${{ secrets.GITHUB_TOKEN }}
+
+        steps:
+            - name: Check out code
+              uses: actions/checkout@v4
+              with:
+                submodules: recursive
+
+            - name: Version Info
+              run: arm-none-eabi-gcc --version
+
+            - name: Build
+              run: make -C ./Code all
+            
+            - name: Upload build artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                name: flight-computer-build
+                path: |
+                    Code/build/*.elf
+                    Code/build/*.bin
+                    Code/build/*.hex
+                    Code/build/*.map

@@ -148,179 +148,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:R_US"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 2.54 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "R_US"
-				(at -2.54 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 1.016 -0.254 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Resistor, US symbol"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "R res resistor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "R_US_0_1"
-				(polyline
-					(pts
-						(xy 0 2.286) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.286) (xy 0 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "R_US_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "RF_GPS:SAM-M8Q"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1849,22 +1676,10 @@
 		(uuid "5a558e52-89dc-4b9c-83fe-ad6fa363da70")
 	)
 	(junction
-		(at 36.83 129.54)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "682d9467-ea3d-4c77-89bb-085c188120fa")
-	)
-	(junction
 		(at 69.85 35.56)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6d14604d-d2bd-4d30-a0c8-3b584c500f78")
-	)
-	(junction
-		(at 36.83 127)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a004dfe0-038a-417e-8e76-4f0021b9d07a")
 	)
 	(junction
 		(at 50.8 97.79)
@@ -1909,16 +1724,6 @@
 			(type default)
 		)
 		(uuid "02b417f7-b165-41db-a92e-c81bf59c127e")
-	)
-	(wire
-		(pts
-			(xy 40.64 114.3) (xy 36.83 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "02d91bbc-94d2-4e97-86be-9eaad746de10")
 	)
 	(wire
 		(pts
@@ -1989,16 +1794,6 @@
 			(type default)
 		)
 		(uuid "184bd4cb-454f-43ca-9174-72efda5d701a")
-	)
-	(wire
-		(pts
-			(xy 40.64 142.24) (xy 36.83 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1b678d5d-be5b-4c56-9aba-e987c5c7791c")
 	)
 	(wire
 		(pts
@@ -2122,33 +1917,13 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 116.84) (xy 40.64 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5d233cc8-15c1-4b00-bfdf-e6fd50677ce7")
-	)
-	(wire
-		(pts
-			(xy 36.83 129.54) (xy 53.34 129.54)
+			(xy 52.07 129.54) (xy 53.34 129.54)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "6155280e-cd18-434d-90f2-90c3bdaa0a2d")
-	)
-	(wire
-		(pts
-			(xy 36.83 114.3) (xy 36.83 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "63209f3e-6336-4f32-a92a-dc51d896d641")
 	)
 	(wire
 		(pts
@@ -2272,16 +2047,6 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 129.54) (xy 36.83 132.08)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8de393e3-106a-4035-8342-4268bb7af683")
-	)
-	(wire
-		(pts
 			(xy 68.58 111.76) (xy 68.58 105.41)
 		)
 		(stroke
@@ -2299,16 +2064,6 @@
 			(type default)
 		)
 		(uuid "9f4d8ea0-3df2-4a31-8862-46c5ac04d3b9")
-	)
-	(wire
-		(pts
-			(xy 35.56 127) (xy 36.83 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a1ddbc05-6b70-4bcc-bc70-d203d49c344c")
 	)
 	(wire
 		(pts
@@ -2332,16 +2087,6 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 142.24) (xy 40.64 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ac8b2414-76dc-4680-b880-36ff74acac5c")
-	)
-	(wire
-		(pts
 			(xy 53.34 60.96) (xy 54.61 60.96)
 		)
 		(stroke
@@ -2349,16 +2094,6 @@
 			(type default)
 		)
 		(uuid "ad5c7518-4568-4e4c-afd0-5172ca524511")
-	)
-	(wire
-		(pts
-			(xy 36.83 127) (xy 36.83 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aea584c0-4c5b-45ed-b8c1-5efa22c2917c")
 	)
 	(wire
 		(pts
@@ -2379,16 +2114,6 @@
 			(type default)
 		)
 		(uuid "af5c80cb-6fe0-47ac-8873-d79211b68545")
-	)
-	(wire
-		(pts
-			(xy 36.83 142.24) (xy 36.83 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b034d844-531e-420c-b6d6-bdd941b2641d")
 	)
 	(wire
 		(pts
@@ -2422,7 +2147,7 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 127) (xy 53.34 127)
+			(xy 52.07 127) (xy 53.34 127)
 		)
 		(stroke
 			(width 0)
@@ -2610,16 +2335,6 @@
 		)
 		(uuid "f73d70a8-9283-40e0-91bd-7ab31a4934c8")
 	)
-	(wire
-		(pts
-			(xy 35.56 129.54) (xy 36.83 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fd57e1f4-6486-492c-9b6d-c4f7539509ea")
-	)
 	(hierarchical_label "GPS_INT"
 		(shape input)
 		(at 52.07 121.92 180)
@@ -2633,7 +2348,7 @@
 	)
 	(hierarchical_label "{slash}GPS_RESET"
 		(shape input)
-		(at 35.56 129.54 180)
+		(at 52.07 129.54 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2798,7 +2513,7 @@
 	)
 	(hierarchical_label "{slash}GPS_SAFEBOOT"
 		(shape output)
-		(at 35.56 127 180)
+		(at 52.07 127 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3327,72 +3042,6 @@
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0408")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 40.64 139.7 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1d74bdc9-559a-49e0-9e8a-864d319df7f0")
-		(property "Reference" "#PWR0415"
-			(at 40.64 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 40.64 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 40.64 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 40.64 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 40.64 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c4b80b4e-d046-46d6-b3e2-e6102b99798e")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
-					(reference "#PWR0415")
 					(unit 1)
 				)
 			)
@@ -4533,73 +4182,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 40.64 116.84 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8ae0a2a6-5abd-44df-8e26-fb7acb9fda21")
-		(property "Reference" "#PWR0413"
-			(at 40.64 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 40.64 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 40.64 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 40.64 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 40.64 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2d9290eb-99bf-4aa5-8095-19adee993edf")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
-					(reference "#PWR0413")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 40.64 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4659,93 +4241,6 @@
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0406")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 36.83 135.89 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a05aea9b-e42c-41cc-802f-1ef78e8bf7e6")
-		(property "Reference" "R402"
-			(at 34.29 137.1601 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 34.29 134.6201 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 35.814 135.636 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 36.83 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 36.83 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" ""
-			(at 36.83 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 36.83 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "2069b9de-b0fe-4b67-a72a-a3f7ec4ab7d8")
-		)
-		(pin "1"
-			(uuid "da90fee4-55c4-4723-9961-5fe766480081")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
-					(reference "R402")
 					(unit 1)
 				)
 			)
@@ -4878,93 +4373,6 @@
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "#PWR0404")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 36.83 120.65 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f7a558c4-1e0e-474e-99d1-219933577161")
-		(property "Reference" "R401"
-			(at 34.29 121.9201 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 34.29 119.3801 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 35.814 120.396 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 36.83 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 36.83 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" ""
-			(at 36.83 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 36.83 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "ed746cb8-889c-46a6-9c7a-2e2a38d2e9d7")
-		)
-		(pin "1"
-			(uuid "c793a944-536b-4522-88ba-484bfd11ccf1")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
-					(reference "R401")
 					(unit 1)
 				)
 			)

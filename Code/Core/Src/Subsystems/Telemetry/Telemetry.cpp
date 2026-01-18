@@ -18,7 +18,9 @@
  * 		pull data from that pointer, probably to a dataContainer variable
  */
 
-Telemetry::Telemetry(DataContainer* data, Radio _radio) : Subsystem(data), radio(_radio)
+Telemetry::Telemetry(DataContainer* data, SPI_HandleTypeDef* spiBus)
+	: Subsystem(data),
+	  rfm95(data, spiBus, LORA_CS_GPIO_Port, LORA_CS_Pin)
 {
 }
 
@@ -33,6 +35,8 @@ TelemetryPacketType* Telemetry::createPacketType(uint32_t interval_ms){
 
 int Telemetry::init()
 {
+	rfm95.deviceInit();
+
 	return 0;
 }
 
@@ -50,15 +54,7 @@ int Telemetry::createBuffers(){
 
 int Telemetry::update()
 {
-	for (TelemetryPacketType* packetType: packetTypes){
-		if (HAL_GetTick() >= packetType->globalTimeToSendNext_ms){
-
-
-			radio.send(packetType->collectData(), packetType->getPacketSize());
-
-			packetType->globalTimeToSendNext_ms = HAL_GetTick() + packetType->sendInterval_ms;
-		}
-	}
+	rfm95.updateDevice();
 
 	return 0;
 }

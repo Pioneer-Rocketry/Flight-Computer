@@ -1,4 +1,12 @@
 {
     "cortex-debug.gdbPath.linux": "/usr/bin/arm-none-eabi-gdb",
-    "cortex-debug.stutilPath.linux": "/usr/bin/st-util"
+    "cortex-debug.stutilPath.linux": "/usr/bin/st-util",
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.intelliSenseEngineFallback": "disabled",
+    "C_Cpp.default.compilerPath": "/usr/bin/arm-none-eabi-g++",
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.cStandard": "c99"
 }

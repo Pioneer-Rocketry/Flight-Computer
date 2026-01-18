@@ -8,9 +8,12 @@
 #ifndef INC_SUBSYSTEMS_TELEMETRY_H_
 #define INC_SUBSYSTEMS_TELEMETRY_H_
 
+#include "Subsystem.h"
+#include "main.h"
+
+#include "Devices/SPI_Devices/RFM95.h"
 
 #include <Subsystems/Telemetry/TelemetryPacketType.h>
-#include "Subsystem.h"
 #include "Radio.h"
 
 /**
@@ -41,7 +44,7 @@ public:
 	 *
 	 * @param data Reference to the main DataContainer for shared data access.
 	 */
-	Telemetry(DataContainer* data, Radio _radio);
+	Telemetry(DataContainer* data, SPI_HandleTypeDef* spiBus);
 
 	/**
 	 * @brief Initializes the Telemetry subsystem.
@@ -72,7 +75,9 @@ public:
 	int createBuffers();
 
 private:
-	Radio radio;
+	RFM95 rfm95;
+
+	// Radio radio;
 	std::vector<TelemetryPacketType*> packetTypes;
 };
 

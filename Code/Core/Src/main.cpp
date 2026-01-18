@@ -31,7 +31,6 @@
 #include "Subsystems/Telemetry/Radio.h"
 #include "Subsystems/Telemetry/Telemetry.h"
 
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -41,6 +40,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+#define RADIO_INSTALLED
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -63,7 +65,8 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 DataContainer data;
 
-Radio radio(&data, &hspi1);
+// Radio radio(&data, &hspi1);
+Telemetry telemetry(&data, &hspi1);
 
 /* USER CODE END PV */
 
@@ -124,44 +127,37 @@ int main(void)
 
   tud_init(BOARD_TUD_RHPORT);
 
-  uint32_t currentTick;
-  uint32_t lastSendTick = 0;
-  const uint32_t sendIntervalMs = 5000;
+  #ifdef RADIO_INSTALLED
+
+  if (telemetry.init() < 0)
+  {
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Telemetry!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+	  while (1);
+    { 
+      // Send Error Message over USB CDC
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
+  }
+
+  #endif
 
   /* USER CODE END 2 */
-  uint32_t testVar1;
-  float testVar2;
-
-  radio.init();
-
-  Telemetry telemetry(&data, radio);
-
-  TelemetryPacketType* newPacketType = telemetry.createPacketType(500);
-  newPacketType->addPacketElement((uint8_t*)&testVar1, 4);
-  newPacketType->addPacketElement((uint8_t*)&testVar2, 4);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-	telemetry.update();
-	testVar1 += 1;
-	testVar2 += 0.12345;
-    /* USER CODE BEGIN 3 */
 
+    /* USER CODE BEGIN 3 */
+    
     tud_task();
 
-    currentTick = HAL_GetTick(); // Get the current system tick (ms)
-
-    // Check if it's time to send data
-    if (currentTick - lastSendTick >= sendIntervalMs)
-    {
-      lastSendTick = currentTick;
-
-      int len = snprintf(usb_tx_buffer, MAX_TICK_MSG_LEN, "Tick: %lu ms\r\n", currentTick);
-      cdcSendMessage(usb_tx_buffer, len);
-    }
+    #ifdef RADIO_INSTALLED
+      telemetry.update();
+    #endif
   }
   /* USER CODE END 3 */
 }
@@ -328,7 +324,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -432,7 +428,10 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, SPI_CS1_Pin|LORA_DIO0_Pin|PYRO3_TRIGGER_Pin|PRYO2_TRIGGER_Pin
-                          |PRYO1_TRIGGER_Pin|LORA_RESET_Pin, GPIO_PIN_RESET);
+                          |PRYO1_TRIGGER_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LORA_RESET_GPIO_Port, LORA_RESET_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|BARO_CS_Pin|FLASH_CS_Pin|FLASH_RESET_Pin

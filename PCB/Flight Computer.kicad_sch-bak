@@ -14,6 +14,10 @@
 		(uuid "085d5b73-4736-417d-b9bc-18586cedcf4f")
 	)
 	(no_connect
+		(at 173.99 91.44)
+		(uuid "0f8928fc-5e14-4434-bcd4-09b8f78ca464")
+	)
+	(no_connect
 		(at 173.99 66.04)
 		(uuid "136e20c5-0d55-42ae-a5c3-9cde6716052a")
 	)
@@ -40,6 +44,10 @@
 	(no_connect
 		(at 173.99 71.12)
 		(uuid "a05bead5-6faa-4543-abec-24b9b4dc9837")
+	)
+	(no_connect
+		(at 173.99 88.9)
+		(uuid "a6fce366-7f46-4987-bbd8-cbc18795fe37")
 	)
 	(no_connect
 		(at 104.14 177.8)
@@ -313,6 +321,16 @@
 	)
 	(wire
 		(pts
+			(xy 173.99 88.9) (xy 157.48 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e87c8cb-f6bb-4aa3-a59f-8d59becabd40")
+	)
+	(wire
+		(pts
 			(xy 157.48 83.82) (xy 173.99 83.82)
 		)
 		(stroke
@@ -443,16 +461,6 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 88.9) (xy 173.99 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "32dcfa40-431d-4996-a866-1279b54d1f5f")
-	)
-	(wire
-		(pts
 			(xy 157.48 52.07) (xy 173.99 52.07)
 		)
 		(stroke
@@ -490,16 +498,6 @@
 			(type default)
 		)
 		(uuid "341c98a9-68a3-4cb3-b4ff-89666283b67d")
-	)
-	(wire
-		(pts
-			(xy 143.51 139.7) (xy 154.94 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "34a01f62-1822-4491-bf2b-95195df8848d")
 	)
 	(wire
 		(pts
@@ -700,16 +698,6 @@
 			(type default)
 		)
 		(uuid "71321951-ff44-4bc2-a71a-53f4d546f630")
-	)
-	(wire
-		(pts
-			(xy 143.51 142.24) (xy 154.94 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "73e4d906-6827-4c21-aaf7-4f3933698583")
 	)
 	(wire
 		(pts
@@ -1451,16 +1439,6 @@
 		)
 		(uuid "028cf281-8f39-444d-87f1-e5cf900d5b02")
 	)
-	(label "MCU_LED2"
-		(at 173.99 88.9 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "035041f8-adbb-4089-ae08-8592a5930653")
-	)
 	(label "Pyro3_Trigger"
 		(at 100.33 38.1 0)
 		(effects
@@ -1541,16 +1519,6 @@
 		)
 		(uuid "21095079-cbb8-468c-b8b2-a06bbfdf06e6")
 	)
-	(label "MCU_LED3"
-		(at 173.99 91.44 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "21a8e668-98a8-4572-a755-0fc735e835ed")
-	)
 	(label "IMU_INT1"
 		(at 100.33 55.88 0)
 		(effects
@@ -1561,7 +1529,7 @@
 		)
 		(uuid "22004195-e130-4801-aa87-ba01191bf423")
 	)
-	(label "MCU_LED1"
+	(label "MCU_LED"
 		(at 173.99 86.36 180)
 		(effects
 			(font
@@ -1861,7 +1829,7 @@
 		)
 		(uuid "6d87d5c4-476c-4f6c-8840-6ac9f0a3510d")
 	)
-	(label "MCU_LED1"
+	(label "MCU_LED"
 		(at 154.94 137.16 180)
 		(effects
 			(font
@@ -1890,16 +1858,6 @@
 			(justify left bottom)
 		)
 		(uuid "7bb4667e-28aa-4b1d-8856-63b056d6bc49")
-	)
-	(label "MCU_LED2"
-		(at 154.94 139.7 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "7c2a049a-33e4-46b1-927f-c0784d4c87a1")
 	)
 	(label "SWCLK"
 		(at 173.99 59.69 180)
@@ -2140,16 +2098,6 @@
 			(justify left bottom)
 		)
 		(uuid "b4927947-d7b9-4fad-9bbd-51115c2b9361")
-	)
-	(label "MCU_LED3"
-		(at 154.94 142.24 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "b5f4ade9-3e76-454e-8373-3ef4a5b75135")
 	)
 	(label "Pyro3"
 		(at 154.94 113.03 180)
@@ -2413,7 +2361,7 @@
 	)
 	(sheet
 		(at 116.84 105.41)
-		(size 26.67 39.37)
+		(size 26.67 34.29)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -2437,7 +2385,7 @@
 			)
 		)
 		(property "Sheetfile" "IO.kicad_sch"
-			(at 116.84 145.3646 0)
+			(at 116.84 140.2846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2655,29 +2603,9 @@
 				(justify right)
 			)
 		)
-		(pin "MCU_LED1" input
+		(pin "MCU_LED" input
 			(at 143.51 137.16 0)
 			(uuid "9b71e573-2801-4a1b-862a-a39e9a920e3d")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "MCU_LED2" input
-			(at 143.51 139.7 0)
-			(uuid "128a389f-037f-48bc-9562-e895f958db87")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "MCU_LED3" input
-			(at 143.51 142.24 0)
-			(uuid "bc0e6d4d-2b75-4f46-96be-8b2bfab775a0")
 			(effects
 				(font
 					(size 1.27 1.27)

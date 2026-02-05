@@ -65,10 +65,6 @@
 		(at 104.14 175.26)
 		(uuid "ec2d32d6-c8a5-4187-83af-e474b41f061d")
 	)
-	(no_connect
-		(at 100.33 50.8)
-		(uuid "fbe3a675-75a5-491a-b8f6-d997fc2e80fe")
-	)
 	(bus_entry
 		(at 91.44 83.82)
 		(size 2.54 2.54)
@@ -540,6 +536,16 @@
 			(type default)
 		)
 		(uuid "3655d7fd-c4cf-4aed-b4de-be9ec9e4f21f")
+	)
+	(wire
+		(pts
+			(xy 106.68 140.97) (xy 116.84 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3846ee45-36c0-4ced-9005-abefc5a668c8")
 	)
 	(wire
 		(pts
@@ -1571,6 +1577,16 @@
 		)
 		(uuid "23f4a650-3054-4010-af3e-8f7608c9f2af")
 	)
+	(label "PC6"
+		(at 106.68 140.97 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "25cc9c0d-1d67-42c3-816f-897ff8fd312e")
+	)
 	(label "Pyro1_Cont"
 		(at 173.99 34.29 180)
 		(effects
@@ -1630,6 +1646,16 @@
 			(justify left bottom)
 		)
 		(uuid "35602252-f1db-4c27-877d-9a54b6c10d2a")
+	)
+	(label "PC6"
+		(at 100.33 50.8 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "36e971b6-9d2c-470b-9673-f6a2ac151f9b")
 	)
 	(label "Servo1"
 		(at 173.99 49.53 180)
@@ -2683,6 +2709,16 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+			)
+		)
+		(pin "Testpoint" input
+			(at 116.84 140.97 180)
+			(uuid "fff452a0-d438-49f3-9f1a-2851039833f9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances

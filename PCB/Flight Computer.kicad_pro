@@ -58,7 +58,32 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "courtyards_overlap|100657233|58445000|3203aa5b-5a7b-4996-8e63-8621310f20d2|858c64d4-c9dc-4c04-9b6b-2bd74a78b791",
+          ""
+        ],
+        [
+          "courtyards_overlap|110278938|65793951|55bac560-1b33-4c22-a6f8-d23915bd5953|e6df398f-7d1d-4716-aa55-971996b51698",
+          ""
+        ],
+        [
+          "courtyards_overlap|115858938|66778951|7367f2c4-7e59-4698-9833-5bd63e94f4b4|93cc8226-527d-459f-9e8d-dfee7473be78",
+          ""
+        ],
+        [
+          "lib_footprint_issues|105161451|63666075|7764871f-9cae-4501-8764-c5efbf9855e2|00000000-0000-0000-0000-000000000000",
+          ""
+        ],
+        [
+          "missing_courtyard|104980000|90650000|2e229289-8ca5-4449-b55d-9ba43c9c41a5|00000000-0000-0000-0000-000000000000",
+          ""
+        ],
+        [
+          "missing_courtyard|105250000|63500000|7764871f-9cae-4501-8764-c5efbf9855e2|00000000-0000-0000-0000-000000000000",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -76,9 +101,9 @@
         "duplicate_footprints": "warning",
         "extra_footprint": "warning",
         "footprint": "error",
-        "footprint_filters_mismatch": "ignore",
-        "footprint_symbol_mismatch": "ignore",
-        "footprint_type_mismatch": "ignore",
+        "footprint_filters_mismatch": "warning",
+        "footprint_symbol_mismatch": "warning",
+        "footprint_type_mismatch": "warning",
         "hole_clearance": "error",
         "hole_to_hole": "warning",
         "holes_co_located": "warning",
@@ -92,17 +117,17 @@
         "malformed_courtyard": "error",
         "microvia_drill_out_of_range": "error",
         "mirrored_text_on_front_layer": "warning",
-        "missing_courtyard": "ignore",
+        "missing_courtyard": "warning",
         "missing_footprint": "warning",
         "net_conflict": "warning",
         "nonmirrored_text_on_back_layer": "warning",
-        "npth_inside_courtyard": "ignore",
+        "npth_inside_courtyard": "warning",
         "padstack": "warning",
-        "pth_inside_courtyard": "ignore",
+        "pth_inside_courtyard": "warning",
         "shorting_items": "error",
         "silk_edge_clearance": "warning",
         "silk_over_copper": "warning",
-        "silk_overlap": "warning",
+        "silk_overlap": "ignore",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
         "starved_thermal": "error",

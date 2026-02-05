@@ -7991,7 +7991,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "R_US"
+		(property "Value" "500"
 			(at 213.36 109.2199 0)
 			(effects
 				(font

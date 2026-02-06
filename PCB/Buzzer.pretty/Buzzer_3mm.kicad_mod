@@ -5,10 +5,11 @@
 	(layer "F.Cu")
 	(descr "https://www.cui.com/product/resource/cpt-9019s-smt.pdf")
 	(tags "buzzer piezo")
-	(property "Reference" "REF**"
+	(property "Reference" "BZ501"
 		(at 0 -2.5 0)
 		(layer "F.SilkS")
-		(uuid "26611729-ce45-4b7e-a7c0-8ae4d0274268")
+		(hide yes)
+		(uuid "b8fb0fbd-ff2a-4be7-859c-1dd9b3613f2d")
 		(effects
 			(font
 				(size 1 1)
@@ -16,10 +17,10 @@
 			)
 		)
 	)
-	(property "Value" "Buzzer_3mm"
+	(property "Value" "Buzzer"
 		(at 0 4 0)
 		(layer "F.Fab")
-		(uuid "2ba3204d-4a71-4f17-9f0f-74dabe0e8f85")
+		(uuid "5e4d086b-c108-41ed-940a-963870367eff")
 		(effects
 			(font
 				(size 1 1)
@@ -27,12 +28,12 @@
 			)
 		)
 	)
-	(property "Datasheet" ""
+	(property "Datasheet" "~"
 		(at 0 0 0)
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "09e1762e-e5b8-4120-8326-bf2bb48b3d68")
+		(uuid "f3f4c319-3475-426d-827d-75129bcb904f")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -40,12 +41,12 @@
 			)
 		)
 	)
-	(property "Description" ""
+	(property "Description" "Buzzer, polarized"
 		(at 0 0 0)
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "1b97a7f4-36d7-406e-bdd9-5ad296d7235e")
+		(uuid "b7656b9e-9ce7-46a4-8a07-c47c63da2023")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -55,159 +56,159 @@
 	)
 	(attr smd)
 	(fp_line
-		(start -1.7 -1.1)
-		(end -1.7 1.7)
+		(start -2 -1.7)
+		(end 1.4 -1.7)
 		(stroke
 			(width 0.1)
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "213cb2ba-28bb-49da-89b1-ef6a9e377ed8")
+		(uuid "fc4cd347-f10e-46d7-bb58-d6837f274888")
 	)
 	(fp_line
-		(start -1.7 1.7)
-		(end 1.7 1.7)
+		(start -2 1.7)
+		(end -2 -1.7)
 		(stroke
 			(width 0.1)
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "0349b002-01ed-429e-9614-c4cb9e789664")
+		(uuid "2aa13bfa-1a42-451f-a030-9e4fb11b3619")
 	)
 	(fp_line
-		(start -1.1 -1.7)
-		(end -1.7 -1.1)
+		(start 1.4 -1.7)
+		(end 2 -1.1)
 		(stroke
 			(width 0.1)
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "447471ad-3bbc-4799-837a-09cf153edb63")
+		(uuid "b6aef7dd-6b65-4996-b148-3a320640dd0e")
 	)
 	(fp_line
-		(start 1.7 -1.7)
-		(end -1.1 -1.7)
+		(start 2 -1.1)
+		(end 2 1.7)
 		(stroke
 			(width 0.1)
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "71e68371-49b9-4b50-834a-95c97f6e7b17")
+		(uuid "30dc93ad-e1e4-49ac-833a-85ed97b2d307")
 	)
 	(fp_line
-		(start 1.7 1.7)
-		(end 1.7 -1.7)
+		(start 2 1.7)
+		(end -2 1.7)
 		(stroke
 			(width 0.1)
 			(type default)
 		)
 		(layer "F.SilkS")
-		(uuid "877af55e-61e1-4b5b-9639-5dfb1d1f4b72")
+		(uuid "c53ccbf8-6480-4d6c-b244-57086875428a")
 	)
 	(fp_line
-		(start -1.7 -1.1)
-		(end -1.1 -1.7)
+		(start -2 -1.7)
+		(end -2 1.7)
 		(stroke
 			(width 0.1)
 			(type default)
 		)
 		(layer "Dwgs.User")
-		(uuid "7bb35682-e568-469c-8211-15a35b450c6e")
+		(uuid "37329512-f089-42fc-8efa-ddae9a74d4ab")
 	)
 	(fp_line
-		(start -1.7 1.7)
-		(end -1.7 -1.1)
+		(start -2 1.7)
+		(end 1.9 1.7)
 		(stroke
 			(width 0.1)
 			(type default)
 		)
 		(layer "Dwgs.User")
-		(uuid "dbbadd37-2870-4fe6-8101-ee626cd6d9ee")
+		(uuid "9afd65b1-fe84-4f42-a6eb-a288da6f6752")
 	)
 	(fp_line
-		(start -1.1 -1.7)
-		(end 1.7 -1.7)
+		(start 1.4 -1.7)
+		(end -2 -1.7)
 		(stroke
 			(width 0.1)
 			(type default)
 		)
 		(layer "Dwgs.User")
-		(uuid "25ee1833-dac1-491e-898f-75dc4e63e20a")
+		(uuid "0c714e75-6ce7-4aff-a4ec-00f5064659a4")
 	)
 	(fp_line
-		(start 1.7 -1.7)
-		(end 1.7 1.7)
+		(start 2 -1.1)
+		(end 1.4 -1.7)
 		(stroke
 			(width 0.1)
 			(type default)
 		)
 		(layer "Dwgs.User")
-		(uuid "d43f3c10-b8dd-4b9d-8314-5b60086711ee")
+		(uuid "f95bf974-03a8-4f70-a910-733e5732339d")
 	)
 	(fp_line
-		(start 1.7 1.7)
-		(end -1.7 1.7)
+		(start 2 1.7)
+		(end 2 -1.1)
 		(stroke
 			(width 0.1)
 			(type default)
 		)
 		(layer "Dwgs.User")
-		(uuid "06e862f7-5467-4bbd-a12e-9b61277be4ca")
+		(uuid "83c82e8c-2acc-421e-9e89-c73f2daba1fa")
 	)
 	(fp_line
-		(start -1.8 -1.2)
-		(end -1.2 -1.8)
+		(start -2.1 -1.8)
+		(end -2.1 1.8)
 		(stroke
 			(width 0.05)
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "0145cd07-74d3-4526-a430-9ed69adfe6a5")
+		(uuid "09cf2a6c-d181-4482-bba0-8d180fe24651")
 	)
 	(fp_line
-		(start -1.8 1.8)
-		(end -1.8 -1.2)
+		(start -2.1 1.8)
+		(end 2.1 1.8)
 		(stroke
 			(width 0.05)
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "355f7dc5-5d8b-4db1-9bba-4f33f6681ba5")
+		(uuid "e05a89aa-f413-4e4a-bac8-180827bd46ad")
 	)
 	(fp_line
-		(start -1.2 -1.8)
-		(end 1.8 -1.8)
+		(start 1.5 -1.8)
+		(end -2.1 -1.8)
 		(stroke
 			(width 0.05)
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "2a1bce9a-1a5d-4e84-a819-753ef326ddc1")
+		(uuid "53833d8a-f14c-42ad-8716-d16c61a63c63")
 	)
 	(fp_line
-		(start 1.8 -1.8)
-		(end 1.8 1.8)
+		(start 2.1 -1.2)
+		(end 1.5 -1.8)
 		(stroke
 			(width 0.05)
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "d26a6398-753f-4f06-98ea-fdd6ff4c10fb")
+		(uuid "258514f5-7be8-4370-a57f-b174ad624fd9")
 	)
 	(fp_line
-		(start 1.8 1.8)
-		(end -1.8 1.8)
+		(start 2.1 1.8)
+		(end 2.1 -1.2)
 		(stroke
 			(width 0.05)
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "d64add11-819c-4932-8631-7d8357857bd3")
+		(uuid "6ebb7e0a-686f-4bfc-8797-d839de35e643")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 0 2.5 0)
 		(layer "F.Fab")
-		(uuid "56181a09-9fc2-4410-81d1-58bc655aa9ac")
+		(uuid "c9a96ef2-a7ff-4163-b770-3228876b7d81")
 		(effects
 			(font
 				(size 1 1)
@@ -216,18 +217,18 @@
 		)
 	)
 	(pad "1" smd roundrect
-		(at -1 0)
-		(size 1 1)
+		(at -1.3 0)
+		(size 1.2 1)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.15)
-		(uuid "5b74afd8-a62e-4146-9ade-fe7d9d0d14eb")
+		(uuid "ca483145-20a4-448b-b406-14ab31c1b898")
 	)
 	(pad "2" smd roundrect
-		(at 1 0)
-		(size 1 1)
+		(at 1.3 0)
+		(size 1.2 1)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.15)
-		(uuid "2c7f369a-4916-478f-8237-12dde325897c")
+		(uuid "f675d4e8-d94f-4c4a-83ba-83da41391b1f")
 	)
 	(embedded_fonts no)
 	(embedded_files
@@ -503,19 +504,7 @@
 			(checksum "249E5CE0E9F128072B7428E5DC2D310D")
 		)
 	)
-	(model "${KICAD9_3DMODEL_DIR}/Buzzer_Beeper.3dshapes/Buzzer_CUI_CPT-9019S-SMT.step"
-		(offset
-			(xyz 0 0 0)
-		)
-		(scale
-			(xyz 1 1 1)
-		)
-		(rotate
-			(xyz 0 0 0)
-		)
-	)
 	(model "kicad-embed://CT03E-04S400-1_2-2020_062220.stp"
-		(opacity 0.4100)
 		(offset
 			(xyz -1.7 -1.6 1.5)
 		)

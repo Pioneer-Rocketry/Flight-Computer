@@ -16,7 +16,7 @@ float softThreshold(float value, float threshold)
 
 Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_HandleTypeDef* uart, uint8_t* gpsRxBuffer)
 	: Subsystem(data),
-	  imu(data, spiBus, SPI_CS1_GPIO_Port, SPI_CS1_Pin),
+	  imu(data, spiBus, IMU_CS_GPIO_Port, IMU_CS_Pin),
 	  baro(data, spiBus, BARO_CS_GPIO_Port, BARO_CS_Pin),
 	  gps(data, uart, gpsRxBuffer)
 {

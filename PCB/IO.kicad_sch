@@ -3583,6 +3583,156 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Switch:SW_Push"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 1.27 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "SW_Push"
+				(at 0 -1.524 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Push button switch, generic, two pins"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch normally-open pushbutton push-button"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_Push_0_1"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 1.27) (xy 0 3.048)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 1.27) (xy -2.54 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:+3.3V"
 			(power)
 			(pin_numbers
@@ -4308,7 +4458,7 @@
 	)
 	(rectangle
 		(start 78.74 101.6)
-		(end 124.46 144.78)
+		(end 124.46 137.16)
 		(stroke
 			(width 0)
 			(type default)
@@ -4329,6 +4479,18 @@
 			(type none)
 		)
 		(uuid e4f7b8b7-9880-4523-a186-30689eb25362)
+	)
+	(rectangle
+		(start 76.2 139.7)
+		(end 124.46 168.91)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid f1712a98-548c-4113-929e-ae502b42ec32)
 	)
 	(text "Header"
 		(exclude_from_sim no)
@@ -4379,7 +4541,7 @@
 		)
 		(uuid "5f996c44-6875-427a-a85f-4db0b873f102")
 	)
-	(text "Test Pad"
+	(text "GPIO"
 		(exclude_from_sim no)
 		(at 100.076 110.998 0)
 		(effects
@@ -4390,6 +4552,18 @@
 			)
 		)
 		(uuid "7b13f463-2127-4b68-b87a-947120bdce1b")
+	)
+	(text "DFU Button"
+		(exclude_from_sim no)
+		(at 100.584 146.558 0)
+		(effects
+			(font
+				(size 5 5)
+				(thickness 1)
+				(bold yes)
+			)
+		)
+		(uuid "a70589df-c950-4e29-ab5a-9fb128bf5d20")
 	)
 	(text "Pyro Channels"
 		(exclude_from_sim no)
@@ -4628,6 +4802,16 @@
 			(type default)
 		)
 		(uuid "157197ec-acab-4792-8bdb-26781ae20db3")
+	)
+	(wire
+		(pts
+			(xy 106.68 162.56) (xy 110.49 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "16934c1f-2cee-4ff3-aef8-6458157f5d9e")
 	)
 	(wire
 		(pts
@@ -5271,6 +5455,16 @@
 	)
 	(wire
 		(pts
+			(xy 93.98 162.56) (xy 96.52 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd3d97e0-edf6-44f3-a46e-b229d14d36a6")
+	)
+	(wire
+		(pts
 			(xy 74.93 53.34) (xy 72.39 53.34)
 		)
 		(stroke
@@ -5628,6 +5822,16 @@
 			(type default)
 		)
 		(uuid "ff9df8d4-d796-468e-a462-a8c057bca3de")
+	)
+	(label "BOOT0"
+		(at 93.98 162.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f02d4684-9793-4351-80fc-2453a8cec2b1")
 	)
 	(hierarchical_label "SWO"
 		(shape input)
@@ -7062,6 +7266,72 @@
 			(project ""
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "G501")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 110.49 162.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "36de326b-f78f-456c-af28-264e192dcaf7")
+		(property "Reference" "#PWR07"
+			(at 110.49 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 110.49 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 110.49 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 110.49 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 110.49 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c8962482-ce63-4af9-b4be-a322f43713fe")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "#PWR07")
 					(unit 1)
 				)
 			)
@@ -9232,6 +9502,74 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 101.6 162.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a94a5093-669e-40b0-ae6b-fc0367bc2c39")
+		(property "Reference" "SW1"
+			(at 101.6 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Push"
+			(at 101.6 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "imported:SW_1TS026A"
+			(at 101.6 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 101.6 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Push button switch, generic, two pins"
+			(at 101.6 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "fabd68c0-8649-43ee-9abc-26a2518f932c")
+		)
+		(pin "1"
+			(uuid "b9d09c75-6e8e-4da5-b26c-60cb9535924d")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_01x06")
 		(at 27.94 154.94 0)
 		(mirror y)
@@ -9760,7 +10098,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
 			(at 106.68 123.19 0)
 			(effects
 				(font

@@ -30,7 +30,7 @@ GPS::GPS(DataContainer* data, UART_HandleTypeDef* uart, uint8_t* dmaBuffer)
     memset(data->GPSUTCTime, 0, sizeof(data->GPSUTCTime));
 }
 
-int GPS::deviceInit()
+int GPS::init()
 {
     // Wait for GPS to boot up
     HAL_Delay(500);
@@ -159,7 +159,7 @@ void GPS::configureGPS()
     HAL_Delay(500); // Wait for save to complete
 }
 
-int GPS::updateDevice()
+int GPS::update()
 {
     processDMAData();
     return 0;

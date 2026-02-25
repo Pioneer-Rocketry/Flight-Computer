@@ -16,7 +16,7 @@ MS560702BA03::MS560702BA03(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_Typ
 
 }
 
-int MS560702BA03::deviceInit()
+int MS560702BA03::init()
 {
 	if (writeSPI(MS5607_RESET, nullptr, 0) != HAL_OK) {
 		return false;
@@ -54,7 +54,7 @@ uint32_t MS560702BA03::readADC(uint8_t cmd) {
     return (buffer[0] << 16) | (buffer[1] << 8) | buffer[2];
 }
 
-int MS560702BA03::updateDevice()
+int MS560702BA03::update()
 {
 	now_us = micros();
 	delay = now_us - conversionStart_us;

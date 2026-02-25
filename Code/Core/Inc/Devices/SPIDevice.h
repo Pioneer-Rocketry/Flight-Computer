@@ -56,7 +56,7 @@ public:
 	 *
 	 * @return int Status code (0 for success, negative for failure).
 	 */
-	virtual int deviceInit() = 0;
+	virtual int init() = 0;
 
 	/**
 	 * @brief Perform periodic device tasks or updates.
@@ -72,7 +72,7 @@ public:
 	 *
 	 * @return int Status code (0 for success, negative for failure).
 	 */
-	virtual int updateDevice() = 0;
+	virtual int update() = 0;
 
 private:
 	HAL_StatusTypeDef status;		// SPI read/write status

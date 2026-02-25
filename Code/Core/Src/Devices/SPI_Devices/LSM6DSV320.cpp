@@ -27,7 +27,7 @@ LSM6DSV320::LSM6DSV320(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef
 	gyroZBias = 0.0f;
 }
 
-int LSM6DSV320::deviceInit()
+int LSM6DSV320::init()
 {
 	uint8_t whoAmI = 0;
 
@@ -252,12 +252,12 @@ int LSM6DSV320::deviceInit()
 	this->gyroZBias = sumOfGyroZ / numOfSamples;
 
 	// Read 1 sample of each accelerometer
-	updateDevice();
+	update();
 
 	return 0;
 }
 
-int LSM6DSV320::updateDevice()
+int LSM6DSV320::update()
 {
 	// Read Gyroscope Measurements
 	readSPI(LSM6DSV320_OUTX_L_G | 0x80, &this->buffer[0]);

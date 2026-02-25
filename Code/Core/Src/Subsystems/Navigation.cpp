@@ -57,6 +57,8 @@ int Navigation::init()
 
 	initializeQuaternion();
 
+	baro.startConversion();
+
 	return 0;
 }
 
@@ -82,8 +84,6 @@ int Navigation::update()
 	// -------------------------------------------------------------
 	// Read Sensor Data
 	// -------------------------------------------------------------
-
-	baro.startConversion();
 
 	imu.update();
 
@@ -133,6 +133,8 @@ int Navigation::update()
 	data->KalmanFilterPositionZ_m			= x(6);
 	data->KalmanFilterAccelerationZ_mps2	= x(7);
 	data->KalmanFilterVelocityZ_mps			= x(8);
+
+	baro.startConversion();
 
 	return 0;
 }

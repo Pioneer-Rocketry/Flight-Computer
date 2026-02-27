@@ -10,11 +10,11 @@
             "detail": "Build"
         },
         {
-            "label": "Clean Build",
+            "label": "Clean",
             "group": "build",
             "type": "shell",
             "command": "make",
-            "args": [ "-j", "-C", "./Code/", "cleanbuild"],
+            "args": [ "-j", "-C", "./Code/", "clean"],
             "detail": "Do a clean build"
         },
         {

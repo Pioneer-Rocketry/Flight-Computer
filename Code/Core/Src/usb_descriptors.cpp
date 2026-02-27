@@ -79,17 +79,21 @@ enum
 {
   ITF_NUM_CDC_0 = 0,
   ITF_NUM_CDC_0_DATA,
+  ITF_NUM_MSC,
   ITF_NUM_DFU_RT,
   ITF_NUM_TOTAL
 };
 
-#define CONFIG_TOTAL_LEN    (TUD_CONFIG_DESC_LEN + CFG_TUD_CDC * TUD_CDC_DESC_LEN + TUD_DFU_RT_DESC_LEN)
+#define CONFIG_TOTAL_LEN    (TUD_CONFIG_DESC_LEN + CFG_TUD_CDC * TUD_CDC_DESC_LEN + CFG_TUD_MSC * TUD_MSC_DESC_LEN + TUD_DFU_RT_DESC_LEN)
 
 // LPC 17xx and 40xx endpoint type (bulk/interrupt/iso) are fixed by its number
 // 0 control, 1 In, 2 Bulk, 3 Iso, 4 In etc ...
 #define EPNUM_CDC_0_NOTIF   0x81
 #define EPNUM_CDC_0_OUT     0x02
 #define EPNUM_CDC_0_IN      0x82
+
+#define EPNUM_MSC_OUT       0x03
+#define EPNUM_MSC_IN        0x83
 
 uint8_t const desc_fs_configuration[] =
 {
@@ -99,8 +103,11 @@ uint8_t const desc_fs_configuration[] =
   // 1st CDC: Interface number, string index, EP notification address and size, EP data address (out, in) and size.
   TUD_CDC_DESCRIPTOR(ITF_NUM_CDC_0, 4, EPNUM_CDC_0_NOTIF, 8, EPNUM_CDC_0_OUT, EPNUM_CDC_0_IN, 64),
 
+  // Interface number, string index, EP Out & EP In address, EP size
+  TUD_MSC_DESCRIPTOR(ITF_NUM_MSC, 5, EPNUM_MSC_OUT, EPNUM_MSC_IN, 64),
+
   // Interface number, string index, attributes, detach timeout, transfer size
-  TUD_DFU_RT_DESCRIPTOR(ITF_NUM_DFU_RT, 5, 0x0d, 1000, 4096),
+  TUD_DFU_RT_DESCRIPTOR(ITF_NUM_DFU_RT, 6, 0x0d, 1000, 4096),
 };
 
 
@@ -133,7 +140,8 @@ char const *string_desc_arr[] =
   "TinyUSB Device",              // 2: Product
   NULL,                          // 3: Serials will use unique ID if possible
   "TinyUSB CDC",                 // 4: CDC Interface
-  "TinyUSB DFU runtime",         // 5: DFU runtime
+  "TinyUSB MSC",                 // 5: MSC Interface
+  "TinyUSB DFU runtime",         // 6: DFU runtime
 };
 
 static uint16_t _desc_str[32 + 1];

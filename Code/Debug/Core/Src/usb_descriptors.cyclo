@@ -1,6 +1,0 @@
-../lib/TinyUSB/hw/bsp/board_api.h:151:22:size_t board_usb_get_serial(uint16_t*, size_t)	4
-../Core/Src/usb_descriptors.cpp:70:17:const uint8_t* tud_descriptor_device_cb()	1
-../Core/Src/usb_descriptors.cpp:110:17:const uint8_t* tud_descriptor_configuration_cb(uint8_t)	1
-../Core/Src/usb_descriptors.cpp:143:17:const uint16_t* tud_descriptor_string_cb(uint8_t, uint16_t)	6
-../Core/Src/usb_descriptors.cpp:212:16:const uint8_t* tud_descriptor_bos_cb()	1
-../Core/Src/usb_descriptors.cpp:242:6:bool tud_vendor_control_xfer_cb(uint8_t, uint8_t, const tusb_control_request_t*)	8

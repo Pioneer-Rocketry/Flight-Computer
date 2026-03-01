@@ -5,8 +5,9 @@
 
 #include "tusb.h"
 
-#define MAX_TICK_MSG_LEN 40
-static char usb_tx_buffer[MAX_TICK_MSG_LEN];
+#define MAX_MSG_LEN 40
+static char usbTxBuffer[MAX_MSG_LEN];
+static int usbTxBufferLen = 0;
 
 /**
  * @brief Sends a string over the TinyUSB CDC interface.

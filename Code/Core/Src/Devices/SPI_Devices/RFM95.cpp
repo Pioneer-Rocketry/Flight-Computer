@@ -16,7 +16,7 @@ int RFM95::deviceInit()
 {
     readSPI(RFM95_VERSION, &read, 1);
 
-    if (read != 0x18)
+    if (read != 0x12)
     {
         return -1;
     }
@@ -49,7 +49,7 @@ int RFM95::deviceInit()
     // RegOcp
     command = 0;
     command |= 0b00    << 6; // Unused
-    command |= 0b1     << 5; // OcpOn, enables the Overload Current Protection for the PA 
+    command |= 0b1     << 5; // OcpOn, enables the Overload Current Protection for the PA
     command |= 0b10010 << 0; // OcpTrim, sets the max current Imax = -30 + 10 * OcpTrim
 	writeSPI(RFM95_OCP | 0x80, &command);
 
@@ -72,8 +72,8 @@ int RFM95::deviceInit()
     command = 0;
     command |= spreadfactor << 4; // SpreadFactor
     command |= 0b0          << 3; // TxContinuousMode, sets it up in normal more, a single packet is sent
-    command |= 0b0          << 2; // RxPayloadCrcOn, 
-    command |= 0b00         << 0; // SymbTimeout, 
+    command |= 0b0          << 2; // RxPayloadCrcOn,
+    command |= 0b00         << 0; // SymbTimeout,
 	writeSPI(RFM95_MODEM_CONFIG_2 | 0x80, &command);
 
     // RegMaxPayloadLength
@@ -99,6 +99,8 @@ int RFM95::deviceInit()
 
     lastTransmittion = HAL_GetTick();
 
+    setFreq(915000000);
+
     return 0; // Return 0 on success
 }
 
@@ -113,7 +115,6 @@ int RFM95::updateDevice()
 
         lastTransmittion = HAL_GetTick();
     }
-    
 
     return 0; // Return 0 on success
 }
@@ -138,7 +139,6 @@ void RFM95::sendPacket()
     writeSPI(RFM95_FIFO_TX_BASE_ADDR | 0x80, &command);
     writeSPI(RFM95_FIFO_ADDR_PTR | 0x80, &command);
 
-    
     payloadLength = sizeof(payload);
 
     writeSPI(RFM95_PAYLOAD_LENGTH | 0x80, &payloadLength);
@@ -153,14 +153,7 @@ void RFM95::sendPacket()
     command = 0x80 | 0x03;
     writeSPI(RFM95_OP_MODE | 0x80, &command); // LoRa + TX
 
-    
-    // bool waiting = true;
-    // while(waiting)
-    // {
-    //     readSPI(RFM95_IRQ_FLAGS, &read, 1);
-    //     waiting = !(read & 0x08 == 0);
-    // }
-
+    return;
 }
 
 void RFM95::compilePacket()

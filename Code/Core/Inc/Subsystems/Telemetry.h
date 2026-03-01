@@ -13,9 +13,6 @@
 
 #include "Devices/SPI_Devices/RFM95.h"
 
-#include <Subsystems/Telemetry/TelemetryPacketType.h>
-#include "Radio.h"
-
 /**
  * @class Telemetry
  * @brief Handles flight Telemetry logic
@@ -56,11 +53,6 @@ public:
 	 */
 	int init() override;
 
-	/* Creates a new type of packet
-	 * Transmitted every time interval
-	 */
-	TelemetryPacketType* createPacketType(uint32_t interval_ms);
-
 	/**
 	 * @brief Updates Radio data.
 	 *
@@ -77,8 +69,6 @@ public:
 private:
 	RFM95 rfm95;
 
-	// Radio radio;
-	std::vector<TelemetryPacketType*> packetTypes;
 };
 
 #endif /* INC_SUBSYSTEMS_TELEMETRY_H_ */

@@ -5,7 +5,7 @@
  *      Author: Derek Prince
  */
 
-#include "Subsystems/Telemetry/Telemetry.h"
+#include "Subsystems/Telemetry.h"
 #include <stdio.h>
 
 
@@ -24,32 +24,11 @@ Telemetry::Telemetry(DataContainer* data, SPI_HandleTypeDef* spiBus)
 {
 }
 
-//Create a new type of packet
-//Returns the new packet type object to allow for its initialization of adding data sources
-TelemetryPacketType* Telemetry::createPacketType(uint32_t interval_ms){
-	TelemetryPacketType* newPacketType = new TelemetryPacketType(interval_ms);
-	newPacketType->packetID = packetTypes.size();
-	packetTypes.push_back(newPacketType);
-	return newPacketType;
-}
-
 int Telemetry::init()
 {
 	rfm95.deviceInit();
 
 	return 0;
-}
-
-int Telemetry::createBuffers(){
-	for (TelemetryPacketType* packetType: packetTypes){
-		uint8_t* newBuffer = (uint8_t*)malloc(packetType->getPacketSize());
-		if (newBuffer == nullptr){
-			printf("Buffer allocation error in telemetry create buffers");
-			return -1;
-		}
-		packetType->setBuffer(newBuffer, packetType->getPacketSize());
-	}
-	return 1;
 }
 
 int Telemetry::update()

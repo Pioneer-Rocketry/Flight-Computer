@@ -28,8 +28,7 @@
 #include "usbHelper.h"
 
 #include "DataContainer.h"
-#include "Subsystems/Telemetry/Radio.h"
-#include "Subsystems/Telemetry/Telemetry.h"
+#include "Subsystems/Telemetry.h"
 
 /* USER CODE END Includes */
 
@@ -131,10 +130,10 @@ int main(void)
 
   if (telemetry.init() < 0)
   {
-    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Telemetry!\r\n");
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, MAX_MSG_LEN, "Error while Initializing Telemetry!\r\n");
     cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-	  while (1);
-    { 
+	  while (1)
+    {
       // Send Error Message over USB CDC
       cdcSendMessage(usbTxBuffer, usbTxBufferLen);
       HAL_Delay(1000);
@@ -152,7 +151,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    
+
     tud_task();
 
     #ifdef RADIO_INSTALLED

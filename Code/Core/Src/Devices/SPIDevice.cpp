@@ -53,3 +53,25 @@ HAL_StatusTypeDef SPIDevice::writeSPI(uint8_t reg, uint8_t *data, uint8_t len)
 
 	return status;
 }
+
+void SPIDevice::selectDevice(){
+
+	// Pull the SPI Chip Select pin low to select the correct device
+	HAL_GPIO_WritePin(this->chipSelectPort, this->chipSelectPin, GPIO_PIN_RESET);
+}
+
+void SPIDevice::deselectDevice(){
+
+	// Pull the SPI Chip Select pin high to deselect the device
+	HAL_GPIO_WritePin(this->chipSelectPort, this->chipSelectPin, GPIO_PIN_SET);
+}
+
+HAL_StatusTypeDef SPIDevice::writeSPIRaw(uint8_t *data, uint8_t len)
+{
+	return HAL_SPI_Transmit(this->spiHandler, data, len, 10);
+}
+
+HAL_StatusTypeDef SPIDevice::writeSPIRaw(uint8_t data)
+{	
+	return HAL_SPI_Transmit(this->spiHandler, &data, 1, 10);
+}

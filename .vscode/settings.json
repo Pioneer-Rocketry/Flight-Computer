@@ -1,5 +1,6 @@
 {
     "cortex-debug.gdbPath.linux": "/usr/bin/arm-none-eabi-gdb",
     "cortex-debug.stutilPath.linux": "/usr/bin/st-util",
-    "cortex-debug.variableUseNaturalFormat": true
+    "cortex-debug.variableUseNaturalFormat": false,
+    "C_Cpp.default.compilerPath": "/usr/bin/arm-none-eabi-g++"
 }

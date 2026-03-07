@@ -121,6 +121,62 @@ protected:
 	 */
 	HAL_StatusTypeDef writeSPI(uint8_t reg, uint8_t *data, uint8_t len=1);
 
-};
+	
+	/**
+	 * @brief Write data to a SPI device.
+	 *
+	 * Sends data to the SPI device, requires manual register or instruction to be
+	 * send and manual call to selectDevice and deselectDevice
+	 *
+	 * 
+	 * @return HAL_StatusTypeDef HAL_OK if successful, or an appropriate HAL error code.
+	 *
+	 * @note This function assumes the SPI peripheral has been properly initialized
+	 *       before calling. It should typically be used by higher-level device
+	 *       functions to configure registers or send commands.
+	 */
+	HAL_StatusTypeDef writeSPIRaw(uint8_t *data, uint8_t len);
+
+	/**
+	 * @brief Write a byte to a SPI device.
+	 *
+	 * Sends a byte of data to the SPI device, requires manual register or instruction to be
+	 * send and manual call to selectDevice and deselectDevice
+	 *
+	 * 
+	 * @return HAL_StatusTypeDef HAL_OK if successful, or an appropriate HAL error code.
+	 *
+	 * @note This function assumes the SPI peripheral has been properly initialized
+	 *       before calling. It should typically be used by higher-level device
+	 *       functions to configure registers or send commands.
+	 */
+	HAL_StatusTypeDef writeSPIRaw(uint8_t data);
+
+	/**
+		 * @brief Select a SPI device. Use with delectDevice for writeSPIRaw
+		 * 
+		 * @return void
+		 *
+		 * @note This function assumes the SPI peripheral has been properly initialized
+		 *       before calling. It should typically be used by higher-level device
+		 *       functions to configure registers or send commands.
+		 */
+	void selectDevice();
+
+	/**
+		 * @brief Delect a SPI device. Use after selectDevice for writeSPIRaw
+		 * 
+		 * @return void
+		 *
+		 * @note This function assumes the SPI peripheral has been properly initialized
+		 *       before calling. It should typically be used by higher-level device
+		 *       functions to configure registers or send commands.
+		 */
+	void deselectDevice();
+	};
+
+
+
+
 
 #endif /* INC_DEVICES_SPIDEVICE_H_ */

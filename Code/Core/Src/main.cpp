@@ -34,6 +34,7 @@
 #include "DataContainer.h"
 
 #include "Subsystems/Navigation.h"
+#include "Subsystems/Logging.h"
 
 #include "utils.h"
 
@@ -82,6 +83,7 @@ uint8_t gpsRxBuffer[GPS_BUFFER_SIZE];
 DataContainer data;
 
 Navigation nav(&data, &hspi1, &huart4, gpsRxBuffer);
+Logging logging(&data, &hspi1);
 
 /* USER CODE END PV */
 
@@ -145,10 +147,11 @@ int main(void)
 
   tud_init(BOARD_TUD_RHPORT);
 
+  DWT_Init();
   cdcSendMessage("Welcome to the Pioneer Rocketry Flight Computer!\r\n", USB_BUF_LEN);
 
-  DWT_Init();
-
+  
+  //Navigation
   if (nav.init() < 0)
   {
     usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Navigation!\r\n");
@@ -160,6 +163,72 @@ int main(void)
       HAL_Delay(1000);
     }
   }
+
+  cdcSendMessage("Initilizing Flash", USB_BUF_LEN);
+
+  if (logging.init() != 0){
+    cdcSendMessage("Failed initilizing Logging", USB_BUF_LEN);
+    while(true){;;}
+  }
+  
+
+  //Logging
+  LoggingPacketType *flightLogPacket = logging.createPacketType(10); //10ms interval or 100hz
+
+  flightLogPacket->addLogDatasource(&data.GPSFix);
+  flightLogPacket->addLogDatasource(&data.GPSNumSatellites);
+  flightLogPacket->addLogDatasource(&data.GPSUTCTime);
+  flightLogPacket->addLogDatasource(&data.GPSLatitude);
+  flightLogPacket->addLogDatasource(&data.GPSLongitude);
+  flightLogPacket->addLogDatasource(&data.GPSAltitude_m);
+
+  flightLogPacket->addLogDatasource(&data.KalmanFilterPositionX_m);
+  flightLogPacket->addLogDatasource(&data.KalmanFilterPositionY_m);
+  flightLogPacket->addLogDatasource(&data.KalmanFilterPositionZ_m);
+
+  flightLogPacket->addLogDatasource(&data.KalmanFilterVelocityX_mps);
+  flightLogPacket->addLogDatasource(&data.KalmanFilterVelocityY_mps);
+  flightLogPacket->addLogDatasource(&data.KalmanFilterVelocityZ_mps);
+
+  flightLogPacket->addLogDatasource(&data.KalmanFilterAccelerationX_mps2);
+  flightLogPacket->addLogDatasource(&data.KalmanFilterAccelerationY_mps2);
+  flightLogPacket->addLogDatasource(&data.KalmanFilterAccelerationZ_mps2);
+  //... etc
+  flightLogPacket->enabled = false;
+
+  LoggingPacketType *groundLogPacket = logging.createPacketType(100); //100ms interval or 10hz
+
+  
+  groundLogPacket->addLogDatasource(&data.GPSFix);
+  groundLogPacket->addLogDatasource(&data.GPSNumSatellites);
+  groundLogPacket->addLogDatasource(&data.GPSUTCTime);
+  groundLogPacket->addLogDatasource(&data.GPSLatitude);
+  groundLogPacket->addLogDatasource(&data.GPSLongitude);
+  groundLogPacket->addLogDatasource(&data.GPSAltitude_m);
+
+  groundLogPacket->addLogDatasource(&data.KalmanFilterPositionX_m);
+  groundLogPacket->addLogDatasource(&data.KalmanFilterPositionY_m);
+  groundLogPacket->addLogDatasource(&data.KalmanFilterPositionZ_m);
+
+  groundLogPacket->addLogDatasource(&data.KalmanFilterVelocityX_mps);
+  groundLogPacket->addLogDatasource(&data.KalmanFilterVelocityY_mps);
+  groundLogPacket->addLogDatasource(&data.KalmanFilterVelocityZ_mps);
+
+  groundLogPacket->addLogDatasource(&data.KalmanFilterAccelerationX_mps2);
+  groundLogPacket->addLogDatasource(&data.KalmanFilterAccelerationY_mps2);
+  groundLogPacket->addLogDatasource(&data.KalmanFilterAccelerationZ_mps2);
+
+  groundLogPacket->addLogDatasource(&data.LSM6DSV320GyroX_dps);
+  groundLogPacket->addLogDatasource(&data.LSM6DSV320GyroY_dps);
+  groundLogPacket->addLogDatasource(&data.LSM6DSV320GyroZ_dps);
+
+  groundLogPacket->enabled = true;
+
+  if (logging.createPacketBuffers() != 0){
+    cdcSendMessage("Failed to allocate packet logging buffers", USB_BUF_LEN);
+    while(true){;;}
+  }
+
 
   cdcSendMessage("Initialization Complete \r\n", USB_BUF_LEN);
 
@@ -177,6 +246,8 @@ int main(void)
     tud_task();
 
 	  nav.update();
+
+    logging.update();
 
     if (HAL_GetTick() - lastPrint >= 500)
     {

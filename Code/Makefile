@@ -252,9 +252,17 @@ stflash: $(BUILD_DIR)/$(TARGET).bin
 	st-flash --reset write $< 0x08000000
 
 # Clean build
-cleanbuild: clean all
+cleanbuild: clean all sign
 
 # Build and Flash
-buildflash: all stflash
+buildflash: all sign stflash
+
+# DFU upload
+dfuupload: sign
+	sudo dfu-util -D $(BUILD_DIR)/$(TARGET).bin -a 0 -p 1-5
+
+# DFU sign
+sign: $(BUILD_DIR)/$(TARGET).bin
+	dfu-suffix -a $<
 
 # *** EOF ***

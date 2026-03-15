@@ -32,6 +32,14 @@
             "command": "make",
             "args": [ "-j", "-C", "./Code/", "buildflash" ],
             "detail": "Upload"
+        },
+        {
+            "label": "Upload DFU",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [ "-j", "-C", "./Code/", "dfuupload" ],
+            "detail": "Upload"
         }
     ]
 }

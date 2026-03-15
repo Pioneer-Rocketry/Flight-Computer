@@ -1,5 +1,5 @@
 /*
- * I2CDevice.cpp
+ * SPIDevice.cpp
  *
  *  Created on: Oct 29, 2025
  *      Author: colin

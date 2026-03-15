@@ -59,7 +59,7 @@
 #define RFM95_AGC_THRESH_3 				0x64
 
 #define RFM95_FXOSC 32000000UL
-#define RFM95_FSTEP (RFM95_FXOSC / (1UL << 19))
+#define RFM95_FSTEP 61.03515625 // (RFM95_FXOSC / (1UL << 19))
 
 #define MAX_PAYLOAD_LENGTH 100
 
@@ -150,7 +150,7 @@ private:
 
 	// uint16_t rxTimeout = ;
 
-	uint32_t frf;
+	uint64_t frf;
 	uint8_t frfMSB;
 	uint8_t frfMID;
 	uint8_t frfLSB;

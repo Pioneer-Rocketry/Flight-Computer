@@ -32,7 +32,7 @@ int RFM95::deviceInit()
     command |= 0b1   << 7; // LongRangeMode, enables LoRa
     command |= 0b00  << 5;
     command |= 0b0   << 4; // LowFrequencyModeOn. enables High Frequency Mode
-    command |= 0b000 << 0;
+    command |= 0b000 << 0; // Sleep Mode
 	writeSPI(RFM95_OP_MODE | 0x80, &command);
 
     // Set the frequency
@@ -99,8 +99,6 @@ int RFM95::deviceInit()
 
     lastTransmittion = HAL_GetTick();
 
-    setFreq(915000000);
-
     return 0; // Return 0 on success
 }
 
@@ -121,7 +119,8 @@ int RFM95::updateDevice()
 
 void RFM95::setFreq(uint32_t freqHz)
 {
-    frf = freqHz / RFM95_FSTEP;
+    frf = ((uint64_t)freqHz << 19) / 32000000UL;
+    // frf = freqHz / RFM95_FSTEP;
     frfMSB = (frf >> 16) & 0xFF;
     frfMID = (frf >> 8) & 0xFF;
     frfLSB = frf & 0xFF;

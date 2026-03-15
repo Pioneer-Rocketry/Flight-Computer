@@ -26,14 +26,14 @@ Telemetry::Telemetry(DataContainer* data, SPI_HandleTypeDef* spiBus)
 
 int Telemetry::init()
 {
-	rfm95.deviceInit();
+	rfm95.init();
 
 	return 0;
 }
 
 int Telemetry::update()
 {
-	rfm95.updateDevice();
+	rfm95.update();
 
 	return 0;
 }

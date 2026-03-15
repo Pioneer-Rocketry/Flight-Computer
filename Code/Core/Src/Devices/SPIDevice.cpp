@@ -53,3 +53,4 @@ HAL_StatusTypeDef SPIDevice::writeSPI(uint8_t reg, uint8_t *data, uint8_t len)
 
 	return status;
 }
+

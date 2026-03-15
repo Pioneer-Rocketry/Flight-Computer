@@ -5,16 +5,12 @@
 
 #include "tusb.h"
 
-#define MAX_MSG_LEN 40
-static char usbTxBuffer[MAX_MSG_LEN];
-static int usbTxBufferLen = 0;
-
 /**
  * @brief Sends a string over the TinyUSB CDC interface.
  * * @param str Pointer to the character array (string) to send.
  * @param len Length of the string (in bytes).
  * @retval The number of bytes successfully written to the USB buffer.
  */
-size_t cdcSendMessage(const char* str, size_t len);
+size_t cdcSendMessage(char* str, size_t len);
 
 #endif /* INC_USBHELPER_H_ */

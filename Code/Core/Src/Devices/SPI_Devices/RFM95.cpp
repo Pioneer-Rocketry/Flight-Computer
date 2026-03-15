@@ -12,13 +12,13 @@ RFM95::RFM95(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, ui
 {
 }
 
-int RFM95::deviceInit()
+int RFM95::init()
 {
     readSPI(RFM95_VERSION, &read, 1);
 
-    if (read != 0x12)
+    if (read != 0x18)
     {
-        return -1;
+        // return -1;
     }
 
     /* Device Configuration */
@@ -102,7 +102,7 @@ int RFM95::deviceInit()
     return 0; // Return 0 on success
 }
 
-int RFM95::updateDevice()
+int RFM95::update()
 {
     now = HAL_GetTick();
 

@@ -22,13 +22,21 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include <stdio.h>
+#include <stdint.h>
+#include <inttypes.h>
 #include <ctype.h>
+
 #include "tusb.h"
 #include "dfuBootloader.h"
 #include "usbHelper.h"
 
 #include "DataContainer.h"
 #include "Subsystems/Telemetry.h"
+
+#include "Subsystems/Navigation.h"
+
+#include "utils.h"
 
 /* USER CODE END Includes */
 
@@ -57,21 +65,36 @@ I2C_HandleTypeDef hi2c2;
 SPI_HandleTypeDef hspi1;
 
 UART_HandleTypeDef huart4;
+DMA_HandleTypeDef hdma_uart4_rx;
 
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
 
+#define USB_BUF_LEN CFG_TUD_CDC_TX_BUFSIZE
+
+char usbTxBuffer[USB_BUF_LEN];
+char usbRxBuffer[USB_BUF_LEN];
+
+uint16_t usbTxBufferLen;
+uint16_t usbRxBufferLen;
+
+#define GPS_BUFFER_SIZE 512
+
+uint8_t gpsRxBuffer[GPS_BUFFER_SIZE];
+
 DataContainer data;
 
 // Radio radio(&data, &hspi1);
 Telemetry telemetry(&data, &hspi1);
+Navigation nav(&data, &hspi1, &huart4, gpsRxBuffer);
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 extern "C" void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_I2C2_Init(void);
 static void MX_SPI1_Init(void);
@@ -92,7 +115,6 @@ static void MX_USB_OTG_FS_PCD_Init(void);
   */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
 
   dfuCheckAndJumpBootloader();
@@ -117,6 +139,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ADC1_Init();
   MX_I2C2_Init();
   MX_SPI1_Init();
@@ -124,13 +147,19 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
 
+  HAL_UART_Receive_DMA(&huart4, gpsRxBuffer, GPS_BUFFER_SIZE);
+
   tud_init(BOARD_TUD_RHPORT);
+
+  cdcSendMessage("Welcome to the Pioneer Rocketry Flight Computer!\r\n", USB_BUF_LEN);
+
+  DWT_Init();
 
   #ifdef RADIO_INSTALLED
 
   if (telemetry.init() < 0)
   {
-    usbTxBufferLen = snprintf((char*)usbTxBuffer, MAX_MSG_LEN, "Error while Initializing Telemetry!\r\n");
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Telemetry!\r\n");
     cdcSendMessage(usbTxBuffer, usbTxBufferLen);
 	  while (1)
     {
@@ -142,7 +171,23 @@ int main(void)
 
   #endif
 
+  if (nav.init() < 0)
+  {
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Navigation!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+	  while (1)
+    {
+      // Send Error Message over USB CDC
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
+  }
+
+  cdcSendMessage("Initialization Complete \r\n", USB_BUF_LEN);
+
   /* USER CODE END 2 */
+
+  uint32_t lastPrint = HAL_GetTick();
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -151,12 +196,33 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
     tud_task();
 
-    #ifdef RADIO_INSTALLED
-      telemetry.update();
-    #endif
+    // #ifdef RADIO_INSTALLED
+    telemetry.update();
+    // #endif
+
+	  nav.update();
+
+    if (HAL_GetTick() - lastPrint >= 500)
+    {
+      lastPrint = HAL_GetTick();
+      usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN,
+        "\r\n=== Time : %lu ms ===\r\n"
+        "IMU: Acc Low G (%.2f, %.2f, %.2f) m/s² | Acc High G (%.2f, %.2f, %.2f) m/s² | Gyro (%.2f, %.2f, %.2f) dps\r\n"
+        "Baro: Temp %.2f °C | Pressure %.2f hPA | Altitude %.2f m\r\n"
+        "GPS: Lat %.6f | Lon %.6f | Alt %.2f m | Fix %d | Sats %d | UTC %s\r\n"
+        "Quat: W %.4f | X %.4f | Y %.4f | Z %.4f | Norm %.4f\r\n",
+        HAL_GetTick(),
+        data.LSM6DSV320LowGAccelX_mps2, data.LSM6DSV320LowGAccelY_mps2, data.LSM6DSV320LowGAccelZ_mps2,
+        data.LSM6DSV320HighGAccelX_mps2, data.LSM6DSV320HighGAccelY_mps2, data.LSM6DSV320HighGAccelZ_mps2,
+        data.LSM6DSV320GyroX_dps, data.LSM6DSV320GyroY_dps, data.LSM6DSV320GyroZ_dps,
+        data.MS560702BA03Temperature_C, data.MS560702BA03Pressure_hPA, data.MS560702BA03Altitude_m,
+        data.GPSLatitude, data.GPSLongitude, data.GPSAltitude_m, data.GPSFix, data.GPSNumSatellites, data.GPSUTCTime,
+        data.quaternionW, data.quaternionX, data.quaternionY, data.quaternionZ, data.quaternionNorm
+      );
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+    }
   }
   /* USER CODE END 3 */
 }
@@ -354,7 +420,7 @@ static void MX_UART4_Init(void)
 
   /* USER CODE END UART4_Init 1 */
   huart4.Instance = UART4;
-  huart4.Init.BaudRate = 115200;
+  huart4.Init.BaudRate = 9600;
   huart4.Init.WordLength = UART_WORDLENGTH_8B;
   huart4.Init.StopBits = UART_STOPBITS_1;
   huart4.Init.Parity = UART_PARITY_NONE;
@@ -407,6 +473,22 @@ static void MX_USB_OTG_FS_PCD_Init(void)
 }
 
 /**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Stream2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream2_IRQn);
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -426,15 +508,20 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, SPI_CS1_Pin|LORA_DIO0_Pin|PYRO3_TRIGGER_Pin|PRYO2_TRIGGER_Pin
+  HAL_GPIO_WritePin(GPIOC, LORA_DIO0_Pin|PYRO3_TRIGGER_Pin|PRYO2_TRIGGER_Pin
                           |PRYO1_TRIGGER_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LORA_RESET_GPIO_Port, LORA_RESET_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOC, SPI_CS1_Pin|LORA_RESET_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|BARO_CS_Pin|FLASH_CS_Pin|FLASH_RESET_Pin
-                          |FLASH_WP_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|FLASH_RESET_Pin|FLASH_WP_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(IMU_CS_GPIO_Port, IMU_CS_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, BARO_CS_Pin|FLASH_CS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : SPI_CS1_Pin LORA_DIO0_Pin PYRO3_TRIGGER_Pin PRYO2_TRIGGER_Pin
                            PRYO1_TRIGGER_Pin LORA_RESET_Pin */
@@ -461,8 +548,9 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : IMU_CS_Pin */
   GPIO_InitStruct.Pin = IMU_CS_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(IMU_CS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : IMU_INT2_Pin */
@@ -496,7 +584,7 @@ static void MX_GPIO_Init(void)
 
 void tud_dfu_runtime_reboot_to_dfu_cb(void)
 {
-  const char* reboot_msg = "Rebooting into DFU mode...\r\n";
+  char reboot_msg[] = "Rebooting into DFU mode...\r\n";
   cdcSendMessage(reboot_msg, strlen(reboot_msg));
 
   // Ensure message is sent
@@ -533,6 +621,10 @@ void tud_dfu_manifest_cb(uint8_t alt)
   NVIC_SystemReset();
 }
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  
+}
 
 /* USER CODE END 4 */
 

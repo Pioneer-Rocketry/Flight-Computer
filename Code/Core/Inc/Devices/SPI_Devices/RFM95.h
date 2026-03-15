@@ -93,7 +93,7 @@ public:
 	 *
 	 * @return int Status code (0 for success, negative for failure).
 	 */
-	int deviceInit() override;
+	int init() override;
 
 	/**
 	 * @brief Perform periodic updates for the RFM95 IMU.
@@ -102,10 +102,10 @@ public:
 	 *  - 0: Update successful
 	 *  - Negative value: Error reading data or SPI communication failure
 	 *
-	 * @note This function does not initialize the device; `deviceInit()` must
+	 * @note This function does not initialize the device; `init()` must
 	 *       be called first.
 	 */
-	int updateDevice() override;
+	int update() override;
 
 
 private:

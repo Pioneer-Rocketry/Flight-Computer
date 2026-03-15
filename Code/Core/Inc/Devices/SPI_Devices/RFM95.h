@@ -61,10 +61,6 @@
 #define RFM95_FXOSC 32000000UL
 #define RFM95_FSTEP 61.03515625 // (RFM95_FXOSC / (1UL << 19))
 
-#define MAX_PAYLOAD_LENGTH 100
-
-#define TRANSMISSION_FREQENCY 1/10.0f // hz
-#define TRANSMISSION_INTERVAL 10000 // ms
 
 /**
  * @class RFM95
@@ -84,7 +80,7 @@ public:
 	 * @param port Pointer to the GPIO port controlling the chip select (CS) pin.
 	 * @param pin GPIO pin number used for chip select (CS).
 	 */
-	RFM95(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin);
+	RFM95(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin, uint8_t maxPayloadLength);
 
 	/**
 	 * @brief Initialize the RFM95 device.
@@ -107,13 +103,18 @@ public:
 	 */
 	int update() override;
 
+	/**
+	 * @brief Send a data packet using the RFM95.
+	 *
+	 * @param packet Pointer to the data buffer containing the packet to send (must be <= maxPayloadLength).
+	 * @param length Length of the data buffer in bytes (must be <= maxPayloadLength).
+	 *
+	 * @return int Status code (0 for success, negative for failure).
+	 */
+	int sendPacket(uint8_t* packet, uint8_t length);
 
 private:
-
 	void setFreq(uint32_t freqHz);
-
-	void compilePacket();
-	void sendPacket();
 
 	// LoRa Calculator
 	// https://www.semtech.com/design-support/lora-calculator
@@ -148,8 +149,6 @@ private:
 		SF_12	= 12
 	} spreadfactor = SF_10;
 
-	// uint16_t rxTimeout = ;
-
 	uint64_t frf;
 	uint8_t frfMSB;
 	uint8_t frfMID;
@@ -158,11 +157,7 @@ private:
 	uint8_t read;
 	uint8_t command;
 
-	uint32_t now;
-	uint32_t lastTransmittion;
-
-	uint8_t payload[MAX_PAYLOAD_LENGTH];
-	uint8_t payloadLength;
+	uint8_t maxPayloadLength;
 
 };
 

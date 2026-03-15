@@ -7,8 +7,8 @@
 
 #include "Devices/SPI_Devices/RFM95.h"
 
-RFM95::RFM95(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin)
-    : SPIDevice(data, spi, port, pin)
+RFM95::RFM95(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin, uint8_t maxPayloadLength)
+    : SPIDevice(data, spi, port, pin), maxPayloadLength(maxPayloadLength)
 {
 }
 
@@ -77,7 +77,7 @@ int RFM95::init()
 	writeSPI(RFM95_MODEM_CONFIG_2 | 0x80, &command);
 
     // RegMaxPayloadLength
-    command = MAX_PAYLOAD_LENGTH;
+    command = this->maxPayloadLength;
 	writeSPI(RFM95_MAX_PAYLOAD_LENGTH | 0x80, &command);
 
     // RegHopPeriod
@@ -97,22 +97,11 @@ int RFM95::init()
 
     HAL_Delay(1);
 
-    lastTransmittion = HAL_GetTick();
-
     return 0; // Return 0 on success
 }
 
 int RFM95::update()
 {
-    now = HAL_GetTick();
-
-    if (now - lastTransmittion >= TRANSMISSION_INTERVAL)
-    {
-        compilePacket();
-        sendPacket();
-
-        lastTransmittion = HAL_GetTick();
-    }
 
     return 0; // Return 0 on success
 }
@@ -132,18 +121,17 @@ void RFM95::setFreq(uint32_t freqHz)
     return;
 }
 
-void RFM95::sendPacket()
+int RFM95::sendPacket(uint8_t* packet, uint8_t length)
 {
     command = 0x00;
     writeSPI(RFM95_FIFO_TX_BASE_ADDR | 0x80, &command);
     writeSPI(RFM95_FIFO_ADDR_PTR | 0x80, &command);
 
-    payloadLength = sizeof(payload);
 
-    writeSPI(RFM95_PAYLOAD_LENGTH | 0x80, &payloadLength);
+    writeSPI(RFM95_PAYLOAD_LENGTH | 0x80, &length);
 
-    for (int i = 0; i < payloadLength; i++) {
-        writeSPI(RFM95_FIFO | 0x80, &payload[i]);
+    for (int i = 0; i < length; i++) {
+        writeSPI(RFM95_FIFO | 0x80, &packet[i]);
     }
 
     command = 0xFF;
@@ -152,14 +140,5 @@ void RFM95::sendPacket()
     command = 0x80 | 0x03;
     writeSPI(RFM95_OP_MODE | 0x80, &command); // LoRa + TX
 
-    return;
-}
-
-void RFM95::compilePacket()
-{
-    for (int i=0; i < MAX_PAYLOAD_LENGTH; i++)
-    {
-        payload[i] = i;
-    }
-
+    return 0;
 }

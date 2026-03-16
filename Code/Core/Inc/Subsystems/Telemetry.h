@@ -8,16 +8,34 @@
 #ifndef INC_SUBSYSTEMS_TELEMETRY_H_
 #define INC_SUBSYSTEMS_TELEMETRY_H_
 
-#define MAX_PAYLOAD_LENGTH 100
-
-#define TRANSMISSION_FREQENCY 1/10.0f // hz
-#define TRANSMISSION_INTERVAL 10000 // ms
-
 #include "Subsystem.h"
 #include "main.h"
 
 #include "Devices/SPI_Devices/RFM95.h"
 
+#define MAX_PAYLOAD_LENGTH 100
+
+#define TRANSMISSION_FREQENCY 1/10.0f // hz
+#define TRANSMISSION_INTERVAL 10000 // ms
+
+#define TELEMETRY_PACKET_FIELDS(X) \
+	X(float, LSM6DSV320GyroX_dps) \
+	X(float, LSM6DSV320GyroY_dps) \
+	X(float, LSM6DSV320GyroZ_dps) \
+	X(float, LSM6DSV320LowGAccelX_mps2) \
+	X(float, LSM6DSV320LowGAccelY_mps2) \
+	X(float, LSM6DSV320LowGAccelZ_mps2) \
+	X(float, LSM6DSV320HighGAccelX_mps2) \
+	X(float, LSM6DSV320HighGAccelY_mps2) \
+	X(float, LSM6DSV320HighGAccelZ_mps2) \
+	X(float, MS560702BA03Temperature_C) \
+	X(float, MS560702BA03Pressure_hPA) \
+	X(float, MS560702BA03Altitude_m) \
+	X(float, GPSLatitude) \
+	X(float, GPSLongitude) \
+	X(float, GPSAltitude_m) \
+	X(int, GPSFix) \
+	X(int, GPSNumSatellites)
 
 /**
  * @class Telemetry
@@ -38,7 +56,6 @@
  *  - Getting packets from radio TODO
  *  - Decoding and executing on what control packets contain TODO
  */
-
 class Telemetry: public Subsystem {
 public:
 
@@ -78,37 +95,9 @@ private:
 	union RadioPacket {
 		struct {
 			/* IMU Data*/
-			float LSM6DSV320GyroX_dps;
-			float LSM6DSV320GyroY_dps;
-			float LSM6DSV320GyroZ_dps;
-
-			float LSM6DSV320LowGAccelX_mps2;
-			float LSM6DSV320LowGAccelY_mps2;
-			float LSM6DSV320LowGAccelZ_mps2;
-
-			float LSM6DSV320HighGAccelX_mps2;
-			float LSM6DSV320HighGAccelY_mps2;
-			float LSM6DSV320HighGAccelZ_mps2;
-
-			/* Barometer Data*/
-			float MS560702BA03Temperature_C;
-			float MS560702BA03Pressure_hPA;
-			float MS560702BA03Altitude_m;
-
-			/* GPS Data */
-			// Latitude in decimal degrees (+N, -S)
-			float GPSLatitude;
-			// Longitude in decimal degrees (+E, -W)
-			float GPSLongitude;
-			// Altitude in meters (from GPS)
-			float GPSAltitude_m;
-			// GPS fix status: 0 = invalid, 1 = GPS fix, 2 = DGPS
-			int GPSFix;
-			// Number of satellites used in fix
-			int GPSNumSatellites;
-			// UTC time string from GPS (hhmmss.sss)
-			char GPSUTCTime[16];
-
+			#define x(type, name) type name;
+			TELEMETRY_PACKET_FIELDS(x)
+			#undef x
 		} fields;
 		uint8_t raw[MAX_PAYLOAD_LENGTH];
 	} radioPacket;

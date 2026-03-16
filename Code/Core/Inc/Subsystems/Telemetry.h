@@ -87,8 +87,6 @@ public:
 	 */
 	int update() override;
 
-	int createBuffers();
-
 private:
 	RFM95 rfm95;
 
@@ -106,7 +104,6 @@ private:
     static_assert(sizeof(radioPacket.fields) <= MAX_PAYLOAD_LENGTH,
                   "Telemetry packet exceeds MAX_PAYLOAD_LENGTH — "
                   "reduce fields or increase MAX_PAYLOAD_LENGTH.");
- 
 
 	uint32_t now;
 	uint32_t lastTransmittion;

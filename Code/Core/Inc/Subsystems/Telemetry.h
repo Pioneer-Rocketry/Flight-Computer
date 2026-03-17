@@ -1,8 +1,8 @@
 /*
  * Telemetry.h
  *
- *  Created on: Dec 2, 2025
- *      Author: Derek Prince
+ *  Created on: Jan 9, 2026
+ *      Author: Colin
  */
 
 #ifndef INC_SUBSYSTEMS_TELEMETRY_H_
@@ -42,9 +42,8 @@
  * @brief Handles flight Telemetry logic
  *
  * The Telemetry subsystem is responsible for building telemetry packets to
- * send to the radio subsystem
- * to the ground station(s) and receiving commands from them to update
- * the vehicles status
+ * send to the radio to the ground station(s) and receiving commands from them
+ * to update the vehicles status
  *
  * This class inherits from the base `Subsystem` interface and implements
  * the required `init()` and `update()` methods to manage its setup and

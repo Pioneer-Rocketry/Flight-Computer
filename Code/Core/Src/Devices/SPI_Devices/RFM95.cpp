@@ -123,6 +123,10 @@ void RFM95::setFreq(uint32_t freqHz)
 
 int RFM95::sendPacket(uint8_t* packet, uint8_t length)
 {
+    if (length > maxPayloadLength) {
+        return -1; // Packet too long
+    }
+
     command = 0x00;
     writeSPI(RFM95_FIFO_TX_BASE_ADDR | 0x80, &command);
     writeSPI(RFM95_FIFO_ADDR_PTR | 0x80, &command);

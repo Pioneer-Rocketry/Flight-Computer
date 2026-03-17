@@ -1,13 +1,13 @@
 /*
- * Navigation.cpp
+ * Telemetry.cpp
  *
- *  Created on: Oct 31, 2025
- *      Author: Derek Prince
+ *  Created on: Jan 9, 2026
+ *      Author: Colin
  */
 
-#include "Subsystems/Telemetry.h"
 #include <stdio.h>
 
+#include "Subsystems/Telemetry.h"
 
 Telemetry::Telemetry(DataContainer* data, SPI_HandleTypeDef* spiBus)
 	: Subsystem(data),
@@ -27,6 +27,8 @@ int Telemetry::init()
 int Telemetry::update()
 {
 	now = HAL_GetTick();
+
+	rfm95.update();
 
     if (now - lastTransmittion >= TRANSMISSION_INTERVAL)
     {

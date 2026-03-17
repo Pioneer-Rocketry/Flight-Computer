@@ -59,7 +59,7 @@
 #define RFM95_AGC_THRESH_3 				0x64
 
 #define RFM95_FXOSC 32000000UL
-#define RFM95_FSTEP 61.03515625 // (RFM95_FXOSC / (1UL << 19))
+#define RFM95_FSTEP ((float)RFM95_FXOSC / (float)(1UL << 19))
 
 
 /**
@@ -79,15 +79,16 @@ public:
 	 * @param spi Pointer to the SPI handle (SPI_HandleTypeDef).
 	 * @param port Pointer to the GPIO port controlling the chip select (CS) pin.
 	 * @param pin GPIO pin number used for chip select (CS).
+	 * @param maxPayloadLength Maximum payload length in bytes (must be <= 255).
 	 */
 	RFM95(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin, uint8_t maxPayloadLength);
 
 	/**
 	 * @brief Initialize the RFM95 device.
 	 *
-     *
-	 *
-	 * @return int Status code (0 for success, negative for failure).
+	 * @return int Status code
+	 * 	- 0 for success
+	 * 	- Negative value: Error reading data or SPI communication failure
 	 */
 	int init() override;
 
@@ -109,7 +110,10 @@ public:
 	 * @param packet Pointer to the data buffer containing the packet to send (must be <= maxPayloadLength).
 	 * @param length Length of the data buffer in bytes (must be <= maxPayloadLength).
 	 *
-	 * @return int Status code (0 for success, negative for failure).
+	 * @return int Status code
+	 * 	- 0 for success
+	 * 	- -1 if the packet length exceeds maxPayloadLength
+	 * 	- Negative for other failures (e.g., SPI communication error)
 	 */
 	int sendPacket(uint8_t* packet, uint8_t length);
 
@@ -137,7 +141,7 @@ private:
 		CODING_4_6 	= 0b010,
 		CODING_4_7 	= 0b011,
 		CODING_4_8 	= 0b100
-	} coding = CODING_4_5;
+	} coding = CODING_4_8;
 
 	enum RFM95_SPREADFACTOR {
 		SF_6	= 6,
@@ -147,7 +151,7 @@ private:
 		SF_10	= 10,
 		SF_11	= 11,
 		SF_12	= 12
-	} spreadfactor = SF_10;
+	} spreadfactor = SF_11;
 
 	uint64_t frf;
 	uint8_t frfMSB;
@@ -158,7 +162,6 @@ private:
 	uint8_t command;
 
 	uint8_t maxPayloadLength;
-
 };
 
 #endif /* SRC_DEVICES_SPI_DEVICES_RFM95_H_ */

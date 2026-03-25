@@ -63,9 +63,11 @@ class LoggingPacketType{
 
 	/**
 	 * @brief Add a pointer of a source of data to collect for the packet.
+	 * @param Pointer of any type to a data element, size is found with demplate
+	 * @param Description of the value logged in the first packet, String including null termination should fit in size of data. Excess will be cutoff
 	 * @note Expects pointer to never be invalid
 	 */
-	template <typename T> void addLogDatasource(T* pointer){
+	template <typename T> void addLogDatasource(T* pointer, char[]* description){
 		addPacketElement(reinterpret_cast<uint8_t*>(pointer), sizeof(*pointer));
 	}
 

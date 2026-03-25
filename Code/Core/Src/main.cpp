@@ -199,28 +199,28 @@ int main(void)
   LoggingPacketType *groundLogPacket = logging.createPacketType(100); //100ms interval or 10hz
 
   
-  groundLogPacket->addLogDatasource(&data.GPSFix);
-  groundLogPacket->addLogDatasource(&data.GPSNumSatellites);
-  groundLogPacket->addLogDatasource(&data.GPSUTCTime);
-  groundLogPacket->addLogDatasource(&data.GPSLatitude);
-  groundLogPacket->addLogDatasource(&data.GPSLongitude);
-  groundLogPacket->addLogDatasource(&data.GPSAltitude_m);
+  groundLogPacket->addLogDatasource(&data.GPSFix, "Fix");
+  groundLogPacket->addLogDatasource(&data.GPSNumSatellites, "#st");
+  groundLogPacket->addLogDatasource(&data.GPSUTCTime, "UTC Time.......");
+  groundLogPacket->addLogDatasource(&data.GPSLatitude, "Lat");
+  groundLogPacket->addLogDatasource(&data.GPSLongitude, "Lon");
+  groundLogPacket->addLogDatasource(&data.GPSAltitude_m, "Alt");
 
-  groundLogPacket->addLogDatasource(&data.KalmanFilterPositionX_m);
-  groundLogPacket->addLogDatasource(&data.KalmanFilterPositionY_m);
-  groundLogPacket->addLogDatasource(&data.KalmanFilterPositionZ_m);
+  groundLogPacket->addLogDatasource(&data.KalmanFilterPositionX_m, "PXM");
+  groundLogPacket->addLogDatasource(&data.KalmanFilterPositionY_m, "PYM");
+  groundLogPacket->addLogDatasource(&data.KalmanFilterPositionZ_m, "PZM");
 
-  groundLogPacket->addLogDatasource(&data.KalmanFilterVelocityX_mps);
-  groundLogPacket->addLogDatasource(&data.KalmanFilterVelocityY_mps);
-  groundLogPacket->addLogDatasource(&data.KalmanFilterVelocityZ_mps);
+  groundLogPacket->addLogDatasource(&data.KalmanFilterVelocityX_mps, "VX.");
+  groundLogPacket->addLogDatasource(&data.KalmanFilterVelocityY_mps, "VY.");
+  groundLogPacket->addLogDatasource(&data.KalmanFilterVelocityZ_mps, "VZ.");
 
-  groundLogPacket->addLogDatasource(&data.KalmanFilterAccelerationX_mps2);
-  groundLogPacket->addLogDatasource(&data.KalmanFilterAccelerationY_mps2);
-  groundLogPacket->addLogDatasource(&data.KalmanFilterAccelerationZ_mps2);
-
-  groundLogPacket->addLogDatasource(&data.LSM6DSV320GyroX_dps);
-  groundLogPacket->addLogDatasource(&data.LSM6DSV320GyroY_dps);
-  groundLogPacket->addLogDatasource(&data.LSM6DSV320GyroZ_dps);
+  groundLogPacket->addLogDatasource(&data.KalmanFilterAccelerationX_mps2, "AX.");
+  groundLogPacket->addLogDatasource(&data.KalmanFilterAccelerationY_mps2, "AY.");
+  groundLogPacket->addLogDatasource(&data.KalmanFilterAccelerationZ_mps2, "AZ.");
+  
+  groundLogPacket->addLogDatasource(&data.LSM6DSV320GyroX_dps, "GRX");
+  groundLogPacket->addLogDatasource(&data.LSM6DSV320GyroY_dps, "GRY");
+  groundLogPacket->addLogDatasource(&data.LSM6DSV320GyroZ_dps, "GRZ");
 
   groundLogPacket->enabled = true;
 
@@ -228,7 +228,6 @@ int main(void)
     cdcSendMessage("Failed to allocate packet logging buffers", USB_BUF_LEN);
     while(true){;;}
   }
-
 
   cdcSendMessage("Initialization Complete \r\n", USB_BUF_LEN);
 

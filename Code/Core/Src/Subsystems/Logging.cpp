@@ -35,6 +35,7 @@ int Logging::init()
 	logBufferWriteIndex = 1; // Use First byte as indicator to know if page has been written to
 	writeBuffer[0] = 0;
 
+	flash.deviceInit();
 	//Read first byte of each page to see if it has data, set current page to next
 	uint32_t i = 0;
 	uint8_t readByte = 0xFF;

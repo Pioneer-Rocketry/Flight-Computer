@@ -44,11 +44,12 @@ Servo::Servo(DataContainer* data, TIM_HandleTypeDef* htim, servo servoId)
             break;
     }
 
-    HAL_TIM_PWM_Start(this->htim, this->channel);
 }
 
 int Servo::init()
 {
+    HAL_TIM_PWM_Start(this->htim, this->channel);
+
     return update();
 }
 

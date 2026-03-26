@@ -150,7 +150,7 @@ int main(void)
 
     control.update();
 
-    // Make servo 1 do a full sweep from 0 to 180 and back every 4 seconds
+    // Make servo 1 do a full sweep from 0 to 10 and back every 4 seconds
     currentTick = HAL_GetTick();
 
     if (currentTick - lastTick >= 20) {
@@ -163,11 +163,11 @@ int main(void)
         data.servo2Angle += 1;
         data.servo3Angle += 1;
         data.servo4Angle += 1;
-        if (data.servo4Angle >= 180) {
-          data.servo1Angle = 180;
-          data.servo2Angle = 180;
-          data.servo3Angle = 180;
-          data.servo4Angle = 180;
+        if (data.servo4Angle >= 10) {
+          data.servo1Angle = 10;
+          data.servo2Angle = 10;
+          data.servo3Angle = 10;
+          data.servo4Angle = 10;
           increasing = false;
         }
       } else {

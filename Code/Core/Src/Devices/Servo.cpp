@@ -8,10 +8,10 @@
 #include "Devices/Servo.h"
 
 #define SERVO_MIN_ANGLE 0
-#define SERVO_MAX_ANGLE 180
+#define SERVO_MAX_ANGLE 270
 
-#define SERVO_MIN_PULSE   500
-#define SERVO_MAX_PULSE   2500
+#define SERVO_MIN_PULSE 500
+#define SERVO_MAX_PULSE 2500
 
 Servo::Servo(DataContainer* data, TIM_HandleTypeDef* htim, servo servoId)
 {

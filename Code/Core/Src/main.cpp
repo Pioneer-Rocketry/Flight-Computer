@@ -173,61 +173,7 @@ int main(void)
   
 
   //Logging
-  LoggingPacketType *flightLogPacket = logging.createPacketType(10); //10ms interval or 100hz
-
-  flightLogPacket->addLogDatasource(&data.GPSFix);
-  flightLogPacket->addLogDatasource(&data.GPSNumSatellites);
-  flightLogPacket->addLogDatasource(&data.GPSUTCTime);
-  flightLogPacket->addLogDatasource(&data.GPSLatitude);
-  flightLogPacket->addLogDatasource(&data.GPSLongitude);
-  flightLogPacket->addLogDatasource(&data.GPSAltitude_m);
-
-  flightLogPacket->addLogDatasource(&data.KalmanFilterPositionX_m);
-  flightLogPacket->addLogDatasource(&data.KalmanFilterPositionY_m);
-  flightLogPacket->addLogDatasource(&data.KalmanFilterPositionZ_m);
-
-  flightLogPacket->addLogDatasource(&data.KalmanFilterVelocityX_mps);
-  flightLogPacket->addLogDatasource(&data.KalmanFilterVelocityY_mps);
-  flightLogPacket->addLogDatasource(&data.KalmanFilterVelocityZ_mps);
-
-  flightLogPacket->addLogDatasource(&data.KalmanFilterAccelerationX_mps2);
-  flightLogPacket->addLogDatasource(&data.KalmanFilterAccelerationY_mps2);
-  flightLogPacket->addLogDatasource(&data.KalmanFilterAccelerationZ_mps2);
-  //... etc
-  flightLogPacket->enabled = false;
-
-  LoggingPacketType *groundLogPacket = logging.createPacketType(100); //100ms interval or 10hz
-
-  
-  groundLogPacket->addLogDatasource(&data.GPSFix, "Fix");
-  groundLogPacket->addLogDatasource(&data.GPSNumSatellites, "#st");
-  groundLogPacket->addLogDatasource(&data.GPSUTCTime, "UTC Time.......");
-  groundLogPacket->addLogDatasource(&data.GPSLatitude, "Lat");
-  groundLogPacket->addLogDatasource(&data.GPSLongitude, "Lon");
-  groundLogPacket->addLogDatasource(&data.GPSAltitude_m, "Alt");
-
-  groundLogPacket->addLogDatasource(&data.KalmanFilterPositionX_m, "PXM");
-  groundLogPacket->addLogDatasource(&data.KalmanFilterPositionY_m, "PYM");
-  groundLogPacket->addLogDatasource(&data.KalmanFilterPositionZ_m, "PZM");
-
-  groundLogPacket->addLogDatasource(&data.KalmanFilterVelocityX_mps, "VX.");
-  groundLogPacket->addLogDatasource(&data.KalmanFilterVelocityY_mps, "VY.");
-  groundLogPacket->addLogDatasource(&data.KalmanFilterVelocityZ_mps, "VZ.");
-
-  groundLogPacket->addLogDatasource(&data.KalmanFilterAccelerationX_mps2, "AX.");
-  groundLogPacket->addLogDatasource(&data.KalmanFilterAccelerationY_mps2, "AY.");
-  groundLogPacket->addLogDatasource(&data.KalmanFilterAccelerationZ_mps2, "AZ.");
-  
-  groundLogPacket->addLogDatasource(&data.LSM6DSV320GyroX_dps, "GRX");
-  groundLogPacket->addLogDatasource(&data.LSM6DSV320GyroY_dps, "GRY");
-  groundLogPacket->addLogDatasource(&data.LSM6DSV320GyroZ_dps, "GRZ");
-
-  groundLogPacket->enabled = true;
-
-  if (logging.createPacketBuffers() != 0){
-    cdcSendMessage("Failed to allocate packet logging buffers", USB_BUF_LEN);
-    while(true){;;}
-  }
+  logging.init();
 
   cdcSendMessage("Initialization Complete \r\n", USB_BUF_LEN);
 

@@ -101,12 +101,14 @@ void W25Q128JV::writePage(uint32_t page, uint8_t* pageData, uint8_t size){
 	selectDevice();
 
 	writeSPI(W25Q128JV_WRITE_ENABLE, nullptr, 0); // Enable Write
-
+	uint32_t writeAddress = (page << 8) - 1;
 	writeSPIRaw(W25128JV_PAGE_PROGRAM);
 	writeSPIRaw((uint8_t)((page & (0x00FF0000)) >> 16));
 	writeSPIRaw((uint8_t)((page & (0x0000FF00)) >> 8));
 	writeSPIRaw((uint8_t)((page & (0x000000FF))));
 
+	uint8_t packetUsedByte = 0x01;
+	writeSPIRaw(&packetUsedByte, 1); //Set first byte of page to be
 	writeSPIRaw(pageData, size);
 
 	deselectDevice();

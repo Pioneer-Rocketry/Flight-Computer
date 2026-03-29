@@ -17,9 +17,32 @@
 //#include "defines.h"
 //#include "Devices/Flash.h"
 #include "Devices/SPI_Devices/W25Q128JV.h"
-#include "LoggingPacketType.h"
 
-#define LOG_BUFFER_SIZE_BYTES W25Q128JV_PAGE_SIZE - 1 // Using the first byte of a page to keep track of if there is data
+#define LOG_PAGE_BUFFER_SIZE_BYTES W25Q128JV_PAGE_SIZE - 1 // Using the first byte of a page to keep track of if there is data
+
+#define MAX_PACKET_LENGTH 254
+
+#define TRANSMISSION_FREQENCY 1/10.0f // hz
+#define TRANSMISSION_INTERVAL 10000 // ms
+
+#define LOGGING_PACKET_FIELDS(X) \
+	X(float, LSM6DSV320GyroX_dps) \
+	X(float, LSM6DSV320GyroY_dps) \
+	X(float, LSM6DSV320GyroZ_dps) \
+	X(float, LSM6DSV320LowGAccelX_mps2) \
+	X(float, LSM6DSV320LowGAccelY_mps2) \
+	X(float, LSM6DSV320LowGAccelZ_mps2) \
+	X(float, LSM6DSV320HighGAccelX_mps2) \
+	X(float, LSM6DSV320HighGAccelY_mps2) \
+	X(float, LSM6DSV320HighGAccelZ_mps2) \
+	X(float, MS560702BA03Temperature_C) \
+	X(float, MS560702BA03Pressure_hPA) \
+	X(float, MS560702BA03Altitude_m) \
+	X(float, GPSLatitude) \
+	X(float, GPSLongitude) \
+	X(float, GPSAltitude_m) \
+	X(int, GPSFix) \
+	X(int, GPSNumSatellites)
 
 class Logging: public Subsystem
 {
@@ -30,31 +53,30 @@ class Logging: public Subsystem
     int init() override;
     int update() override;
 
-	/**
-	 * @brief Create a new type of packet (ground, flight, decent, etc)
-	 * @param interval in milliseconds to log packet when it is enabled
-	 * @returns Pointer to LoggingPacketType to further initilize
-	 */
-	LoggingPacketType* createPacketType(uint32_t interval_ms);
-
-	/**
-	 * @brief Call once after creating packet types and adding all data
-	 * sources to initilize the packet buffers
-	 * @return 0 on success or error 
-	 */
-    int createPacketBuffers();
-
     private:
     W25Q128JV flash;
-	uint8_t writeBuffer[LOG_BUFFER_SIZE_BYTES];
-	uint16_t logBufferWriteIndex = 0;
 	uint16_t currentPage = 0;
 	uint16_t currentSector = 0;
 
     bool loggingEnabled = false;
-	std::vector<LoggingPacketType*> packetTypes;
 
-	void writePageToFlash();
+	union FlashPacket {
+		struct {
+			/* IMU Data*/
+			#define x(type, name) type name;
+			LOGGING_PACKET_FIELDS(x)
+			#undef x
+		} fields;
+		uint8_t raw[MAX_PACKET_LENGTH];
+	} flashPacket;
+
+	// Compile-time guard: fires if the struct exceeds the radio payload limit.
+    static_assert(sizeof(flashPacket.fields) <= MAX_PACKET_LENGTH,
+                  "Flash packet exceeds MAX_PACKET_LENGTH — "
+                  "reduce fields or allow for writing to more than one page per write.");
+
+	uint32_t now;
+	uint32_t lastLog;
 };
 
 

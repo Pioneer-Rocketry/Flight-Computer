@@ -8,7 +8,6 @@
 #ifndef SRC_DEVICES_SPI_DEVICES_W25Q128JV_H_
 #define SRC_DEVICES_SPI_DEVICES_W25Q128JV_H_
 
-#include "Devices/Flash.h"
 #include "Devices/SPIDevice.h"
 #include "defines.h"
 #include "utils.h"

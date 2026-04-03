@@ -38,7 +38,7 @@ Servo::Servo(DataContainer* data, TIM_HandleTypeDef* htim, servo servoId)
         case SERVO_4:
             this->channel  = TIM_CHANNEL_4;
             break;
-        
+
         default:
             // Handle invalid servoId if necessary
             break;
@@ -69,7 +69,7 @@ int Servo::update()
         case SERVO_4:
             angle = data->servo4Angle;
             break;
-        
+
         default:
             // Handle invalid servoId if necessary
             break;
@@ -88,8 +88,8 @@ int Servo::angleToPulse(int16_t angle)
     uint32_t arr = __HAL_TIM_GET_AUTORELOAD(htim);
 
     // 20 ms period → convert to fractions
-    uint32_t minPulse = arr * 500  / 20000;  // 0.5 ms
-    uint32_t maxPulse = arr * 2500 / 20000;  // 2.5 ms
+    uint32_t minPulse = arr * 500  / 10000;  // 0.5 ms
+    uint32_t maxPulse = arr * 2500 / 10000;  // 2.5 ms
 
     return minPulse +
            (uint32_t)(angle - minAngle) *

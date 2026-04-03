@@ -135,6 +135,7 @@ int main(void)
 
   uint32_t currentTick;
   uint32_t lastTick = 0;
+  static bool increasing = true;
 
   /* USER CODE END 2 */
 
@@ -153,21 +154,20 @@ int main(void)
     // Make servo 1 do a full sweep from 0 to 10 and back every 4 seconds
     currentTick = HAL_GetTick();
 
+
     if (currentTick - lastTick >= 20) {
       lastTick = currentTick;
-
-      static bool increasing = true;
 
       if (increasing) {
         data.servo1Angle += 1;
         data.servo2Angle += 1;
         data.servo3Angle += 1;
         data.servo4Angle += 1;
-        if (data.servo4Angle >= 10) {
-          data.servo1Angle = 10;
-          data.servo2Angle = 10;
-          data.servo3Angle = 10;
-          data.servo4Angle = 10;
+        if (data.servo4Angle >= 20) {
+          data.servo1Angle = 20;
+          data.servo2Angle = 20;
+          data.servo3Angle = 20;
+          data.servo4Angle = 20;
           increasing = false;
         }
       } else {

@@ -1,5 +1,5 @@
 /*
- * I2CDevice.cpp
+ * SPIDevice.cpp
  *
  *  Created on: Oct 29, 2025
  *      Author: colin
@@ -53,3 +53,4 @@ HAL_StatusTypeDef SPIDevice::writeSPI(uint8_t reg, uint8_t *data, uint8_t len)
 
 	return status;
 }
+

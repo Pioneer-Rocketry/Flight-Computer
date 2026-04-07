@@ -33,6 +33,7 @@
 
 #include "DataContainer.h"
 
+#include "Subsystems/Telemetry.h"
 #include "Subsystems/Navigation.h"
 #include "Subsystems/Control.h"
 
@@ -47,6 +48,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+#define RADIO_INSTALLED
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -85,7 +89,9 @@ uint8_t gpsRxBuffer[GPS_BUFFER_SIZE];
 
 DataContainer data;
 
+// Radio radio(&data, &hspi1);
 Navigation nav(&data, &hspi1, &huart4, gpsRxBuffer);
+Telemetry telemetry(&data, &hspi1);
 Control control(&data, &htim1, &htim3);
 
 /* USER CODE END PV */
@@ -157,7 +163,6 @@ int main(void)
   cdcSendMessage("Welcome to the Pioneer Rocketry Flight Computer!\r\n", USB_BUF_LEN);
 
   DWT_Init();
-
   if (nav.init() < 0)
   {
     usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Navigation!\r\n");
@@ -170,7 +175,33 @@ int main(void)
     }
   }
 
-  control.init();
+  #ifdef RADIO_INSTALLED
+
+  if (telemetry.init() < 0)
+  {
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Telemetry!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+	  while (1)
+    {
+      // Send Error Message over USB CDC
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
+  }
+
+  #endif
+
+  if (control.init() < 0)
+  {
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Control!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+	  while (1)
+    {
+      // Send Error Message over USB CDC
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
+  }
 
   cdcSendMessage("Initialization Complete \r\n", USB_BUF_LEN);
 
@@ -192,6 +223,10 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     tud_task();
+
+    #ifdef RADIO_INSTALLED
+      telemetry.update();
+    #endif
 
 	  nav.update();
 
@@ -219,7 +254,6 @@ int main(void)
 
     // Make servo 1 do a full sweep from 0 to 10 and back every 4 seconds
     currentTick = HAL_GetTick();
-
 
     if (currentTick - lastTick >= 20) {
       lastTick = currentTick;
@@ -685,20 +719,20 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(SPI_CS1_GPIO_Port, SPI_CS1_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOC, LORA_DIO0_Pin|PYRO3_TRIGGER_Pin|PRYO2_TRIGGER_Pin
+                          |PRYO1_TRIGGER_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, LORA_DIO0_Pin|PYRO3_TRIGGER_Pin|PRYO2_TRIGGER_Pin|PRYO1_TRIGGER_Pin
-                          |LORA_RESET_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, SPI_CS1_Pin|LORA_RESET_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|FLASH_RESET_Pin|FLASH_WP_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(IMU_CS_GPIO_Port, IMU_CS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|BARO_CS_Pin|FLASH_CS_Pin, GPIO_PIN_SET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, FLASH_RESET_Pin|FLASH_WP_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, BARO_CS_Pin|FLASH_CS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : SPI_CS1_Pin LORA_DIO0_Pin PYRO3_TRIGGER_Pin PRYO2_TRIGGER_Pin
                            PRYO1_TRIGGER_Pin LORA_RESET_Pin */

@@ -124,3 +124,4 @@ protected:
 };
 
 #endif /* INC_DEVICES_SPIDEVICE_H_ */
+

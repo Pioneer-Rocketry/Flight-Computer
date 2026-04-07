@@ -15,7 +15,7 @@
             "type": "shell",
             "command": "make",
             "args": [ "-j", "-C", "./Code/", "clean"],
-            "detail": "Do a clean build"
+            "detail": "Clean up the build environment"
         },
         {
             "label": "Upload",
@@ -31,6 +31,14 @@
             "type": "shell",
             "command": "make",
             "args": [ "-j", "-C", "./Code/", "buildflash" ],
+            "detail": "Upload"
+        },
+        {
+            "label": "Upload DFU",
+            "group": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [ "-j", "-C", "./Code/", "dfuupload" ],
             "detail": "Upload"
         }
     ]

@@ -170,10 +170,24 @@ int main(void)
     cdcSendMessage("Failed initilizing Logging", USB_BUF_LEN);
     while(true){;;}
   }
-  
 
-  //Logging
-  logging.init();
+  HAL_DELAY(1000);
+
+  logging.dumpFlash();
+
+  logging.update();
+  logging.update();
+  logging.update();
+  logging.update();
+  logging.update();
+  logging.update();
+
+  cdcSendMessage("Updated:\n\n\n", USB_BUF_LEN);
+
+  HAL_DELAY(2000);
+
+  logging.dumpFlash();
+
 
   cdcSendMessage("Initialization Complete \r\n", USB_BUF_LEN);
 

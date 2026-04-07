@@ -71,7 +71,7 @@ class Logging: public Subsystem
 
 							// ptr to string buffer, format, source
 							// 3 chars per byte, 4 bytes for "aa: "
-					sprintf(stringBuffer + (byteInLine * 3) + 4, "%02X", buffer[line*16+byteInLine])
+					sprintf(stringBuffer + (byteInLine * 3) + 4, "%02X", buffer[line*16+byteInLine]);
 
 					stringBuffer[2+byteInLine] = ' ';
 				}
@@ -83,7 +83,7 @@ class Logging: public Subsystem
 				//Same as above to second set of bytes on the line
 				for (uint8_t byteInLine = 8; byteInLine < 16; byteInLine++){
 					//Same as above, but extra +1 for extra space character between sets
-					sprintf(stringBuffer + (byteInLine * 3) + 4 + 1, "%02X", buffer[line*16+byteInLine])
+					sprintf(stringBuffer + (byteInLine * 3) + 4 + 1, "%02X", buffer[line*16+byteInLine]);
 					stringBuffer[2+byteInLine+1] = ' ';
 				}
 				//Set the last char as a newline

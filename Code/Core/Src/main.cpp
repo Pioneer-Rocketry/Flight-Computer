@@ -171,7 +171,7 @@ int main(void)
     while(true){;;}
   }
 
-  HAL_DELAY(1000);
+  HAL_Delay(1000);
 
   logging.dumpFlash();
 
@@ -184,7 +184,7 @@ int main(void)
 
   cdcSendMessage("Updated:\n\n\n", USB_BUF_LEN);
 
-  HAL_DELAY(2000);
+  HAL_Delay(2000);
 
   logging.dumpFlash();
 

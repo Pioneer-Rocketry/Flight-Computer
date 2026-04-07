@@ -34,6 +34,7 @@
 #include "DataContainer.h"
 
 #include "Subsystems/Telemetry.h"
+#include "Subsystems/Guidance.h"
 #include "Subsystems/Navigation.h"
 #include "Subsystems/Control.h"
 
@@ -90,8 +91,10 @@ uint8_t gpsRxBuffer[GPS_BUFFER_SIZE];
 DataContainer data;
 
 // Radio radio(&data, &hspi1);
-Navigation nav(&data, &hspi1, &huart4, gpsRxBuffer);
 Telemetry telemetry(&data, &hspi1);
+
+Guidance guidance(&data, 0.1f, 0.0f, 0.05f);
+Navigation navigation(&data, &hspi1, &huart4, gpsRxBuffer);
 Control control(&data, &htim1, &htim3);
 
 /* USER CODE END PV */
@@ -163,17 +166,6 @@ int main(void)
   cdcSendMessage("Welcome to the Pioneer Rocketry Flight Computer!\r\n", USB_BUF_LEN);
 
   DWT_Init();
-  if (nav.init() < 0)
-  {
-    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Navigation!\r\n");
-    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-	  while (1)
-    {
-      // Send Error Message over USB CDC
-      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-      HAL_Delay(1000);
-    }
-  }
 
   #ifdef RADIO_INSTALLED
 
@@ -190,6 +182,31 @@ int main(void)
   }
 
   #endif
+
+  if (guidance.init() < 0)
+  {
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Guidance!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+	  while (1)
+    {
+      // Send Error Message over USB CDC
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
+  }
+
+
+  if (navigation.init() < 0)
+  {
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Navigation!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+	  while (1)
+    {
+      // Send Error Message over USB CDC
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
+  }
 
   if (control.init() < 0)
   {
@@ -224,11 +241,14 @@ int main(void)
     /* USER CODE BEGIN 3 */
     tud_task();
 
+	  navigation.update();
+
+    guidance.update();
+    control.update();
+
     #ifdef RADIO_INSTALLED
       telemetry.update();
     #endif
-
-	  nav.update();
 
     if (HAL_GetTick() - lastPrint >= 500)
     {
@@ -248,41 +268,6 @@ int main(void)
         data.quaternionW, data.quaternionX, data.quaternionY, data.quaternionZ, data.quaternionNorm
       );
       cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-    }
-
-    control.update();
-
-    // Make servo 1 do a full sweep from 0 to 10 and back every 4 seconds
-    currentTick = HAL_GetTick();
-
-    if (currentTick - lastTick >= 20) {
-      lastTick = currentTick;
-
-      if (increasing) {
-        data.servo1Angle += 1;
-        data.servo2Angle += 1;
-        data.servo3Angle += 1;
-        data.servo4Angle += 1;
-        if (data.servo4Angle >= 20) {
-          data.servo1Angle = 20;
-          data.servo2Angle = 20;
-          data.servo3Angle = 20;
-          data.servo4Angle = 20;
-          increasing = false;
-        }
-      } else {
-        data.servo1Angle -= 1;
-        data.servo2Angle -= 1;
-        data.servo3Angle -= 1;
-        data.servo4Angle -= 1;
-        if (data.servo4Angle <= 0) {
-          data.servo1Angle = 0;
-          data.servo2Angle = 0;
-          data.servo3Angle = 0;
-          data.servo4Angle = 0;
-          increasing = true;
-        }
-      }
     }
   }
   /* USER CODE END 3 */

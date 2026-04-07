@@ -32,6 +32,22 @@ class DataContainer {
 private:
 
 public:
+	/* Guidance Data */
+	float p;
+	float i;
+	float d;
+
+	float error;
+	float lastError;
+	float PID;
+
+	float guidanceDt;
+
+	float target;
+
+	float flightTime;
+
+	/* Navigation Data */
 	/* IMU Data*/
 	float LSM6DSV320GyroX_dps;
 	float LSM6DSV320GyroY_dps;
@@ -90,6 +106,7 @@ public:
 	float KalmanFilterAccelerationY_mps2;
 	float KalmanFilterAccelerationZ_mps2;
 
+	/* Control Data */
 	int16_t servo1Angle;
     int16_t servo2Angle;
     int16_t servo3Angle;

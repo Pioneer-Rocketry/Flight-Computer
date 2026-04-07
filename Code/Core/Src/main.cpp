@@ -148,8 +148,9 @@ int main(void)
   tud_init(BOARD_TUD_RHPORT);
 
   DWT_Init();
-  cdcSendMessage("Welcome to the Pioneer Rocketry Flight Computer!\r\n", USB_BUF_LEN);
 
+  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Welcome to the Pioneer Rocketry Flight Computer!\r\n");
+  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
   
   //Navigation
   if (nav.init() < 0)
@@ -164,11 +165,18 @@ int main(void)
     }
   }
 
-  cdcSendMessage("Initilizing Flash", USB_BUF_LEN);
+  HAL_Delay(5000);
+
+  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Initilizing Flash\r\n");
+  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
 
   if (logging.init() != 0){
-    cdcSendMessage("Failed initilizing Logging", USB_BUF_LEN);
-    while(true){;;}
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Failed while Initilizing Flash\r\n");
+    
+    while(true){
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
   }
 
   HAL_Delay(1000);
@@ -182,14 +190,16 @@ int main(void)
   logging.update();
   logging.update();
 
-  cdcSendMessage("Updated:\n\n\n", USB_BUF_LEN);
+  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Updated:\n\n\n");
+  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
 
   HAL_Delay(2000);
 
   logging.dumpFlash();
 
 
-  cdcSendMessage("Initialization Complete \r\n", USB_BUF_LEN);
+  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Initialization Complete \r\n");
+  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
 
   /* USER CODE END 2 */
 

@@ -89,6 +89,12 @@ public:
 	float KalmanFilterAccelerationX_mps2;
 	float KalmanFilterAccelerationY_mps2;
 	float KalmanFilterAccelerationZ_mps2;
+
+	int16_t servo1Angle;
+    int16_t servo2Angle;
+    int16_t servo3Angle;
+    int16_t servo4Angle;
+
 };
 
 

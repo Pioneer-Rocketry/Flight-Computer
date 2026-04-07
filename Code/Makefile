@@ -24,7 +24,6 @@ DEBUG = 1
 # optimization
 OPT = -O0
 
-
 #######################################
 # paths
 #######################################
@@ -55,6 +54,8 @@ $(shell find Drivers/STM32F4xx_HAL_Driver/Src -type f -name '*.c') \
 Core/Src/main.c \
 Core/Src/stm32f4xx_it.c \
 Core/Src/stm32f4xx_hal_msp.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c \
 Core/Src/sysmem.c \
 Core/Src/syscalls.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c \

@@ -23,14 +23,12 @@ int Logging::init()
 	uint8_t readByte = 0xFF;
 	do {
 		readByte = flash.readByte(i);
-		uint8_t size = flash.readByte(i+1);
-		i += size;
 
 		if (i > 65535){
 			return -1; // Flash is full
 		}
 
-	} while (readByte != 0xFF); // Empty flash is filled with 0xFF
+	} while (readByte != 0xFF && i < W25Q128JV_PAGE_SIZE*W25Q128JV_PAGE_COUNT); // Empty flash is filled with 0xFF
 
 	currentPage = i; //Choose first unfilled page
 	//First byte of each packet is the packet ID, which start at 1 and go up, so if 

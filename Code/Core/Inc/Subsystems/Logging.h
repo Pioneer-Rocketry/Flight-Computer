@@ -56,7 +56,7 @@ class Logging: public Subsystem
 
 	void dumpFlash(){
 		uint8_t buffer[256];
-		for (uint16_t page = 0; page <= 0xFFFF; page++){ //Read one page at a time
+		for (uint32_t page = 0; page <= 0xFFFF; page++){ //Read one page at a time
 			flash.readData(((uint32_t)page) << 8, buffer, 0xFF);
 			char pageAddrStringBuffer[4]; //aaaa //16bit page address
 			sprintf(pageAddrStringBuffer, "%04X", page);

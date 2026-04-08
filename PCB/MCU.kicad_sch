@@ -5758,7 +5758,7 @@
 			(uuid "454084a1-934d-424e-81f4-aed790f72079")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
 					(reference "#PWR0301")
 					(unit 1)
@@ -5847,7 +5847,7 @@
 			(uuid "dd442744-8671-48dd-82be-7ee5aab23156")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
 					(reference "Y301")
 					(unit 1)
@@ -5913,7 +5913,7 @@
 			(uuid "7bee6121-91c1-400b-a8a0-f31fa8a311cf")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
 					(reference "#PWR0305")
 					(unit 1)
@@ -6374,7 +6374,7 @@
 			(uuid "3244b310-0d0b-4f60-9762-093767ca6055")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
 					(reference "#PWR0302")
 					(unit 1)
@@ -7334,7 +7334,7 @@
 			(uuid "46d53ac3-2026-4c59-b576-daa79a4ce98e")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
 					(reference "U301")
 					(unit 1)

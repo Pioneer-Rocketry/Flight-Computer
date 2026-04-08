@@ -4373,6 +4373,18 @@
 		)
 	)
 	(rectangle
+		(start 127 154.94)
+		(end 175.26 184.15)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 1209253a-4524-4e3f-85aa-57ed0c104629)
+	)
+	(rectangle
 		(start 151.765 14.605)
 		(end 196.85 83.82)
 		(stroke
@@ -4503,6 +4515,18 @@
 			)
 		)
 		(uuid "224cd50f-de0b-4daa-804d-9af783215738")
+	)
+	(text "RST Button"
+		(exclude_from_sim no)
+		(at 151.384 161.798 0)
+		(effects
+			(font
+				(size 5 5)
+				(thickness 1)
+				(bold yes)
+			)
+		)
+		(uuid "2dcbc13f-67a8-414f-b4a1-b8f13781e65d")
 	)
 	(text "Buzzer"
 		(exclude_from_sim no)
@@ -5295,6 +5319,16 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 177.8) (xy 161.29 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "93ad0830-e5f4-4eea-bfaa-37346d9fbe27")
+	)
+	(wire
+		(pts
 			(xy 182.88 54.61) (xy 182.88 57.15)
 		)
 		(stroke
@@ -5815,6 +5849,16 @@
 	)
 	(wire
 		(pts
+			(xy 144.78 177.8) (xy 147.32 177.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7ced8a4-b404-4f31-99ca-c4c1500d0dac")
+	)
+	(wire
+		(pts
 			(xy 220.98 48.26) (xy 223.52 48.26)
 		)
 		(stroke
@@ -5842,6 +5886,16 @@
 			(type default)
 		)
 		(uuid "ff9df8d4-d796-468e-a462-a8c057bca3de")
+	)
+	(label "NRST"
+		(at 144.78 177.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "278b52c9-cf4e-42f7-b8fc-1f408f0fd385")
 	)
 	(label "BOOT0"
 		(at 93.98 162.56 180)
@@ -6240,7 +6294,7 @@
 			(uuid "9c3afa39-4f92-4f1b-bcd6-bf4f69f9d7bc")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "J501")
 					(unit 1)
@@ -6374,7 +6428,7 @@
 			(uuid "39e379a8-4204-4a70-9a58-1f57515473de")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "BZ501")
 					(unit 1)
@@ -7290,7 +7344,7 @@
 			(uuid "4d4e3331-ed45-42b5-aeaf-1ea0a8c3d256")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "#PWR0501")
 					(unit 1)
@@ -7372,7 +7426,7 @@
 			)
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "G501")
 					(unit 1)
@@ -8081,7 +8135,7 @@
 			(uuid "63615732-812c-49b1-83ea-897f3984a2b6")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "J502")
 					(unit 1)
@@ -8344,7 +8398,7 @@
 			(uuid "b29104ea-a3a5-482c-866c-f95ece724ce1")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "J503")
 					(unit 1)
@@ -8413,7 +8467,7 @@
 			(uuid "2ecf4b15-0648-4865-9e4d-24fefa268073")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "R503")
 					(unit 1)
@@ -9902,7 +9956,7 @@
 			(uuid "5dc48454-e0c3-47cd-ab1a-f6f6173620e9")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "#PWR0508")
 					(unit 1)
@@ -10313,6 +10367,74 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 152.4 177.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d46e52d7-ed22-4fa3-a538-3144a7ed2bce")
+		(property "Reference" "SW2"
+			(at 152.4 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Push"
+			(at 152.4 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "imported:SW_1TS026A"
+			(at 152.4 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 152.4 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Push button switch, generic, two pins"
+			(at 152.4 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "1deb3066-e7dd-48b4-b1a6-f64daf3bc3e0")
+		)
+		(pin "1"
+			(uuid "13df7daf-40c3-4230-8a3c-711c4be6a3db")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 85.09 127 0)
 		(unit 1)
@@ -10371,7 +10493,7 @@
 			(uuid "f7e48fed-d1ac-48b7-bacc-1443a3eb0363")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "TP1")
 					(unit 1)
@@ -10503,7 +10625,7 @@
 			(uuid "1b56a9a3-585c-44d9-8875-ff77d1e362a8")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "J508")
 					(unit 1)
@@ -10874,6 +10996,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 161.29 177.8 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f72f5156-583a-46a3-a64b-a5edbd64fade")
+		(property "Reference" "#PWR09"
+			(at 161.29 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 161.29 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 161.29 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 161.29 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 161.29 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b77d75e2-4757-48ba-8fcf-63d0c1340b6d")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:D")
 		(at 104.14 97.79 180)
 		(unit 1)
@@ -10969,7 +11157,7 @@
 			(uuid "6d89743c-fedb-440a-906d-a460ba3f7ad2")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "D501")
 					(unit 1)
@@ -11055,7 +11243,7 @@
 			(uuid "e253338f-defd-4587-93c8-ad750605657b")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "D502")
 					(unit 1)

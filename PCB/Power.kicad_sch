@@ -1654,7 +1654,7 @@
 			(uuid "d0b19c7f-b878-484f-8977-3fb6896a3070")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/ce25203d-742b-46bf-b676-aa9cb5879333"
 					(reference "C201")
 					(unit 1)
@@ -1786,7 +1786,7 @@
 			(uuid "6b966e36-792c-41e9-a084-aa612660ce56")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/ce25203d-742b-46bf-b676-aa9cb5879333"
 					(reference "#PWR0204")
 					(unit 1)
@@ -1852,7 +1852,7 @@
 			(uuid "40e0f161-378a-4504-8563-3a066ad37ae6")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/ce25203d-742b-46bf-b676-aa9cb5879333"
 					(reference "#PWR0202")
 					(unit 1)
@@ -2029,7 +2029,7 @@
 			(uuid "cc146bb7-aa88-4e2d-8513-c8c458de1ff0")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/ce25203d-742b-46bf-b676-aa9cb5879333"
 					(reference "U201")
 					(unit 1)
@@ -2114,7 +2114,7 @@
 			(uuid "337ec82e-569f-4c18-a10f-b0a04a303a64")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/ce25203d-742b-46bf-b676-aa9cb5879333"
 					(reference "TP201")
 					(unit 1)
@@ -2180,7 +2180,7 @@
 			(uuid "223f9d49-6229-4a96-9c55-147f0a0a2d4d")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/ce25203d-742b-46bf-b676-aa9cb5879333"
 					(reference "#PWR0201")
 					(unit 1)
@@ -2246,7 +2246,7 @@
 			(uuid "268ec150-b9dd-4ca9-a418-20b250c363ca")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/ce25203d-742b-46bf-b676-aa9cb5879333"
 					(reference "#PWR0207")
 					(unit 1)
@@ -2516,7 +2516,7 @@
 			(uuid "f92bdb5b-b245-49ff-9003-563e9be28846")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/ce25203d-742b-46bf-b676-aa9cb5879333"
 					(reference "D201")
 					(unit 1)

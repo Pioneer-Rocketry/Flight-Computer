@@ -2820,7 +2820,7 @@
 			(uuid "4f5eeaed-b5da-4145-a0e9-5cf99f07fcf1")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "U404")
 					(unit 1)
@@ -3408,7 +3408,7 @@
 			(uuid "2d57d724-7f93-46ef-9381-e77ff32d5fb3")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "U402")
 					(unit 1)
@@ -3864,7 +3864,7 @@
 			(uuid "5212dc14-0d30-4a28-add4-063757288111")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a"
 					(reference "U403")
 					(unit 1)

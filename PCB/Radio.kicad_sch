@@ -1503,7 +1503,7 @@
 			(uuid "f0b06ae7-b327-4ff8-8e4f-2217b5332459")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
 					(reference "C601")
 					(unit 1)
@@ -1721,7 +1721,7 @@
 			(uuid "16a2d22a-f688-4e4b-922c-25db63970fd2")
 		)
 		(instances
-			(project ""
+			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
 					(reference "U601")
 					(unit 1)

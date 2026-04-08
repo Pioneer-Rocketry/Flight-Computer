@@ -22,11 +22,12 @@ int Logging::init()
 	uint32_t i = 0;
 	uint8_t readByte = 0xFF;
 	do {
-		readByte = flash.readByte(i);
+		readByte = flash.readByte(i += W25Q128JV_PAGE_SIZE);
 
 		if (i > 65535){
 			return -1; // Flash is full
 		}
+
 
 	} while (readByte != 0xFF && i < W25Q128JV_PAGE_SIZE*W25Q128JV_PAGE_COUNT); // Empty flash is filled with 0xFF
 

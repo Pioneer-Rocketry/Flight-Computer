@@ -15,11 +15,11 @@ W25Q128JV::W25Q128JV(SPI_HandleTypeDef *spi, GPIO_TypeDef *port, uint16_t pin)
 int W25Q128JV::deviceInit()
 {
 	if (writeSPI(W25Q128JV_ENABLE_RESET, nullptr, 0) != HAL_OK) {
-		return false;
+		return -1;
 	}
 
     if (writeSPI(W25Q128JV_RESET_DEVICE, nullptr, 0) != HAL_OK) {
-		return false;
+		return -1;
 	}
 
 	delay_us(60); // Approximate reset time * 2
@@ -33,6 +33,8 @@ int W25Q128JV::deviceInit()
 		//error, incorrect device
 		return -1;
 	}
+
+	return 0;
 }
 
 uint64_t W25Q128JV::readUUID(){

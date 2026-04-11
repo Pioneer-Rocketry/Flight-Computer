@@ -113,7 +113,7 @@ private:
     Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 	KALMAN_FILTER_NUM_OF_MEASUREMENTS>	S;
 	Matrix<float, KALMAN_FILTER_NUM_OF_STATES,			KALMAN_FILTER_NUM_OF_STATES>		I;
 
-	float processNoise = 0.01f;
+	float processNoise = 0.1f;
 
 	float lowGNoise		= 0.01f;
 	float highGNoise	= 0.01f;

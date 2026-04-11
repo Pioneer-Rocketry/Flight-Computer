@@ -20,17 +20,6 @@ Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_Hand
 	  baro(data, spiBus, BARO_CS_GPIO_Port, BARO_CS_Pin),
 	  gps(data, uart, gpsRxBuffer)
 {
-	data->KalmanFilterPositionX_m = 0.0f;
-	data->KalmanFilterPositionY_m = 0.0f;
-	data->KalmanFilterPositionZ_m = 0.0f;
-
-	data->KalmanFilterVelocityX_mps = 0.0f;
-	data->KalmanFilterVelocityY_mps = 0.0f;
-	data->KalmanFilterVelocityZ_mps = 0.0f;
-
-	data->KalmanFilterAccelerationX_mps2 = 0.0f;
-	data->KalmanFilterAccelerationY_mps2 = 0.0f;
-	data->KalmanFilterAccelerationZ_mps2 = 0.0f;
 
 	lastLoop = HAL_GetTick();
 	last_us = micros();
@@ -56,6 +45,12 @@ int Navigation::init()
 	}
 
 	initializeQuaternion();
+
+	baro.startConversion();
+
+	baro.update();
+
+	data->startingBaroAltitude_m = data->MS560702BA03Altitude_m;
 
 	baro.startConversion();
 
@@ -112,6 +107,8 @@ int Navigation::update()
 	baro.update();
 	gps.update();
 
+	data->baroAltitudeOffset_m = data->MS560702BA03Altitude_m - data->startingBaroAltitude_m;
+
 	// -------------------------------------------------------------
 	// Kalman Filter
 	// -------------------------------------------------------------
@@ -122,19 +119,14 @@ int Navigation::update()
 	updateKalmanFilter();
 	runKalmanFilter();
 
-	data->KalmanFilterPositionX_m			= x(0);
-	data->KalmanFilterAccelerationX_mps2	= x(1);
-	data->KalmanFilterVelocityX_mps			= x(2);
-
-	data->KalmanFilterPositionY_m			= x(3);
-	data->KalmanFilterAccelerationY_mps2	= x(4);
-	data->KalmanFilterVelocityY_mps			= x(5);
-
-	data->KalmanFilterPositionZ_m			= x(6);
-	data->KalmanFilterAccelerationZ_mps2	= x(7);
-	data->KalmanFilterVelocityZ_mps			= x(8);
+	data->KalmanFilterAltitude_m = x(0);
+	data->KalmanFilterVerticalVelocity_mps = x(1);
+	data->KalmanFilterVerticalAcceleration_mps2 = x(2);
 
 	baro.startConversion();
+
+	// Intergrate to find roll
+	data->intergratedRoll += (rollRate_rad * dt_s) * RAD_TO_DEG;
 
 	return 0;
 }
@@ -283,83 +275,40 @@ void Navigation::initKalmanFilter()
 
 	// Initial State
 	x.setZero();
-	x(2) = lowG(0); // Acc X
-	x(5) = lowG(1); // Acc Y
-	x(6) = data->MS560702BA03Altitude_m; // Pos Z Set the initial Barometric Altitude to the current altitude
-	x(8) = lowG(2); // Acc Z
+	x(0) = data->baroAltitudeOffset_m; // Pos Z Set the initial Barometric Altitude to the current altitude
+	x(1) = 0; // Vertical Velocity
+	x(2) = 0; // Vertical Acceleration
 
 	// State Transition
 	F.setIdentity();
-    // For each axis block:
-    // pos' = pos + vel*dt + 0.5*acc*dt^2
-    // vel' = vel + acc*dt
-    // acc' = acc
-
-	// X Axis
-	F(0,1) = dt_s;
-	F(0,2) = (dt_s * dt_s) / 2.0f;
-	F(1,2) = dt_s;
-
-	// Y Axis
-    F(3,4) = dt_s;
-    F(3,5) = (dt_s * dt_s) / 2.0f;
-    F(4,5) = dt_s;
-
-    // Z Axis
-    F(6,7) = dt_s;
-    F(6,8) = (dt_s * dt_s) / 2.0f;
-    F(7,8) = dt_s;
+	F(0, 0) = 1.0f;	F(0, 1) = dt_s;	F(0, 2) = 0.5f * dt2;
+    F(1, 0) = 0.0f; F(1, 1) = 1.0f; F(1, 2) = dt_s;
+    F(2, 0) = 0.0f; F(2, 1) = 0.0f; F(2, 2) = 1.0f;
 
 	// Get Initial Measurements
 	Z.setZero();
-	Z(0) = data->LSM6DSV320LowGAccelX_mps2;
-	Z(1) = data->LSM6DSV320LowGAccelY_mps2;
-	Z(2) = data->LSM6DSV320LowGAccelZ_mps2;
-	Z(3) = data->LSM6DSV320HighGAccelX_mps2;
-	Z(4) = data->LSM6DSV320HighGAccelY_mps2;
-	Z(5) = data->LSM6DSV320HighGAccelZ_mps2;
-	Z(6) = data->MS560702BA03Altitude_m;
+	Z(0) = data->baroAltitudeOffset_m;
 
-	// Observation
+    // state transition matrix H
 	H.setZero();
-	H(0, 2) = H(1, 5) = H(2, 8) = H(3, 2) = H(4, 5) = H(5, 8) = H(6, 6) = 1.0f;
+    H(0, 0) = 1.0f; // Measurement directly corresponds to altitude
+    H(1, 0) = 0.0f; // No direct measurement of velocity
+    H(2, 0) = 0.0f; // No direct measurement of acceleration
 
 	// Process Noise
 	Q.setZero();
-	Q(0,0) = dt4 / 4.0f;
-	Q(0,1) = dt3 / 2.0f; Q(1,0) = Q(0,1);
-	Q(0,2) = dt2 / 2.0f; Q(2,0) = Q(0,2);
-	Q(1,1) = dt2;
-	Q(1,2) = dt_s; Q(2,1) = Q(1,2);
-	Q(2,2) = 1.0f; // keep small baseline
-
-	Q(3,3) = dt4 / 4.0f;
-	Q(3,4) = dt3 / 2.0f; Q(4,3) = Q(3,4);
-	Q(3,5) = dt2 / 2.0f; Q(5,3) = Q(3,5);
-	Q(4,4) = dt2;
-	Q(4,5) = dt_s; Q(5,4) = Q(4,5);
-	Q(5,5) = 1.0f; // keep small baseline
-
-	Q(6,6) = dt4 / 4.0f;
-	Q(6,7) = dt3 / 2.0f; Q(7,6) = Q(6,7);
-	Q(6,8) = dt2 / 2.0f; Q(8,6) = Q(6,8);
-	Q(7,7) = dt2;
-	Q(7,8) = dt_s; Q(8,7) = Q(7,8);
-	Q(8,8) = 1.0f; // keep small baseline
-
-	// copy blocks for Y (3..5) and Z (6..8)
+	Q(0, 0) = 0.25f * dt3;	Q(0, 1) = 0.5f * dt2;	Q(0, 2) = 0.5f * dt_s;
+    Q(1, 0) = 0.5f  * dt2; 	Q(1, 1) = dt_s;			Q(1, 2) = 1.0f;
+    Q(2, 0) = 0.5f  * dt_s;	Q(2, 1) = 1.0f;			Q(2, 2) = 1.0f;
 
 	Q *= processNoise;
 
 	// Measurement Noise
-	R.setIdentity();
-	R(0, 0) = R(1, 1) = R(2, 2) = powf(lowGNoise, 2);
-	R(3, 3) = R(4, 4) = R(5, 5) = powf(highGNoise, 2);
-	R(6, 6) = powf(baroNoise, 2);
+    R(0) = 5.0f; // Measurement noise variance
 
 	// Estimate Error
 	P.setIdentity();
-	P *= 1.0;  // initial uncertainty
+	P *= 10.0;  // initial uncertainty
 
 	I.setIdentity();
 
@@ -371,53 +320,18 @@ void Navigation::initKalmanFilter()
 void Navigation::updateKalmanFilter()
 {
 	// Update Measurements
-	Z(0) = lowG(0);
-	Z(1) = lowG(1);
-	Z(2) = lowG(2);
-	Z(3) = highG(0);
-	Z(4) = highG(1);
-	Z(5) = highG(2);
-	Z(6) = data->MS560702BA03Altitude_m;
+	Z(1) = data->baroAltitudeOffset_m;
 
 	// Update State Transition Matrix
-
-	// X Axis
-	F(0,1) = dt_s;
-	F(0,2) = (dt_s * dt_s) / 2.0f;
-	F(1,2) = dt_s;
-
-	// Y Axis
-    F(3,4) = dt_s;
-    F(3,5) = (dt_s * dt_s) / 2.0f;
-    F(4,5) = dt_s;
-
-    // Z Axis
-    F(6,7) = dt_s;
-    F(6,8) = (dt_s * dt_s) / 2.0f;
-    F(7,8) = dt_s;
+	F(0, 0) = 1.0f; F(0, 1) = dt_s; F(0, 2) = 0.5f * dt2;
+    F(1, 0) = 0.0f; F(1, 1) = 1.0f;	F(1, 2) = dt_s;
+    F(2, 0) = 0.0f; F(2, 1) = 0.0f; F(2, 2) = 1.0f;
 
 	// Update Process Noise
 	Q.setZero();
-	Q(0,0) = dt4 / 4.0f;
-	Q(0,1) = dt3 / 2.0f; Q(1,0) = Q(0,1);
-	Q(0,2) = dt2 / 2.0f; Q(2,0) = Q(0,2);
-	Q(1,1) = dt2;
-	Q(1,2) = dt_s; Q(2,1) = Q(1,2);
-	Q(2,2) = 1.0f; // keep small baseline
-
-	Q(3,3) = dt4 / 4.0f;
-	Q(3,4) = dt3 / 2.0f; Q(4,3) = Q(3,4);
-	Q(3,5) = dt2 / 2.0f; Q(5,3) = Q(3,5);
-	Q(4,4) = dt2;
-	Q(4,5) = dt_s; Q(5,4) = Q(4,5);
-	Q(5,5) = 1.0f; // keep small baseline
-
-	Q(6,6) = dt4 / 4.0f;
-	Q(6,7) = dt3 / 2.0f; Q(7,6) = Q(6,7);
-	Q(6,8) = dt2 / 2.0f; Q(8,6) = Q(6,8);
-	Q(7,7) = dt2;
-	Q(7,8) = dt_s; Q(8,7) = Q(7,8);
-	Q(8,8) = 1.0f; // keep small baseline
+	Q(0, 0) = 0.25f * dt3;	Q(0, 1) = 0.5f * dt2;	Q(0, 2) = 0.5f * dt_s;
+    Q(1, 0) = 0.5f  * dt2; 	Q(1, 1) = dt_s;			Q(1, 2) = 1.0f;
+    Q(2, 0) = 0.5f  * dt_s;	Q(2, 1) = 1.0f;			Q(2, 2) = 1.0f;
 
 	Q *= processNoise;
 

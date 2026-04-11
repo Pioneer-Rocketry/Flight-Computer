@@ -46,7 +46,7 @@ int Guidance::update()
     if (data->flightTime >= TURN_START + TURN_LERP and data->flightTime <= TURN_END)
         data->target = TURN_ANGLE;
 
-    data->error =  data->target - data->roll;
+    data->error =  data->target - data->intergratedRoll;
 
     data->p  = data->error * Kp;
     data->i += (data->error * data->guidanceDt) * Ki;

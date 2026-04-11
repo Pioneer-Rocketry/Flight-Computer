@@ -66,6 +66,9 @@ public:
 	float MS560702BA03Pressure_hPA;
 	float MS560702BA03Altitude_m;
 
+	float startingBaroAltitude_m;
+	float baroAltitudeOffset_m;
+
 	/* GPS Data */
 	// Latitude in decimal degrees (+N, -S)
 	float GPSLatitude;
@@ -93,18 +96,12 @@ public:
 	float pitch;
 	float yaw;
 
+	float intergratedRoll;
+
 	/* Kalman Filter Data */
-	float KalmanFilterPositionX_m;
-	float KalmanFilterPositionY_m;
-	float KalmanFilterPositionZ_m;
-
-	float KalmanFilterVelocityX_mps;
-	float KalmanFilterVelocityY_mps;
-	float KalmanFilterVelocityZ_mps;
-
-	float KalmanFilterAccelerationX_mps2;
-	float KalmanFilterAccelerationY_mps2;
-	float KalmanFilterAccelerationZ_mps2;
+	float KalmanFilterAltitude_m;
+	float KalmanFilterVerticalVelocity_mps;
+	float KalmanFilterVerticalAcceleration_mps2;
 
 	/* Control Data */
 	int16_t servo1Angle;

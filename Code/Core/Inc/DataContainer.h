@@ -46,6 +46,7 @@ public:
 	float target;
 
 	float flightTime;
+	float launchTime;
 
 	/* Navigation Data */
 	/* IMU Data*/

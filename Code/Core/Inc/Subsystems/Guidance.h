@@ -19,6 +19,7 @@
 #define TURN_ANGLE  90.0f
 
 #define CANARD_MAX_DEFLECTION_ANGLE 10.0f
+#define CANARD_OFFSET_ANGLE 10.0f
 
 #define TURN_START  5.0f
 #define TURN_END    15.0f
@@ -63,6 +64,8 @@ private:
 
     float PID;
     float error;
+
+	float lastLoop;
 
 };
 

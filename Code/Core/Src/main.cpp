@@ -232,6 +232,8 @@ int main(void)
 
   uint32_t lastPrint = HAL_GetTick();
 
+  data.launchTime = 0.0f;
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -240,6 +242,8 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     tud_task();
+
+    data.flightTime = (HAL_GetTick() / 1000.0f) - data.launchTime;
 
 	  navigation.update();
 
@@ -254,18 +258,22 @@ int main(void)
     {
       lastPrint = HAL_GetTick();
       usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN,
-        "\r\n=== Time : %lu ms ===\r\n"
+        "\r\n=== Time : %lu ms T+ %.2f ===\r\n"
         "IMU: Acc Low G (%.2f, %.2f, %.2f) m/s² | Acc High G (%.2f, %.2f, %.2f) m/s² | Gyro (%.2f, %.2f, %.2f) dps\r\n"
         "Baro: Temp %.2f °C | Pressure %.2f hPA | Altitude %.2f m\r\n"
         "GPS: Lat %.6f | Lon %.6f | Alt %.2f m | Fix %d | Sats %d | UTC %s\r\n"
-        "Quat: W %.4f | X %.4f | Y %.4f | Z %.4f | Norm %.4f\r\n",
-        HAL_GetTick(),
+        "PID: P %.2f | I %.2f | D %.2f | PID %.2f | DT: %.6f\r\n"
+        "Target: %.2f | Error: %.2f \r\n"
+        "Servo Angles: %d, %d\r\n",
+        HAL_GetTick(), data.flightTime,
         data.LSM6DSV320LowGAccelX_mps2, data.LSM6DSV320LowGAccelY_mps2, data.LSM6DSV320LowGAccelZ_mps2,
         data.LSM6DSV320HighGAccelX_mps2, data.LSM6DSV320HighGAccelY_mps2, data.LSM6DSV320HighGAccelZ_mps2,
         data.LSM6DSV320GyroX_dps, data.LSM6DSV320GyroY_dps, data.LSM6DSV320GyroZ_dps,
         data.MS560702BA03Temperature_C, data.MS560702BA03Pressure_hPA, data.MS560702BA03Altitude_m,
         data.GPSLatitude, data.GPSLongitude, data.GPSAltitude_m, data.GPSFix, data.GPSNumSatellites, data.GPSUTCTime,
-        data.quaternionW, data.quaternionX, data.quaternionY, data.quaternionZ, data.quaternionNorm
+        data.p, data.i, data.d, data.PID, data.guidanceDt,
+        data.target, data.error,
+        data.servo1Angle, data.servo2Angle
       );
       cdcSendMessage(usbTxBuffer, usbTxBufferLen);
     }

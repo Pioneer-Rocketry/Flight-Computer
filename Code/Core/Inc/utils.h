@@ -18,6 +18,10 @@ void DWT_Init(void);
 uint32_t micros(void);
 void delay_us(uint32_t us);
 
+
+float lerp(float a, float b, float f);
+float clamp(float value, float min, float max);
+
 #ifdef __cplusplus
 }
 #endif

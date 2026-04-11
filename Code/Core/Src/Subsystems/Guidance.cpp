@@ -7,11 +7,6 @@
 
 #include "Subsystems/Guidance.h"
 
-float lerp(float a, float b, float f)
-{
-    return a * (1.0 - f) + (b * f);
-}
-
 Guidance::Guidance(DataContainer* data, float Kp, float Ki, float Kd)
     : Subsystem(data)
 {
@@ -48,11 +43,18 @@ int Guidance::update()
 
     data->error =  data->target - data->intergratedRoll;
 
+    // PID calculations
     data->p  = data->error * Kp;
     data->i += (data->error * data->guidanceDt) * Ki;
     data->d  = ((data->error - data->lastError) / data->guidanceDt) * Kd;
 
     data->PID = data->p + data->i + data->d;
+    data->PID = clamp(data->PID, -CANARD_MAX_DEFLECTION_ANGLE, CANARD_MAX_DEFLECTION_ANGLE);
+
+    data->servo2Angle =  (int16_t)data->PID;
+    data->servo3Angle = -(int16_t)data->PID;
+    
+    data->lastError = data->error;
 
     return 0;
 }

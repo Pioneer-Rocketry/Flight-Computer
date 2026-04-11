@@ -19,23 +19,16 @@
 #define TRANSMISSION_INTERVAL 10000 // ms
 
 #define TELEMETRY_PACKET_FIELDS(X) \
-	X(float, LSM6DSV320GyroX_dps) \
-	X(float, LSM6DSV320GyroY_dps) \
-	X(float, LSM6DSV320GyroZ_dps) \
-	X(float, LSM6DSV320LowGAccelX_mps2) \
-	X(float, LSM6DSV320LowGAccelY_mps2) \
-	X(float, LSM6DSV320LowGAccelZ_mps2) \
-	X(float, LSM6DSV320HighGAccelX_mps2) \
-	X(float, LSM6DSV320HighGAccelY_mps2) \
-	X(float, LSM6DSV320HighGAccelZ_mps2) \
-	X(float, MS560702BA03Temperature_C) \
-	X(float, MS560702BA03Pressure_hPA) \
-	X(float, MS560702BA03Altitude_m) \
 	X(float, GPSLatitude) \
 	X(float, GPSLongitude) \
 	X(float, GPSAltitude_m) \
 	X(int, GPSFix) \
-	X(int, GPSNumSatellites)
+	X(int, GPSNumSatellites) \
+	X(float, intergratedRoll) \
+	X(float, KalmanFilterAltitude_m) \
+	X(float, KalmanFilterVerticalVelocity_mps) \
+	X(float, KalmanFilterVerticalAcceleration_mps2) \
+	X(float, baroAltitudeOffset_m)
 
 /**
  * @class Telemetry

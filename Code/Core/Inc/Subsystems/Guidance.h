@@ -13,8 +13,12 @@
 #include "Subsystem.h"
 #include "DataContainer.h"
 
+#include "utils.h"
+
 #define STARTING_TARGET_ANGLE 0.0f
-#define TURN_ANGLE  9.0f
+#define TURN_ANGLE  90.0f
+
+#define CANARD_MAX_DEFLECTION_ANGLE 10.0f
 
 #define TURN_START  5.0f
 #define TURN_END    15.0f

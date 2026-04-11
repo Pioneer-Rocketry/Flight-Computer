@@ -27,3 +27,17 @@ void delay_us(uint32_t us)
 
     while ((DWT->CYCCNT - start) < cycles);
 }
+
+float lerp(float a, float b, float f)
+{
+    return a * (1.0 - f) + (b * f);
+}
+
+float clamp(float value, float min, float max)
+{
+    if (value < min)
+        return min;
+    if (value > max)
+        return max;
+    return value;
+}

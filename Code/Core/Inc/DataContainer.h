@@ -32,6 +32,19 @@ class DataContainer {
 private:
 
 public:
+	// State Machine
+	enum {
+		INITIALIZATION,
+		PRELAUNCH,
+		ARMED,
+		LAUNCH,
+		COAST,
+		DESCENT,
+		DROGUE,
+		MAIN,
+		LANDED
+	} state;
+
 	/* Guidance Data */
 	float p;
 	float i;

@@ -112,6 +112,14 @@ static void MX_TIM1_Init(void);
 static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
 
+void checkArmed();
+void checkLaunched();
+void checkCoasting();
+void checkDescent();
+void checkDrogue();
+void checkMain();
+void checkLanded();
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -168,6 +176,8 @@ int main(void)
   DWT_Init();
 
   #ifdef RADIO_INSTALLED
+
+  data.state = DataContainer::INITIALIZATION;
 
   if (telemetry.init() < 0)
   {
@@ -234,6 +244,8 @@ int main(void)
 
   data.launchTime = HAL_GetTick() / 1000.0f;
 
+  data.state = DataContainer::PRELAUNCH;
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -246,13 +258,58 @@ int main(void)
     data.flightTime = (HAL_GetTick() / 1000.0f) - data.launchTime;
 
 	  navigation.update();
-
-    guidance.update();
     control.update();
 
     #ifdef RADIO_INSTALLED
-      telemetry.update();
+    telemetry.update();
     #endif
+
+    switch (data.state)
+    {
+      case DataContainer::PRELAUNCH:
+        checkArmed();
+        checkLaunched();
+
+        data.servo1Angle = 10;
+        data.servo2Angle = 10;
+        data.servo3Angle = 10;
+        data.servo4Angle = 10;
+        break;
+
+      case DataContainer::ARMED:
+        checkLaunched();
+        break;
+
+      case DataContainer::LAUNCH:
+        checkCoasting();
+
+        guidance.update();
+        break;
+
+      case DataContainer::COAST:
+        checkDesent();
+
+        guidance.update();
+        break;
+
+      case DataContainer::DESCENT:
+        checkDrogue();
+        break;
+
+      case DataContainer::DROGUE:
+        checkMain();
+        break;
+
+      case DataContainer::MAIN:
+        checkLanded();
+        break;
+
+      case DataContainer::LANDED:
+        break;
+
+      default:
+        break;
+    }
 
     if (HAL_GetTick() - lastPrint >= 500)
     {
@@ -819,7 +876,42 @@ void tud_dfu_manifest_cb(uint8_t alt)
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-  
+
+}
+
+void checkArmed()
+{
+
+}
+
+void checkLaunched()
+{
+
+}
+
+void checkCoasting()
+{
+
+}
+
+void checkDescent()
+{
+
+}
+
+void checkDrogue()
+{
+
+}
+
+void checkMain()
+{
+
+}
+
+void checkLanded()
+{
+
 }
 
 /* USER CODE END 4 */

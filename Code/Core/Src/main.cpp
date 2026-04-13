@@ -61,6 +61,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
 
 I2C_HandleTypeDef hi2c2;
 
@@ -287,7 +288,7 @@ int main(void)
         break;
 
       case DataContainer::COAST:
-        checkDesent();
+        checkDescent();
 
         guidance.update();
         break;

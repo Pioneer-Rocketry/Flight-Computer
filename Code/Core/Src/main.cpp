@@ -98,6 +98,8 @@ Guidance guidance(&data, 0.1f, 0.0f, 0.05f);
 Navigation navigation(&data, &hspi1, &huart4, gpsRxBuffer);
 Control control(&data, &htim1, &htim3);
 
+uint16_t rawAdcValue[4];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -168,7 +170,8 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_UART_Receive_DMA(&huart4, gpsRxBuffer, GPS_BUFFER_SIZE);
+  // HAL_UART_Receive_DMA(&huart4, gpsRxBuffer, GPS_BUFFER_SIZE);
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)rawAdcValue, 4);
 
   tud_init(BOARD_TUD_RHPORT);
 
@@ -316,14 +319,15 @@ int main(void)
     {
       lastPrint = HAL_GetTick();
       usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN,
-        "\r\n=== Time : %lu ms T+ %.2f ===\r\n"
+        "\r\n=== Time : %lu ms T+ %.2f State: %d ===\r\n"
         "IMU: Acc Low G (%.2f, %.2f, %.2f) m/s² | Acc High G (%.2f, %.2f, %.2f) m/s² | Gyro (%.2f, %.2f, %.2f) dps\r\n"
         "Baro: Temp %.2f °C | Pressure %.2f hPA | Altitude %.2f m\r\n"
         "GPS: Lat %.6f | Lon %.6f | Alt %.2f m | Fix %d | Sats %d | UTC %s\r\n"
         "PID: P %.2f | I %.2f | D %.2f | PID %.2f | DT: %.7f\r\n"
         "Roll: %.2f | Target: %.2f | Error: %.2f \r\n"
+        "Pyro Voltages: Arm %.2f V | Pyro1 %.2f V | Pyro2 %.2f V | Pyro3 %.2f V\r\n"
         "Servo Angles: %d, %d\r\n",
-        HAL_GetTick(), data.flightTime,
+        HAL_GetTick(), data.flightTime, data.state,
         data.LSM6DSV320LowGAccelX_mps2, data.LSM6DSV320LowGAccelY_mps2, data.LSM6DSV320LowGAccelZ_mps2,
         data.LSM6DSV320HighGAccelX_mps2, data.LSM6DSV320HighGAccelY_mps2, data.LSM6DSV320HighGAccelZ_mps2,
         data.LSM6DSV320GyroX_dps, data.LSM6DSV320GyroY_dps, data.LSM6DSV320GyroZ_dps,
@@ -331,6 +335,7 @@ int main(void)
         data.GPSLatitude, data.GPSLongitude, data.GPSAltitude_m, data.GPSFix, data.GPSNumSatellites, data.GPSUTCTime,
         data.p, data.i, data.d, data.PID, data.guidanceDt,
         data.roll, data.target, data.error,
+        data.pyroArmVoltage, data.pyro1Voltage, data.pyro2Voltage, data.pyro3Voltage,
         data.servo1Angle, data.servo2Angle
       );
       cdcSendMessage(usbTxBuffer, usbTxBufferLen);
@@ -415,13 +420,13 @@ static void MX_ADC1_Init(void)
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
-  hadc1.Init.ScanConvMode = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.ScanConvMode = ENABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.NbrOfConversion = 4;
   hadc1.Init.DMAContinuousRequests = DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
@@ -431,9 +436,36 @@ static void MX_ADC1_Init(void)
 
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
   */
-  sConfig.Channel = ADC_CHANNEL_3;
+  sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_1;
+  sConfig.Rank = 2;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_2;
+  sConfig.Rank = 3;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_3;
+  sConfig.Rank = 4;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -501,7 +533,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -742,11 +774,15 @@ static void MX_DMA_Init(void)
 
   /* DMA controller clock enable */
   __HAL_RCC_DMA1_CLK_ENABLE();
+  __HAL_RCC_DMA2_CLK_ENABLE();
 
   /* DMA interrupt init */
   /* DMA1_Stream2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream2_IRQn);
+  /* DMA2_Stream4_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream4_IRQn);
 
 }
 
@@ -835,6 +871,17 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+{
+  if (hadc->Instance == ADC1) {
+    data.pyro2Voltage   = (rawAdcValue[0] / 4095.0f) * 3.3f * 2.7f;
+    data.pyro1Voltage   = (rawAdcValue[1] / 4095.0f) * 3.3f * 2.7f;
+    data.pyroArmVoltage = (rawAdcValue[2] / 4095.0f) * 3.3f * 11.0f;
+    data.pyro3Voltage   = (rawAdcValue[3] / 4095.0f) * 3.3f * 2.7f;
+
+    HAL_ADC_Start_DMA(&hadc1, (uint32_t*)rawAdcValue, 4);
+  }
+}
 
 void tud_dfu_runtime_reboot_to_dfu_cb(void)
 {

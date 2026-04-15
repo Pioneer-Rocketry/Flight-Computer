@@ -123,6 +123,12 @@ public:
     int16_t servo3Angle;
     int16_t servo4Angle;
 
+
+	/* Pyro Data */
+	float pyroArmVoltage;
+	float pyro1Voltage;
+	float pyro2Voltage;
+	float pyro3Voltage;
 };
 
 

@@ -52,6 +52,8 @@
 
 #define RADIO_INSTALLED
 
+#define PYRO_ARM_THRESHOLD_VOLTAGE 3.0f
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -282,6 +284,8 @@ int main(void)
 
       case DataContainer::ARMED:
         checkLaunched();
+
+        guidance.update();
         break;
 
       case DataContainer::LAUNCH:
@@ -929,7 +933,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 void checkArmed()
 {
-
+  if (data.pyroArmVoltage >= PYRO_ARM_THRESHOLD_VOLTAGE)
+  {
+    data.state = DataContainer::ARMED;
+    cdcSendMessage("Rocket Armed!\r\n", USB_BUF_LEN);
+  }
 }
 
 void checkLaunched()

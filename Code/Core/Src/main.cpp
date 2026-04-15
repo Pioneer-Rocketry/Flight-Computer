@@ -53,6 +53,12 @@
 #define RADIO_INSTALLED
 
 #define PYRO_ARM_THRESHOLD_VOLTAGE 3.0f
+#define LAUNCH_DETECT_THRESHOLD_mps2 20.0f
+#define COAST_DETECT_THRESHOLD_mps2 9.0f
+#define DECENT_DETECT_THRESHOLD_MPS -20.0f
+#define DROGUE_DETECT_THRESHOLD_MPS -10.0f
+#define MAIN_DETECT_THRESHOLD_MPS -5.0f
+#define LANDED_DETECT_THRESHOLD_mps2 2.0f
 
 /* USER CODE END PD */
 
@@ -181,9 +187,9 @@ int main(void)
 
   DWT_Init();
 
-  #ifdef RADIO_INSTALLED
-
   data.state = DataContainer::INITIALIZATION;
+
+  #ifdef RADIO_INSTALLED
 
   if (telemetry.init() < 0)
   {
@@ -944,31 +950,58 @@ void checkArmed()
 
 void checkLaunched()
 {
-
+  if (data.verticalAcceleration_mps2 > LAUNCH_DETECT_THRESHOLD_mps2)
+  {
+    data.state = DataContainer::LAUNCH;
+    cdcSendMessage("Launch Detected!\r\n", USB_BUF_LEN);
+  }
 }
 
 void checkCoasting()
 {
-
+  if (data.verticalAcceleration_mps2 < COAST_DETECT_THRESHOLD_mps2)
+  {
+    data.state = DataContainer::COAST;
+    cdcSendMessage("Coasting Phase Detected!\r\n", USB_BUF_LEN);
+  }
 }
 
 void checkDescent()
 {
-
+  if (data.intergratedVerticalVelocity_mps > DECENT_DETECT_THRESHOLD_MPS)
+  {
+    data.state = DataContainer::DESCENT;
+    cdcSendMessage("Descent Detected!\r\n", USB_BUF_LEN);
+  }
 }
 
 void checkDrogue()
 {
+  if (data.intergratedVerticalVelocity_mps > DROGUE_DETECT_THRESHOLD_MPS)
+  {
+    data.state = DataContainer::DROGUE;
+    cdcSendMessage("Drogue Deployment Detected!\r\n", USB_BUF_LEN);
+  }
 
 }
 
 void checkMain()
 {
-
+  if (data.intergratedVerticalVelocity_mps > MAIN_DETECT_THRESHOLD_MPS)
+  {
+    data.state = DataContainer::MAIN;
+    cdcSendMessage("Main Deployment Detected!\r\n", USB_BUF_LEN);
+  }
 }
 
 void checkLanded()
 {
+  if (data.verticalAcceleration_mps2 > GRAVITY + LANDED_DETECT_THRESHOLD_mps2 &&
+      data.verticalAcceleration_mps2 < GRAVITY - LANDED_DETECT_THRESHOLD_mps2)
+  {
+    data.state = DataContainer::LANDED;
+    cdcSendMessage("Landing Detected!\r\n", USB_BUF_LEN);
+  }
 
 }
 

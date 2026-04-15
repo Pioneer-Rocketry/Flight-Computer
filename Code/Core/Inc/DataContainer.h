@@ -112,6 +112,11 @@ public:
 
 	float intergratedRoll;
 
+
+	float verticalAcceleration_mps2;
+	float intergratedVerticalVelocity_mps;
+	float intergratedVerticalAltitude_m;
+
 	/* Kalman Filter Data */
 	float KalmanFilterAltitude_m;
 	float KalmanFilterVerticalVelocity_mps;
@@ -122,7 +127,6 @@ public:
     int16_t servo2Angle;
     int16_t servo3Angle;
     int16_t servo4Angle;
-
 
 	/* Pyro Data */
 	float pyroArmVoltage;

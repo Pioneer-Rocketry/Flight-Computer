@@ -330,6 +330,7 @@ int main(void)
         "PID: P %.2f | I %.2f | D %.2f | PID %.2f | DT: %.7f\r\n"
         "Roll: %.2f | Target: %.2f | Error: %.2f \r\n"
         "Pyro Voltages: Arm %.2f V | Pyro1 %.2f V | Pyro2 %.2f V | Pyro3 %.2f V\r\n"
+        "Vertical: Acc %.2f m/s² | Vel %.2f m/s | Alt %.2f m\r\n"
         "Servo Angles: %d, %d\r\n",
         HAL_GetTick(), data.flightTime, data.state,
         data.LSM6DSV320LowGAccelX_mps2, data.LSM6DSV320LowGAccelY_mps2, data.LSM6DSV320LowGAccelZ_mps2,
@@ -340,6 +341,7 @@ int main(void)
         data.p, data.i, data.d, data.PID, data.guidanceDt,
         data.roll, data.target, data.error,
         data.pyroArmVoltage, data.pyro1Voltage, data.pyro2Voltage, data.pyro3Voltage,
+        data.verticalAcceleration_mps2, data.intergratedVerticalVelocity_mps, data.intergratedVerticalAltitude_m,
         data.servo1Angle, data.servo2Angle
       );
       cdcSendMessage(usbTxBuffer, usbTxBufferLen);

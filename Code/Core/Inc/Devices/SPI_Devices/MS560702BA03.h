@@ -100,7 +100,7 @@ public:
 
 private:
 
-	uint16_t C[7]; // Calibration coefficients
+	uint16_t C[6];
 
 	uint32_t D1, D2;
 	int32_t dT, TEMP, P;
@@ -138,7 +138,7 @@ private:
 		OSR_1024 = 0b010,
 		OSR_2048 = 0b011,
 		OSR_4096 = 0b100
-	} osr = OSR_256;
+	} osr = OSR_512;
 
 	uint32_t conversionTime_us;
 	uint32_t conversionStart_us;

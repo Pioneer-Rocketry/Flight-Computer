@@ -37,7 +37,7 @@ int MS560702BA03::init()
 }
 
 int MS560702BA03::readProm() {
-    for (uint8_t i = 0; i < 7; i++) {
+    for (uint8_t i = 0; i <= 5; i++) {
         if (readSPI(MS5607_PROM_READ + (i * 2), buffer, 2) != HAL_OK)
             return -1;
         C[i] = (buffer[0] << 8) | buffer[1];
@@ -51,40 +51,40 @@ uint32_t MS560702BA03::readADC(uint8_t cmd) {
 
     readSPI(MS5607_ADC_READ, buffer, 3);
 
-    return (buffer[0] << 16) | (buffer[1] << 8) | buffer[2];
+    return ((uint32_t)buffer[0] << 16) | ((uint32_t)buffer[1] << 8) | buffer[2];
 }
 
 int MS560702BA03::update()
 {
 	now_us = micros();
-	delay = now_us - conversionStart_us;
-	if (delay < conversionTime_us)
-		delay_us(conversionTime_us - delay);
+	// delay = now_us - conversionStart_us;
+	// if (delay < conversionTime_us)
+	// 	delay_us(conversionTime_us - delay);
 
-	readSPI(MS5607_ADC_READ, buffer, 3);
-    D1 = (buffer[0] << 16) | (buffer[1] << 8) | buffer[2];
+	// readSPI(MS5607_ADC_READ, buffer, 3);
+    // D1 = (buffer[0] << 16) | (buffer[1] << 8) | buffer[2];
 
-	// D1 = readADC(MS5607_CONVERT_D1 | (osr << 1));
+	D1 = readADC(MS5607_CONVERT_D1 | (osr << 1));
 	D2 = readADC(MS5607_CONVERT_D2 | (osr << 1));
 
-	dT = D2 - ((uint32_t)C[5] << 8);
-	TEMP = 2000 + ((int64_t)dT * C[6]) / (1 << 23);
+	dT = D2 - ((uint32_t)C[4] << 8);
+	TEMP = 2000 + ((int64_t)dT * (C[5] >> 23));
 
 	OFF = ((int64_t)C[2] << 17) + (((int64_t)C[4] * dT) >> 6);
 	SENS = ((int64_t)C[1] << 16) + (((int64_t)C[3] * dT) >> 7);
 
-	P = (((D1 * SENS) >> 21) - OFF) >> 15;
+	P = (int32_t)(((D1 * (SENS >> 21))) - OFF) >> 15;
 
 	this->data->MS560702BA03Temperature_C = TEMP / 100.0f;
 	this->data->MS560702BA03Pressure_hPA = P / 100.0f;
-	this->data->MS560702BA03Altitude_m = (1-powf(this->data->MS560702BA03Pressure_hPA/1013.25, 0.190284))*145366.45 * FEET_TO_METER;
+	this->data->MS560702BA03Altitude_m = (1.0f - powf(this->data->MS560702BA03Pressure_hPA / 1013.25, 0.190284))*145366.45 * FEET_TO_METER;
 
 	return 0;
 }
 
 void MS560702BA03::startConversion()
 {
-	writeSPI(MS5607_CONVERT_D1 | (osr << 1), nullptr, 0);
+	// writeSPI(MS5607_CONVERT_D1 | (osr << 1), nullptr, 0);
 
-	conversionStart_us = micros();
+	// conversionStart_us = micros();
 }

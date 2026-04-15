@@ -21,7 +21,7 @@
 
 #define LOG_PAGE_BUFFER_SIZE_BYTES W25Q128JV_PAGE_SIZE - 1 // Using the first byte of a page to keep track of if there is data
 
-#define MAX_PACKET_LENGTH 254
+#define MAX_LOGGING_PACKET_LENGTH 254
 
 #define TRANSMISSION_FREQENCY 1/10.0f // hz
 #define TRANSMISSION_INTERVAL 10000 // ms
@@ -54,46 +54,7 @@ class Logging: public Subsystem
     int init() override;
     int update() override;
 
-	void dumpFlash(){
-		uint8_t buffer[256];
-		for (uint32_t page = 0; page <= 0xFFFF; page++){ //Read one page at a time
-			flash.readData(((uint32_t)page) << 8, buffer, 0xFF);
-			char pageAddrStringBuffer[4]; //aaaa //16bit page address
-			sprintf(pageAddrStringBuffer, "%04X", page);
-
-			for (uint8_t line = 0x0; line < 0xF; line++){//For print 16 bytes each of the lines, so 16 per page 
-				cdcSendMessage(pageAddrStringBuffer, 8);
-
-				char stringBuffer[55]; //54 bytes of chars, 1 for newline format "aaaa: BB BB BB BB BB BB BB BB  BB BB BB BB BB BB BB BB"
-				
-				sprintf(stringBuffer, "%X0: ", line); //Last byte of address, placeholder 4 bits as 16 bytes are represented per line
-				for (uint8_t byteInLine = 0; byteInLine < 8; byteInLine++){
-
-							// ptr to string buffer, format, source
-							// 3 chars per byte, 4 bytes for "aa: "
-					sprintf(stringBuffer + (byteInLine * 3) + 4, "%02X", buffer[line*16+byteInLine]);
-
-					stringBuffer[2+byteInLine] = ' ';
-				}
-
-				//Extra space between sets
-				//3 chars per byte (8 done already), 4 for "aa: "
-				stringBuffer[3*8+4] = ' ';
-				
-				//Same as above to second set of bytes on the line
-				for (uint8_t byteInLine = 8; byteInLine < 16; byteInLine++){
-					//Same as above, but extra +1 for extra space character between sets
-					sprintf(stringBuffer + (byteInLine * 3) + 4 + 1, "%02X", buffer[line*16+byteInLine]);
-					stringBuffer[2+byteInLine+1] = ' ';
-				}
-				//Set the last char as a newline
-				stringBuffer[54] = '\n';
-
-				//Print the line
-				cdcSendMessage(stringBuffer, 3);
-			}
-		}
-	}
+	void dumpFlash();
 
     private:
     W25Q128JV flash;
@@ -109,11 +70,11 @@ class Logging: public Subsystem
 			LOGGING_PACKET_FIELDS(x)
 			#undef x
 		} fields;
-		uint8_t raw[MAX_PACKET_LENGTH];
+		uint8_t raw[MAX_LOGGING_PACKET_LENGTH];
 	} flashPacket;
 
 	// Compile-time guard: fires if the struct exceeds the radio payload limit.
-    static_assert(sizeof(flashPacket.fields) <= MAX_PACKET_LENGTH,
+    static_assert(sizeof(flashPacket.fields) <= MAX_LOGGING_PACKET_LENGTH,
                   "Flash packet exceeds MAX_PACKET_LENGTH — "
                   "reduce fields or allow for writing to more than one page per write.");
 

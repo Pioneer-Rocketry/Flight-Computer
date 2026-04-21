@@ -254,47 +254,10 @@ int main(void)
     }
   }
 
-  HAL_Delay(5000);
-
-  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Initilizing Flash\r\n");
-  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-
-  if (logging.init() != 0){
-    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Failed while Initilizing Flash\r\n");
-    
-    while(true){
-      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-      HAL_Delay(1000);
-    }
-  }
-
-  HAL_Delay(1000);
-
-  logging.dumpFlash();
-
-  logging.update();
-  logging.update();
-  logging.update();
-  logging.update();
-  logging.update();
-  logging.update();
-
-  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Updated:\n\n\n");
-  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-
-  HAL_Delay(2000);
-
-  logging.dumpFlash();
-
-
   usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Initialization Complete \r\n");
   cdcSendMessage(usbTxBuffer, usbTxBufferLen);
 
   tud_init(BOARD_TUD_RHPORT);
-
-  uint32_t currentTick;
-  uint32_t lastTick = 0;
-  static bool increasing = true;
 
   /* USER CODE END 2 */
 
@@ -992,7 +955,17 @@ void checkArmed()
   if (data.pyroArmVoltage >= PYRO_ARM_THRESHOLD_VOLTAGE)
   {
     data.state = DataContainer::ARMED;
-    cdcSendMessage("Rocket Armed!\r\n", USB_BUF_LEN);
+
+    // Reset state variables
+    data.verticalAcceleration_mps2 = 0.0f;
+    data.intergratedVerticalVelocity_mps = 0.0f;
+    data.intergratedVerticalAltitude_m = 0.0f;
+    data.intergratedRoll = 0.0f;
+
+    data.lastError = 0.0f;
+
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Rocket Armed!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
   }
 }
 
@@ -1001,7 +974,17 @@ void checkLaunched()
   if (data.verticalAcceleration_mps2 > LAUNCH_DETECT_THRESHOLD_mps2)
   {
     data.state = DataContainer::LAUNCH;
-    cdcSendMessage("Launch Detected!\r\n", USB_BUF_LEN);
+
+    // Reset state variables
+    data.verticalAcceleration_mps2 = 0.0f;
+    data.intergratedVerticalVelocity_mps = 0.0f;
+    data.intergratedVerticalAltitude_m = 0.0f;
+    data.intergratedRoll = 0.0f;
+
+    data.lastError = 0.0f;
+
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Launch Detected!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
   }
 }
 
@@ -1010,7 +993,8 @@ void checkCoasting()
   if (data.verticalAcceleration_mps2 < COAST_DETECT_THRESHOLD_mps2)
   {
     data.state = DataContainer::COAST;
-    cdcSendMessage("Coasting Phase Detected!\r\n", USB_BUF_LEN);
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Coasting Phase Detected!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
   }
 }
 
@@ -1019,7 +1003,8 @@ void checkDescent()
   if (data.intergratedVerticalVelocity_mps > DECENT_DETECT_THRESHOLD_MPS)
   {
     data.state = DataContainer::DESCENT;
-    cdcSendMessage("Descent Detected!\r\n", USB_BUF_LEN);
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Descent Detected!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
   }
 }
 
@@ -1028,7 +1013,8 @@ void checkDrogue()
   if (data.intergratedVerticalVelocity_mps > DROGUE_DETECT_THRESHOLD_MPS)
   {
     data.state = DataContainer::DROGUE;
-    cdcSendMessage("Drogue Deployment Detected!\r\n", USB_BUF_LEN);
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Drogue Deployment Detected!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
   }
 
 }
@@ -1038,7 +1024,8 @@ void checkMain()
   if (data.intergratedVerticalVelocity_mps > MAIN_DETECT_THRESHOLD_MPS)
   {
     data.state = DataContainer::MAIN;
-    cdcSendMessage("Main Deployment Detected!\r\n", USB_BUF_LEN);
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Main Deployment Detected!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
   }
 }
 
@@ -1048,7 +1035,8 @@ void checkLanded()
       data.verticalAcceleration_mps2 < GRAVITY - LANDED_DETECT_THRESHOLD_mps2)
   {
     data.state = DataContainer::LANDED;
-    cdcSendMessage("Landing Detected!\r\n", USB_BUF_LEN);
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Landing Detected!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
   }
 
 }

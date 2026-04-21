@@ -30,7 +30,7 @@ int Telemetry::update()
 
 	rfm95.update();
 
-    if (now - lastTransmittion >= TRANSMISSION_INTERVAL)
+    if (now - lastTransmittion >= RADIO_TRANSMISSION_INTERVAL)
     {
 		#define x(type, name) radioPacket.fields.name = data->name;
 		TELEMETRY_PACKET_FIELDS(x)

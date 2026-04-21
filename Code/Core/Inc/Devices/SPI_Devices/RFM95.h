@@ -134,7 +134,7 @@ private:
 		BANDWITDH_125kHz 	= 0b0111,
 		BANDWITDH_250kHz 	= 0b1000,
 		BANDWITDH_500kHz 	= 0b1001
-	} bandwidth = BANDWITDH_31kHz25;
+	} bandwidth = BANDWITDH_500kHz;
 
 	enum RFM95_CODING {
 		CODING_4_5 	= 0b001,

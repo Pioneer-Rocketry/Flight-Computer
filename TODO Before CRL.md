@@ -6,4 +6,4 @@
 - [ ] Test Navigation System
 - [ ] Test Guidance System
 - [ ] Test Telemetry System
-- [ ] Make Telemetry Ground Station
+- [x] Make Telemetry Ground Station

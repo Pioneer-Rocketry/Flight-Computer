@@ -37,6 +37,7 @@
 #include "Subsystems/Guidance.h"
 #include "Subsystems/Navigation.h"
 #include "Subsystems/Control.h"
+#include "Subsystems/Logging.h"
 
 #include "utils.h"
 
@@ -105,6 +106,7 @@ Telemetry telemetry(&data, &hspi1);
 Guidance guidance(&data, 0.1f, 0.0f, 0.05f);
 Navigation navigation(&data, &hspi1, &huart4, gpsRxBuffer);
 Control control(&data, &htim1, &htim3);
+Logging logging(&data, &hspi1);
 
 uint16_t rawAdcValue[4];
 
@@ -183,8 +185,6 @@ int main(void)
 
   tud_init(BOARD_TUD_RHPORT);
 
-  cdcSendMessage("Welcome to the Pioneer Rocketry Flight Computer!\r\n", USB_BUF_LEN);
-
   DWT_Init();
 
   data.state = DataContainer::INITIALIZATION;
@@ -242,7 +242,53 @@ int main(void)
     }
   }
 
-  cdcSendMessage("Initialization Complete \r\n", USB_BUF_LEN);
+  if (logging.init() < 0)
+  {
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Logging!\r\n");
+    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+    while (1)
+    {
+      // Send Error Message over USB CDC
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
+  }
+
+  HAL_Delay(5000);
+
+  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Initilizing Flash\r\n");
+  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+
+  if (logging.init() != 0){
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Failed while Initilizing Flash\r\n");
+    
+    while(true){
+      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      HAL_Delay(1000);
+    }
+  }
+
+  HAL_Delay(1000);
+
+  logging.dumpFlash();
+
+  logging.update();
+  logging.update();
+  logging.update();
+  logging.update();
+  logging.update();
+  logging.update();
+
+  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Updated:\n\n\n");
+  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+
+  HAL_Delay(2000);
+
+  logging.dumpFlash();
+
+
+  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Initialization Complete \r\n");
+  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
 
   tud_init(BOARD_TUD_RHPORT);
 
@@ -324,6 +370,8 @@ int main(void)
       default:
         break;
     }
+
+    logging.update();
 
     if (HAL_GetTick() - lastPrint >= 500)
     {

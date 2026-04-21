@@ -65,6 +65,8 @@ class Logging: public Subsystem
 
 	void dumpFlash();
 
+	void erase();
+
     private:
     W25Q128JV flash;
 	uint16_t currentPage = 0;

@@ -43,28 +43,25 @@ int Logging::update()
 
 	now = HAL_GetTick();
 
-    if (now - lastLog >= TRANSMISSION_INTERVAL)
-    {
-		#define x(type, name) flashPacket.fields.name = data->name;
-		LOGGING_PACKET_FIELDS(x)
-		#undef x
+	#define x(type, name) flashPacket.fields.name = data->name;
+	LOGGING_PACKET_FIELDS(x)
+	#undef x
 
-		if (currentPage << 4 != currentSector){ //Moved into next sector
-			flash.eraseSector(currentPage << 4);
-			currentSector = currentPage << 4;
-		}
+	if (currentPage << 4 != currentSector){ //Moved into next sector
+		flash.eraseSector(currentPage << 4);
+		currentSector = currentPage << 4;
+	}
 
-		if (enableWriting){
-			flash.writePage(currentPage, flashPacket.raw, sizeof(flashPacket.raw));
-		}
+	if (enableWriting){
+		flash.writePage(currentPage, flashPacket.raw, sizeof(flashPacket.raw));
+	}
 
-		currentPage++;
-		if (currentPage > 2^16){
-			enableWriting = false;
-		}
+	currentPage++;
+	if (currentPage > 2^16){
+		enableWriting = false;
+	}
 
-        lastLog = HAL_GetTick();
-    }
+	lastLog = HAL_GetTick();
 
 	return 0;
 }
@@ -107,5 +104,11 @@ void Logging::dumpFlash(){
 			//Print the line
 			cdcSendMessage(stringBuffer, 3);
 		}
+	}
+}
+
+void Logging::erase(){
+	for (uint16_t sector = 0; sector < W25128JV_SECTOR_SIZE; sector++){
+		flash.eraseSector(sector);
 	}
 }

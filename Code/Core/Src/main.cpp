@@ -363,6 +363,52 @@ int main(void)
       );
       cdcSendMessage(usbTxBuffer, usbTxBufferLen);
     }
+
+    /* Basic Command */
+    /**
+     * d - dump flash
+     * e - erase flash
+     * h - help
+     */
+
+    if (tud_cdc_connected() && tud_cdc_available())
+    {
+      usbRxBufferLen = tud_cdc_read(usbRxBuffer, USB_BUF_LEN);
+      for (uint16_t i = 0; i < usbRxBufferLen; i++)
+      {
+        char c = usbRxBuffer[i];
+        switch (c)
+        {
+          case 'd':
+            logging.dumpFlash();
+            break;
+          case 'e':
+            // Send "Are you sure? (y/n)" prompt
+            usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Are you sure? (y/n)\r\n");
+            cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+
+            // Wait for response
+            while (!tud_cdc_available());
+
+            // Read response
+            usbRxBufferLen = tud_cdc_read(usbRxBuffer, USB_BUF_LEN);
+            if (usbRxBufferLen > 0 && (usbRxBuffer[0] == 'y' || usbRxBuffer[0] == 'Y'))
+            {
+              logging.erase();
+              usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Flash erased.\r\n");
+              cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+            }
+
+            break;
+          case 'h':
+            usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Commands:\r\n d - dump flash\r\n e - erase flash\r\n h - help\r\n s - status\r\n r - reboot\r\n");
+            cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+            break;
+          default:
+            break;
+        }
+      }
+    }
   }
   /* USER CODE END 3 */
 }

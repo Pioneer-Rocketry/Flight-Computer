@@ -23,9 +23,6 @@
 
 #define MAX_LOGGING_PACKET_LENGTH 254
 
-#define TRANSMISSION_FREQENCY 1/10.0f // hz
-#define TRANSMISSION_INTERVAL 10000 // ms
-
 #define LOGGING_PACKET_FIELDS(X) \
 	X(float, LSM6DSV320GyroX_dps) \
 	X(float, LSM6DSV320GyroY_dps) \
@@ -43,7 +40,19 @@
 	X(float, GPSLongitude) \
 	X(float, GPSAltitude_m) \
 	X(int, GPSFix) \
-	X(int, GPSNumSatellites)
+	X(int, GPSNumSatellites) \
+	X(float, p) \
+	X(float, i) \
+	X(float, d) \
+	X(float, target) \
+	X(float, error) \
+	X(float, intergratedRoll) \
+	X(float, verticalAcceleration_mps2) \
+	X(float, intergratedVerticalVelocity_mps) \
+	X(float, intergratedVerticalAltitude_m) \
+	X(float, servo1Angle) \
+	X(float, servo2Angle) \
+	X(float, pyroArmVoltage)
 
 class Logging: public Subsystem
 {

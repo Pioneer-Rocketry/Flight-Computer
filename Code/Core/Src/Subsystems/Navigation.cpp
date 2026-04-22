@@ -128,6 +128,10 @@ int Navigation::update()
 	// Intergrate to find roll
 	data->intergratedRoll += (rollRate_rad * dt_s) * RAD_TO_DEG;
 
+	// Bound Roll Angle (-180, 180)
+	if (data->intergratedRoll >  180) data->intergratedRoll -= 360;
+	if (data->intergratedRoll < -180) data->intergratedRoll += 360;
+
 	// Intergrate to find vertical velocity and altitude
 	data->verticalAcceleration_mps2 = data->LSM6DSV320LowGAccelY_mps2 - 9.8f; // Subtract gravity to get vertical acceleration
 

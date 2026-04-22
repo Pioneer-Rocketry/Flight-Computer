@@ -394,6 +394,9 @@ int main(void)
             usbRxBufferLen = tud_cdc_read(usbRxBuffer, USB_BUF_LEN);
             if (usbRxBufferLen > 0 && (usbRxBuffer[0] == 'y' || usbRxBuffer[0] == 'Y'))
             {
+              
+              usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Erasing flash!\r\n");
+              cdcSendMessage(usbTxBuffer, usbTxBufferLen);
               logging.erase();
               usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Flash erased.\r\n");
               cdcSendMessage(usbTxBuffer, usbTxBufferLen);
@@ -401,7 +404,7 @@ int main(void)
 
             break;
           case 'h':
-            usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Commands:\r\n d - dump flash\r\n e - erase flash\r\n h - help\r\n s - status\r\n r - reboot\r\n");
+            usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Commands:\r\n d - dump flash\r\n e - erase flash\r\n h - help\r\n");
             cdcSendMessage(usbTxBuffer, usbTxBufferLen);
             break;
           default:

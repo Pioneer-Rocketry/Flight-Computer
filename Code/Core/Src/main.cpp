@@ -100,7 +100,6 @@ uint8_t gpsRxBuffer[GPS_BUFFER_SIZE];
 
 DataContainer data;
 
-// Radio radio(&data, &hspi1);
 Telemetry telemetry(&data, &hspi1);
 
 Guidance guidance(&data, 0.1f, 0.0f, 0.05f);
@@ -180,7 +179,7 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
-  // HAL_UART_Receive_DMA(&huart4, gpsRxBuffer, GPS_BUFFER_SIZE);
+  HAL_UART_Receive_DMA(&huart4, gpsRxBuffer, GPS_BUFFER_SIZE);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)rawAdcValue, 4);
 
   tud_init(BOARD_TUD_RHPORT);
@@ -263,8 +262,6 @@ int main(void)
 
   uint32_t lastPrint = HAL_GetTick();
 
-  data.launchTime = HAL_GetTick() / 1000.0f;
-
   data.state = DataContainer::PRELAUNCH;
 
   /* Infinite loop */
@@ -301,40 +298,45 @@ int main(void)
         checkLaunched();
 
         guidance.update();
+        logging.update();
         break;
 
       case DataContainer::LAUNCH:
         checkCoasting();
 
         guidance.update();
+        logging.update();
         break;
 
       case DataContainer::COAST:
         checkDescent();
 
         guidance.update();
+        logging.update();
         break;
 
       case DataContainer::DESCENT:
         checkDrogue();
+        logging.update();
         break;
 
       case DataContainer::DROGUE:
         checkMain();
+        logging.update();
         break;
 
       case DataContainer::MAIN:
         checkLanded();
+        logging.update();
         break;
 
       case DataContainer::LANDED:
+        logging.update();
         break;
 
       default:
         break;
     }
-
-    logging.update();
 
     if (HAL_GetTick() - lastPrint >= 500)
     {
@@ -387,20 +389,21 @@ int main(void)
             usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Are you sure? (y/n)\r\n");
             cdcSendMessage(usbTxBuffer, usbTxBufferLen);
 
-            // Wait for response
-            while (!tud_cdc_available());
+            // HAL_Delay(5000);
 
             // Read response
-            usbRxBufferLen = tud_cdc_read(usbRxBuffer, USB_BUF_LEN);
-            if (usbRxBufferLen > 0 && (usbRxBuffer[0] == 'y' || usbRxBuffer[0] == 'Y'))
-            {
-              
-              usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Erasing flash!\r\n");
-              cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-              logging.erase();
-              usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Flash erased.\r\n");
-              cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-            }
+            // tud_task();
+            // usbRxBufferLen = tud_cdc_read(usbRxBuffer, USB_BUF_LEN);
+            // if (usbRxBufferLen > 0 && (usbRxBuffer[0] == 'y' || usbRxBuffer[0] == 'Y'))
+            // {
+            usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Erasing flash!\r\n");
+            cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+
+            logging.erase();
+
+            usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Flash erased.\r\n");
+            cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+            // }
 
             break;
           case 'h':
@@ -885,13 +888,13 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, SPI_CS1_Pin|LORA_RESET_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|FLASH_RESET_Pin|FLASH_WP_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|FLASH_RESET_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(IMU_CS_GPIO_Port, IMU_CS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, BARO_CS_Pin|FLASH_CS_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB, BARO_CS_Pin|FLASH_CS_Pin|FLASH_WP_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : SPI_CS1_Pin LORA_DIO0_Pin PYRO3_TRIGGER_Pin PRYO2_TRIGGER_Pin
                            PRYO1_TRIGGER_Pin LORA_RESET_Pin */
@@ -1023,6 +1026,8 @@ void checkLaunched()
   if (data.verticalAcceleration_mps2 > LAUNCH_DETECT_THRESHOLD_mps2)
   {
     data.state = DataContainer::LAUNCH;
+
+    data.launchTime = HAL_GetTick() / 1000.0f;
 
     // Reset state variables
     data.verticalAcceleration_mps2 = 0.0f;

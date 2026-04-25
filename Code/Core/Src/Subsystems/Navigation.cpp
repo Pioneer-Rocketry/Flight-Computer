@@ -47,11 +47,9 @@ int Navigation::init()
 	initializeQuaternion();
 
 	baro.startConversion();
-
 	baro.update();
 
 	data->startingBaroAltitude_m = data->MS560702BA03Altitude_m;
-
 	baro.startConversion();
 
 	return 0;
@@ -105,6 +103,8 @@ int Navigation::update()
     rotateVectorByQuaternion(highG);
 
 	baro.update();
+	baro.startConversion();
+
 	gps.update();
 
 	data->baroAltitudeOffset_m = data->MS560702BA03Altitude_m - data->startingBaroAltitude_m;
@@ -122,8 +122,6 @@ int Navigation::update()
 	data->KalmanFilterAltitude_m = x(0);
 	data->KalmanFilterVerticalVelocity_mps = x(1);
 	data->KalmanFilterVerticalAcceleration_mps2 = x(2);
-
-	baro.startConversion();
 
 	// Intergrate to find roll
 	data->intergratedRoll += (rollRate_rad * dt_s) * RAD_TO_DEG;

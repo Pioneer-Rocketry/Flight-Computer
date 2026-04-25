@@ -40,19 +40,16 @@ int Logging::init()
 
 int Logging::update()
 {
-
-	now = HAL_GetTick();
-
-	#define x(type, name) flashPacket.fields.name = data->name;
-	LOGGING_PACKET_FIELDS(x)
-	#undef x
-
-	if (currentPage << 4 != currentSector){ //Moved into next sector
-		flash.eraseSector(currentPage << 4);
-		currentSector = currentPage << 4;
-	}
+	// if (currentPage << 4 != currentSector){ //Moved into next sector
+	// 	flash.eraseSector(currentPage << 4);
+	// 	currentSector = currentPage << 4;
+	// }
 
 	if (enableWriting){
+		#define x(type, name) flashPacket.fields.name = data->name;
+		LOGGING_PACKET_FIELDS(x)
+		#undef x
+
 		flash.writePage(currentPage, flashPacket.raw, sizeof(flashPacket.raw));
 	}
 
@@ -61,49 +58,27 @@ int Logging::update()
 		enableWriting = false;
 	}
 
-	lastLog = HAL_GetTick();
-
 	return 0;
 }
 
 void Logging::dumpFlash(){
-	uint8_t buffer[256];
-	for (uint32_t page = 0; page <= 0xFFFF; page++){ //Read one page at a time
-		flash.readData(((uint32_t)page) << 8, buffer, 0xFF);
-		char pageAddrStringBuffer[4]; //aaaa //16bit page address
-		sprintf(pageAddrStringBuffer, "%04X", page);
+	uint8_t pageData[256];
+	char msg[350];
+	int msgLen = 0;
 
-		for (uint8_t line = 0x0; line < 0xF; line++){//For print 16 bytes each of the lines, so 16 per page
-			cdcSendMessage(pageAddrStringBuffer, 8);
+	for (uint16_t pageNum = 0; pageNum < W25Q128JV_PAGE_COUNT; pageNum++)
+	{
+		flash.readData(pageNum, pageData, W25Q128JV_PAGE_SIZE);
 
-			char stringBuffer[55]; //54 bytes of chars, 1 for newline format "aaaa: BB BB BB BB BB BB BB BB  BB BB BB BB BB BB BB BB"
+		msgLen = snprintf(msg, sizeof(msg), "0x%04X: ", pageNum);
+		for (uint16_t i = 0; i < W25Q128JV_PAGE_SIZE; i++)
+			msgLen += snprintf(msg + msgLen, sizeof(msg) - msgLen, "%02X ", pageData[i]);
+		msgLen += snprintf(msg + msgLen, sizeof(msg) - msgLen, "\r\n\r\n\r\n\r\n");
 
-			sprintf(stringBuffer, "%X0: ", line); //Last byte of address, placeholder 4 bits as 16 bytes are represented per line
-			for (uint8_t byteInLine = 0; byteInLine < 8; byteInLine++){
+		cdcSendMessage((char*)msg, msgLen);
+		tud_task();
 
-						// ptr to string buffer, format, source
-						// 3 chars per byte, 4 bytes for "aa: "
-				sprintf(stringBuffer + (byteInLine * 3) + 4, "%02X", buffer[line*16+byteInLine]);
-
-				stringBuffer[2+byteInLine] = ' ';
-			}
-
-			//Extra space between sets
-			//3 chars per byte (8 done already), 4 for "aa: "
-			stringBuffer[3*8+4] = ' ';
-
-			//Same as above to second set of bytes on the line
-			for (uint8_t byteInLine = 8; byteInLine < 16; byteInLine++){
-				//Same as above, but extra +1 for extra space character between sets
-				sprintf(stringBuffer + (byteInLine * 3) + 4 + 1, "%02X", buffer[line*16+byteInLine]);
-				stringBuffer[2+byteInLine+1] = ' ';
-			}
-			//Set the last char as a newline
-			stringBuffer[54] = '\n';
-
-			//Print the line
-			cdcSendMessage(stringBuffer, 3);
-		}
+		HAL_Delay(1000);
 	}
 }
 

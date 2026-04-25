@@ -34,6 +34,8 @@ int W25Q128JV::init()
 		return -1;
 	}
 
+	writeSPI(W25Q128JV_WRITE_ENABLE, nullptr, 0); // Enable Write
+
 	return 0;
 }
 
@@ -71,14 +73,24 @@ uint8_t W25Q128JV::readByte(uint32_t address){
 }
 
 HAL_StatusTypeDef W25Q128JV::readData(uint32_t address, uint8_t* buffer, uint32_t length){
+	uint8_t pageAddress[3];
+	pageAddress[0] = (address & (0x00FF0000)) >> 16;
+	pageAddress[1] = (address & (0x0000FF00)) >> 8;
+	pageAddress[2] = (address & (0x000000FF));
+
+	writeSPI(W25128JV_READ_DATA, pageAddress, 3);
 	return readSPI(W25128JV_READ_DATA, buffer, length);
 }
 
 void W25Q128JV::eraseSector(uint16_t sector){
-
 	writeSPI(W25Q128JV_WRITE_ENABLE, nullptr, 0); // Enable Write
 
-	writeSPI(W25128JV_SECTOR_ERASE_4KB, nullptr, 0);
+	uint8_t sectorAddress[3];
+	sectorAddress[0] = (sector & (0x00FF0000)) >> 16;
+	sectorAddress[1] = (sector & (0x0000FF00)) >> 8;
+	sectorAddress[2] = (sector & (0x000000FF));
+
+	writeSPI(W25128JV_SECTOR_ERASE_4KB, sectorAddress, 3);
 
 	//Is this necessary? Or should it be moved to the write page function?
 	//Wait for busy flag to clear
@@ -98,17 +110,22 @@ void W25Q128JV::writePage(uint32_t page, uint8_t* pageData, uint8_t size){
 	// This could be faster with a memcopy
 	// memcpy(&spiBuffer, page, 4);
 
+	if (size > W25Q128JV_PAGE_SIZE){
+		size = W25Q128JV_PAGE_SIZE;
+	}
+
 	selectDevice();
 
-	writeSPI(W25Q128JV_WRITE_ENABLE, nullptr, 0); // Enable Write
-	uint32_t writeAddress = (page << 8) - 1;
+	uint8_t pageAddress[3];
+	pageAddress[0] = (page & (0x00FF0000)) >> 16;
+	pageAddress[1] = (page & (0x0000FF00)) >> 8;
+	pageAddress[2] = (page & (0x000000FF));
+
 	writeSPIRaw(W25128JV_PAGE_PROGRAM);
-	writeSPIRaw((uint8_t)((page & (0x00FF0000)) >> 16));
-	writeSPIRaw((uint8_t)((page & (0x0000FF00)) >> 8));
-	writeSPIRaw((uint8_t)((page & (0x000000FF))));
+	writeSPIRaw(pageAddress, 3);
 
 	uint8_t packetUsedByte = 0x01;
-	writeSPIRaw(&packetUsedByte, 1); //Set first byte of page to be
+	writeSPIRaw(&packetUsedByte, 1); //Set first byte of page to be written
 	writeSPIRaw(pageData, size);
 
 	deselectDevice();

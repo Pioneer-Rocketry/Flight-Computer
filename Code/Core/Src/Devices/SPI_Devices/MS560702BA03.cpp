@@ -47,7 +47,7 @@ int MS560702BA03::readProm() {
 
 uint32_t MS560702BA03::readADC(uint8_t cmd) {
     writeSPI(cmd, nullptr, 0);
-    delay_us(conversionTime_us);
+    delay_us(conversionTime_us * 1.5f);
 
     readSPI(MS5607_ADC_READ, buffer, 3);
 
@@ -57,14 +57,14 @@ uint32_t MS560702BA03::readADC(uint8_t cmd) {
 int MS560702BA03::update()
 {
 	now_us = micros();
-	// delay = now_us - conversionStart_us;
-	// if (delay < conversionTime_us)
-	// 	delay_us(conversionTime_us - delay);
+	delay = now_us - conversionStart_us;
+	if (delay < conversionTime_us)
+		delay_us((conversionTime_us - delay) * 1.5f);
 
-	// readSPI(MS5607_ADC_READ, buffer, 3);
-    // D1 = (buffer[0] << 16) | (buffer[1] << 8) | buffer[2];
+	readSPI(MS5607_ADC_READ, buffer, 3);
+    D1 = (buffer[0] << 16) | (buffer[1] << 8) | buffer[2];
 
-	D1 = readADC(MS5607_CONVERT_D1 | (osr << 1));
+	// D1 = readADC(MS5607_CONVERT_D1 | (osr << 1));
 	D2 = readADC(MS5607_CONVERT_D2 | (osr << 1));
 
 	dT = D2 - ((uint32_t)C[4] << 8);
@@ -84,7 +84,7 @@ int MS560702BA03::update()
 
 void MS560702BA03::startConversion()
 {
-	// writeSPI(MS5607_CONVERT_D1 | (osr << 1), nullptr, 0);
+	writeSPI(MS5607_CONVERT_D1 | (osr << 1), nullptr, 0);
 
-	// conversionStart_us = micros();
+	conversionStart_us = micros();
 }

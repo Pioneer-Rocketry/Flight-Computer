@@ -47,7 +47,7 @@
 
 class Logging: public Subsystem
 {
-    public:
+public:
 	bool enableWriting = true;
     Logging(DataContainer* data, SPI_HandleTypeDef* _spi);
 
@@ -56,7 +56,8 @@ class Logging: public Subsystem
 
 	void dumpFlash();
 
-    private:
+	void erase();
+private:
     W25Q128JV flash;
 	uint16_t currentPage = 0;
 	uint16_t currentSector = 0;
@@ -65,7 +66,6 @@ class Logging: public Subsystem
 
 	union FlashPacket {
 		struct {
-			/* IMU Data*/
 			#define x(type, name) type name;
 			LOGGING_PACKET_FIELDS(x)
 			#undef x

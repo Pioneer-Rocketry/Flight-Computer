@@ -179,24 +179,6 @@ int main(void)
     }
   }
 
-  HAL_Delay(1000);
-
-  logging.dumpFlash();
-
-  logging.update();
-  logging.update();
-  logging.update();
-  logging.update();
-  logging.update();
-  logging.update();
-
-  usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Updated:\n\n\n");
-  cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-
-  HAL_Delay(2000);
-
-  logging.dumpFlash();
-
 
   usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Initialization Complete \r\n");
   cdcSendMessage(usbTxBuffer, usbTxBufferLen);
@@ -218,6 +200,8 @@ int main(void)
 
     logging.update();
 
+    HAL_Delay(100);
+
     if (HAL_GetTick() - lastPrint >= 500)
     {
       lastPrint = HAL_GetTick();
@@ -236,6 +220,52 @@ int main(void)
         data.quaternionW, data.quaternionX, data.quaternionY, data.quaternionZ, data.quaternionNorm
       );
       cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+    }
+
+    if (tud_cdc_connected() && tud_cdc_available())
+    {
+      usbRxBufferLen = tud_cdc_read(usbRxBuffer, USB_BUF_LEN);
+      for (uint16_t i = 0; i < usbRxBufferLen; i++)
+      {
+        char c = usbRxBuffer[i];
+        switch (c)
+        {
+          case 'd':
+            logging.dumpFlash();
+            break;
+          case 'e':
+            // Send "Are you sure? (y/n)" prompt
+            // usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Are you sure? (y/n)\r\n");
+            // cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+            // tud_task();
+
+            // HAL_Delay(5000);
+
+            // Read response
+            // tud_task();
+            // usbRxBufferLen = tud_cdc_read(usbRxBuffer, USB_BUF_LEN);
+            // if (usbRxBufferLen > 0 && (usbRxBuffer[0] == 'y' || usbRxBuffer[0] == 'Y'))
+            // {
+            usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Erasing flash!\r\n");
+            cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+            tud_task();
+
+            logging.erase();
+
+            usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Flash erased.\r\n");
+            cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+            tud_task();
+            // }
+
+            break;
+          case 'h':
+            usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Commands:\r\n d - dump flash\r\n e - erase flash\r\n h - help\r\n");
+            cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+            break;
+          default:
+            break;
+        }
+      }
     }
   }
   /* USER CODE END 3 */
@@ -532,10 +562,8 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(IMU_CS_GPIO_Port, IMU_CS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|BARO_CS_Pin|FLASH_CS_Pin, GPIO_PIN_SET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, FLASH_RESET_Pin|FLASH_WP_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LORA_CS_Pin|BARO_CS_Pin|FLASH_CS_Pin|FLASH_RESET_Pin
+                          |FLASH_WP_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : SPI_CS1_Pin LORA_DIO0_Pin PYRO3_TRIGGER_Pin PRYO2_TRIGGER_Pin
                            PRYO1_TRIGGER_Pin LORA_RESET_Pin */

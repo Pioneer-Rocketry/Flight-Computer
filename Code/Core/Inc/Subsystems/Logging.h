@@ -59,10 +59,10 @@ public:
 	void erase();
 private:
     W25Q128JV flash;
-	uint16_t currentPage = 0;
-	uint16_t currentSector = 0;
+	uint32_t currentPage = 0;
+	uint32_t currentSector = 0;
 
-    bool loggingEnabled = false;
+    bool loggingEnabled = true;
 
 	union FlashPacket {
 		struct {

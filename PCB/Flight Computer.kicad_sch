@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20250114)
+	(version 20260306)
 	(generator "eeschema")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(uuid "4254ccd1-49f4-4fe6-9bf7-ccb200d73af4")
 	(paper "A4")
 	(title_block
@@ -2502,11 +2502,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "0a0b3d01-7422-42e0-b725-ff9e85b891ec")
 		(property "Sheetname" "IO"
 			(at 116.84 104.6984 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2516,6 +2518,8 @@
 		)
 		(property "Sheetfile" "IO.kicad_sch"
 			(at 116.84 145.3646 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2814,11 +2818,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "b5b3f2b6-4604-4088-8488-54d61b2ee536")
 		(property "Sheetname" "Radio"
 			(at 116.84 150.4184 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2828,6 +2834,8 @@
 		)
 		(property "Sheetfile" "Radio.kicad_sch"
 			(at 116.84 183.4646 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2875,7 +2883,7 @@
 				(justify left)
 			)
 		)
-		(pin "LORA_DIO1" output
+		(pin "LORA_DIO1" bidirectional
 			(at 116.84 170.18 180)
 			(uuid "a079ff00-e797-43fb-b230-5ad3de0f1c2b")
 			(effects
@@ -2885,7 +2893,7 @@
 				(justify left)
 			)
 		)
-		(pin "LORA_RESET" output
+		(pin "LORA_RESET" input
 			(at 116.84 163.83 180)
 			(uuid "fb5c639f-bc92-4ad2-b7e4-b9d771c72c80")
 			(effects
@@ -2905,7 +2913,7 @@
 				(justify left)
 			)
 		)
-		(pin "LORA_DIO2" output
+		(pin "LORA_DIO2" bidirectional
 			(at 116.84 172.72 180)
 			(uuid "f9b282e4-b084-40b3-93fe-c5b7a42a9f9c")
 			(effects
@@ -2935,7 +2943,7 @@
 				(justify left)
 			)
 		)
-		(pin "LORA_DIO3" output
+		(pin "LORA_DIO3" bidirectional
 			(at 116.84 175.26 180)
 			(uuid "c523c681-6821-4f74-9d17-4da602854b8d")
 			(effects
@@ -2966,11 +2974,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "c6ca0e5c-eb30-4ed2-9f63-dd4973f3175a")
 		(property "Sheetname" "Sensors"
 			(at 49.53 78.0284 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2980,6 +2990,8 @@
 		)
 		(property "Sheetfile" "Sensors.kicad_sch"
 			(at 49.53 108.5346 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3158,11 +3170,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "ce25203d-742b-46bf-b676-aa9cb5879333")
 		(property "Sheetname" "Power"
 			(at 57.15 29.7684 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3172,6 +3186,8 @@
 		)
 		(property "Sheetfile" "Power.kicad_sch"
 			(at 57.15 44.3996 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3200,11 +3216,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "d0598f39-31ca-47e7-8156-229135d6220f")
 		(property "Sheetname" "MCU"
 			(at 116.84 29.1334 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3214,6 +3232,8 @@
 		)
 		(property "Sheetfile" "MCU.kicad_sch"
 			(at 116.84 95.1996 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3712,11 +3732,13 @@
 			(type solid)
 		)
 		(fill
-			(color 0 0 0 0.0000)
+			(color 0 0 0 0)
 		)
 		(uuid "f595cd26-832b-4750-b9f5-43cd274712c7")
 		(property "Sheetname" "Pyro"
 			(at 49.53 113.5884 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3726,6 +3748,8 @@
 		)
 		(property "Sheetfile" "Pyro.kicad_sch"
 			(at 49.53 146.6346 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)

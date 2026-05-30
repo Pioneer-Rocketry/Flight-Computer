@@ -123,10 +123,10 @@ public:
 	 *
 	 * @return int Status code (0 for success, negative for failure).
 	 */
-	int deviceInit() override;
+	int init() override;
 
 	//Not used for this device
-	int updateDevice() override;
+	int update() override;
 
     /**
 	 * @brief Read the UUID of the W25Q128JV device.

@@ -153,27 +153,27 @@ protected:
 	HAL_StatusTypeDef writeSPIRaw(uint8_t data);
 
 	/**
-		 * @brief Select a SPI device. Use with delectDevice for writeSPIRaw
-		 * 
-		 * @return void
-		 *
-		 * @note This function assumes the SPI peripheral has been properly initialized
-		 *       before calling. It should typically be used by higher-level device
-		 *       functions to configure registers or send commands.
-		 */
+	 * @brief Select a SPI device. Use with delectDevice for writeSPIRaw
+	 * 
+	 * @return void
+	 *
+	 * @note This function assumes the SPI peripheral has been properly initialized
+	 *       before calling. It should typically be used by higher-level device
+	 *       functions to configure registers or send commands.
+	 */
 	void selectDevice();
 
 	/**
-		 * @brief Delect a SPI device. Use after selectDevice for writeSPIRaw
-		 * 
-		 * @return void
-		 *
-		 * @note This function assumes the SPI peripheral has been properly initialized
-		 *       before calling. It should typically be used by higher-level device
-		 *       functions to configure registers or send commands.
-		 */
+	 * @brief Delect a SPI device. Use after selectDevice for writeSPIRaw
+	 * 
+	 * @return void
+	 *
+	 * @note This function assumes the SPI peripheral has been properly initialized
+	 *       before calling. It should typically be used by higher-level device
+	 *       functions to configure registers or send commands.
+	 */
 	void deselectDevice();
-	};
+};
 
 
 

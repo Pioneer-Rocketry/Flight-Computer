@@ -21,7 +21,7 @@ Logging::Logging(DataContainer* data, SPI_HandleTypeDef* spiBus)
 
 int Logging::init()
 {
-	flash.deviceInit();
+	flash.init();
 	//Read first byte of each page to see if it has data, set current page to next
 	uint32_t i = 0;
 	uint8_t readByte = 0xFF;

@@ -12,7 +12,7 @@ W25Q128JV::W25Q128JV(DataContainer* data, SPI_HandleTypeDef *spi, GPIO_TypeDef *
 {
 }
 
-int W25Q128JV::deviceInit()
+int W25Q128JV::init()
 {
 	if (writeSPI(W25Q128JV_ENABLE_RESET, nullptr, 0) != HAL_OK) {
 		return -1;
@@ -93,7 +93,7 @@ uint8_t W25Q128JV::readDeviceID(){
     return data[4];
 }
 
-int W25Q128JV::updateDevice(){
+int W25Q128JV::update(){
 	return 0;
 }
 

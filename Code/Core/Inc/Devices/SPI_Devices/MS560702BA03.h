@@ -66,7 +66,7 @@ public:
 	 *
 	 * @return int Status code (0 for success, negative for failure).
 	 */
-	int deviceInit() override;
+	int init() override;
 
 	/**
 	 * @brief Perform periodic updates for the MS560702BA03 IMU.
@@ -84,17 +84,17 @@ public:
 	 *  - 0: Update successful
 	 *  - Negative value: Error reading data or SPI communication failure
 	 *
-	 * @note This function does not initialize the device; `deviceInit()` must
+	 * @note This function does not initialize the device; `init()` must
 	 *       be called first.
 	 */
-	int updateDevice() override;
+	int update() override;
 
 	/**
 	 * @brief Start the pressure measurement conversion.
 	 *
-	 * This method should be called before `updateDevice()` to start the pressure measurement.
+	 * This method should be called before `update()` to start the pressure measurement.
 	 *
-	 * @note This function must be called prior to `updateDevice()` to ensure valid data is read.
+	 * @note This function must be called prior to `update()` to ensure valid data is read.
 	 */
 	void startConversion();
 

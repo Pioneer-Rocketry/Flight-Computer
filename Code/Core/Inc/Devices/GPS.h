@@ -19,8 +19,8 @@ class GPS {
 public:
     GPS(DataContainer* data, UART_HandleTypeDef* uart, uint8_t* dmaBuffer);
     
-    int deviceInit();
-    int updateDevice();
+    int init();
+    int update();
     
 private:
     DataContainer* data;

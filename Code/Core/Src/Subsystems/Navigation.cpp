@@ -40,22 +40,24 @@ Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_Hand
 int Navigation::init()
 {
 
-	if (imu.deviceInit() < 0)
+	if (imu.init() < 0)
 	{
 		return -1;
 	}
 
-	if (baro.deviceInit() < 0)
+	if (baro.init() < 0)
 	{
 		return -1;
 	}
 
-	if (gps.deviceInit() < 0)
+	if (gps.init() < 0)
 	{
 		return -1;
 	}
 
 	initializeQuaternion();
+
+	baro.startConversion();
 
 	return 0;
 }
@@ -83,9 +85,7 @@ int Navigation::update()
 	// Read Sensor Data
 	// -------------------------------------------------------------
 
-	baro.startConversion();
-
-	imu.updateDevice();
+	imu.update();
 
 	lowG(0) = data->LSM6DSV320LowGAccelX_mps2;
 	lowG(1) = data->LSM6DSV320LowGAccelY_mps2;
@@ -109,8 +109,8 @@ int Navigation::update()
 	rotateVectorByQuaternion(lowG);
     rotateVectorByQuaternion(highG);
 
-	baro.updateDevice();
-	gps.updateDevice();
+	baro.update();
+	gps.update();
 
 	// -------------------------------------------------------------
 	// Kalman Filter
@@ -133,6 +133,8 @@ int Navigation::update()
 	data->KalmanFilterPositionZ_m			= x(6);
 	data->KalmanFilterAccelerationZ_mps2	= x(7);
 	data->KalmanFilterVelocityZ_mps			= x(8);
+
+	baro.startConversion();
 
 	return 0;
 }

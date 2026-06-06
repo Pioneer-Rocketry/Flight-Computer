@@ -9,6 +9,310 @@
 		(company "Pioneer Rocketry")
 	)
 	(lib_symbols
+		(symbol "Connector:Conn_01x05_Pin"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 0 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x05_Pin"
+				(at 0 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x05, script generated"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Conn_01x05_Pin_1_1"
+				(rectangle
+					(start 0.8636 5.207)
+					(end 0 4.953)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 5.08) (xy 0.8636 5.08)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 2.54) (xy 0.8636 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 0.8636 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -2.54) (xy 0.8636 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -5.08) (xy 0.8636 -5.08)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 5.08 5.08 180)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -5.08 180)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:Screw_Terminal_01x04"
 			(pin_names
 				(offset 1.016)
@@ -1791,280 +2095,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector_Generic:Conn_01x06"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "J"
-				(at 0 7.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Conn_01x06"
-				(at 0 -10.16 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "Conn_01x06_1_1"
-				(rectangle
-					(start -1.27 6.35)
-					(end 1.27 -8.89)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(rectangle
-					(start -1.27 5.207)
-					(end 0 4.953)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 2.667)
-					(end 0 2.413)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -4.953)
-					(end 0 -5.207)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -7.493)
-					(end 0 -7.747)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 5.08 0)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 2.54 0)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -5.08 0)
-					(length 3.81)
-					(name "Pin_5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -7.62 0)
-					(length 3.81)
-					(name "Pin_6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Connector_Generic:Conn_02x03_Counter_Clockwise"
 			(pin_names
 				(offset 1.016)
@@ -2704,6 +2734,161 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:C"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C"
+				(at 0.635 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Unpolarized capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_0_1"
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:D"
 			(pin_numbers
 				(hide yes)
@@ -3272,6 +3457,277 @@
 						)
 					)
 					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "LED:WS2812B-2020"
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D"
+				(at 5.08 5.715 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify right bottom)
+				)
+			)
+			(property "Value" "WS2812B-2020"
+				(at 1.27 -5.715 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm"
+				(at 1.27 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Datasheet" "https://cdn-shop.adafruit.com/product-files/4684/4684_WS2812B-2020_V1.3_EN.pdf"
+				(at 2.54 -9.525 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Description" "RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "RGB LED NeoPixel Nano addressable"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "LED*WS2812*-2020_PLCC4*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "WS2812B-2020_0_0"
+				(text "RGB"
+					(at 2.286 -4.191 0)
+					(effects
+						(font
+							(size 0.762 0.762)
+						)
+					)
+				)
+			)
+			(symbol "WS2812B-2020_0_1"
+				(polyline
+					(pts
+						(xy 1.27 -2.54) (xy 1.778 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -3.556) (xy 1.778 -3.556)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 -1.524) (xy 1.27 -2.54) (xy 1.27 -2.032)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 -2.54) (xy 1.27 -3.556) (xy 1.27 -3.048)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.683 -1.016) (xy 3.683 -3.556) (xy 3.683 -4.064)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.699 -1.524) (xy 2.667 -1.524) (xy 3.683 -3.556) (xy 4.699 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.699 -3.556) (xy 2.667 -3.556)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 5.08 5.08)
+					(end -5.08 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "WS2812B-2020_1_1"
+				(pin output line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "DOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "VSS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 0 0)
+					(length 2.54)
+					(name "DIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 7.62 270)
+					(length 2.54)
+					(name "VDD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4711,18 +5167,6 @@
 		)
 	)
 	(rectangle
-		(start 76.2 162.56)
-		(end 124.46 191.77)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid "1209253a-4524-4e3f-85aa-57ed0c104629")
-	)
-	(rectangle
 		(start 151.765 14.605)
 		(end 196.85 83.82)
 		(stroke
@@ -4795,8 +5239,8 @@
 		(uuid "dbca2d33-ac08-4bb4-94b9-be0ac7ecb5ff")
 	)
 	(rectangle
-		(start 199.39 85.725)
-		(end 244.475 152.4)
+		(start 205.74 85.725)
+		(end 250.825 152.4)
 		(stroke
 			(width 0)
 			(type default)
@@ -4820,7 +5264,7 @@
 	)
 	(rectangle
 		(start 127 85.725)
-		(end 196.85 152.4)
+		(end 203.2 162.56)
 		(stroke
 			(width 0)
 			(type default)
@@ -4831,8 +5275,8 @@
 		(uuid "e4f7b8b7-9880-4523-a186-30689eb25362")
 	)
 	(rectangle
-		(start 76.2 130.81)
-		(end 124.46 160.02)
+		(start 78.74 124.46)
+		(end 124.46 176.53)
 		(stroke
 			(width 0)
 			(type default)
@@ -4854,21 +5298,9 @@
 		)
 		(uuid "224cd50f-de0b-4daa-804d-9af783215738")
 	)
-	(text "RST Button"
-		(exclude_from_sim no)
-		(at 100.584 169.418 0)
-		(effects
-			(font
-				(size 5 5)
-				(thickness 1)
-				(bold yes)
-			)
-		)
-		(uuid "2dcbc13f-67a8-414f-b4a1-b8f13781e65d")
-	)
 	(text "Buzzer"
 		(exclude_from_sim no)
-		(at 213.36 90.932 0)
+		(at 219.71 90.932 0)
 		(effects
 			(font
 				(size 5 5)
@@ -4915,15 +5347,16 @@
 		)
 		(uuid "7b13f463-2127-4b68-b87a-947120bdce1b")
 	)
-	(text "DFU Button"
+	(text "DFU/RST\nButtons"
 		(exclude_from_sim no)
-		(at 100.584 137.668 0)
+		(at 79.502 126.492 0)
 		(effects
 			(font
 				(size 5 5)
 				(thickness 1)
 				(bold yes)
 			)
+			(justify left top)
 		)
 		(uuid "a70589df-c950-4e29-ab5a-9fb128bf5d20")
 	)
@@ -4941,7 +5374,7 @@
 	)
 	(text "LEDS"
 		(exclude_from_sim no)
-		(at 160.782 91.44 0)
+		(at 167.132 91.44 0)
 		(effects
 			(font
 				(size 5 5)
@@ -4988,7 +5421,7 @@
 		(uuid "302d9634-369e-4ef4-90a3-c2321ad54edc")
 	)
 	(junction
-		(at 215.9 114.3)
+		(at 222.25 114.3)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "39806564-2727-4670-872b-8b6c4385d6ea")
@@ -5000,13 +5433,25 @@
 		(uuid "61cf3be8-daf7-4a11-bcee-7467fa3b14ab")
 	)
 	(junction
+		(at 152.4 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "75f7fd96-7d26-4243-9655-c78cdcb23c7b")
+	)
+	(junction
+		(at 180.34 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "883a4ee9-3857-42b9-8e58-7df487418a6b")
+	)
+	(junction
 		(at 105.41 45.72)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "89f5678d-a997-4fe1-9068-b58e8247dbac")
 	)
 	(junction
-		(at 228.6 116.84)
+		(at 234.95 116.84)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8a632c33-6dcb-48b3-9c7e-86f3c1fadd4e")
@@ -5042,7 +5487,7 @@
 		(uuid "da599417-16d4-494c-b49a-39c00c650622")
 	)
 	(junction
-		(at 215.9 133.35)
+		(at 222.25 133.35)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fb59a5af-6b4f-4c01-bee5-f391aa37783a")
@@ -5057,16 +5502,6 @@
 	)
 	(wire
 		(pts
-			(xy 173.99 49.53) (xy 170.18 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "001040b3-297e-4e03-9045-6b24747eb066")
-	)
-	(wire
-		(pts
 			(xy 49.53 33.02) (xy 46.99 33.02)
 		)
 		(stroke
@@ -5074,6 +5509,16 @@
 			(type default)
 		)
 		(uuid "01bdab8d-96c8-4a95-ab33-8d898b33b980")
+	)
+	(wire
+		(pts
+			(xy 176.53 152.4) (xy 179.07 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "02aeb1f6-543a-4854-936c-5ee0bfeeb9e9")
 	)
 	(wire
 		(pts
@@ -5087,6 +5532,16 @@
 	)
 	(wire
 		(pts
+			(xy 33.02 152.4) (xy 48.26 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "059b8f02-f414-4f51-a13c-88fca87a1b69")
+	)
+	(wire
+		(pts
 			(xy 49.53 30.48) (xy 49.53 33.02)
 		)
 		(stroke
@@ -5097,7 +5552,17 @@
 	)
 	(wire
 		(pts
-			(xy 224.79 111.76) (xy 224.79 114.3)
+			(xy 148.59 152.4) (xy 153.67 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0b3e68e0-c125-428a-b558-76ebb52ce816")
+	)
+	(wire
+		(pts
+			(xy 231.14 111.76) (xy 231.14 114.3)
 		)
 		(stroke
 			(width 0)
@@ -5177,16 +5642,6 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 153.67) (xy 110.49 153.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "16934c1f-2cee-4ff3-aef8-6458157f5d9e")
-	)
-	(wire
-		(pts
 			(xy 165.1 34.29) (xy 167.64 34.29)
 		)
 		(stroke
@@ -5194,6 +5649,16 @@
 			(type default)
 		)
 		(uuid "1859f427-2654-4586-9d78-c7067bb1a986")
+	)
+	(wire
+		(pts
+			(xy 152.4 133.35) (xy 152.4 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "18616625-a5ff-4922-b405-98584549bc25")
 	)
 	(wire
 		(pts
@@ -5217,6 +5682,26 @@
 	)
 	(wire
 		(pts
+			(xy 161.29 152.4) (xy 168.91 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1b7ce654-1359-4a69-bba2-eb9b32f188b6")
+	)
+	(wire
+		(pts
+			(xy 180.34 133.35) (xy 180.34 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1bff3265-62b0-4be8-938f-3701c561b1d5")
+	)
+	(wire
+		(pts
 			(xy 31.75 73.66) (xy 31.75 71.12)
 		)
 		(stroke
@@ -5237,27 +5722,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 107.95) (xy 163.83 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "232b3c93-bffd-4886-a68b-d1de6e6e950c")
-	)
-	(wire
-		(pts
-			(xy 48.26 149.86) (xy 48.26 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "24e6acd2-c4df-4ed2-bad9-933262720a35")
-	)
-	(wire
-		(pts
-			(xy 228.6 114.3) (xy 228.6 116.84)
+			(xy 234.95 114.3) (xy 234.95 116.84)
 		)
 		(stroke
 			(width 0)
@@ -5307,43 +5772,13 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 125.73) (xy 184.15 128.27)
+			(xy 142.24 104.14) (xy 152.4 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "304b7887-0202-4c91-921b-9d6f7dd39031")
-	)
-	(wire
-		(pts
-			(xy 143.51 125.73) (xy 143.51 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3348694e-c935-4990-9b7d-fd54731993f7")
-	)
-	(wire
-		(pts
-			(xy 163.83 115.57) (xy 163.83 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "35b0ce46-fad8-4ee0-be3a-cab4f68dc93f")
-	)
-	(wire
-		(pts
-			(xy 181.61 105.41) (xy 184.15 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "36585200-bd7c-4864-a552-63571c2945d6")
+		(uuid "3950cb05-d1ca-42d8-bb64-c3f79f05c0c5")
 	)
 	(wire
 		(pts
@@ -5377,16 +5812,6 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 105.41) (xy 143.51 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "46796a77-845b-40d5-a121-457f86b40047")
-	)
-	(wire
-		(pts
 			(xy 46.99 50.8) (xy 49.53 50.8)
 		)
 		(stroke
@@ -5394,16 +5819,6 @@
 			(type default)
 		)
 		(uuid "5279f40e-8e19-4d9b-be94-820df4928651")
-	)
-	(wire
-		(pts
-			(xy 184.15 107.95) (xy 184.15 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "57519d6a-b9de-43c1-b6f5-e1e18dc087d3")
 	)
 	(wire
 		(pts
@@ -5437,16 +5852,6 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 115.57) (xy 143.51 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5f372a39-e061-449c-ab31-42f451265886")
-	)
-	(wire
-		(pts
 			(xy 205.74 53.34) (xy 223.52 53.34)
 		)
 		(stroke
@@ -5457,7 +5862,7 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 120.65) (xy 215.9 123.19)
+			(xy 222.25 120.65) (xy 222.25 123.19)
 		)
 		(stroke
 			(width 0)
@@ -5487,7 +5892,7 @@
 	)
 	(wire
 		(pts
-			(xy 219.71 111.76) (xy 219.71 114.3)
+			(xy 226.06 111.76) (xy 226.06 114.3)
 		)
 		(stroke
 			(width 0)
@@ -5507,7 +5912,7 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 114.3) (xy 215.9 116.84)
+			(xy 222.25 114.3) (xy 222.25 116.84)
 		)
 		(stroke
 			(width 0)
@@ -5537,7 +5942,17 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 133.35) (xy 215.9 135.89)
+			(xy 142.24 104.14) (xy 142.24 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7563e457-09a0-4f28-8068-6899c9803360")
+	)
+	(wire
+		(pts
+			(xy 222.25 133.35) (xy 222.25 135.89)
 		)
 		(stroke
 			(width 0)
@@ -5567,27 +5982,7 @@
 	)
 	(wire
 		(pts
-			(xy 161.29 105.41) (xy 163.83 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7ebb682b-491e-45a8-ae5d-5c9d4c6260c9")
-	)
-	(wire
-		(pts
-			(xy 184.15 115.57) (xy 184.15 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "810401cb-e055-4b07-a716-afc3c3ac72e6")
-	)
-	(wire
-		(pts
-			(xy 215.9 114.3) (xy 219.71 114.3)
+			(xy 222.25 114.3) (xy 226.06 114.3)
 		)
 		(stroke
 			(width 0)
@@ -5607,7 +6002,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 138.43) (xy 228.6 140.97)
+			(xy 234.95 138.43) (xy 234.95 140.97)
 		)
 		(stroke
 			(width 0)
@@ -5647,16 +6042,6 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 152.4) (xy 38.1 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9250c056-c211-4bda-a907-7268b6f75454")
-	)
-	(wire
-		(pts
 			(xy 182.88 57.15) (xy 180.34 57.15)
 		)
 		(stroke
@@ -5667,16 +6052,6 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 185.42) (xy 110.49 185.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "93ad0830-e5f4-4eea-bfaa-37346d9fbe27")
-	)
-	(wire
-		(pts
 			(xy 182.88 54.61) (xy 182.88 57.15)
 		)
 		(stroke
@@ -5684,6 +6059,16 @@
 			(type default)
 		)
 		(uuid "94dc0a2e-f0d9-4a9a-af3f-25dfb807da65")
+	)
+	(wire
+		(pts
+			(xy 170.18 104.14) (xy 170.18 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96365323-cee2-4629-9c32-0257a990b45f")
 	)
 	(wire
 		(pts
@@ -5707,6 +6092,16 @@
 	)
 	(wire
 		(pts
+			(xy 152.4 100.33) (xy 152.4 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9727f8e3-7346-4f30-bfb1-60876b93df96")
+	)
+	(wire
+		(pts
 			(xy 49.53 50.8) (xy 49.53 52.07)
 		)
 		(stroke
@@ -5717,7 +6112,17 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 116.84) (xy 228.6 128.27)
+			(xy 109.22 168.91) (xy 109.22 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a3b0188f-c0b9-4145-87b8-8e5d1c96fc35")
+	)
+	(wire
+		(pts
+			(xy 234.95 116.84) (xy 234.95 128.27)
 		)
 		(stroke
 			(width 0)
@@ -5727,27 +6132,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 107.95) (xy 143.51 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a51a2482-0a34-4dcf-ba98-19b20d1796b1")
-	)
-	(wire
-		(pts
-			(xy 163.83 125.73) (xy 163.83 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a766b4ac-3ab7-4666-b74b-70b5fb6853d6")
-	)
-	(wire
-		(pts
-			(xy 215.9 130.81) (xy 215.9 133.35)
+			(xy 222.25 130.81) (xy 222.25 133.35)
 		)
 		(stroke
 			(width 0)
@@ -5767,13 +6152,23 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 101.6) (xy 215.9 104.14)
+			(xy 222.25 101.6) (xy 222.25 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "aad65116-66a2-4bd4-aa30-8b04ffe9036d")
+	)
+	(wire
+		(pts
+			(xy 152.4 104.14) (xy 152.4 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ab01aaa0-0529-4018-9c28-53ca2424de5e")
 	)
 	(wire
 		(pts
@@ -5797,7 +6192,7 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 144.78) (xy 215.9 143.51)
+			(xy 222.25 144.78) (xy 222.25 143.51)
 		)
 		(stroke
 			(width 0)
@@ -5807,13 +6202,23 @@
 	)
 	(wire
 		(pts
-			(xy 224.79 114.3) (xy 228.6 114.3)
+			(xy 231.14 114.3) (xy 234.95 114.3)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "af6a8503-cee4-415e-ae93-975fd93ba42f")
+	)
+	(wire
+		(pts
+			(xy 180.34 104.14) (xy 180.34 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b03e6238-9891-46f5-8140-9c3111a0fbfc")
 	)
 	(wire
 		(pts
@@ -5857,7 +6262,67 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 133.35) (xy 220.98 133.35)
+			(xy 109.22 151.13) (xy 109.22 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be523291-8304-4856-8d34-84846a1b29c5")
+	)
+	(wire
+		(pts
+			(xy 170.18 114.3) (xy 170.18 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bf91cb5f-6c0b-4ca7-94fb-cc67cd1cf494")
+	)
+	(wire
+		(pts
+			(xy 48.26 152.4) (xy 48.26 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0bd09d6-59e7-4962-b993-6d711346b18c")
+	)
+	(wire
+		(pts
+			(xy 142.24 114.3) (xy 142.24 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c2b8dc56-c6c8-43e5-933e-093a42d3eb36")
+	)
+	(wire
+		(pts
+			(xy 160.02 125.73) (xy 172.72 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c2ce1413-56c5-42d4-9ee6-fa9062099c8e")
+	)
+	(wire
+		(pts
+			(xy 109.22 166.37) (xy 106.68 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c35039c7-d6dc-4246-822a-0418d27e74bc")
+	)
+	(wire
+		(pts
+			(xy 222.25 133.35) (xy 227.33 133.35)
 		)
 		(stroke
 			(width 0)
@@ -5874,16 +6339,6 @@
 			(type default)
 		)
 		(uuid "c7f8496c-02e0-4bb4-9686-dbf493b85e45")
-	)
-	(wire
-		(pts
-			(xy 38.1 152.4) (xy 38.1 146.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c8e170c0-3abe-4e41-91a1-26665ecd501e")
 	)
 	(wire
 		(pts
@@ -5907,6 +6362,16 @@
 	)
 	(wire
 		(pts
+			(xy 187.96 125.73) (xy 194.31 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cbfce7a8-4a4b-4633-88a3-0edb33fac84b")
+	)
+	(wire
+		(pts
 			(xy 105.41 45.72) (xy 105.41 40.64)
 		)
 		(stroke
@@ -5914,6 +6379,16 @@
 			(type default)
 		)
 		(uuid "cff14f62-c667-4cb4-aa23-8645e8956b08")
+	)
+	(wire
+		(pts
+			(xy 142.24 125.73) (xy 144.78 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d1149324-6c20-453f-b93f-0bf23b213826")
 	)
 	(wire
 		(pts
@@ -5957,7 +6432,7 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 114.3) (xy 215.9 111.76)
+			(xy 222.25 114.3) (xy 222.25 111.76)
 		)
 		(stroke
 			(width 0)
@@ -5977,17 +6452,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 149.86) (xy 48.26 149.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d7be9db4-f589-4403-ae89-2a1b5c3b93c1")
-	)
-	(wire
-		(pts
-			(xy 228.6 116.84) (xy 226.06 116.84)
+			(xy 234.95 116.84) (xy 232.41 116.84)
 		)
 		(stroke
 			(width 0)
@@ -6107,6 +6572,16 @@
 	)
 	(wire
 		(pts
+			(xy 170.18 104.14) (xy 180.34 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e51e1533-a93c-436f-809b-7d28123ba07d")
+	)
+	(wire
+		(pts
 			(xy 74.93 43.18) (xy 74.93 38.1)
 		)
 		(stroke
@@ -6117,13 +6592,33 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 116.84) (xy 218.44 116.84)
+			(xy 180.34 100.33) (xy 180.34 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e5a431b5-1e5b-448d-91ca-3d84d57b86eb")
+	)
+	(wire
+		(pts
+			(xy 222.25 116.84) (xy 224.79 116.84)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "e733a826-640d-4c0a-a44b-249e94cc8830")
+	)
+	(wire
+		(pts
+			(xy 109.22 153.67) (xy 106.68 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e7e0e0f7-63fa-43b7-be2b-c14c79c0a3ba")
 	)
 	(wire
 		(pts
@@ -6187,7 +6682,17 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 185.42) (xy 96.52 185.42)
+			(xy 179.07 152.4) (xy 179.07 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f6b6b131-d083-4522-965f-ea07d858a46a")
+	)
+	(wire
+		(pts
+			(xy 93.98 166.37) (xy 96.52 166.37)
 		)
 		(stroke
 			(width 0)
@@ -6207,16 +6712,6 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 49.53) (xy 170.18 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fa5f8a96-f4ef-4f4f-9677-93842d9be191")
-	)
-	(wire
-		(pts
 			(xy 165.1 62.23) (xy 167.64 62.23)
 		)
 		(stroke
@@ -6226,7 +6721,7 @@
 		(uuid "ff9df8d4-d796-468e-a462-a8c057bca3de")
 	)
 	(label "NRST"
-		(at 93.98 185.42 180)
+		(at 93.98 166.37 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6321,17 +6816,6 @@
 			(justify left)
 		)
 		(uuid "43c7aafd-ce7b-4c08-8e27-a7d124f775a5")
-	)
-	(hierarchical_label "MCU_LED3"
-		(shape input)
-		(at 181.61 105.41 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "7e66651b-7051-4277-9bc2-aa9fc9ebe381")
 	)
 	(hierarchical_label "SPI_MOSI"
 		(shape input)
@@ -6434,7 +6918,7 @@
 	)
 	(hierarchical_label "Buzzer"
 		(shape input)
-		(at 215.9 120.65 180)
+		(at 222.25 120.65 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6465,17 +6949,6 @@
 		)
 		(uuid "c4762cc5-9b4f-4569-804f-acc68c4d963f")
 	)
-	(hierarchical_label "MCU_LED2"
-		(shape input)
-		(at 161.29 105.41 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "ce918f44-cc08-4924-8e86-8cbac62f2238")
-	)
 	(hierarchical_label "SWCLK"
 		(shape output)
 		(at 182.88 39.37 0)
@@ -6486,6 +6959,17 @@
 			(justify left)
 		)
 		(uuid "d666c5a0-5545-446e-82d5-abfe63abe8ce")
+	)
+	(hierarchical_label "MCU_LED"
+		(shape input)
+		(at 148.59 152.4 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e5c5d0b0-04ae-45f6-b1c7-f7c6cb0a35ba")
 	)
 	(hierarchical_label "SPI_CS1"
 		(shape input)
@@ -6509,16 +6993,16 @@
 		)
 		(uuid "e8e23176-533a-4609-bfda-fa6571a32e39")
 	)
-	(hierarchical_label "MCU_LED1"
+	(hierarchical_label "NEOPIXEL_DI"
 		(shape input)
-		(at 140.97 105.41 180)
+		(at 142.24 125.73 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "ed5aff0c-042b-4b66-abda-6f103de6668f")
+		(uuid "f44724ff-e5e3-4d5a-a079-f1b02fe5301e")
 	)
 	(hierarchical_label "SPI_MISO"
 		(shape output)
@@ -6553,7 +7037,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "04fad133-7915-4cf6-9b42-5d4c376ccb04")
-		(property "Reference" "J501"
+		(property "Reference" "J405"
 			(at 173.736 31.496 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6650,7 +7134,85 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J501")
+					(reference "J405")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 152.4 135.89 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "099bc4d9-264a-40d8-82c5-975438a132e6")
+		(property "Reference" "#PWR0405"
+			(at 152.4 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 152.4 140.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 152.4 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 152.4 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b6a9d86c-da2d-45ad-b484-4af95a6e0797")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "#PWR0405")
 					(unit 1)
 				)
 			)
@@ -6668,7 +7230,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0b900252-6f41-493e-a388-95a8fbfcf94f")
-		(property "Reference" "FID103"
+		(property "Reference" "FID406"
 			(at 67.31 115.5699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6726,7 +7288,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "FID103")
+					(reference "FID406")
 					(unit 1)
 				)
 			)
@@ -6734,7 +7296,7 @@
 	)
 	(symbol
 		(lib_id "Device:Buzzer")
-		(at 222.25 109.22 90)
+		(at 228.6 109.22 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6744,8 +7306,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0ca5669a-c135-434b-8cab-5ac272498047")
-		(property "Reference" "BZ501"
-			(at 226.06 107.1948 90)
+		(property "Reference" "BZ401"
+			(at 232.41 107.1948 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6756,7 +7318,7 @@
 			)
 		)
 		(property "Value" "Buzzer"
-			(at 226.06 109.7348 90)
+			(at 232.41 109.7348 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6767,7 +7329,7 @@
 			)
 		)
 		(property "Footprint" "Buzzer:Buzzer_3mm"
-			(at 219.71 109.855 90)
+			(at 226.06 109.855 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6778,7 +7340,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 219.71 109.855 90)
+			(at 226.06 109.855 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6789,7 +7351,7 @@
 			)
 		)
 		(property "Description" "Buzzer, polarized"
-			(at 222.25 109.22 0)
+			(at 228.6 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6808,7 +7370,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "BZ501")
+					(reference "BZ401")
 					(unit 1)
 				)
 			)
@@ -6825,7 +7387,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "11e41cae-c739-4dd5-a624-4b5e454bbaa6")
-		(property "Reference" "H504"
+		(property "Reference" "H404"
 			(at 54.61 100.3299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6908,7 +7470,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "H504")
+					(reference "H404")
 					(unit 1)
 				)
 			)
@@ -6916,7 +7478,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 215.9 127 0)
+		(at 222.25 127 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6926,8 +7488,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "13278db7-693e-4790-9942-f4de87b29ed0")
-		(property "Reference" "R1"
-			(at 218.44 125.7299 0)
+		(property "Reference" "R407"
+			(at 224.79 125.7299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6938,7 +7500,7 @@
 			)
 		)
 		(property "Value" "500"
-			(at 218.44 128.2699 0)
+			(at 224.79 128.2699 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6949,7 +7511,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 216.916 127.254 90)
+			(at 223.266 127.254 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6960,7 +7522,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 215.9 127 0)
+			(at 222.25 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6971,7 +7533,7 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
-			(at 215.9 127 0)
+			(at 222.25 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6982,7 +7544,7 @@
 			)
 		)
 		(property "LCSC" ""
-			(at 215.9 127 0)
+			(at 222.25 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6993,7 +7555,7 @@
 			)
 		)
 		(property "LCSC  Part #" ""
-			(at 215.9 127 0)
+			(at 222.25 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7012,87 +7574,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "R1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VCC")
-		(at 38.1 146.05 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "13790ca1-e263-437c-8b44-47a5b40a4855")
-		(property "Reference" "#PWR05"
-			(at 38.1 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "VCC"
-			(at 40.64 144.7799 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 38.1 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 38.1 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 38.1 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "28e17d6f-9929-4c76-a466-92b5166b5511")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR05")
+					(reference "R407")
 					(unit 1)
 				)
 			)
@@ -7110,7 +7592,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "15459eb2-65dc-4b65-8707-ac343572721e")
-		(property "Reference" "#PWR0504"
+		(property "Reference" "#PWR0413"
 			(at 121.92 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -7170,7 +7652,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0504")
+					(reference "#PWR0413")
 					(unit 1)
 				)
 			)
@@ -7188,7 +7670,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1e530f91-f0c4-494a-94e5-527ba14098aa")
-		(property "Reference" "TP2"
+		(property "Reference" "TP402"
 			(at 101.6 107.1879 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7249,15 +7731,16 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "TP2")
+					(reference "TP402")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 228.6 140.97 0)
+		(lib_id "Device:C")
+		(at 142.24 110.49 0)
+		(mirror y)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7266,30 +7749,31 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "23b7ba98-bd24-4b77-b786-23b1a7d15070")
-		(property "Reference" "#PWR0518"
-			(at 228.6 147.32 0)
-			(hide yes)
+		(uuid "202c5da4-c0c3-44fb-b3bd-f30d6e180faa")
+		(property "Reference" "C401"
+			(at 146.05 109.2199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "GND"
-			(at 228.6 146.05 0)
+		(property "Value" "0.1u"
+			(at 146.05 111.7599 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Footprint" ""
-			(at 228.6 140.97 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 141.2748 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7300,7 +7784,88 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 228.6 140.97 0)
+			(at 142.24 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 142.24 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "91bf2ef2-66d2-4283-8f3f-0b8a7974d2d4")
+		)
+		(pin "2"
+			(uuid "ad224bd9-92f2-4e94-9942-60d444043c39")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "C401")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 234.95 140.97 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "23b7ba98-bd24-4b77-b786-23b1a7d15070")
+		(property "Reference" "#PWR0427"
+			(at 234.95 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 234.95 146.05 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 234.95 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 234.95 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7311,7 +7876,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 228.6 140.97 0)
+			(at 234.95 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7327,7 +7892,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0518")
+					(reference "#PWR0427")
 					(unit 1)
 				)
 			)
@@ -7345,7 +7910,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "257cead3-3238-4f1d-8834-44266a9bb6a0")
-		(property "Reference" "FID101"
+		(property "Reference" "FID404"
 			(at 67.31 102.8699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7403,85 +7968,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "FID101")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 48.26 152.4 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "25f6c9c2-f663-48df-8895-39dd4ea38372")
-		(property "Reference" "#PWR0516"
-			(at 48.26 158.75 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 48.26 157.48 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 48.26 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 48.26 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 48.26 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ccf929ed-515d-41b5-99f9-1cd851f3d426")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0516")
+					(reference "FID404")
 					(unit 1)
 				)
 			)
@@ -7499,7 +7986,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "26550cf6-6262-4b95-9831-f9099accb324")
-		(property "Reference" "FID202"
+		(property "Reference" "FID402"
 			(at 38.1 121.9199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7557,7 +8044,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "FID202")
+					(reference "FID402")
 					(unit 1)
 				)
 			)
@@ -7565,7 +8052,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 163.83 128.27 0)
+		(at 180.34 135.89 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7574,9 +8061,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "2d763ce2-c25b-4b7b-9ee4-b11490768fdd")
-		(property "Reference" "#PWR0315"
-			(at 163.83 134.62 0)
+		(uuid "2af3535c-44e2-46c9-aaea-14f7bed9a082")
+		(property "Reference" "#PWR0416"
+			(at 180.34 142.24 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7587,7 +8074,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 163.83 133.35 0)
+			(at 180.34 140.97 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7597,7 +8084,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 163.83 128.27 0)
+			(at 180.34 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7608,7 +8095,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 163.83 128.27 0)
+			(at 180.34 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7619,7 +8106,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 163.83 128.27 0)
+			(at 180.34 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7630,12 +8117,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "e50bc45e-7f32-48fc-9706-cbc13e4ed8da")
+			(uuid "d8c751b6-52d1-45f9-ada5-1d470ee65f6d")
 		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0315")
+					(reference "#PWR0416")
 					(unit 1)
 				)
 			)
@@ -7653,7 +8140,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2ee682c0-4f96-483c-b34e-ee49cbdc021d")
-		(property "Reference" "H502"
+		(property "Reference" "H402"
 			(at 34.29 100.3299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7736,7 +8223,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "H502")
+					(reference "H402")
 					(unit 1)
 				)
 			)
@@ -7754,7 +8241,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "336c7400-3d32-40c5-b7b9-8d899539f1a6")
-		(property "Reference" "#PWR0515"
+		(property "Reference" "#PWR0409"
 			(at 73.66 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -7814,7 +8301,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0515")
+					(reference "#PWR0409")
 					(unit 1)
 				)
 			)
@@ -7832,7 +8319,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "33afa36a-2aed-47cc-94fd-c3ca9a6c8538")
-		(property "Reference" "#PWR0501"
+		(property "Reference" "#PWR0406"
 			(at 49.53 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -7892,7 +8379,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0501")
+					(reference "#PWR0406")
 					(unit 1)
 				)
 			)
@@ -7910,7 +8397,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "368adcbd-9b32-45af-b0b1-1f1b526e9fb1")
-		(property "Reference" "G501"
+		(property "Reference" "G401"
 			(at 217.17 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -7990,7 +8477,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "G501")
+					(reference "G401")
 					(unit 1)
 				)
 			)
@@ -7998,7 +8485,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 110.49 153.67 0)
+		(at 109.22 151.13 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8008,8 +8495,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "36de326b-f78f-456c-af28-264e192dcaf7")
-		(property "Reference" "#PWR07"
-			(at 110.49 157.48 0)
+		(property "Reference" "#PWR0411"
+			(at 109.22 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8020,7 +8507,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 110.49 148.59 0)
+			(at 109.22 146.05 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8030,7 +8517,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 110.49 153.67 0)
+			(at 109.22 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8041,7 +8528,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 110.49 153.67 0)
+			(at 109.22 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8052,7 +8539,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 110.49 153.67 0)
+			(at 109.22 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8068,7 +8555,87 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR07")
+					(reference "#PWR0411")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 172.72 152.4 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3d27d32b-2b58-44b5-a3b1-2008395c94d0")
+		(property "Reference" "R404"
+			(at 172.72 146.05 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "R_US"
+			(at 172.72 148.59 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 172.974 151.384 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 172.72 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, US symbol"
+			(at 172.72 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "098f3096-1946-45d7-97e8-e88410112c5d")
+		)
+		(pin "2"
+			(uuid "aef7ae17-b972-4d84-b40f-737e87b887a8")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "R404")
 					(unit 1)
 				)
 			)
@@ -8086,7 +8653,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3e74f740-ea0c-4701-8c73-b115a9b1101a")
-		(property "Reference" "#PWR0513"
+		(property "Reference" "#PWR0403"
 			(at 36.83 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -8146,7 +8713,266 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0513")
+					(reference "#PWR0403")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 170.18 110.49 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3ea5145d-edc0-452a-be26-d98d2e66a5ed")
+		(property "Reference" "C402"
+			(at 173.99 109.2199 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "0.1u"
+			(at 173.99 111.7599 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 169.2148 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 170.18 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 170.18 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9c238b4f-56ef-4de2-9161-51ca8a9fb6a1")
+		)
+		(pin "2"
+			(uuid "e61cab89-ae8d-4c8a-aaf9-2cde4409fe99")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "C402")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "LED:WS2812B-2020")
+		(at 152.4 125.73 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3ee19838-15b7-4390-8fc8-72fd7f2fae7e")
+		(property "Reference" "D402"
+			(at 160.528 116.078 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "WS2812B-2020"
+			(at 160.528 118.618 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm"
+			(at 153.67 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/product-files/4684/4684_WS2812B-2020_V1.3_EN.pdf"
+			(at 154.94 135.255 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA"
+			(at 152.4 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3eb31845-de1a-4eab-b561-816465482096")
+		)
+		(pin "3"
+			(uuid "f84cfb60-0e1d-45ca-a4c1-e666e532f3f9")
+		)
+		(pin "4"
+			(uuid "5566f0d8-5e16-4d61-9496-4db6b98e97b1")
+		)
+		(pin "2"
+			(uuid "240971a8-90d0-4d85-8353-5667ba66e2d3")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "D402")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x05_Pin")
+		(at 27.94 157.48 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "453fa07c-9d80-4ebc-b076-8d9cc503c6df")
+		(property "Reference" "J401"
+			(at 28.575 147.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x05_Pin"
+			(at 28.575 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
+			(at 27.94 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 27.94 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x05, script generated"
+			(at 27.94 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8c646e8d-b50c-42cf-8271-116dfc76b058")
+		)
+		(pin "4"
+			(uuid "78009c20-b8c7-444e-933d-b8fef9f41cf3")
+		)
+		(pin "2"
+			(uuid "4b4ed54d-dadc-4ec6-bf1a-79cea3a918a0")
+		)
+		(pin "5"
+			(uuid "a0911d81-e329-41db-a35f-6bad138e753b")
+		)
+		(pin "3"
+			(uuid "11ae6516-f89d-41c8-953d-6f86f10ae4ad")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "J401")
 					(unit 1)
 				)
 			)
@@ -8165,7 +8991,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "49f3431c-b5eb-4fa0-a815-35a7e8aa0485")
-		(property "Reference" "#PWR0509"
+		(property "Reference" "#PWR0426"
 			(at 220.98 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -8225,122 +9051,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0509")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED")
-		(at 143.51 111.76 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4d4143b6-0a46-48e9-a52e-a9018675d974")
-		(property "Reference" "D301"
-			(at 147.32 112.0774 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "LED"
-			(at 147.32 114.6174 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
-			(at 143.51 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 143.51 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Light emitting diode"
-			(at 143.51 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 143.51 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" ""
-			(at 143.51 111.76 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 143.51 111.76 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "ba1d04e2-430c-48c4-ab78-978fda5079c0")
-		)
-		(pin "1"
-			(uuid "f57e78df-f17e-4078-98b4-058607f39351")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "D301")
+					(reference "#PWR0426")
 					(unit 1)
 				)
 			)
@@ -8348,7 +9059,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 215.9 144.78 0)
+		(at 222.25 144.78 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8358,8 +9069,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "540130f0-0622-46f2-b29b-b95b63ff9983")
-		(property "Reference" "#PWR04"
-			(at 215.9 151.13 0)
+		(property "Reference" "#PWR0425"
+			(at 222.25 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8370,7 +9081,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 215.9 149.86 0)
+			(at 222.25 149.86 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8380,7 +9091,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 215.9 144.78 0)
+			(at 222.25 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8391,7 +9102,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 215.9 144.78 0)
+			(at 222.25 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8402,7 +9113,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 215.9 144.78 0)
+			(at 222.25 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8418,7 +9129,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR04")
+					(reference "#PWR0425")
 					(unit 1)
 				)
 			)
@@ -8436,7 +9147,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "56900215-4a31-4fa7-b3d6-5cee3b933867")
-		(property "Reference" "#PWR0517"
+		(property "Reference" "#PWR0414"
 			(at 130.81 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -8496,7 +9207,86 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0517")
+					(reference "#PWR0414")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 142.24 116.84 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "57ee833b-d26c-40e9-af69-f4feee09b8b6")
+		(property "Reference" "#PWR0417"
+			(at 142.24 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 142.24 121.92 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 142.24 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 142.24 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 142.24 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0094bc75-f196-4e88-be4f-58b164ca0d80")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "#PWR0417")
 					(unit 1)
 				)
 			)
@@ -8514,7 +9304,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5a44e0b0-99a4-448c-8634-c4c1e021116d")
-		(property "Reference" "FID203"
+		(property "Reference" "FID403"
 			(at 52.07 121.9199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8572,7 +9362,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "FID203")
+					(reference "FID403")
 					(unit 1)
 				)
 			)
@@ -8591,7 +9381,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5beee264-0c0a-47a4-a14c-fb3c816ba323")
-		(property "Reference" "#PWR0506"
+		(property "Reference" "#PWR0415"
 			(at 130.81 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -8651,7 +9441,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0506")
+					(reference "#PWR0415")
 					(unit 1)
 				)
 			)
@@ -8669,7 +9459,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5c637514-65c4-4bf9-be04-dbaea8396146")
-		(property "Reference" "H503"
+		(property "Reference" "H403"
 			(at 44.45 100.3299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8752,7 +9542,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "H503")
+					(reference "H403")
 					(unit 1)
 				)
 			)
@@ -8770,7 +9560,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "60d3a20c-59da-46b6-ad31-c19d7efec1d2")
-		(property "Reference" "J502"
+		(property "Reference" "J402"
 			(at 31.75 25.4 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8899,15 +9689,16 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J502")
+					(reference "J402")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:LED")
-		(at 184.15 111.76 90)
+		(lib_id "power:+3.3V")
+		(at 152.4 100.33 0)
+		(mirror y)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8916,31 +9707,30 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "6147cde8-db3b-44de-a1b5-cf5aacf1b3b0")
-		(property "Reference" "D303"
-			(at 187.96 112.0774 90)
+		(uuid "6180ff2b-a5c3-43b0-9285-d86b70570ab6")
+		(property "Reference" "#PWR0419"
+			(at 152.4 104.14 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(property "Value" "LED"
-			(at 187.96 114.6174 90)
+		(property "Value" "+3.3V"
+			(at 152.4 95.25 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
-			(at 184.15 111.76 0)
+		(property "Footprint" ""
+			(at 152.4 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8951,7 +9741,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 184.15 111.76 0)
+			(at 152.4 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8961,8 +9751,8 @@
 				)
 			)
 		)
-		(property "Description" "Light emitting diode"
-			(at 184.15 111.76 0)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 152.4 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8971,50 +9761,14 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 184.15 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" ""
-			(at 184.15 111.76 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 184.15 111.76 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "07463912-4c39-4e2f-ae94-bc35773c1de5")
 		)
 		(pin "1"
-			(uuid "99dec828-4fa0-4da9-8349-a8e50cf14256")
+			(uuid "156609b3-5afa-435a-bdaf-f9cddf3e9f91")
 		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "D303")
+					(reference "#PWR0419")
 					(unit 1)
 				)
 			)
@@ -9031,7 +9785,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "64a83228-24f7-4e64-837c-1614c3b9b2aa")
-		(property "Reference" "#PWR0510"
+		(property "Reference" "#PWR0421"
 			(at 182.88 71.12 0)
 			(hide yes)
 			(show_name no)
@@ -9091,7 +9845,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0510")
+					(reference "#PWR0421")
 					(unit 1)
 				)
 			)
@@ -9109,7 +9863,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "654e8708-88c0-4829-a6e7-5705cfc229e4")
-		(property "Reference" "J503"
+		(property "Reference" "J403"
 			(at 115.57 48.2599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9208,7 +9962,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J503")
+					(reference "J403")
 					(unit 1)
 				)
 			)
@@ -9216,7 +9970,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 215.9 107.95 0)
+		(at 222.25 107.95 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9225,8 +9979,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6d67e284-c262-4aaf-afba-1e88124b9f21")
-		(property "Reference" "R503"
-			(at 213.36 106.6799 0)
+		(property "Reference" "R406"
+			(at 219.71 106.6799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9237,7 +9991,7 @@
 			)
 		)
 		(property "Value" "500"
-			(at 213.36 109.2199 0)
+			(at 219.71 109.2199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9248,7 +10002,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 216.916 108.204 90)
+			(at 223.266 108.204 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9259,7 +10013,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 215.9 107.95 0)
+			(at 222.25 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9270,7 +10024,7 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
-			(at 215.9 107.95 0)
+			(at 222.25 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9289,7 +10043,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "R503")
+					(reference "R406")
 					(unit 1)
 				)
 			)
@@ -9307,7 +10061,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6e7fdd96-8152-4477-98eb-43bad4554465")
-		(property "Reference" "#PWR0514"
+		(property "Reference" "#PWR0407"
 			(at 60.96 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -9367,111 +10121,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0514")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 184.15 121.92 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "764429b2-0b4b-4e43-bfa5-a233e6293809")
-		(property "Reference" "R307"
-			(at 186.69 120.6499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "1k"
-			(at 186.69 123.1899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 183.134 121.666 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 184.15 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" ""
-			(at 184.15 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 184.15 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "6f7732ee-dd46-428d-933c-f5a75b064384")
-		)
-		(pin "1"
-			(uuid "45f3fc21-61a7-4fcb-bd56-dc89f361d088")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "R307")
+					(reference "#PWR0407")
 					(unit 1)
 				)
 			)
@@ -9479,7 +10129,8 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 143.51 128.27 0)
+		(at 179.07 154.94 0)
+		(mirror y)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9488,9 +10139,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "76c63e5e-9f7a-47a8-894d-b6ae03c9df8e")
-		(property "Reference" "#PWR02"
-			(at 143.51 134.62 0)
+		(uuid "6fa2fa30-2cdb-455b-abfa-db0010bed516")
+		(property "Reference" "#PWR0430"
+			(at 179.07 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9501,7 +10152,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 143.51 133.35 0)
+			(at 179.07 160.02 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9511,7 +10162,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 143.51 128.27 0)
+			(at 179.07 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9522,7 +10173,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 143.51 128.27 0)
+			(at 179.07 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9533,7 +10184,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 143.51 128.27 0)
+			(at 179.07 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9544,12 +10195,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "602849a7-948e-47cf-883c-c575e5d4b67f")
+			(uuid "ac6f5a19-2069-4752-886c-5b5917844d50")
 		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR02")
+					(reference "#PWR0430")
 					(unit 1)
 				)
 			)
@@ -9568,7 +10219,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7bf9c11d-81dc-403b-aa00-b6d5546c194b")
-		(property "Reference" "#PWR0505"
+		(property "Reference" "#PWR0423"
 			(at 205.74 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -9628,7 +10279,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0505")
+					(reference "#PWR0423")
 					(unit 1)
 				)
 			)
@@ -9646,7 +10297,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7e7d23df-6f68-4ce3-8d8b-38b33e006a0a")
-		(property "Reference" "#PWR0511"
+		(property "Reference" "#PWR0401"
 			(at 24.13 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -9706,7 +10357,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0511")
+					(reference "#PWR0401")
 					(unit 1)
 				)
 			)
@@ -9724,7 +10375,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "842c3e6e-2cba-40a3-9360-5480f69d9e2c")
-		(property "Reference" "FID102"
+		(property "Reference" "FID405"
 			(at 67.31 109.2199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9782,111 +10433,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "FID102")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 143.51 121.92 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "85971789-d056-41c5-ae19-d82d8d837f09")
-		(property "Reference" "R305"
-			(at 146.05 120.6499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "1k"
-			(at 146.05 123.1899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 142.494 121.666 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 143.51 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 143.51 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" ""
-			(at 143.51 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 143.51 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "345be463-e527-4656-8394-df5fbba42032")
-		)
-		(pin "1"
-			(uuid "22752e3d-5a6d-4479-afd0-a3264e16c868")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "R305")
+					(reference "FID405")
 					(unit 1)
 				)
 			)
@@ -9904,7 +10451,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "869c85a1-1b65-43a8-b53f-10510ea6702e")
-		(property "Reference" "#PWR0507"
+		(property "Reference" "#PWR0420"
 			(at 182.88 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -9964,7 +10511,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0507")
+					(reference "#PWR0420")
 					(unit 1)
 				)
 			)
@@ -9982,7 +10529,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9051a920-26ee-42cf-855d-d3d56e21ad4d")
-		(property "Reference" "J504"
+		(property "Reference" "J404"
 			(at 140.97 48.2601 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10075,16 +10622,15 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J504")
+					(reference "J404")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 215.9 101.6 0)
-		(mirror y)
+		(lib_id "power:GND")
+		(at 48.26 154.94 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10093,9 +10639,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "99950c4e-18aa-4dc3-9d16-1c02d8fa2959")
-		(property "Reference" "#PWR06"
-			(at 215.9 105.41 0)
+		(uuid "95d40e0e-bf9f-4280-a0a3-73037ebd0dce")
+		(property "Reference" "#PWR0404"
+			(at 48.26 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10105,8 +10651,8 @@
 				)
 			)
 		)
-		(property "Value" "+3.3V"
-			(at 215.9 96.52 0)
+		(property "Value" "GND"
+			(at 48.26 160.02 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10116,7 +10662,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 215.9 101.6 0)
+			(at 48.26 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10127,7 +10673,86 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 215.9 101.6 0)
+			(at 48.26 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 48.26 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4a2317fa-d405-4da9-8699-26093df506cd")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "#PWR0404")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 222.25 101.6 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "99950c4e-18aa-4dc3-9d16-1c02d8fa2959")
+		(property "Reference" "#PWR0424"
+			(at 222.25 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 222.25 96.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 222.25 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 222.25 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10138,7 +10763,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 215.9 101.6 0)
+			(at 222.25 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10154,7 +10779,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR06")
+					(reference "#PWR0424")
 					(unit 1)
 				)
 			)
@@ -10171,7 +10796,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "99a7d321-3871-4d73-91c8-c83016d95bed")
-		(property "Reference" "#PWR01"
+		(property "Reference" "#PWR0418"
 			(at 165.1 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -10231,7 +10856,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR01")
+					(reference "#PWR0418")
 					(unit 1)
 				)
 			)
@@ -10249,7 +10874,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9bca5317-7c45-4c5c-b2d0-8f04f0cddc28")
-		(property "Reference" "R501"
+		(property "Reference" "R401"
 			(at 67.31 45.7199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10335,7 +10960,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "R501")
+					(reference "R401")
 					(unit 1)
 				)
 			)
@@ -10352,7 +10977,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9df8f5d6-25d0-4a09-be80-960e22b0717c")
-		(property "Reference" "H501"
+		(property "Reference" "H401"
 			(at 24.13 100.3299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10435,111 +11060,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "H501")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_US")
-		(at 163.83 121.92 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a051a8de-5705-44fc-a4fd-c2151ebdc77c")
-		(property "Reference" "R306"
-			(at 166.37 120.6499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "1k"
-			(at 166.37 123.1899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 162.814 121.666 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 163.83 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, US symbol"
-			(at 163.83 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" ""
-			(at 163.83 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 163.83 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "767c99c3-165b-4fb2-b80d-c5da57826682")
-		)
-		(pin "1"
-			(uuid "0c200838-0862-404a-a495-40ef2fda5a40")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "R306")
+					(reference "H401")
 					(unit 1)
 				)
 			)
@@ -10557,7 +11078,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a35b6ecd-940a-4afe-972b-ea8da5b6f7d9")
-		(property "Reference" "FID201"
+		(property "Reference" "FID401"
 			(at 24.13 121.9199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10615,7 +11136,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "FID201")
+					(reference "FID401")
 					(unit 1)
 				)
 			)
@@ -10633,7 +11154,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a67a2067-e138-4f13-bb55-f2ccbe176770")
-		(property "Reference" "TP3"
+		(property "Reference" "TP403"
 			(at 114.3 107.1879 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10694,7 +11215,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "TP3")
+					(reference "TP403")
 					(unit 1)
 				)
 			)
@@ -10712,7 +11233,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a94a5093-669e-40b0-ae6b-fc0367bc2c39")
-		(property "Reference" "SW1"
+		(property "Reference" "SW401"
 			(at 101.6 146.05 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10774,122 +11295,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "SW1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x06")
-		(at 27.94 154.94 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b2389955-0161-4ef5-90c2-4f3dc41188f7")
-		(property "Reference" "J507"
-			(at 27.94 143.51 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x06"
-			(at 27.94 146.05 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
-			(at 27.94 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 27.94 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 27.94 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" ""
-			(at 27.94 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 27.94 154.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "92a8f1a3-bc2a-402d-8aab-0a076408556a")
-		)
-		(pin "3"
-			(uuid "bc7cae23-e0ce-4406-981b-d4097ecb2b2e")
-		)
-		(pin "4"
-			(uuid "2a3b39ab-4c01-402a-bd98-4578ca81d9cf")
-		)
-		(pin "5"
-			(uuid "47f9eb33-a3a1-4a74-9d68-a617aaceb1b8")
-		)
-		(pin "1"
-			(uuid "5a684289-5d62-42ae-b7c9-9b095ea2d8a3")
-		)
-		(pin "6"
-			(uuid "4cadd88b-2336-4546-8e58-580247e9286c")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J507")
+					(reference "SW401")
 					(unit 1)
 				)
 			)
@@ -10907,7 +11313,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b332014d-1cdd-42ac-882c-730a08c92475")
-		(property "Reference" "#PWR0508"
+		(property "Reference" "#PWR0408"
 			(at 72.39 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -10967,7 +11373,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0508")
+					(reference "#PWR0408")
 					(unit 1)
 				)
 			)
@@ -10975,7 +11381,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 215.9 139.7 0)
+		(at 222.25 139.7 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10985,8 +11391,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b3af2865-8d5a-49d8-87b3-02c099acba35")
-		(property "Reference" "R2"
-			(at 218.44 138.4299 0)
+		(property "Reference" "R408"
+			(at 224.79 138.4299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10997,7 +11403,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 218.44 140.9699 0)
+			(at 224.79 140.9699 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11008,7 +11414,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 216.916 139.954 90)
+			(at 223.266 139.954 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11019,7 +11425,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 215.9 139.7 0)
+			(at 222.25 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11030,7 +11436,7 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
-			(at 215.9 139.7 0)
+			(at 222.25 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11041,7 +11447,7 @@
 			)
 		)
 		(property "LCSC" ""
-			(at 215.9 139.7 0)
+			(at 222.25 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11052,7 +11458,7 @@
 			)
 		)
 		(property "LCSC  Part #" ""
-			(at 215.9 139.7 0)
+			(at 222.25 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11071,85 +11477,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "R2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VCC")
-		(at 170.18 46.99 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b65f05a7-006c-4fae-8c31-34f40916774b")
-		(property "Reference" "#PWR08"
-			(at 170.18 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "VCC"
-			(at 170.18 42.926 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 170.18 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 170.18 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 170.18 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9528a336-0c25-429f-a970-bb542282c2ba")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR08")
+					(reference "R408")
 					(unit 1)
 				)
 			)
@@ -11167,7 +11495,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b7ac774c-3ca3-47bc-9ba1-407dca897aee")
-		(property "Reference" "#PWR0502"
+		(property "Reference" "#PWR0410"
 			(at 105.41 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -11227,7 +11555,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0502")
+					(reference "#PWR0410")
 					(unit 1)
 				)
 			)
@@ -11245,7 +11573,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b8769c37-f56e-48e4-a64d-dcb02fcdc982")
-		(property "Reference" "R502"
+		(property "Reference" "R402"
 			(at 77.47 45.7199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11331,7 +11659,94 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "R502")
+					(reference "R402")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "LED:WS2812B-2020")
+		(at 180.34 125.73 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "bb32fc4b-7787-4297-a01f-3c22b1e502a0")
+		(property "Reference" "D403"
+			(at 188.722 115.824 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "WS2812B-2020"
+			(at 188.722 118.364 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_WS2812B-2020_PLCC4_2.0x2.0mm"
+			(at 181.61 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Datasheet" "https://cdn-shop.adafruit.com/product-files/4684/4684_WS2812B-2020_V1.3_EN.pdf"
+			(at 182.88 135.255 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Description" "RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA"
+			(at 180.34 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f31bdde4-9222-431f-8ae5-0f6e3ca9ed9e")
+		)
+		(pin "3"
+			(uuid "1ae123e4-062f-48cc-9110-58065dce24f5")
+		)
+		(pin "4"
+			(uuid "2dadb86e-70ac-4c9b-8395-bd2f0c031a60")
+		)
+		(pin "2"
+			(uuid "624d60cf-6fa2-48b7-b0fd-e89be9a89207")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "D403")
 					(unit 1)
 				)
 			)
@@ -11349,7 +11764,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bc3e3902-9f3b-42fe-9f0a-3c6b87fd6dcf")
-		(property "Reference" "J505"
+		(property "Reference" "J408"
 			(at 231.14 53.3401 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11441,15 +11856,16 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J505")
+					(reference "J408")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_Push")
-		(at 101.6 185.42 0)
+		(lib_id "power:+3.3V")
+		(at 180.34 100.33 0)
+		(mirror y)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11458,9 +11874,10 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "d46e52d7-ed22-4fa3-a538-3144a7ed2bce")
-		(property "Reference" "SW2"
-			(at 101.6 177.8 0)
+		(uuid "c19f5154-ffd4-4295-b3cb-61413a72d7fd")
+		(property "Reference" "#PWR0428"
+			(at 180.34 104.14 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11469,8 +11886,8 @@
 				)
 			)
 		)
-		(property "Value" "SW_Push"
-			(at 101.6 180.34 0)
+		(property "Value" "+3.3V"
+			(at 180.34 95.25 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11479,8 +11896,8 @@
 				)
 			)
 		)
-		(property "Footprint" "imported:SW_1TS026A"
-			(at 101.6 180.34 0)
+		(property "Footprint" ""
+			(at 180.34 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11491,7 +11908,84 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 101.6 180.34 0)
+			(at 180.34 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 180.34 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3e81ab35-6e32-4536-9062-aab65342f8b8")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "#PWR0428")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 101.6 166.37 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d46e52d7-ed22-4fa3-a538-3144a7ed2bce")
+		(property "Reference" "SW402"
+			(at 101.6 158.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Push"
+			(at 101.6 161.29 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "imported:SW_1TS026A"
+			(at 101.6 161.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11502,7 +11996,7 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
-			(at 101.6 185.42 0)
+			(at 101.6 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11521,7 +12015,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "SW2")
+					(reference "SW402")
 					(unit 1)
 				)
 			)
@@ -11539,7 +12033,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d57f292a-02f6-4632-b892-3b0c953bbb74")
-		(property "Reference" "TP1"
+		(property "Reference" "TP401"
 			(at 87.63 107.1879 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11600,7 +12094,85 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "TP1")
+					(reference "TP401")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 194.31 125.73 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "da3896ab-4b04-4237-895e-fc2c37d65ac2")
+		(property "Reference" "TP404"
+			(at 193.04 128.016 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 193.04 130.556 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+			(at 194.31 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 194.31 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 194.31 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e017e87a-0fd1-45e3-acee-b02b5bc83f77")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "TP404")
 					(unit 1)
 				)
 			)
@@ -11618,7 +12190,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "deeff4e8-3c9d-4700-aff9-2dd11a7c33d2")
-		(property "Reference" "#PWR0512"
+		(property "Reference" "#PWR0402"
 			(at 31.75 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -11678,15 +12250,16 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0512")
+					(reference "#PWR0402")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 173.99 49.53 0)
+		(lib_id "power:GND")
+		(at 170.18 116.84 0)
+		(mirror y)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11694,31 +12267,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "e6a6a447-c287-4268-a638-51a65766c734")
-		(property "Reference" "J508"
-			(at 175.768 44.704 0)
+		(fields_autoplaced yes)
+		(uuid "e1fa2ec8-4db8-43e0-bcec-36afbb5a68bf")
+		(property "Reference" "#PWR0422"
+			(at 170.18 123.19 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "VCC"
-			(at 175.768 47.244 0)
+		(property "Value" "GND"
+			(at 170.18 121.92 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
-			(at 179.07 49.53 0)
+		(property "Footprint" ""
+			(at 170.18 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11729,7 +12302,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 179.07 49.53 0)
+			(at 170.18 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11739,8 +12312,8 @@
 				)
 			)
 		)
-		(property "Description" "test point"
-			(at 173.99 49.53 0)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 170.18 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11751,12 +12324,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "1b56a9a3-585c-44d9-8875-ff77d1e362a8")
+			(uuid "26b20ff9-8d39-40ec-9005-7149d72aafaf")
 		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J508")
+					(reference "#PWR0422")
 					(unit 1)
 				)
 			)
@@ -11765,7 +12338,7 @@
 	(symbol
 		(lib_name "NMOS_1")
 		(lib_id "Simulation_SPICE:NMOS")
-		(at 226.06 133.35 0)
+		(at 232.41 133.35 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11775,8 +12348,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ed3f93ad-40b2-4e8a-9808-723282726c5d")
-		(property "Reference" "Q1"
-			(at 232.41 132.0799 0)
+		(property "Reference" "Q401"
+			(at 238.76 132.0799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11787,7 +12360,7 @@
 			)
 		)
 		(property "Value" "SL2302S"
-			(at 232.41 134.6199 0)
+			(at 238.76 134.6199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11798,7 +12371,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-3"
-			(at 231.14 130.81 0)
+			(at 237.49 130.81 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11809,7 +12382,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.digikey.com/en/products/detail/shenzhen-slkormicro-semicon-co-ltd/SL2302S/26112886"
-			(at 226.06 146.05 0)
+			(at 232.41 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11820,7 +12393,7 @@
 			)
 		)
 		(property "Description" "N-MOSFET transistor, drain/source/gate"
-			(at 226.06 133.35 0)
+			(at 232.41 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11831,7 +12404,7 @@
 			)
 		)
 		(property "Sim.Device" "NMOS"
-			(at 226.06 150.495 0)
+			(at 232.41 150.495 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11842,7 +12415,7 @@
 			)
 		)
 		(property "Sim.Type" "VDMOS"
-			(at 226.06 152.4 0)
+			(at 232.41 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11853,7 +12426,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=D 2=G 3=S"
-			(at 226.06 148.59 0)
+			(at 232.41 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11875,7 +12448,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "Q1")
+					(reference "Q401")
 					(unit 1)
 				)
 			)
@@ -11883,7 +12456,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 163.83 111.76 90)
+		(at 157.48 152.4 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11892,31 +12465,29 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "eddee6d7-bb70-4cce-a0d7-44f23d737bb4")
-		(property "Reference" "D302"
-			(at 167.64 112.0774 90)
+		(uuid "ee542fd8-8736-414b-b3a2-819cefb791ec")
+		(property "Reference" "D406"
+			(at 159.0675 144.78 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Value" "LED"
-			(at 167.64 114.6174 90)
+			(at 159.0675 147.32 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
-			(at 163.83 111.76 0)
+			(at 157.48 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11927,7 +12498,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 163.83 111.76 0)
+			(at 157.48 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11938,7 +12509,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 163.83 111.76 0)
+			(at 157.48 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11949,7 +12520,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 163.83 111.76 0)
+			(at 157.48 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11959,116 +12530,16 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 163.83 111.76 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 163.83 111.76 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
+		(pin "1"
+			(uuid "0c6ffffe-c039-47b4-aeff-a21a2b07bc84")
 		)
 		(pin "2"
-			(uuid "65e196ea-5600-486d-9137-723d3e82b26c")
-		)
-		(pin "1"
-			(uuid "394ecc71-081f-4afa-b193-711f3125ca5c")
+			(uuid "33a983e3-1798-4d13-88e3-10d9ed8b135f")
 		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "D302")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 184.15 128.27 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f05f8227-1e80-4403-be88-853598bc397b")
-		(property "Reference" "#PWR03"
-			(at 184.15 134.62 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 184.15 133.35 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 184.15 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 184.15 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 184.15 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "274adc5a-f878-4bf8-bde5-0e060fb182cb")
-		)
-		(instances
-			(project "Flight Computer"
-				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR03")
+					(reference "D406")
 					(unit 1)
 				)
 			)
@@ -12085,7 +12556,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f4cbfaed-c7d5-4f6c-b47c-31556aed5fa8")
-		(property "Reference" "J506"
+		(property "Reference" "J406"
 			(at 173.736 53.848 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12182,7 +12653,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J506")
+					(reference "J406")
 					(unit 1)
 				)
 			)
@@ -12190,7 +12661,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 110.49 185.42 0)
+		(at 109.22 168.91 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12200,8 +12671,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f72f5156-583a-46a3-a64b-a5edbd64fade")
-		(property "Reference" "#PWR09"
-			(at 110.49 191.77 0)
+		(property "Reference" "#PWR0412"
+			(at 109.22 175.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12212,7 +12683,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 110.49 190.5 0)
+			(at 109.22 173.99 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12222,7 +12693,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 110.49 185.42 0)
+			(at 109.22 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12233,7 +12704,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 110.49 185.42 0)
+			(at 109.22 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12244,7 +12715,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 110.49 185.42 0)
+			(at 109.22 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12260,7 +12731,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR09")
+					(reference "#PWR0412")
 					(unit 1)
 				)
 			)
@@ -12278,7 +12749,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fc44f754-0358-45ed-9c09-bd3f54f21b85")
-		(property "Reference" "D501"
+		(property "Reference" "D401"
 			(at 67.31 68.58 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12384,7 +12855,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "D501")
+					(reference "D401")
 					(unit 1)
 				)
 			)
@@ -12393,7 +12864,7 @@
 	(symbol
 		(lib_name "D_1")
 		(lib_id "Device:D")
-		(at 222.25 116.84 0)
+		(at 228.6 116.84 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12402,8 +12873,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fe90acb8-9941-4cd8-b43e-b5805e6f22d4")
-		(property "Reference" "D502"
-			(at 222.25 122.174 0)
+		(property "Reference" "D405"
+			(at 228.6 122.174 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12413,7 +12884,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 222.504 119.888 0)
+			(at 228.854 119.888 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12423,7 +12894,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 222.25 116.84 0)
+			(at 228.6 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12434,7 +12905,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 222.25 116.84 0)
+			(at 228.6 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12445,7 +12916,7 @@
 			)
 		)
 		(property "Description" "Diode"
-			(at 222.25 116.84 0)
+			(at 228.6 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12456,7 +12927,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 222.25 116.84 0)
+			(at 228.6 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12467,7 +12938,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 222.25 116.84 0)
+			(at 228.6 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12486,7 +12957,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "D502")
+					(reference "D405")
 					(unit 1)
 				)
 			)

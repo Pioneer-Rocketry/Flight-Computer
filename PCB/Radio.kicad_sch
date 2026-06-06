@@ -2058,10 +2058,10 @@
 		(uuid "37ca79f7-babb-4113-bf91-21a8d6ce5262")
 	)
 	(junction
-		(at 45.72 48.26)
+		(at 54.61 48.26)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "57541075-e210-41d2-ab2c-7e48520c9689")
+		(uuid "515ba6ab-4f6a-418f-9ecf-28dca6622e19")
 	)
 	(junction
 		(at 66.04 48.26)
@@ -2094,10 +2094,16 @@
 		(uuid "6ccab2dc-ec97-4d9a-9ea5-6367886319d0")
 	)
 	(junction
-		(at 125.73 82.55)
+		(at 54.61 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "8fb7876f-3dd1-461e-82d0-714ef3cdad93")
+		(uuid "8a9fd0cf-691a-473a-9fd6-ca05e10be976")
+	)
+	(junction
+		(at 43.18 48.26)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "97188f12-2d9b-4074-a593-1353ccfebeea")
 	)
 	(junction
 		(at 149.86 82.55)
@@ -2112,28 +2118,22 @@
 		(uuid "a7a12edd-8a79-4b5e-8fa0-4aec78f1cb5d")
 	)
 	(junction
-		(at 55.88 48.26)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b4ada985-75d0-4e58-ab0f-e09b19554e52")
-	)
-	(junction
-		(at 120.65 63.5)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b909ed16-4018-4d06-892d-ec692ad519b9")
-	)
-	(junction
-		(at 55.88 60.96)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ba49b3b3-e04a-449e-b24e-0d515c4795d8")
-	)
-	(junction
 		(at 119.38 104.14)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "daf9254b-010c-41d3-a356-a95d66aa86aa")
+	)
+	(junction
+		(at 127 82.55)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "df6c8b40-fc74-4a55-94ee-e03b2c4b0ce8")
+	)
+	(junction
+		(at 121.92 63.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e64ccc20-efe1-4725-a14a-6889e0120f60")
 	)
 	(junction
 		(at 110.49 63.5)
@@ -2193,7 +2193,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 58.42) (xy 55.88 60.96)
+			(xy 54.61 58.42) (xy 54.61 60.96)
 		)
 		(stroke
 			(width 0)
@@ -2253,16 +2253,6 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 48.26) (xy 55.88 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0f7ac862-58fc-45fd-a4b1-98f6cf3f2fd0")
-	)
-	(wire
-		(pts
 			(xy 185.42 85.09) (xy 185.42 82.55)
 		)
 		(stroke
@@ -2270,16 +2260,6 @@
 			(type default)
 		)
 		(uuid "13668f2b-aefe-4e91-a196-7bf105d68496")
-	)
-	(wire
-		(pts
-			(xy 120.65 63.5) (xy 125.73 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "14451305-a180-44b8-aa6e-9331bdaa33c4")
 	)
 	(wire
 		(pts
@@ -2350,6 +2330,16 @@
 			(type default)
 		)
 		(uuid "25f172a8-8547-4113-af21-8a287f003692")
+	)
+	(wire
+		(pts
+			(xy 127 82.55) (xy 149.86 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "293b761a-21b9-48aa-8ad3-5195e32f4608")
 	)
 	(wire
 		(pts
@@ -2483,23 +2473,33 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 48.26) (xy 66.04 48.26)
+			(xy 54.61 48.26) (xy 66.04 48.26)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4ebe8e42-b0d0-473f-a00f-e05c322581dc")
+		(uuid "4e41d0b2-83c9-40c2-aeb4-0b67e7a81728")
 	)
 	(wire
 		(pts
-			(xy 45.72 60.96) (xy 66.04 60.96)
+			(xy 43.18 60.96) (xy 54.61 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "51741131-c063-46a9-a053-11a351bd8422")
+	)
+	(wire
+		(pts
+			(xy 43.18 48.26) (xy 54.61 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54c03b28-f93c-4ac5-954c-331578338b9e")
 	)
 	(wire
 		(pts
@@ -2543,7 +2543,7 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 82.55) (xy 125.73 82.55)
+			(xy 97.79 82.55) (xy 127 82.55)
 		)
 		(stroke
 			(width 0)
@@ -2643,7 +2643,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 48.26) (xy 45.72 50.8)
+			(xy 43.18 48.26) (xy 43.18 50.8)
 		)
 		(stroke
 			(width 0)
@@ -2683,7 +2683,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 63.5) (xy 120.65 66.04)
+			(xy 121.92 63.5) (xy 121.92 66.04)
 		)
 		(stroke
 			(width 0)
@@ -2753,7 +2753,7 @@
 	)
 	(wire
 		(pts
-			(xy 125.73 76.2) (xy 125.73 82.55)
+			(xy 127 76.2) (xy 127 82.55)
 		)
 		(stroke
 			(width 0)
@@ -2773,7 +2773,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 58.42) (xy 45.72 60.96)
+			(xy 43.18 58.42) (xy 43.18 60.96)
 		)
 		(stroke
 			(width 0)
@@ -2823,16 +2823,6 @@
 	)
 	(wire
 		(pts
-			(xy 125.73 82.55) (xy 149.86 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b08606b4-67a6-482b-bfd5-312afa9e38cf")
-	)
-	(wire
-		(pts
 			(xy 203.2 87.63) (xy 208.28 87.63)
 		)
 		(stroke
@@ -2853,7 +2843,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 73.66) (xy 120.65 76.2)
+			(xy 121.92 73.66) (xy 121.92 76.2)
 		)
 		(stroke
 			(width 0)
@@ -2953,7 +2943,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 48.26) (xy 55.88 50.8)
+			(xy 54.61 48.26) (xy 54.61 50.8)
 		)
 		(stroke
 			(width 0)
@@ -3043,7 +3033,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 45.72) (xy 45.72 48.26)
+			(xy 43.18 45.72) (xy 43.18 48.26)
 		)
 		(stroke
 			(width 0)
@@ -3083,7 +3073,7 @@
 	)
 	(wire
 		(pts
-			(xy 125.73 63.5) (xy 125.73 68.58)
+			(xy 127 63.5) (xy 127 68.58)
 		)
 		(stroke
 			(width 0)
@@ -3113,6 +3103,16 @@
 	)
 	(wire
 		(pts
+			(xy 54.61 60.96) (xy 66.04 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f576e167-3cab-400e-b310-b3da9f4116b5")
+	)
+	(wire
+		(pts
 			(xy 134.62 124.46) (xy 134.62 127)
 		)
 		(stroke
@@ -3133,13 +3133,23 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 63.5) (xy 120.65 63.5)
+			(xy 110.49 63.5) (xy 121.92 63.5)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "fbf532e7-b629-4797-ac02-6b829ce7a17a")
+	)
+	(wire
+		(pts
+			(xy 121.92 63.5) (xy 127 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ffd5a269-8577-45f3-9d3c-593e076baba9")
 	)
 	(label "CTR"
 		(at 177.8 71.12 0)
@@ -3281,7 +3291,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0a1717bb-ba94-4aa2-a0c1-04508bb0e352")
-		(property "Reference" "U1"
+		(property "Reference" "U501"
 			(at 84.6933 118.11 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3414,7 +3424,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "U1")
+					(reference "U501")
 					(unit 1)
 				)
 			)
@@ -3432,7 +3442,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "109686c0-827f-4abe-940a-1bc1bfadf035")
-		(property "Reference" "Y1"
+		(property "Reference" "Y501"
 			(at 43.18 68.58 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3442,7 +3452,7 @@
 				)
 			)
 		)
-		(property "Value" "Crystal_GND24"
+		(property "Value" "32 MHz"
 			(at 43.18 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3452,7 +3462,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Crystal:Crystal_SMD_2016-4Pin_2.0x1.6mm"
 			(at 43.18 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -3522,7 +3532,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "Y1")
+					(reference "Y501")
 					(unit 1)
 				)
 			)
@@ -3540,7 +3550,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1155b5fe-0237-46f6-a563-94643d594b48")
-		(property "Reference" "#PWR0613"
+		(property "Reference" "#PWR0508"
 			(at 134.62 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -3600,7 +3610,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0613")
+					(reference "#PWR0508")
 					(unit 1)
 				)
 			)
@@ -3608,7 +3618,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 55.88 54.61 0)
+		(at 54.61 54.61 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3617,8 +3627,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "178dcc5f-0ecb-4c08-9664-081c66f2d2cf")
-		(property "Reference" "C2"
-			(at 52.07 53.3399 0)
+		(property "Reference" "C502"
+			(at 50.8 53.3399 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3629,7 +3639,7 @@
 			)
 		)
 		(property "Value" ".1u"
-			(at 52.07 55.8799 0)
+			(at 50.8 55.8799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3639,8 +3649,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
-			(at 56.8452 58.42 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 55.5752 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3651,7 +3661,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 54.61 0)
+			(at 54.61 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3662,7 +3672,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 55.88 54.61 0)
+			(at 54.61 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3681,7 +3691,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C2")
+					(reference "C502")
 					(unit 1)
 				)
 			)
@@ -3689,7 +3699,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 120.65 76.2 0)
+		(at 121.92 76.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3699,8 +3709,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "19ecb5dd-ec4b-47f2-9969-3174583530c8")
-		(property "Reference" "#PWR0609"
-			(at 120.65 82.55 0)
+		(property "Reference" "#PWR0507"
+			(at 121.92 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3711,7 +3721,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 120.65 80.6434 0)
+			(at 121.92 80.6434 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3721,7 +3731,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 120.65 76.2 0)
+			(at 121.92 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3732,7 +3742,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 120.65 76.2 0)
+			(at 121.92 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3743,7 +3753,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 120.65 76.2 0)
+			(at 121.92 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3759,7 +3769,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0609")
+					(reference "#PWR0507")
 					(unit 1)
 				)
 			)
@@ -3777,7 +3787,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1d56a9c7-f636-4ba1-a765-cacbe5fb523c")
-		(property "Reference" "#PWR0608"
+		(property "Reference" "#PWR0505"
 			(at 110.49 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -3837,7 +3847,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0608")
+					(reference "#PWR0505")
 					(unit 1)
 				)
 			)
@@ -3856,7 +3866,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "23499687-778e-4fc3-967c-d92d9f542dbd")
-		(property "Reference" "L4"
+		(property "Reference" "L505"
 			(at 168.91 77.47 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3876,7 +3886,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
 			(at 168.91 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -3918,7 +3928,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "L4")
+					(reference "L505")
 					(unit 1)
 				)
 			)
@@ -3935,7 +3945,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "250be4d4-29cd-4882-85a5-70491180d150")
-		(property "Reference" "C10"
+		(property "Reference" "C514"
 			(at 191.77 76.1999 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3957,7 +3967,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 196.5452 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -3999,7 +4009,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C10")
+					(reference "C514")
 					(unit 1)
 				)
 			)
@@ -4007,7 +4017,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 120.65 69.85 0)
+		(at 121.92 69.85 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4016,8 +4026,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "34620c78-417b-4502-8830-d5d5418251aa")
-		(property "Reference" "C6"
-			(at 116.84 68.5799 0)
+		(property "Reference" "C506"
+			(at 118.11 68.5799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4028,7 +4038,7 @@
 			)
 		)
 		(property "Value" "22n"
-			(at 116.84 71.1199 0)
+			(at 118.11 71.1199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4038,8 +4048,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
-			(at 121.6152 73.66 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 122.8852 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4050,7 +4060,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 120.65 69.85 0)
+			(at 121.92 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4061,7 +4071,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 120.65 69.85 0)
+			(at 121.92 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4080,7 +4090,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C6")
+					(reference "C506")
 					(unit 1)
 				)
 			)
@@ -4097,7 +4107,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "355fd85d-3b25-40be-a00f-c2ffba55f610")
-		(property "Reference" "C5"
+		(property "Reference" "C504"
 			(at 106.68 68.5799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4119,7 +4129,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 111.4552 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -4161,7 +4171,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C5")
+					(reference "C504")
 					(unit 1)
 				)
 			)
@@ -4179,7 +4189,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3b1529d0-4556-4b6a-b1a0-045469ca8297")
-		(property "Reference" "#PWR0612"
+		(property "Reference" "#PWR0511"
 			(at 185.42 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -4239,7 +4249,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0612")
+					(reference "#PWR0511")
 					(unit 1)
 				)
 			)
@@ -4257,7 +4267,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4cb1abea-df3b-480c-91cd-df1992d8dae0")
-		(property "Reference" "#PWR0603"
+		(property "Reference" "#PWR0513"
 			(at 208.28 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -4317,7 +4327,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0603")
+					(reference "#PWR0513")
 					(unit 1)
 				)
 			)
@@ -4335,7 +4345,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5257e340-70fe-45f8-8137-508c4282ede6")
-		(property "Reference" "#PWR0614"
+		(property "Reference" "#PWR0509"
 			(at 148.59 120.65 0)
 			(hide yes)
 			(show_name no)
@@ -4395,7 +4405,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0614")
+					(reference "#PWR0509")
 					(unit 1)
 				)
 			)
@@ -4413,7 +4423,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "52654f67-c503-49f1-9218-cf7f5c602499")
-		(property "Reference" "#PWR0611"
+		(property "Reference" "#PWR0510"
 			(at 162.56 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -4473,7 +4483,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0611")
+					(reference "#PWR0510")
 					(unit 1)
 				)
 			)
@@ -4491,7 +4501,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5743dc0b-2d03-4c99-a464-a89d75e73da0")
-		(property "Reference" "C12"
+		(property "Reference" "C509"
 			(at 152.4 106.6799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4513,7 +4523,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 147.6248 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -4555,7 +4565,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C12")
+					(reference "C509")
 					(unit 1)
 				)
 			)
@@ -4573,7 +4583,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "595dddb9-835a-4381-afb7-3cc572e57f61")
-		(property "Reference" "#PWR0618"
+		(property "Reference" "#PWR0516"
 			(at 247.65 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -4633,7 +4643,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0618")
+					(reference "#PWR0516")
 					(unit 1)
 				)
 			)
@@ -4651,7 +4661,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "621b1940-980e-4318-bb5b-3db5765e7fd6")
-		(property "Reference" "#PWR0607"
+		(property "Reference" "#PWR0506"
 			(at 119.38 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -4711,7 +4721,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0607")
+					(reference "#PWR0506")
 					(unit 1)
 				)
 			)
@@ -4729,7 +4739,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6cfbe8e8-7b86-48d0-9108-a247bf94f7a2")
-		(property "Reference" "#PWR0605"
+		(property "Reference" "#PWR0503"
 			(at 66.04 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -4789,7 +4799,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0605")
+					(reference "#PWR0503")
 					(unit 1)
 				)
 			)
@@ -4807,7 +4817,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6e208a7e-5560-463e-8b9d-e02ed8bc81ca")
-		(property "Reference" "L6"
+		(property "Reference" "L504"
 			(at 156.21 77.47 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4827,7 +4837,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
 			(at 156.21 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -4869,7 +4879,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "L6")
+					(reference "L504")
 					(unit 1)
 				)
 			)
@@ -4887,7 +4897,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6ffafaca-a6bb-4c8a-a7c0-800045e22bbc")
-		(property "Reference" "C8"
+		(property "Reference" "C515"
 			(at 212.09 72.3899 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4909,7 +4919,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 207.3148 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -4951,7 +4961,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C8")
+					(reference "C515")
 					(unit 1)
 				)
 			)
@@ -4968,7 +4978,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "72581f06-8515-4ec7-91f3-c0533d3ee622")
-		(property "Reference" "C3"
+		(property "Reference" "C503"
 			(at 62.23 53.3399 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4990,7 +5000,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 67.0052 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -5032,7 +5042,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C3")
+					(reference "C503")
 					(unit 1)
 				)
 			)
@@ -5050,7 +5060,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "73729f5a-d3d2-40d5-876d-79cbe3940b14")
-		(property "Reference" "C4"
+		(property "Reference" "C505"
 			(at 123.19 109.2199 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5072,7 +5082,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 118.4148 114.3 0)
 			(hide yes)
 			(show_name no)
@@ -5114,7 +5124,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C4")
+					(reference "C505")
 					(unit 1)
 				)
 			)
@@ -5132,7 +5142,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7594fac9-1617-4ba5-be25-eff69a621189")
-		(property "Reference" "C11"
+		(property "Reference" "C508"
 			(at 140.97 93.98 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5152,7 +5162,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 137.16 100.6348 0)
 			(hide yes)
 			(show_name no)
@@ -5194,7 +5204,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C11")
+					(reference "C508")
 					(unit 1)
 				)
 			)
@@ -5213,7 +5223,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7d88dd73-9af4-48ff-80da-a6c4d895e044")
-		(property "Reference" "C14"
+		(property "Reference" "C512"
 			(at 179.07 74.93 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5233,7 +5243,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 175.26 81.5848 0)
 			(hide yes)
 			(show_name no)
@@ -5275,7 +5285,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C14")
+					(reference "C512")
 					(unit 1)
 				)
 			)
@@ -5293,7 +5303,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "875f4c32-49cd-40e9-a7fa-c13b37eb89b9")
-		(property "Reference" "#PWR0615"
+		(property "Reference" "#PWR0515"
 			(at 241.3 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -5353,7 +5363,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0615")
+					(reference "#PWR0515")
 					(unit 1)
 				)
 			)
@@ -5371,7 +5381,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8c5090bb-48a4-4c74-8dfe-cae1fa18aa48")
-		(property "Reference" "#PWR0617"
+		(property "Reference" "#PWR0512"
 			(at 195.58 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -5431,7 +5441,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0617")
+					(reference "#PWR0512")
 					(unit 1)
 				)
 			)
@@ -5449,7 +5459,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "90b59fad-9865-45f9-a102-001697192028")
-		(property "Reference" "J1"
+		(property "Reference" "J501"
 			(at 251.46 86.6531 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5513,7 +5523,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "J1")
+					(reference "J501")
 					(unit 1)
 				)
 			)
@@ -5530,7 +5540,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9d583413-cc96-4221-a76b-dcf51f60b083")
-		(property "Reference" "C16"
+		(property "Reference" "C513"
 			(at 181.61 87.6299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5552,7 +5562,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 186.3852 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -5594,7 +5604,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C16")
+					(reference "C513")
 					(unit 1)
 				)
 			)
@@ -5612,7 +5622,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a4666bba-38ee-4ca0-b1a8-82190691fd44")
-		(property "Reference" "U2"
+		(property "Reference" "U502"
 			(at 228.6 80.01 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5632,7 +5642,7 @@
 				)
 			)
 		)
-		(property "Footprint" "QFN_453-385LF_SKY"
+		(property "Footprint" "imported:QFN_453-385LF_SKY"
 			(at 208.28 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -5688,7 +5698,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "U2")
+					(reference "U502")
 					(unit 1)
 				)
 			)
@@ -5696,7 +5706,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 45.72 54.61 0)
+		(at 43.18 54.61 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5705,8 +5715,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a5747201-5dc7-4e8d-aac8-5ef5bf24a5ba")
-		(property "Reference" "C1"
-			(at 41.91 53.3399 0)
+		(property "Reference" "C501"
+			(at 39.37 53.3399 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5717,7 +5727,7 @@
 			)
 		)
 		(property "Value" ".1u"
-			(at 41.91 55.8799 0)
+			(at 39.37 55.8799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5727,8 +5737,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
-			(at 46.6852 58.42 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 44.1452 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5739,7 +5749,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 45.72 54.61 0)
+			(at 43.18 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5750,7 +5760,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 45.72 54.61 0)
+			(at 43.18 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5769,7 +5779,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C1")
+					(reference "C501")
 					(unit 1)
 				)
 			)
@@ -5787,7 +5797,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b4b03257-6bc9-4da6-8265-9fc3a9eca22f")
-		(property "Reference" "#PWR0604"
+		(property "Reference" "#PWR0504"
 			(at 82.55 127 0)
 			(hide yes)
 			(show_name no)
@@ -5847,7 +5857,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0604")
+					(reference "#PWR0504")
 					(unit 1)
 				)
 			)
@@ -5855,7 +5865,7 @@
 	)
 	(symbol
 		(lib_id "Device:L")
-		(at 125.73 72.39 0)
+		(at 127 72.39 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5865,8 +5875,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bee32c83-cb04-4acb-92be-bef7caa43fba")
-		(property "Reference" "L2"
-			(at 127 71.1199 0)
+		(property "Reference" "L502"
+			(at 128.27 71.1199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5877,7 +5887,7 @@
 			)
 		)
 		(property "Value" "68n"
-			(at 127 73.6599 0)
+			(at 128.27 73.6599 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5887,8 +5897,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
-			(at 125.73 72.39 0)
+		(property "Footprint" "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+			(at 127 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5899,7 +5909,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 125.73 72.39 0)
+			(at 127 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5910,7 +5920,7 @@
 			)
 		)
 		(property "Description" "Inductor"
-			(at 125.73 72.39 0)
+			(at 127 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5929,7 +5939,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "L2")
+					(reference "L502")
 					(unit 1)
 				)
 			)
@@ -5937,7 +5947,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 45.72 45.72 0)
+		(at 43.18 45.72 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5947,8 +5957,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c99bfbb3-a5f8-4afc-93d9-ca51327b5cc7")
-		(property "Reference" "#PWR0602"
-			(at 45.72 49.53 0)
+		(property "Reference" "#PWR0502"
+			(at 43.18 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5959,7 +5969,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 45.72 40.64 0)
+			(at 43.18 40.64 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5969,7 +5979,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 45.72 45.72 0)
+			(at 43.18 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5980,7 +5990,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 45.72 45.72 0)
+			(at 43.18 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5991,7 +6001,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 45.72 45.72 0)
+			(at 43.18 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6007,7 +6017,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0602")
+					(reference "#PWR0502")
 					(unit 1)
 				)
 			)
@@ -6025,7 +6035,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cb7fc0a6-456c-4b70-9d90-8cd9d4f5830d")
-		(property "Reference" "#PWR0616"
+		(property "Reference" "#PWR0514"
 			(at 208.28 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -6085,7 +6095,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0616")
+					(reference "#PWR0514")
 					(unit 1)
 				)
 			)
@@ -6103,7 +6113,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d0e67fd3-c439-4411-a6b4-b07436b06eda")
-		(property "Reference" "L1"
+		(property "Reference" "L501"
 			(at 120.65 99.0599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6125,7 +6135,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
 			(at 119.38 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -6167,7 +6177,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "L1")
+					(reference "L501")
 					(unit 1)
 				)
 			)
@@ -6185,7 +6195,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d9f69937-e341-4a17-93bb-0ac89df6089f")
-		(property "Reference" "C7"
+		(property "Reference" "C510"
 			(at 156.21 66.04 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6205,7 +6215,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 160.02 72.6948 0)
 			(hide yes)
 			(show_name no)
@@ -6247,7 +6257,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C7")
+					(reference "C510")
 					(unit 1)
 				)
 			)
@@ -6265,7 +6275,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e3c11d3b-071a-4e3c-ae96-a5468d19ee15")
-		(property "Reference" "C13"
+		(property "Reference" "C507"
 			(at 138.43 119.3799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6287,7 +6297,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 133.6548 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -6329,7 +6339,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C13")
+					(reference "C507")
 					(unit 1)
 				)
 			)
@@ -6347,7 +6357,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ef7e5370-2b8a-4b91-8960-65abe00c71f8")
-		(property "Reference" "L5"
+		(property "Reference" "L503"
 			(at 135.89 106.6799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6369,7 +6379,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
 			(at 134.62 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -6411,7 +6421,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "L5")
+					(reference "L503")
 					(unit 1)
 				)
 			)
@@ -6429,7 +6439,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f226f11b-30b5-42ed-ab99-ed445a2f188b")
-		(property "Reference" "#PWR0606"
+		(property "Reference" "#PWR0501"
 			(at 43.18 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -6489,7 +6499,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0606")
+					(reference "#PWR0501")
 					(unit 1)
 				)
 			)
@@ -6506,7 +6516,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fd645d99-dc12-4ca9-85f2-3b2e2c76af7b")
-		(property "Reference" "C15"
+		(property "Reference" "C511"
 			(at 158.75 87.6299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6528,7 +6538,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 163.5252 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -6570,7 +6580,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "C15")
+					(reference "C511")
 					(unit 1)
 				)
 			)
@@ -6588,7 +6598,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fea7561d-b21e-4f74-bb5d-fb4a43609141")
-		(property "Reference" "R3"
+		(property "Reference" "R501"
 			(at 186.69 64.77 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6608,7 +6618,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 186.944 70.104 90)
 			(hide yes)
 			(show_name no)
@@ -6650,7 +6660,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "R3")
+					(reference "R501")
 					(unit 1)
 				)
 			)

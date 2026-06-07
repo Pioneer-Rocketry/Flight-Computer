@@ -2960,6 +2960,14 @@
 		(color 0 0 0 0)
 		(uuid "ffd75f22-5476-4a94-b297-c83bc7d15dac")
 	)
+	(no_connect
+		(at 152.4 43.18)
+		(uuid "3569e4b8-aa1b-4388-a30c-45edfbec878c")
+	)
+	(no_connect
+		(at 152.4 45.72)
+		(uuid "9055e7a8-66e7-44b6-8da4-485914cf63c5")
+	)
 	(wire
 		(pts
 			(xy 102.87 44.45) (xy 102.87 46.99)
@@ -3602,7 +3610,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 128.27) (xy 127 128.27)
+			(xy 110.49 128.27) (xy 111.76 128.27)
 		)
 		(stroke
 			(width 0)
@@ -3882,7 +3890,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 125.73) (xy 127 125.73)
+			(xy 110.49 125.73) (xy 111.76 125.73)
 		)
 		(stroke
 			(width 0)
@@ -4251,17 +4259,6 @@
 		)
 		(uuid "6390b18e-225e-405f-b7bc-04fe69801372")
 	)
-	(label "{slash}FLASH_RESET"
-		(at 127 125.73 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.1588)
-			)
-			(justify right bottom)
-		)
-		(uuid "89413dd1-73a5-4628-a76f-3e9467d3572f")
-	)
 	(label "OSC_OUT"
 		(at 158.75 87.63 0)
 		(effects
@@ -4314,17 +4311,6 @@
 			(justify left bottom)
 		)
 		(uuid "bced46c6-1696-4e8f-a4f2-fb21a4fc9a04")
-	)
-	(label "{slash}FLASH_WP"
-		(at 127 128.27 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.1588)
-			)
-			(justify right bottom)
-		)
-		(uuid "c757e1b0-cf11-47f2-bc89-7370ff029bc9")
 	)
 	(label "NRST"
 		(at 60.96 64.77 0)
@@ -4544,6 +4530,17 @@
 			(justify left)
 		)
 		(uuid "4eae8c87-5b78-49c8-ad81-6e50d7eb0e8b")
+	)
+	(hierarchical_label "PB8"
+		(shape bidirectional)
+		(at 111.76 128.27 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5297053e-d155-4ae5-a3d7-61bd2c32abf8")
 	)
 	(hierarchical_label "PA13"
 		(shape bidirectional)
@@ -4841,6 +4838,17 @@
 			(justify right)
 		)
 		(uuid "d4c63aee-31ec-41d7-bc0d-40a2ee030490")
+	)
+	(hierarchical_label "PB7"
+		(shape bidirectional)
+		(at 111.76 125.73 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d70f3ff3-331f-472c-be94-379cfb755e0b")
 	)
 	(hierarchical_label "SPI_MOSI"
 		(shape output)

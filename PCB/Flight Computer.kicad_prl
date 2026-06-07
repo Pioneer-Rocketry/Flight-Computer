@@ -1,7 +1,7 @@
 {
   "board": {
-    "active_layer": 2,
-    "active_layer_preset": "",
+    "active_layer": 29,
+    "active_layer_preset": "My - 6 Layer",
     "auto_track_width": false,
     "hidden_netclasses": [],
     "hidden_nets": [],

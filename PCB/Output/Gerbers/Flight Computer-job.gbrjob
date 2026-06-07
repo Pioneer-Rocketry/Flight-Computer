@@ -5,7 +5,7 @@
       "Application": "Pcbnew",
       "Version": "10.0.3"
     },
-    "CreationDate": "2026-06-06T22:20:31-05:00"
+    "CreationDate": "2026-06-07T12:26:31-05:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
@@ -43,67 +43,77 @@
   ],
   "FilesAttributes": [
     {
-      "Path": "Flight Computer-F_Cu.gbr",
+      "Path": "Flight Computer-F_Cu.gtl",
       "FileFunction": "Copper,L1,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Flight Computer-In1_Cu.gbr",
+      "Path": "Flight Computer-In1_Cu.g1",
       "FileFunction": "Copper,L2,Inr",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Flight Computer-In2_Cu.gbr",
+      "Path": "Flight Computer-In2_Cu.g2",
       "FileFunction": "Copper,L3,Inr",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Flight Computer-In3_Cu.gbr",
+      "Path": "Flight Computer-In3_Cu.g3",
       "FileFunction": "Copper,L4,Inr",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Flight Computer-In4_Cu.gbr",
+      "Path": "Flight Computer-In4_Cu.g4",
       "FileFunction": "Copper,L5,Inr",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Flight Computer-B_Cu.gbr",
+      "Path": "Flight Computer-B_Cu.gbl",
       "FileFunction": "Copper,L6,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Flight Computer-F_Paste.gbr",
+      "Path": "Flight Computer-F_Adhesive.gta",
+      "FileFunction": "Glue,Top",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "Flight Computer-B_Adhesive.gba",
+      "FileFunction": "Glue,Bot",
+      "FilePolarity": "Positive"
+    },
+    {
+      "Path": "Flight Computer-F_Paste.gtp",
       "FileFunction": "SolderPaste,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Flight Computer-B_Paste.gbr",
+      "Path": "Flight Computer-B_Paste.gbp",
       "FileFunction": "SolderPaste,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Flight Computer-F_Silkscreen.gbr",
+      "Path": "Flight Computer-F_Silkscreen.gto",
       "FileFunction": "Legend,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Flight Computer-B_Silkscreen.gbr",
+      "Path": "Flight Computer-B_Silkscreen.gbo",
       "FileFunction": "Legend,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "Flight Computer-F_Mask.gbr",
+      "Path": "Flight Computer-F_Mask.gts",
       "FileFunction": "SolderMask,Top",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "Flight Computer-B_Mask.gbr",
+      "Path": "Flight Computer-B_Mask.gbs",
       "FileFunction": "SolderMask,Bot",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "Flight Computer-Edge_Cuts.gbr",
+      "Path": "Flight Computer-Edge_Cuts.gm1",
       "FileFunction": "Profile",
       "FilePolarity": "Positive"
     }

@@ -751,7 +751,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "Output/",
+      "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "Output/Flight Computer.step",
@@ -766,7 +766,7 @@
       "method": 1,
       "sort_order": 0
     },
-    "bom_export_filename": "Output/Flight Computer.csv",
+    "bom_export_filename": "",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
       "field_delimiter": "\t",

@@ -1,39 +1,12 @@
 ** Drc report for Flight Computer.kicad_pcb **
-** Created on 2026-06-07T12:26:16 **
+** Created on 2026-06-07T15:29:36 **
 ** Report includes: Errors, Warnings **
 
-** Found 2 DRC violations **
-[lib_footprint_issues]: The current configuration does not include the footprint library 'Breakout Boards'
-    Local override; warning
-    @(120.9425 mm, 61.1749 mm): Footprint G***
-[missing_courtyard]: Footprint has no courtyard defined
-    Local override; warning
-    @(120.9425 mm, 61.1749 mm): Footprint G***
+** Found 0 DRC violations **
 
 ** Found 0 unconnected pads **
 
-** Found 7 Footprint errors **
-[footprint_filters_mismatch]: imported:OSC_CSTNE8M00G52Z000R0 doesn't match symbol's footprint filters (Filter* Resonator*)
-    Local override; warning
-    @(119.5475 mm, 92.5425 mm): Footprint Y201
-[footprint_filters_mismatch]: Package_TO_SOT_SMD:SOT-23 doesn't match symbol's footprint filters (TO-???* *_Diode_* *SingleDiode* D_*)
-    Local override; warning
-    @(105.4100 mm, 95.9335 mm): Footprint D401
-[footprint_filters_mismatch]: Package_TO_SOT_SMD:SOT-23 doesn't match symbol's footprint filters (TO-???* *_Diode_* *SingleDiode* D_*)
-    Local override; warning
-    @(122.3795 mm, 64.4550 mm): Footprint D405
-[footprint_filters_mismatch]: imported:EdgePinHeader_02x03 doesn't match symbol's footprint filters (Connector*:*_2x??_*)
-    Local override; warning
-    @(125.5600 mm, 84.1200 mm): Footprint J405
-[footprint_filters_mismatch]: imported:EdgePinHeader_02x03 doesn't match symbol's footprint filters (Connector*:*_2x??_*)
-    Local override; warning
-    @(115.4700 mm, 54.3500 mm): Footprint J406
-[footprint_filters_mismatch]: Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal doesn't match symbol's footprint filters (Connector*:*_1x??_*)
-    Local override; warning
-    @(100.9400 mm, 78.8750 mm): Footprint J408
-[extra_footprint]: Extra footprint
-    Local override; warning
-    @(126.0602 mm, 76.5302 mm): Footprint J508
+** Found 0 Footprint errors **
 
 ** Ignored checks **
     - Track endpoint not centered on via

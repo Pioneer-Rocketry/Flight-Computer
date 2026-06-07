@@ -89,7 +89,7 @@
         "fail_on_error": true,
         "format": "report",
         "output_filename": "",
-        "parity": true,
+        "parity": false,
         "refill_zones": false,
         "report_all_track_errors": false,
         "save_board": false,
@@ -235,6 +235,27 @@
         "vrml_relative_paths": false
       },
       "type": "pcb_export_3d"
+    },
+    {
+      "description": "",
+      "id": "a6be5539-1378-4b6e-a01c-d3102a441e1d",
+      "settings": {
+        "description": "",
+        "exclude_bom": false,
+        "exclude_dnp": true,
+        "exclude_footprints_with_th": true,
+        "format": "ascii",
+        "gerber_board_edge": true,
+        "negate_bottom_x": true,
+        "output_filename": "",
+        "side": "both",
+        "single_file": false,
+        "smd_only": true,
+        "units": "mm",
+        "use_drill_place_file_origin": true,
+        "variant": ""
+      },
+      "type": "pcb_export_pos"
     }
   ],
   "meta": {
@@ -260,7 +281,8 @@
       "id": "0f2653a7-daa3-474f-bb95-713ce6af1bf5",
       "only": [
         "e487544f-adad-4a36-ad79-5a34f6c1d21e",
-        "c1116ca4-dfe3-4251-9b7b-635cf4452bdc"
+        "c1116ca4-dfe3-4251-9b7b-635cf4452bdc",
+        "a6be5539-1378-4b6e-a01c-d3102a441e1d"
       ],
       "settings": {
         "output_path": "Output/Gerbers"
@@ -272,7 +294,8 @@
       "id": "1e98ced2-9abc-48f2-92b1-7e7e4dd5ca98",
       "only": [
         "e487544f-adad-4a36-ad79-5a34f6c1d21e",
-        "c1116ca4-dfe3-4251-9b7b-635cf4452bdc"
+        "c1116ca4-dfe3-4251-9b7b-635cf4452bdc",
+        "a6be5539-1378-4b6e-a01c-d3102a441e1d"
       ],
       "settings": {
         "format": "zip",

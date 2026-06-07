@@ -7482,7 +7482,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fiducial:Fiducial_0.75mm_Mask1.5mm"
+		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
 			(at 64.77 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -8162,7 +8162,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fiducial:Fiducial_0.75mm_Mask1.5mm"
+		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
 			(at 64.77 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -8238,7 +8238,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fiducial:Fiducial_0.75mm_Mask1.5mm"
+		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
 			(at 35.56 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -9556,7 +9556,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fiducial:Fiducial_0.75mm_Mask1.5mm"
+		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
 			(at 49.53 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -10627,7 +10627,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fiducial:Fiducial_0.75mm_Mask1.5mm"
+		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
 			(at 64.77 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -11408,7 +11408,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fiducial:Fiducial_0.75mm_Mask1.5mm"
+		(property "Footprint" "Fiducial:Fiducial_1mm_Mask2mm"
 			(at 21.59 123.19 0)
 			(hide yes)
 			(show_name no)

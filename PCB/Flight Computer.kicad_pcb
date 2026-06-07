@@ -1651,7 +1651,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" ".1u"
 			(at 0 1.43 90)
 			(layer "F.Fab")
 			(uuid "d3af5627-0cdf-4777-8c13-405db7725a2c")
@@ -2295,7 +2295,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1u"
+		(property "Value" ".1u"
 			(at 0 1.43 90)
 			(layer "F.Fab")
 			(uuid "5c6226ed-a06c-4a92-ac40-811fbf2fdb68")
@@ -12475,6 +12475,12 @@
 		(path "/b5b3f2b6-4604-4088-8488-54d61b2ee536/a4666bba-38ee-4ca0-b1a8-82190691fd44")
 		(sheetname "/Radio/")
 		(sheetfile "Radio.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "5" "2" "4" "6" "3")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line

@@ -7178,7 +7178,7 @@
 				)
 			)
 		)
-		(property "Value" "R_US"
+		(property "Value" "500"
 			(at 173.99 77.47 90)
 			(show_name no)
 			(do_not_autoplace no)

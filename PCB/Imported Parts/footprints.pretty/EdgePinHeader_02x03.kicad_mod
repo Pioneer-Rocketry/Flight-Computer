@@ -1,14 +1,14 @@
 (footprint "EdgePinHeader_02x03"
-	(version 20241229)
+	(version 20260206)
 	(generator "pcbnew")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(layer "F.Cu")
 	(property "Reference" "REF**"
 		(at 2.032 2.54 0)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "2241d7fb-9057-43b4-af90-35c4a5141816")
+		(uuid "d63ea1f0-af74-4de2-ae4e-ae333239a201")
 		(effects
 			(font
 				(size 1 1)
@@ -20,7 +20,7 @@
 		(at -7.366 -0.024 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "4cc159cc-8d7d-40e9-a1ef-41ca250b65a1")
+		(uuid "2e7119f2-c317-41bb-a6e3-0d41bc4bda25")
 		(effects
 			(font
 				(size 1 1)
@@ -33,7 +33,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "e115bd50-c61e-4649-88bb-de34bb4a251f")
+		(uuid "0b84851c-d680-4a11-97c2-0687a30b33e1")
 		(effects
 			(font
 				(size 1 1)
@@ -46,7 +46,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "a75366ce-dfe4-4bfb-812b-331f90e5d24a")
+		(uuid "d10b3e6e-9d2d-4649-a5f6-7a511e08c3ff")
 		(effects
 			(font
 				(size 1 1)
@@ -55,11 +55,23 @@
 		)
 	)
 	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start -0.65 -1.525)
+		(end 5.725 1.525)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "843c03c6-9796-4b1f-bcd6-9517bf95ad71")
+	)
 	(fp_text user "${REFERENCE}"
 		(at -7.366 1.476 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "09c3bd8c-7f9c-4bc4-8e6c-d4f23ab3e1dd")
+		(uuid "786a293a-1122-487a-ba31-73adc72f8e84")
 		(effects
 			(font
 				(size 1 1)
@@ -73,7 +85,7 @@
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.15)
 		(thermal_bridge_angle 45)
-		(uuid "96bfe8f2-b39a-4eb2-9019-0f3572c4b417")
+		(uuid "16bd70bd-a841-414b-944d-08f6f3aa7f10")
 	)
 	(pad "2" smd roundrect
 		(at 2.54 0)
@@ -81,7 +93,7 @@
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.15)
 		(thermal_bridge_angle 45)
-		(uuid "3235b577-3f7e-4bfb-a6ba-7ef968915693")
+		(uuid "66c9374f-62b5-4458-abc5-dac5d44442b4")
 	)
 	(pad "3" smd roundrect
 		(at 5.08 0)
@@ -89,7 +101,7 @@
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.15)
 		(thermal_bridge_angle 45)
-		(uuid "c0a1c9ae-2b70-4c8f-99f7-6cc8be683259")
+		(uuid "ceae8ef4-6320-48a5-9061-2ad89bd27b2d")
 	)
 	(pad "4" smd roundrect
 		(at 5.08 0)
@@ -97,7 +109,7 @@
 		(layers "B.Cu" "B.Mask" "B.Paste")
 		(roundrect_rratio 0.15)
 		(thermal_bridge_angle 45)
-		(uuid "0f4574f2-aa23-4dba-9e5c-b240a57e230f")
+		(uuid "27ef78e0-eeff-49a7-aa17-6d8f8c4dc4b0")
 	)
 	(pad "5" smd roundrect
 		(at 2.54 0)
@@ -105,7 +117,7 @@
 		(layers "B.Cu" "B.Mask" "B.Paste")
 		(roundrect_rratio 0.15)
 		(thermal_bridge_angle 45)
-		(uuid "63f811d8-96ed-44a5-9ba8-0be0cbbae366")
+		(uuid "be4d209e-70df-44c9-8d01-ec69a0177054")
 	)
 	(pad "6" smd roundrect
 		(at 0 0)
@@ -113,7 +125,7 @@
 		(layers "B.Cu" "B.Mask" "B.Paste")
 		(roundrect_rratio 0.15)
 		(thermal_bridge_angle 45)
-		(uuid "20a8f43c-bc21-4430-8688-1f63a23bd681")
+		(uuid "58eebbe3-d4f0-4ae9-bdca-ce7d3f52686f")
 	)
 	(embedded_fonts no)
 	(model "${KICAD9_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_2x03_P2.54mm_Vertical.wrl"

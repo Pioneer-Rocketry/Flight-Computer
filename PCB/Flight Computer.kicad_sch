@@ -15,16 +15,16 @@
 		(uuid "085d5b73-4736-417d-b9bc-18586cedcf4f")
 	)
 	(no_connect
-		(at 173.99 62.23)
-		(uuid "136e20c5-0d55-42ae-a5c3-9cde6716052a")
-	)
-	(no_connect
 		(at 104.14 173.99)
 		(uuid "19333e9e-dad3-4067-b8cd-b2b7f0ba9e51")
 	)
 	(no_connect
 		(at 173.99 87.63)
 		(uuid "29ad8e91-96da-46fd-bb59-0f0a32b19ba7")
+	)
+	(no_connect
+		(at 100.33 41.91)
+		(uuid "3370304b-d534-424c-b8ef-438489c25a32")
 	)
 	(no_connect
 		(at 173.99 72.39)
@@ -39,8 +39,16 @@
 		(uuid "4d743651-c984-4df7-98f5-f1bd9af83780")
 	)
 	(no_connect
+		(at 88.9 105.41)
+		(uuid "4efc0818-b312-4c6f-9946-4890863c97df")
+	)
+	(no_connect
 		(at 173.99 85.09)
 		(uuid "5b7489b0-a2be-4fec-b8f6-61c792f48f5e")
+	)
+	(no_connect
+		(at 100.33 27.94)
+		(uuid "616fffd8-3c04-4dc7-83bb-a3170755f17a")
 	)
 	(no_connect
 		(at 104.14 176.53)
@@ -1492,16 +1500,6 @@
 		)
 		(uuid "024df1e4-edb5-4ab9-9a29-8f22350c5e9f")
 	)
-	(label "Pyro1_Trigger"
-		(at 100.33 39.37 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "028cf281-8f39-444d-87f1-e5cf900d5b02")
-	)
 	(label "Pyro3_Trigger"
 		(at 100.33 34.29 0)
 		(effects
@@ -1612,7 +1610,7 @@
 		)
 		(uuid "22004195-e130-4801-aa87-ba01191bf423")
 	)
-	(label "PC6"
+	(label "PB15"
 		(at 106.68 143.51 0)
 		(effects
 			(font
@@ -1952,6 +1950,26 @@
 		)
 		(uuid "847cd127-1a33-459d-8007-2fcd93544f2a")
 	)
+	(label "Pyro1_Trigger"
+		(at 173.99 30.48 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "84c17139-411c-43d8-8cb7-98441ac8444a")
+	)
+	(label "NEOPIXEL"
+		(at 173.99 62.23 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "894c2f6f-96f8-4fab-9376-5d9772ed5ff6")
+	)
 	(label "SPI_SCK"
 		(at 88.9 81.28 180)
 		(effects
@@ -2022,16 +2040,6 @@
 		)
 		(uuid "90d6f138-6463-4764-a17c-4ff755e6a9d1")
 	)
-	(label "Pyro3_Cont"
-		(at 173.99 27.94 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "9983f2b4-d02b-4c2d-b93a-be43a5f6398e")
-	)
 	(label "GPS_INT"
 		(at 173.99 82.55 180)
 		(effects
@@ -2071,6 +2079,16 @@
 			(justify right bottom)
 		)
 		(uuid "9c2bdfad-18bf-4492-954c-964b19b4a68a")
+	)
+	(label "Pyro2_Trigger"
+		(at 173.99 27.94 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "9c2cf0a8-577b-42dd-8b9f-d6b1adcd2023")
 	)
 	(label "USB_DP_N"
 		(at 154.94 130.81 180)
@@ -2122,7 +2140,7 @@
 		)
 		(uuid "a7e9b938-2e84-4b12-85a5-9252229d8f7b")
 	)
-	(label "PC6"
+	(label "PB15"
 		(at 173.99 92.71 180)
 		(effects
 			(font
@@ -2202,36 +2220,6 @@
 		)
 		(uuid "b7a2d4fd-c281-42a1-aa30-5bacdde66fe2")
 	)
-	(label "IMU_INT2"
-		(at 100.33 27.94 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ba287e53-e0ef-4f85-a250-939258260e20")
-	)
-	(label "Pyro2_Trigger"
-		(at 100.33 36.83 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "badd61c3-cff4-43e4-9ea2-0263b48a4f0e")
-	)
-	(label "Pyro2_Cont"
-		(at 173.99 30.48 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "bc75b80b-2107-45be-b992-222444b82547")
-	)
 	(label "BARO_CS"
 		(at 173.99 74.93 180)
 		(effects
@@ -2241,6 +2229,16 @@
 			(justify right bottom)
 		)
 		(uuid "bf6c0693-437a-4e44-9087-b3223f401702")
+	)
+	(label "Pyro3_Cont"
+		(at 100.33 36.83 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c0dcf358-d2a1-4276-a09e-37bd2c182ed0")
 	)
 	(label "LORA_DIO5"
 		(at 104.14 184.15 0)
@@ -2472,6 +2470,16 @@
 		)
 		(uuid "f8116fa5-9231-445f-8ea0-e86cbbf54ed0")
 	)
+	(label "Pyro2_Cont"
+		(at 100.33 39.37 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f9aea86c-521a-4e40-bd11-6fadbfdc0ed9")
+	)
 	(label "SPI_MOSI"
 		(at 88.9 83.82 180)
 		(effects
@@ -2481,16 +2489,6 @@
 			(justify right bottom)
 		)
 		(uuid "fa841dd8-6e9f-4f34-a5f9-904b714c02ef")
-	)
-	(label "NEOPIXEL"
-		(at 100.33 41.91 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "fcf21c24-6db2-4db9-9379-8dfc9d709fc9")
 	)
 	(sheet
 		(at 116.84 105.41)

@@ -3,9 +3,9 @@
     "GenerationSoftware": {
       "Vendor": "KiCad",
       "Application": "Pcbnew",
-      "Version": "9.0.4"
+      "Version": "10.0.3"
     },
-    "CreationDate": "2025-09-04T21:18:35-05:00"
+    "CreationDate": "2026-06-06T20:26:21-05:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
@@ -49,22 +49,22 @@
     },
     {
       "Path": "Flight Computer-In1_Cu.gbr",
-      "FileFunction": "Copper,L5,Inr",
+      "FileFunction": "Copper,L2,Inr",
       "FilePolarity": "Positive"
     },
     {
       "Path": "Flight Computer-In2_Cu.gbr",
-      "FileFunction": "Copper,L7,Inr",
+      "FileFunction": "Copper,L3,Inr",
       "FilePolarity": "Positive"
     },
     {
       "Path": "Flight Computer-In3_Cu.gbr",
-      "FileFunction": "Copper,L9,Inr",
+      "FileFunction": "Copper,L4,Inr",
       "FilePolarity": "Positive"
     },
     {
       "Path": "Flight Computer-In4_Cu.gbr",
-      "FileFunction": "Copper,L11,Inr",
+      "FileFunction": "Copper,L5,Inr",
       "FilePolarity": "Positive"
     },
     {

@@ -1361,6 +1361,36 @@
 		)
 		(uuid "fd18fa91-2244-4303-aa9e-926e0f67ea23")
 	)
+	(label "P1_FET_G"
+		(at 55.88 53.34 0)
+		(effects
+			(font
+				(size 0.635 0.635)
+			)
+			(justify left bottom)
+		)
+		(uuid "07186204-f171-41ca-84cb-897a082b728e")
+	)
+	(label "P2_FET_G"
+		(at 55.88 91.44 0)
+		(effects
+			(font
+				(size 0.635 0.635)
+			)
+			(justify left bottom)
+		)
+		(uuid "73044dd0-4221-4333-a2b8-99384507483d")
+	)
+	(label "P3_FET_G"
+		(at 55.88 130.81 0)
+		(effects
+			(font
+				(size 0.635 0.635)
+			)
+			(justify left bottom)
+		)
+		(uuid "90248d4d-7bfd-4116-a1ac-1a7c967d3099")
+	)
 	(hierarchical_label "Pyro3"
 		(shape output)
 		(at 85.09 115.57 0)

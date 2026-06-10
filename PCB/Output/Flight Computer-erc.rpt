@@ -1,0 +1,24 @@
+ERC report (2026-06-09T21:39:26, Encoding UTF8)
+Report includes: Errors
+
+***** Sheet /
+
+***** Sheet /Power/
+
+***** Sheet /MCU/
+
+***** Sheet /Sensors/
+
+***** Sheet /IO/
+
+***** Sheet /Radio/
+
+***** Sheet /Pyro/
+
+ ** ERC messages: 0  Errors 0  Warnings 0
+
+ ** Ignored checks:
+    - Input Power pin not driven by any Output Power pins
+    - Four connection points are joined together
+    - Symbol doesn't match copy in library
+    - Footprint link issue

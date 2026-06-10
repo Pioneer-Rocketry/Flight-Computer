@@ -256,6 +256,19 @@
         "variant": ""
       },
       "type": "pcb_export_pos"
+    },
+    {
+      "description": "",
+      "id": "7cd1ac4a-4dc3-4531-84dd-0046e36365d0",
+      "settings": {
+        "description": "",
+        "fail_on_error": true,
+        "format": "report",
+        "output_filename": "",
+        "severity": 32,
+        "units": "mm"
+      },
+      "type": "sch_erc"
     }
   ],
   "meta": {
@@ -269,7 +282,8 @@
         "c4ed85fe-ee5c-4bcc-9a29-84f6f5a9d14b",
         "bf31f56b-d621-40a7-a094-abc1a7261aeb",
         "28b1e2a1-4b77-406e-a7cd-1fe8bc790bae",
-        "6eca5be9-cc8d-4153-8a8f-a65945cac966"
+        "6eca5be9-cc8d-4153-8a8f-a65945cac966",
+        "7cd1ac4a-4dc3-4531-84dd-0046e36365d0"
       ],
       "settings": {
         "output_path": "Output/"

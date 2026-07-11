@@ -8083,7 +8083,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "07b22a77-6dce-46f4-844c-88ad013c3d2c")
-		(property "Reference" "#PWR0432"
+		(property "Reference" "#PWR0412"
 			(at 102.87 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -8143,7 +8143,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0432")
+					(reference "#PWR0412")
 					(unit 1)
 				)
 			)
@@ -8161,7 +8161,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "099bc4d9-264a-40d8-82c5-975438a132e6")
-		(property "Reference" "#PWR0405"
+		(property "Reference" "#PWR0420"
 			(at 152.4 142.24 0)
 			(hide yes)
 			(show_name no)
@@ -8221,7 +8221,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0405")
+					(reference "#PWR0420")
 					(unit 1)
 				)
 			)
@@ -8398,7 +8398,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0db09a20-bedf-486a-8c6e-ec5720fbd49d")
-		(property "Reference" "#PWR0431"
+		(property "Reference" "#PWR0411"
 			(at 102.87 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -8458,7 +8458,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0431")
+					(reference "#PWR0411")
 					(unit 1)
 				)
 			)
@@ -8576,7 +8576,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "13278db7-693e-4790-9942-f4de87b29ed0")
-		(property "Reference" "R407"
+		(property "Reference" "R405"
 			(at 224.79 125.7299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8662,7 +8662,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "R407")
+					(reference "R405")
 					(unit 1)
 				)
 			)
@@ -8680,7 +8680,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "15459eb2-65dc-4b65-8707-ac343572721e")
-		(property "Reference" "#PWR0413"
+		(property "Reference" "#PWR0414"
 			(at 121.92 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -8740,7 +8740,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0413")
+					(reference "#PWR0414")
 					(unit 1)
 				)
 			)
@@ -8841,7 +8841,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "23b7ba98-bd24-4b77-b786-23b1a7d15070")
-		(property "Reference" "#PWR0427"
+		(property "Reference" "#PWR0434"
 			(at 234.95 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -8901,7 +8901,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0427")
+					(reference "#PWR0434")
 					(unit 1)
 				)
 			)
@@ -8913,12 +8913,12 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "2512e338-16d9-423e-ab1d-4fa4a0d8455d")
-		(property "Reference" "J405"
+		(property "Reference" "J406"
 			(at 175.26 34.29 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8999,7 +8999,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J405")
+					(reference "J406")
 					(unit 1)
 				)
 			)
@@ -9169,7 +9169,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2af3535c-44e2-46c9-aaea-14f7bed9a082")
-		(property "Reference" "#PWR0416"
+		(property "Reference" "#PWR0425"
 			(at 180.34 142.24 0)
 			(hide yes)
 			(show_name no)
@@ -9229,7 +9229,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0416")
+					(reference "#PWR0425")
 					(unit 1)
 				)
 			)
@@ -9348,7 +9348,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "336c7400-3d32-40c5-b7b9-8d899539f1a6")
-		(property "Reference" "#PWR0409"
+		(property "Reference" "#PWR0408"
 			(at 73.66 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -9408,7 +9408,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0409")
+					(reference "#PWR0408")
 					(unit 1)
 				)
 			)
@@ -9426,7 +9426,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "33afa36a-2aed-47cc-94fd-c3ca9a6c8538")
-		(property "Reference" "#PWR0406"
+		(property "Reference" "#PWR0405"
 			(at 49.53 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -9486,7 +9486,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0406")
+					(reference "#PWR0405")
 					(unit 1)
 				)
 			)
@@ -9602,7 +9602,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "36de326b-f78f-456c-af28-264e192dcaf7")
-		(property "Reference" "#PWR0411"
+		(property "Reference" "#PWR0409"
 			(at 91.44 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -9662,7 +9662,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0411")
+					(reference "#PWR0409")
 					(unit 1)
 				)
 			)
@@ -9680,7 +9680,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3d27d32b-2b58-44b5-a3b1-2008395c94d0")
-		(property "Reference" "R404"
+		(property "Reference" "R403"
 			(at 172.72 146.05 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9742,7 +9742,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "R404")
+					(reference "R403")
 					(unit 1)
 				)
 			)
@@ -10002,9 +10002,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "453fa07c-9d80-4ebc-b076-8d9cc503c6df")
@@ -10098,7 +10098,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "47127cca-c10c-4f89-8049-6b4b0f9cf5eb")
-		(property "Reference" "#PWR0434"
+		(property "Reference" "#PWR0421"
 			(at 166.37 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -10158,7 +10158,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0434")
+					(reference "#PWR0421")
 					(unit 1)
 				)
 			)
@@ -10177,7 +10177,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "49f3431c-b5eb-4fa0-a815-35a7e8aa0485")
-		(property "Reference" "#PWR0426"
+		(property "Reference" "#PWR0432"
 			(at 220.98 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -10237,7 +10237,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0426")
+					(reference "#PWR0432")
 					(unit 1)
 				)
 			)
@@ -10255,7 +10255,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "540130f0-0622-46f2-b29b-b95b63ff9983")
-		(property "Reference" "#PWR0425"
+		(property "Reference" "#PWR0433"
 			(at 222.25 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -10315,7 +10315,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0425")
+					(reference "#PWR0433")
 					(unit 1)
 				)
 			)
@@ -10333,7 +10333,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "56900215-4a31-4fa7-b3d6-5cee3b933867")
-		(property "Reference" "#PWR0414"
+		(property "Reference" "#PWR0416"
 			(at 130.81 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -10393,7 +10393,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0414")
+					(reference "#PWR0416")
 					(unit 1)
 				)
 			)
@@ -10412,7 +10412,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "57ee833b-d26c-40e9-af69-f4feee09b8b6")
-		(property "Reference" "#PWR0417"
+		(property "Reference" "#PWR0418"
 			(at 142.24 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -10472,7 +10472,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0417")
+					(reference "#PWR0418")
 					(unit 1)
 				)
 			)
@@ -10567,7 +10567,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5beee264-0c0a-47a4-a14c-fb3c816ba323")
-		(property "Reference" "#PWR0415"
+		(property "Reference" "#PWR0417"
 			(at 130.81 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -10627,7 +10627,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0415")
+					(reference "#PWR0417")
 					(unit 1)
 				)
 			)
@@ -10971,7 +10971,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "64a83228-24f7-4e64-837c-1614c3b9b2aa")
-		(property "Reference" "#PWR0421"
+		(property "Reference" "#PWR0428"
 			(at 184.15 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -11031,7 +11031,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0421")
+					(reference "#PWR0428")
 					(unit 1)
 				)
 			)
@@ -11049,7 +11049,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "654e8708-88c0-4829-a6e7-5705cfc229e4")
-		(property "Reference" "J403"
+		(property "Reference" "J404"
 			(at 115.57 48.2599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11148,7 +11148,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J403")
+					(reference "J404")
 					(unit 1)
 				)
 			)
@@ -11165,7 +11165,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6d67e284-c262-4aaf-afba-1e88124b9f21")
-		(property "Reference" "R406"
+		(property "Reference" "R404"
 			(at 215.9 106.6799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11229,7 +11229,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "R406")
+					(reference "R404")
 					(unit 1)
 				)
 			)
@@ -11247,7 +11247,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6e7fdd96-8152-4477-98eb-43bad4554465")
-		(property "Reference" "#PWR0407"
+		(property "Reference" "#PWR0406"
 			(at 60.96 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -11307,7 +11307,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0407")
+					(reference "#PWR0406")
 					(unit 1)
 				)
 			)
@@ -11326,7 +11326,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6fa2fa30-2cdb-455b-abfa-db0010bed516")
-		(property "Reference" "#PWR0430"
+		(property "Reference" "#PWR0423"
 			(at 179.07 161.29 0)
 			(hide yes)
 			(show_name no)
@@ -11386,7 +11386,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0430")
+					(reference "#PWR0423")
 					(unit 1)
 				)
 			)
@@ -11405,7 +11405,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7bf9c11d-81dc-403b-aa00-b6d5546c194b")
-		(property "Reference" "#PWR0423"
+		(property "Reference" "#PWR0430"
 			(at 205.74 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -11465,7 +11465,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0423")
+					(reference "#PWR0430")
 					(unit 1)
 				)
 			)
@@ -11561,7 +11561,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "81fef5cf-4d2f-4cf1-b035-6ffcfbba8346")
-		(property "Reference" "#PWR0433"
+		(property "Reference" "#PWR0426"
 			(at 184.15 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -11621,7 +11621,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0433")
+					(reference "#PWR0426")
 					(unit 1)
 				)
 			)
@@ -11715,7 +11715,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "869c85a1-1b65-43a8-b53f-10510ea6702e")
-		(property "Reference" "#PWR0420"
+		(property "Reference" "#PWR0427"
 			(at 184.15 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -11775,7 +11775,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0420")
+					(reference "#PWR0427")
 					(unit 1)
 				)
 			)
@@ -11793,7 +11793,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9051a920-26ee-42cf-855d-d3d56e21ad4d")
-		(property "Reference" "J404"
+		(property "Reference" "J405"
 			(at 140.97 48.2601 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11886,7 +11886,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J404")
+					(reference "J405")
 					(unit 1)
 				)
 			)
@@ -11983,7 +11983,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "99950c4e-18aa-4dc3-9d16-1c02d8fa2959")
-		(property "Reference" "#PWR0424"
+		(property "Reference" "#PWR0431"
 			(at 218.44 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -12043,7 +12043,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0424")
+					(reference "#PWR0431")
 					(unit 1)
 				)
 			)
@@ -12265,7 +12265,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a1bce884-5b15-4cc8-82f9-dc13853dfcc3")
-		(property "Reference" "#PWR0429"
+		(property "Reference" "#PWR0415"
 			(at 127 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -12325,7 +12325,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0429")
+					(reference "#PWR0415")
 					(unit 1)
 				)
 			)
@@ -12506,7 +12506,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b332014d-1cdd-42ac-882c-730a08c92475")
-		(property "Reference" "#PWR0408"
+		(property "Reference" "#PWR0407"
 			(at 72.39 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -12566,7 +12566,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0408")
+					(reference "#PWR0407")
 					(unit 1)
 				)
 			)
@@ -12584,7 +12584,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b3af2865-8d5a-49d8-87b3-02c099acba35")
-		(property "Reference" "R408"
+		(property "Reference" "R406"
 			(at 224.79 138.4299 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12670,7 +12670,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "R408")
+					(reference "R406")
 					(unit 1)
 				)
 			)
@@ -12682,13 +12682,13 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b4bc5017-a3a7-48c4-ac37-fa69c8c45600")
-		(property "Reference" "J407"
+		(property "Reference" "J403"
 			(at 95.885 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12763,7 +12763,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J407")
+					(reference "J403")
 					(unit 1)
 				)
 			)
@@ -12781,7 +12781,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b7ac774c-3ca3-47bc-9ba1-407dca897aee")
-		(property "Reference" "#PWR0410"
+		(property "Reference" "#PWR0413"
 			(at 105.41 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -12841,7 +12841,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0410")
+					(reference "#PWR0413")
 					(unit 1)
 				)
 			)
@@ -12962,7 +12962,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bb32fc4b-7787-4297-a01f-3c22b1e502a0")
-		(property "Reference" "D403"
+		(property "Reference" "D404"
 			(at 188.722 115.824 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13032,7 +13032,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "D403")
+					(reference "D404")
 					(unit 1)
 				)
 			)
@@ -13161,7 +13161,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c19f5154-ffd4-4295-b3cb-61413a72d7fd")
-		(property "Reference" "#PWR0428"
+		(property "Reference" "#PWR0424"
 			(at 180.34 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -13221,7 +13221,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0428")
+					(reference "#PWR0424")
 					(unit 1)
 				)
 			)
@@ -13325,7 +13325,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "dd6480a6-1a5f-4abd-a701-2095d3610f3e")
-		(property "Reference" "#PWR0418"
+		(property "Reference" "#PWR0429"
 			(at 193.04 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -13385,7 +13385,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0418")
+					(reference "#PWR0429")
 					(unit 1)
 				)
 			)
@@ -13679,7 +13679,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ee542fd8-8736-414b-b3a2-819cefb791ec")
-		(property "Reference" "D406"
+		(property "Reference" "D403"
 			(at 159.0675 144.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13752,7 +13752,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "D406")
+					(reference "D403")
 					(unit 1)
 				)
 			)
@@ -13766,10 +13766,10 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "f4cbfaed-c7d5-4f6c-b47c-31556aed5fa8")
-		(property "Reference" "J406"
+		(property "Reference" "J407"
 			(at 175.006 61.468 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13866,7 +13866,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "J406")
+					(reference "J407")
 					(unit 1)
 				)
 			)
@@ -13884,7 +13884,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f72f5156-583a-46a3-a64b-a5edbd64fade")
-		(property "Reference" "#PWR0412"
+		(property "Reference" "#PWR0410"
 			(at 91.44 171.45 0)
 			(hide yes)
 			(show_name no)
@@ -13944,7 +13944,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0412")
+					(reference "#PWR0410")
 					(unit 1)
 				)
 			)

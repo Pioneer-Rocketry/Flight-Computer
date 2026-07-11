@@ -5349,7 +5349,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "19f24172-86a7-492d-9fda-67dbde66c7f4")
-		(property "Reference" "#PWR0202"
+		(property "Reference" "#PWR0203"
 			(at 55.88 152.4 0)
 			(hide yes)
 			(show_name no)
@@ -5409,7 +5409,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
-					(reference "#PWR0202")
+					(reference "#PWR0203")
 					(unit 1)
 				)
 			)
@@ -5609,7 +5609,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "26e70c34-fa54-499b-8447-1a9e3bb9233a")
-		(property "Reference" "R202"
+		(property "Reference" "R203"
 			(at 60.96 57.1499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5695,7 +5695,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
-					(reference "R202")
+					(reference "R203")
 					(unit 1)
 				)
 			)
@@ -5816,7 +5816,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "35e3ed4c-f92a-491b-97f7-4272bcab8205")
-		(property "Reference" "#PWR0203"
+		(property "Reference" "#PWR0204"
 			(at 58.42 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -5876,7 +5876,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
-					(reference "#PWR0203")
+					(reference "#PWR0204")
 					(unit 1)
 				)
 			)
@@ -5894,7 +5894,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3731ad86-5ed4-4968-bb7d-78e39e42c266")
-		(property "Reference" "#PWR0213"
+		(property "Reference" "#PWR0214"
 			(at 203.2 26.67 0)
 			(hide yes)
 			(show_name no)
@@ -5954,7 +5954,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
-					(reference "#PWR0213")
+					(reference "#PWR0214")
 					(unit 1)
 				)
 			)
@@ -6155,7 +6155,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "58761d9f-7e45-4fbe-aa0c-4a7ec2c7523a")
-		(property "Reference" "#PWR0212"
+		(property "Reference" "#PWR0213"
 			(at 189.23 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -6215,7 +6215,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
-					(reference "#PWR0212")
+					(reference "#PWR0213")
 					(unit 1)
 				)
 			)
@@ -6647,7 +6647,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "83d91bc3-e38f-479a-ab0c-366754154169")
-		(property "Reference" "#PWR0211"
+		(property "Reference" "#PWR0212"
 			(at 171.45 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -6707,7 +6707,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
-					(reference "#PWR0211")
+					(reference "#PWR0212")
 					(unit 1)
 				)
 			)
@@ -6907,7 +6907,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "912995ee-fc3a-4491-99d2-c0236588897d")
-		(property "Reference" "#PWR0215"
+		(property "Reference" "#PWR0211"
 			(at 160.02 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -6967,7 +6967,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
-					(reference "#PWR0215")
+					(reference "#PWR0211")
 					(unit 1)
 				)
 			)
@@ -7296,7 +7296,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b70f349b-ce8e-4f44-9651-a7d29a2e61ae")
-		(property "Reference" "#PWR0214"
+		(property "Reference" "#PWR0215"
 			(at 203.2 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -7356,7 +7356,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
-					(reference "#PWR0214")
+					(reference "#PWR0215")
 					(unit 1)
 				)
 			)
@@ -7374,7 +7374,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c58bd330-18d9-42e5-ba01-986584846cd8")
-		(property "Reference" "R203"
+		(property "Reference" "R202"
 			(at 53.34 102.8699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7460,7 +7460,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
-					(reference "R203")
+					(reference "R202")
 					(unit 1)
 				)
 			)
@@ -7685,7 +7685,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e97985b8-6d99-4ea2-861c-75a5030a2cf0")
-		(property "Reference" "#PWR0204"
+		(property "Reference" "#PWR0202"
 			(at 55.88 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -7745,7 +7745,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/d0598f39-31ca-47e7-8156-229135d6220f"
-					(reference "#PWR0204")
+					(reference "#PWR0202")
 					(unit 1)
 				)
 			)

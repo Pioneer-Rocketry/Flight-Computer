@@ -1,4 +1,4 @@
-### Footprint positions - created on 2026-07-11T10:17:58 ###
+### Footprint positions - created on 2026-07-11T11:11:16 ###
 ### Printed by KiCad version 10.0.4
 ## Unit = mm, Angle = deg.
 ## Side : bottom
@@ -48,15 +48,15 @@ Q601      SL2302S         SOT-23-3                                     -118.2624
 Q602      SL2302S         SOT-23-3                                     -119.8372   -98.1964    0.0000  bottom
 R102      1k              R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -108.0770   -98.1710  -90.0000  bottom
 R201      10k             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -124.2568   -85.6488  180.0000  bottom
-R202      10k             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -125.8062   -87.1982    0.0000  bottom
-R203      5.1k            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -100.9650   -78.4625  -90.0000  bottom
+R202      5.1k            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -100.9650   -78.4625  -90.0000  bottom
+R203      10k             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -125.8062   -87.1982    0.0000  bottom
 R204      5.1k            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -102.0318   -81.7880    0.0000  bottom
 R205      10k             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -124.0500   -74.6000  180.0000  bottom
 R401      5.1k            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -100.7775   -90.5030  180.0000  bottom
 R402      5.1k            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -100.8000   -87.5030  180.0000  bottom
-R406      500             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -125.6792   -64.2601   90.0000  bottom
-R407      500             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -123.3170   -71.7550    0.0000  bottom
-R408      10k             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -126.2380   -70.6120  -90.0000  bottom
+R404      500             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -125.6792   -64.2601   90.0000  bottom
+R405      500             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -123.3170   -71.7550    0.0000  bottom
+R406      10k             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -126.2380   -70.6120  -90.0000  bottom
 R501      500             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -104.9020   -62.6375   90.0000  bottom
 R601      500             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -115.3160  -101.7016  -90.0000  bottom
 R602      10k             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -118.0592  -104.2416    0.0000  bottom

@@ -3523,7 +3523,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0568c82e-b425-49eb-a23b-722d2e4534d2")
-		(property "Reference" "#PWR0517"
+		(property "Reference" "#PWR0516"
 			(at 237.49 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -3583,7 +3583,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0517")
+					(reference "#PWR0516")
 					(unit 1)
 				)
 			)
@@ -5054,7 +5054,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "595dddb9-835a-4381-afb7-3cc572e57f61")
-		(property "Reference" "#PWR0516"
+		(property "Reference" "#PWR0518"
 			(at 257.81 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -5114,7 +5114,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0516")
+					(reference "#PWR0518")
 					(unit 1)
 				)
 			)
@@ -6349,7 +6349,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "acc62169-4682-4c92-a53b-e74feff00c62")
-		(property "Reference" "#PWR0518"
+		(property "Reference" "#PWR0517"
 			(at 250.19 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -6409,7 +6409,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0518")
+					(reference "#PWR0517")
 					(unit 1)
 				)
 			)
@@ -6587,7 +6587,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c99bfbb3-a5f8-4afc-93d9-ca51327b5cc7")
-		(property "Reference" "#PWR0502"
+		(property "Reference" "#PWR0501"
 			(at 30.48 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -6647,7 +6647,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0502")
+					(reference "#PWR0501")
 					(unit 1)
 				)
 			)
@@ -7149,7 +7149,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f226f11b-30b5-42ed-ab99-ed445a2f188b")
-		(property "Reference" "#PWR0501"
+		(property "Reference" "#PWR0502"
 			(at 30.48 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -7209,7 +7209,7 @@
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
-					(reference "#PWR0501")
+					(reference "#PWR0502")
 					(unit 1)
 				)
 			)

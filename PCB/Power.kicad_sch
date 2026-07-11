@@ -2359,28 +2359,6 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 50.8 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 50.8 49.53 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "ddd780bd-787e-4ceb-9258-585f410c70af")
 		)

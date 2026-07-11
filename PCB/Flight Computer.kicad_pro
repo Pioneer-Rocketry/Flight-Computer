@@ -928,7 +928,7 @@
         "uuid": "4254ccd1-49f4-4fe6-9bf7-ccb200d73af4"
       }
     ],
-    "used_designators": "J407,#PWR210,#PWR215,#PWR431-432,R204-205",
+    "used_designators": "J405,J407,#PWR210,#PWR215,#PWR418,#PWR431-434,R204-205",
     "variants": []
   },
   "sheets": [

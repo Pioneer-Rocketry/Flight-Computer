@@ -1,5 +1,5 @@
-### Footprint positions - created on 2026-06-09T21:39:27 ###
-### Printed by KiCad version 10.0.3
+### Footprint positions - created on 2026-07-10T23:01:27 ###
+### Printed by KiCad version 10.0.4
 ## Unit = mm, Angle = deg.
 ## Side : top
 # Ref     Val                           Package                                                PosX       PosY       Rot  Side
@@ -10,26 +10,24 @@ C302      .1u                           C_0603_1608Metric_Pad1.08x0.95mm_HandSol
 C303      .1u                           C_0603_1608Metric_Pad1.08x0.95mm_HandSolder        113.1570   -58.0000    0.0000  top
 C304      .1u                           C_0603_1608Metric_Pad1.08x0.95mm_HandSolder        118.6699   -78.6384    0.0000  top
 C305      .1u                           C_0603_1608Metric_Pad1.08x0.95mm_HandSolder        119.2276   -82.8559   90.0000  top
-C401      .1u                           C_0603_1608Metric_Pad1.08x0.95mm_HandSolder        110.5066   -92.1346  -90.0000  top
-C402      .1u                           C_0603_1608Metric_Pad1.08x0.95mm_HandSolder        110.5066   -95.7425  -90.0000  top
-D101      LED                           LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder      111.3650  -110.4900  180.0000  top
-D402      WS2812B-2020                  LED_WS2812B-2020_PLCC4_2.0x2.0mm                   108.3310   -93.9628  -90.0000  top
-D403      WS2812B-2020                  LED_WS2812B-2020_PLCC4_2.0x2.0mm                   108.3310   -90.3560  -90.0000  top
+C401      .1u                           C_0603_1608Metric_Pad1.08x0.95mm_HandSolder        109.8000   -98.1000   90.0000  top
+C402      .1u                           C_0603_1608Metric_Pad1.08x0.95mm_HandSolder        109.8000  -101.5000   90.0000  top
+D101      LED                           LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder      110.8143  -106.0000  180.0000  top
+D402      WS2812B-2020                  LED_WS2812B-2020_PLCC4_2.0x2.0mm                   112.3850   -98.4000  180.0000  top
+D403      WS2812B-2020                  LED_WS2812B-2020_PLCC4_2.0x2.0mm                   112.4000  -101.8000  180.0000  top
 D406      LED                           LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder      106.9340   -81.2819  -90.0000  top
-FID404    Fiducial                      Fiducial_1mm_Mask2mm                               126.0348   -59.5884    0.0000  top
-FID405    Fiducial                      Fiducial_1mm_Mask2mm                                99.2124   -59.5884    0.0000  top
-FID406    Fiducial                      Fiducial_1mm_Mask2mm                               105.5000  -109.2500    0.0000  top
+FID404    Fiducial                      Fiducial_1mm_Mask2mm                               118.2500  -105.7500    0.0000  top
+FID405    Fiducial                      Fiducial_1mm_Mask2mm                               111.7500   -65.5000    0.0000  top
+FID406    Fiducial                      Fiducial_1mm_Mask2mm                               105.1000  -107.6000    0.0000  top
 J406      Conn_02x03_Counter_Clockwise  EdgePinHeader_02x03                                115.4700   -54.3500    0.0000  top
 J408      Conn_01x04                    JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal   100.9400   -78.8750  -90.0000  top
 Q603      SL2302S                       SOT-23-3                                           116.0272   -91.4908    0.0000  top
-R101      1k                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder        115.0385  -110.4900  180.0000  top
+R101      1k                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder        114.4878  -106.0000  180.0000  top
 R404      1k                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder        106.9340   -77.6243   90.0000  top
 R603      500                           R_0603_1608Metric_Pad0.98x0.95mm_HandSolder        115.7751   -99.1108    0.0000  top
 R605      500                           R_0603_1608Metric_Pad0.98x0.95mm_HandSolder        112.8776   -89.5604  -90.0000  top
 R606      10k                           R_0603_1608Metric_Pad0.98x0.95mm_HandSolder        112.8776   -92.9640  -90.0000  top
 R610      3k                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder        118.3151   -94.8436  180.0000  top
-R613      10k                           R_0603_1608Metric_Pad0.98x0.95mm_HandSolder        109.0676  -102.5125   90.0000  top
-R614      1k                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder        109.0676   -99.1108   90.0000  top
 SW401     SW_Push                       SW_1TS026A                                         122.6820   -86.8680  -90.0000  top
 SW402     SW_Push                       SW_1TS026A                                         125.9840   -86.8680  -90.0000  top
 U202      W25Q128JVS                    SOIC-8_5.3x5.3mm_P1.27mm                           122.4788   -72.1360   90.0000  top

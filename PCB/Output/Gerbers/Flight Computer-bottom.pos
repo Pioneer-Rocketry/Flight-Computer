@@ -1,5 +1,5 @@
-### Footprint positions - created on 2026-06-09T21:39:27 ###
-### Printed by KiCad version 10.0.3
+### Footprint positions - created on 2026-07-10T23:01:27 ###
+### Printed by KiCad version 10.0.4
 ## Unit = mm, Angle = deg.
 ## Side : bottom
 # Ref     Val                           Package                                           PosX       PosY       Rot  Side
@@ -32,9 +32,9 @@ C517      TBD                           C_0603_1608Metric_Pad1.08x0.95mm_HandSol
 C518      TBD                           C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -106.1720   -58.1660  180.0000  bottom
 D401      D                             SOT-23                                       -105.4100   -95.9335  -90.0000  bottom
 D405      D                             SOT-23                                       -122.3795   -64.4550  180.0000  bottom
-FID401    Fiducial                      Fiducial_1mm_Mask2mm                         -100.3300   -60.0000  180.0000  bottom
-FID402    Fiducial                      Fiducial_1mm_Mask2mm                         -120.6500   -60.9600  180.0000  bottom
-FID403    Fiducial                      Fiducial_1mm_Mask2mm                         -120.4468  -108.7120  180.0000  bottom
+FID401    Fiducial                      Fiducial_1mm_Mask2mm                         -102.4300   -60.4800  180.0000  bottom
+FID402    Fiducial                      Fiducial_1mm_Mask2mm                         -120.2000   -60.2400  180.0000  bottom
+FID403    Fiducial                      Fiducial_1mm_Mask2mm                         -120.3200  -109.1700  180.0000  bottom
 J405      Conn_02x03_Counter_Clockwise  EdgePinHeader_02x03                          -125.5600   -84.1200   90.0000  bottom
 J501      Conn_Coaxial                  SMA_Samtec_SMA-J-P-H-ST-EM1_EdgeMount        -108.9650   -54.6000   90.0000  bottom
 L501      15u                           L_0603_1608Metric_Pad1.05x0.95mm_HandSolder  -112.9030   -76.9620    0.0000  bottom
@@ -52,6 +52,7 @@ R201      10k                           R_0603_1608Metric_Pad0.98x0.95mm_HandSol
 R202      10k                           R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -125.8062   -87.1982    0.0000  bottom
 R203      5.1k                          R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -100.9650   -78.4625  -90.0000  bottom
 R204      5.1k                          R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -102.0318   -81.7880    0.0000  bottom
+R205      10k                           R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -122.2225   -75.8000    0.0000  bottom
 R401      5.1k                          R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -100.7775   -90.5030  180.0000  bottom
 R402      5.1k                          R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -100.8000   -87.5030  180.0000  bottom
 R406      500                           R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -125.6792   -64.2601   90.0000  bottom
@@ -66,7 +67,9 @@ R608      3k                            R_0603_1608Metric_Pad0.98x0.95mm_HandSol
 R609      5.1k                          R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -121.7168   -95.6564   90.0000  bottom
 R611      5.1k                          R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -126.5936   -91.8972   90.0000  bottom
 R612      3k                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -125.6792   -89.4080  180.0000  bottom
-U101      LM1117MP-3.3                  SOT-223-3_TabPin2                            -108.7120  -106.2228    0.0000  bottom
+R613      10k                           R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -111.1000  -101.7250    0.0000  bottom
+R614      1k                            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -111.1000  -100.0250  180.0000  bottom
+U101      LM1117MP-3.3                  SOT-223-3_TabPin2                            -108.7120  -106.1228    0.0000  bottom
 U201      STM32F446RETx                 LQFP-64_10x10mm_P0.5mm                       -112.6511   -87.5933  135.0000  bottom
 U501      SX1262IMLTRT                  QFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm          -111.8265   -73.1520  180.0000  bottom
 U502      SKY13453-385LF                QFN_453-385LF_SKY                            -108.9660   -62.0145  180.0000  bottom

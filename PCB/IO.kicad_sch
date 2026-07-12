@@ -9,310 +9,6 @@
 		(company "Pioneer Rocketry")
 	)
 	(lib_symbols
-		(symbol "Connector:Conn_01x05_Pin"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "J"
-				(at 0 7.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Conn_01x05_Pin"
-				(at 0 -7.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Generic connector, single row, 01x05, script generated"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "Conn_01x05_Pin_1_1"
-				(rectangle
-					(start 0.8636 5.207)
-					(end 0 4.953)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 2.667)
-					(end 0 2.413)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 -4.953)
-					(end 0 -5.207)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 5.08) (xy 0.8636 5.08)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 2.54) (xy 0.8636 2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 0) (xy 0.8636 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -2.54) (xy 0.8636 -2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -5.08) (xy 0.8636 -5.08)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at 5.08 5.08 180)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 2.54 180)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 3.81)
-					(name "Pin_3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 -2.54 180)
-					(length 3.81)
-					(name "Pin_4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 -5.08 180)
-					(length 3.81)
-					(name "Pin_5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Connector:Conn_01x06_Pin"
 			(pin_names
 				(offset 1.016)
@@ -6316,16 +6012,6 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 152.4) (xy 48.26 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "059b8f02-f414-4f51-a13c-88fca87a1b69")
-	)
-	(wire
-		(pts
 			(xy 49.53 30.48) (xy 49.53 33.02)
 		)
 		(stroke
@@ -6383,6 +6069,16 @@
 			(type default)
 		)
 		(uuid "0e1d1dbf-1d11-49f6-8d7d-52edc1e32b5e")
+	)
+	(wire
+		(pts
+			(xy 34.29 160.02) (xy 31.75 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e8d81f5-9cf5-4772-abe0-c1fd70e5b333")
 	)
 	(wire
 		(pts
@@ -6876,13 +6572,23 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 154.94) (xy 34.29 154.94)
+			(xy 31.75 149.86) (xy 33.02 149.86)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "8ed4fc9c-0f3a-48bb-980b-e10bd662b477")
+	)
+	(wire
+		(pts
+			(xy 34.29 144.78) (xy 34.29 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8ff29fb9-3c24-4fd2-8609-6eff79c2700f")
 	)
 	(wire
 		(pts
@@ -7003,6 +6709,16 @@
 			(type default)
 		)
 		(uuid "a3b0188f-c0b9-4145-87b8-8e5d1c96fc35")
+	)
+	(wire
+		(pts
+			(xy 34.29 162.56) (xy 34.29 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a3d4d30f-50a7-4321-b6eb-d43354f48447")
 	)
 	(wire
 		(pts
@@ -7153,16 +6869,6 @@
 			(type default)
 		)
 		(uuid "bf91cb5f-6c0b-4ca7-94fb-cc67cd1cf494")
-	)
-	(wire
-		(pts
-			(xy 48.26 152.4) (xy 48.26 154.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c0bd09d6-59e7-4962-b993-6d711346b18c")
 	)
 	(wire
 		(pts
@@ -7326,7 +7032,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 160.02) (xy 34.29 160.02)
+			(xy 31.75 154.94) (xy 33.02 154.94)
 		)
 		(stroke
 			(width 0)
@@ -7396,7 +7102,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 157.48) (xy 34.29 157.48)
+			(xy 31.75 152.4) (xy 33.02 152.4)
 		)
 		(stroke
 			(width 0)
@@ -7566,7 +7272,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 162.56) (xy 34.29 162.56)
+			(xy 31.75 157.48) (xy 33.02 157.48)
 		)
 		(stroke
 			(width 0)
@@ -7603,6 +7309,16 @@
 			(type default)
 		)
 		(uuid "f252e212-997b-4a5d-8825-c89da2a12dca")
+	)
+	(wire
+		(pts
+			(xy 34.29 147.32) (xy 31.75 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f4566e93-7d70-45ed-b300-d0c3c971aeb4")
 	)
 	(wire
 		(pts
@@ -7808,7 +7524,7 @@
 	)
 	(hierarchical_label "Servo2"
 		(shape input)
-		(at 34.29 160.02 0)
+		(at 33.02 154.94 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7841,7 +7557,7 @@
 	)
 	(hierarchical_label "Servo3"
 		(shape input)
-		(at 34.29 157.48 0)
+		(at 33.02 152.4 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7896,7 +7612,7 @@
 	)
 	(hierarchical_label "Servo4"
 		(shape input)
-		(at 34.29 154.94 0)
+		(at 33.02 149.86 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8028,7 +7744,7 @@
 	)
 	(hierarchical_label "Servo1"
 		(shape input)
-		(at 34.29 162.56 0)
+		(at 33.02 157.48 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8559,6 +8275,84 @@
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
 					(reference "H404")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 34.29 162.56 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1296b216-1765-4973-bcfd-2c9c3d171c8b")
+		(property "Reference" "#PWR0404"
+			(at 34.29 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 34.29 167.64 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 34.29 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 34.29 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 34.29 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7b67b5b3-761b-4e28-b738-5ef8dbeb68de")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
+					(reference "#PWR0404")
 					(unit 1)
 				)
 			)
@@ -9919,19 +9713,19 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x05_Pin")
-		(at 27.94 157.48 0)
+		(lib_id "Connector:Conn_01x06_Pin")
+		(at 26.67 152.4 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
-		(in_pos_files no)
+		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "453fa07c-9d80-4ebc-b076-8d9cc503c6df")
 		(property "Reference" "J401"
-			(at 28.575 147.32 0)
+			(at 27.305 144.78 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9941,7 +9735,8 @@
 			)
 		)
 		(property "Value" "Conn_01x05_Pin"
-			(at 28.575 149.86 0)
+			(at 27.305 144.78 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9950,8 +9745,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
-			(at 27.94 157.48 0)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
+			(at 26.67 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9962,7 +9757,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 27.94 157.48 0)
+			(at 26.67 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9972,8 +9767,8 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x05, script generated"
-			(at 27.94 157.48 0)
+		(property "Description" "Generic connector, single row, 01x06, script generated"
+			(at 26.67 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9997,6 +9792,9 @@
 		)
 		(pin "3"
 			(uuid "11ae6516-f89d-41c8-953d-6f86f10ae4ad")
+		)
+		(pin "6"
+			(uuid "988ddb63-7aef-4b13-bcca-f83eb5b80fd4")
 		)
 		(instances
 			(project "Flight Computer"
@@ -11893,8 +11691,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 48.26 154.94 0)
+		(lib_id "power:VCC")
+		(at 34.29 144.78 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11903,9 +11701,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "95d40e0e-bf9f-4280-a0a3-73037ebd0dce")
-		(property "Reference" "#PWR0404"
-			(at 48.26 161.29 0)
+		(uuid "96c1ceee-d780-4940-81e9-0d7ce29ab63b")
+		(property "Reference" "#PWR0435"
+			(at 34.29 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11915,8 +11713,8 @@
 				)
 			)
 		)
-		(property "Value" "GND"
-			(at 48.26 160.02 0)
+		(property "Value" "VCC"
+			(at 34.29 139.7 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11926,7 +11724,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 48.26 154.94 0)
+			(at 34.29 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11937,7 +11735,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 48.26 154.94 0)
+			(at 34.29 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11947,8 +11745,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 48.26 154.94 0)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 34.29 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11959,12 +11757,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "4a2317fa-d405-4da9-8699-26093df506cd")
+			(uuid "f2515ff5-8534-4b01-9496-e616490885aa")
 		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
-					(reference "#PWR0404")
+					(reference "#PWR0435")
 					(unit 1)
 				)
 			)

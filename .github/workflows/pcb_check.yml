@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "PCB/*.kicad_*"
+      - ".github/workflows/pcb_check.yml"
     paths-ignore::
       - "**.md"
       - "PCB/Output/*"

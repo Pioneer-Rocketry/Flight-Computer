@@ -1,4 +1,4 @@
-### Footprint positions - created on 2026-07-11T11:56:13 ###
+### Footprint positions - created on 2026-07-12T15:04:36 ###
 ### Printed by KiCad version 10.0.4
 ## Unit = mm, Angle = deg.
 ## Side : top
@@ -17,7 +17,7 @@ D402      WS2812B-2020  LED_WS2812B-2020_PLCC4_2.0x2.0mm                   112.3
 D403      LED           LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder      106.9340   -81.2819  -90.0000  top
 D404      WS2812B-2020  LED_WS2812B-2020_PLCC4_2.0x2.0mm                   112.4000  -101.8000  180.0000  top
 FID404    Fiducial      Fiducial_1mm_Mask2mm                               118.2500  -105.7500    0.0000  top
-FID405    Fiducial      Fiducial_1mm_Mask2mm                               111.7500   -65.5000    0.0000  top
+FID405    Fiducial      Fiducial_1mm_Mask2mm                               104.5500   -57.9750    0.0000  top
 FID406    Fiducial      Fiducial_1mm_Mask2mm                               105.1000  -107.6000    0.0000  top
 J408      Conn_01x04    JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal   100.9400   -78.8750  -90.0000  top
 Q603      SL2302S       SOT-23-3                                           116.0272   -91.4908    0.0000  top

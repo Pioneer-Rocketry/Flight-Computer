@@ -25,7 +25,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v7.0.0
         with:
-          submodules: recursive
+          submodules: false
+          sparse-checkout: |
+            .github
+            PCB
 
       - name: List files in PCB directory
         run: dir && ls -la

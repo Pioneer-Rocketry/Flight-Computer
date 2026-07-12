@@ -1,4 +1,4 @@
-### Footprint positions - created on 2026-07-12T15:30:17 ###
+### Footprint positions - created on 2026-07-12T21:03:58 ###
 ### Printed by KiCad version 10.0.4
 ## Unit = mm, Angle = deg.
 ## Side : bottom
@@ -34,7 +34,7 @@ D401      D               SOT-23                                       -105.4100
 D405      D               SOT-23                                       -122.3795   -64.4550  180.0000  bottom
 FID401    Fiducial        Fiducial_1mm_Mask2mm                         -102.7500   -60.1500  180.0000  bottom
 FID402    Fiducial        Fiducial_1mm_Mask2mm                         -120.2000   -60.2400  180.0000  bottom
-FID403    Fiducial        Fiducial_1mm_Mask2mm                         -120.3200  -109.1700  180.0000  bottom
+FID403    Fiducial        Fiducial_1mm_Mask2mm                         -120.5750  -107.9000  180.0000  bottom
 J501      Conn_Coaxial    SMA_Samtec_SMA-J-P-H-ST-EM1_EdgeMount        -108.9650   -54.6000   90.0000  bottom
 L501      15u             L_0603_1608Metric_Pad1.05x0.95mm_HandSolder  -112.9030   -76.9620    0.0000  bottom
 L502      68n             L_0603_1608Metric_Pad1.05x0.95mm_HandSolder  -115.0620   -68.4530   90.0000  bottom
@@ -68,7 +68,7 @@ R611      5.1k            R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -126.5936
 R612      3k              R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -125.6792   -89.4080  180.0000  bottom
 R613      10k             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -111.1000  -101.7250    0.0000  bottom
 R614      1k              R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -111.1000  -100.0250  180.0000  bottom
-U101      LM1117MP-3.3    SOT-223-3_TabPin2                            -108.7120  -106.1228    0.0000  bottom
+U101      LM1117MP-3.3    SOT-223-3_TabPin2                            -108.5000  -106.1250    0.0000  bottom
 U201      STM32F446RETx   LQFP-64_10x10mm_P0.5mm                       -112.6511   -87.5933  135.0000  bottom
 U501      SX1262IMLTRT    QFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm          -111.8265   -73.1520  180.0000  bottom
 U502      SKY13453-385LF  QFN_453-385LF_SKY                            -108.9660   -62.0145  180.0000  bottom

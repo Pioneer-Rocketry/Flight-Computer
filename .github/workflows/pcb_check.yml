@@ -19,6 +19,7 @@ jobs:
       contents: read
     container:
       image: ghcr.io/kicad/kicad:10.0.4-full
+      options: --user root
 
     steps:
       - name: Check out code
@@ -26,11 +27,14 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Fix permissions for KiCad user
+        run: sudo chown -R kicad:kicad PCB || true
+
       - name: Version Info
         run: kicad-cli --version
 
       - name: Run KiCad Jobset
-        run: cd PCB && kicad-cli jobset run --file Fabrication.kicad Flight\ Computer.kicad_pcb
+        run: cd PCB && sudo -u kicad kicad-cli jobset run --file Fabrication.kicad Flight\ Computer.kicad_pcb
 
       # https://stackoverflow.com/a/58393457
       # - name: Commit build artifacts

@@ -2,12 +2,12 @@ name: Check and generate PCB production files
 
 on:
   push:
-    paths:
-      - "PCB/*.kicad_*"
-    paths-ignore::
-      - "**.md"
-      - "PCB/Output/*"
-      - "Datasheets/**"
+    # paths:
+    #   - "PCB/*.kicad_*"
+    # paths-ignore::
+    #   - "**.md"
+    #   - "PCB/Output/*"
+    #   - "Datasheets/**"
   pull_request:
     branches: [ main ]
   workflow_dispatch:

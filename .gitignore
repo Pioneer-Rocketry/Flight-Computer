@@ -50,5 +50,4 @@ Code/release
 *.su
 *.idb
 
-
-*.zip
+*.lck

@@ -2,12 +2,12 @@ name: Check and generate PCB production files
 
 on:
   push:
-    # paths:
-    #   - "PCB/*.kicad_*"
-    # paths-ignore::
-    #   - "**.md"
-    #   - "PCB/Output/*"
-    #   - "Datasheets/**"
+    paths:
+      - "PCB/*.kicad_*"
+    paths-ignore::
+      - "**.md"
+      - "PCB/Output/*"
+      - "Datasheets/**"
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -16,7 +16,7 @@ jobs:
   check-generate-pcb-production:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
     container:
       image: ghcr.io/kicad/kicad:10.0.4-full
       options: --user root
@@ -43,13 +43,13 @@ jobs:
         run: cd PCB && sudo -u kicad kicad-cli jobset run --file Fabrication.kicad Flight\ Computer.kicad_pcb
 
       # https://stackoverflow.com/a/58393457
-      # - name: Commit build artifacts
-      #   run: |
-      #     git config --global user.name "github-actions[bot]"
-      #     git config --global user.email "{user.id}+{user.login}@users.noreply.github.com"
-      #     git add PCB/Output/*
-      #     git commit -m "Add PCB production files" || echo "No changes to commit"
-      #     git push
+      - name: Commit build artifacts
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "{user.id}+{user.login}@users.noreply.github.com"
+          git add PCB/Output/*
+          git commit -m "Add PCB production files" || echo "No changes to commit"
+          git push
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4

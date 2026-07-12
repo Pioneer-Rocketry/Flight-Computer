@@ -10875,6 +10875,12 @@
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/842c3e6e-2cba-40a3-9360-5480f69d9e2c")
 		(sheetname "/IO/")
 		(sheetfile "IO.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins)
+			)
+		)
 		(attr smd exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle

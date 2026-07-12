@@ -1,11 +1,8 @@
 ** Drc report for Flight Computer.kicad_pcb **
-** Created on 2026-07-11T11:56:05 **
+** Created on 2026-07-12T15:04:28 **
 ** Report includes: Errors, Warnings **
 
-** Found 1 DRC violations **
-[missing_courtyard]: Footprint has no courtyard defined
-    Local override; warning
-    @(111.7500 mm, 65.5000 mm): Footprint FID405
+** Found 0 DRC violations **
 
 ** Found 0 unconnected pads **
 

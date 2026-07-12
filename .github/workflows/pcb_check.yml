@@ -25,7 +25,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v7.0.0
         with:
-          submodules: recursive
+          sparse-checkout:
+            PCB
+            .github
 
       - name: Fix permissions for KiCad user
         run: sudo chown -R kicad:kicad PCB || true

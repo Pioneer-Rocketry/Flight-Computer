@@ -17,7 +17,7 @@
         "copper_text_upright": false,
         "courtyard_line_width": 0.05,
         "dimension_precision": 4,
-        "dimension_units": 0,
+        "dimension_units": 2,
         "dimensions": {
           "arrow_length": 1270000,
           "extension_offset": 500000,
@@ -928,7 +928,7 @@
         "uuid": "4254ccd1-49f4-4fe6-9bf7-ccb200d73af4"
       }
     ],
-    "used_designators": "BZ401,C101,C201-209,C301-305,C401-402,C501-518,FID401-406,G401,H401-404,L501-506,Q101,Q401,Q601-603,D101,D401-405,U101,U201-202,U301-304,U501-502,SW401-402,R101-102,R201-205,R401-406,R501,R601-614,Y201,Y501,#PWR101-109,#PWR201-215,#PWR301-314,#PWR401-435,#PWR501-518,#PWR601-611,J401-408,J501",
+    "used_designators": "J401-408,J501,BZ401,C101,C201-209,C301-305,C401-402,C501-518,FID401-406,G401,H401-404,L501-506,Q101,Q401,Q601-603,D101,D401-405,U101,U201-202,U301-304,U501-502,SW401-402,R101-102,R201-205,R401-406,R501,R601-614,#PWR101-109,#PWR201-215,#PWR301-314,#PWR401-435,#PWR501-518,#PWR601-611,Y201,Y501",
     "variants": []
   },
   "sheets": [

@@ -6332,6 +6332,16 @@
 	)
 	(wire
 		(pts
+			(xy 31.75 154.94) (xy 33.02 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "462d164c-0d11-4520-81ea-541b654fb2ed")
+	)
+	(wire
+		(pts
 			(xy 100.33 111.76) (xy 102.87 111.76)
 		)
 		(stroke
@@ -6512,6 +6522,16 @@
 	)
 	(wire
 		(pts
+			(xy 31.75 147.32) (xy 34.29 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c34ec79-7278-4e39-9c59-5e6c8bcdef7e")
+	)
+	(wire
+		(pts
 			(xy 105.41 48.26) (xy 105.41 53.34)
 		)
 		(stroke
@@ -6569,16 +6589,6 @@
 			(type default)
 		)
 		(uuid "88e20678-7b6b-42de-a18d-76e5ca37d713")
-	)
-	(wire
-		(pts
-			(xy 31.75 149.86) (xy 33.02 149.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8ed4fc9c-0f3a-48bb-980b-e10bd662b477")
 	)
 	(wire
 		(pts
@@ -6779,6 +6789,16 @@
 			(type default)
 		)
 		(uuid "abb09826-5beb-4cd9-b7d7-a2e90a337ecc")
+	)
+	(wire
+		(pts
+			(xy 31.75 157.48) (xy 33.02 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ae7d15cd-30fc-4965-b323-5c683d31e520")
 	)
 	(wire
 		(pts
@@ -7032,16 +7052,6 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 154.94) (xy 33.02 154.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d58d0457-ef7b-4982-83bc-d39d76ca4c54")
-	)
-	(wire
-		(pts
 			(xy 21.59 107.95) (xy 31.75 107.95)
 		)
 		(stroke
@@ -7102,16 +7112,6 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 152.4) (xy 33.02 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d8c686a7-f2eb-446f-954b-cf52e5d1969a")
-	)
-	(wire
-		(pts
 			(xy 73.66 72.39) (xy 73.66 74.93)
 		)
 		(stroke
@@ -7129,6 +7129,16 @@
 			(type default)
 		)
 		(uuid "d95b46e7-f40d-4592-a4ee-078d4d695c32")
+	)
+	(wire
+		(pts
+			(xy 31.75 152.4) (xy 33.02 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dc75ca07-75ca-4319-8304-aabff1d45570")
 	)
 	(wire
 		(pts
@@ -7189,6 +7199,16 @@
 			(type default)
 		)
 		(uuid "e47527a3-39d7-487c-9e82-3291b7d905f1")
+	)
+	(wire
+		(pts
+			(xy 31.75 149.86) (xy 33.02 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e4fb4c45-3dbb-4556-a11e-2226f0ec15cf")
 	)
 	(wire
 		(pts
@@ -7272,16 +7292,6 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 157.48) (xy 33.02 157.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ee1bfcf5-ea5c-4e3c-b8e3-b37cce866015")
-	)
-	(wire
-		(pts
 			(xy 46.99 48.26) (xy 49.53 48.26)
 		)
 		(stroke
@@ -7309,16 +7319,6 @@
 			(type default)
 		)
 		(uuid "f252e212-997b-4a5d-8825-c89da2a12dca")
-	)
-	(wire
-		(pts
-			(xy 34.29 147.32) (xy 31.75 147.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f4566e93-7d70-45ed-b300-d0c3c971aeb4")
 	)
 	(wire
 		(pts
@@ -7524,7 +7524,7 @@
 	)
 	(hierarchical_label "Servo2"
 		(shape input)
-		(at 33.02 154.94 0)
+		(at 33.02 152.4 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7557,7 +7557,7 @@
 	)
 	(hierarchical_label "Servo3"
 		(shape input)
-		(at 33.02 152.4 0)
+		(at 33.02 154.94 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7612,7 +7612,7 @@
 	)
 	(hierarchical_label "Servo4"
 		(shape input)
-		(at 33.02 149.86 0)
+		(at 33.02 157.48 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7744,7 +7744,7 @@
 	)
 	(hierarchical_label "Servo1"
 		(shape input)
-		(at 33.02 157.48 0)
+		(at 33.02 149.86 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9714,7 +9714,8 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x06_Pin")
-		(at 26.67 152.4 0)
+		(at 26.67 154.94 0)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9722,10 +9723,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "453fa07c-9d80-4ebc-b076-8d9cc503c6df")
 		(property "Reference" "J401"
-			(at 27.305 144.78 0)
+			(at 26.67 144.526 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9735,7 +9735,7 @@
 			)
 		)
 		(property "Value" "Conn_01x05_Pin"
-			(at 27.305 144.78 0)
+			(at 27.305 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9746,7 +9746,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
-			(at 26.67 152.4 0)
+			(at 26.67 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9757,7 +9757,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 26.67 152.4 0)
+			(at 26.67 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9768,7 +9768,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x06, script generated"
-			(at 26.67 152.4 0)
+			(at 26.67 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

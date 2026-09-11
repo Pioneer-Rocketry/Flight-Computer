@@ -1,9 +1,25 @@
-ERC report (2026-07-13T00:04:33, Encoding UTF8)
+ERC report (2026-09-11T17:04:07, Encoding UTF8)
 Report includes: Errors
 
 ***** Sheet /
-
-***** Sheet /Power/
+[wire_dangling]: Wires not connected to anything
+    ; error
+    @(62.23 mm, 93.98 mm): Horizontal Wire, length 6.35 mm
+[wire_dangling]: Wires not connected to anything
+    ; error
+    @(62.23 mm, 96.52 mm): Horizontal Wire, length 6.35 mm
+[wire_dangling]: Wires not connected to anything
+    ; error
+    @(62.23 mm, 101.60 mm): Horizontal Wire, length 6.35 mm
+[wire_dangling]: Wires not connected to anything
+    ; error
+    @(97.79 mm, 113.03 mm): Horizontal Wire, length 7.62 mm
+[wire_dangling]: Wires not connected to anything
+    ; error
+    @(107.95 mm, 138.43 mm): Horizontal Wire, length 10.16 mm
+[wire_dangling]: Wires not connected to anything
+    ; error
+    @(107.95 mm, 143.51 mm): Horizontal Wire, length 10.16 mm
 
 ***** Sheet /MCU/
 
@@ -15,7 +31,9 @@ Report includes: Errors
 
 ***** Sheet /Pyro/
 
- ** ERC messages: 0  Errors 0  Warnings 0
+***** Sheet /Power/
+
+ ** ERC messages: 6  Errors 6  Warnings 0
 
  ** Ignored checks:
     - Input Power pin not driven by any Output Power pins

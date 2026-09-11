@@ -2875,18 +2875,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 66.04 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "672-1054-1-ND"
 			(at 66.04 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -3032,18 +3021,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 146.05 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 146.05 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -3370,18 +3348,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 128.27 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "1267-MMC5633NJLCT-ND"
 			(at 128.27 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -3479,18 +3446,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 140.97 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 140.97 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -3581,18 +3537,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 69.85 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "497-LSM6DSV320XTRCT-ND"
 			(at 69.85 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -4032,18 +3977,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 50.8 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 50.8 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -4135,18 +4069,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 133.35 105.41 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "223-1198-1-ND"
 			(at 133.35 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -4257,18 +4180,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 46.99 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 46.99 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -4361,18 +4273,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 35.56 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 35.56 41.91 0)
 			(hide yes)
 			(show_name no)

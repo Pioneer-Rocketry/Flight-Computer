@@ -8010,6 +8010,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" ""
+			(at 64.77 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
@@ -8077,6 +8088,17 @@
 		)
 		(property "Description" "Buzzer, polarized"
 			(at 228.6 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "3949-OWMB-323220SA-40-12CT-ND"
+			(at 228.6 109.22 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8246,18 +8268,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 52.07 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" ""
 			(at 52.07 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -8425,18 +8436,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 222.25 127 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "13-RT0603BRD07500RLCT-ND"
 			(at 222.25 127 0)
 			(hide yes)
 			(show_name no)
@@ -8608,6 +8608,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "311-1088-1-ND"
+			(at 142.24 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "91bf2ef2-66d2-4283-8f3f-0b8a7974d2d4")
 		)
@@ -8766,6 +8777,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" ""
+			(at 173.99 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "7"
 			(uuid "d88f4315-8716-4a72-816a-724b1eacc292")
 		)
@@ -8866,6 +8888,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" ""
+			(at 64.77 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
@@ -8932,6 +8965,17 @@
 			)
 		)
 		(property "Description" "Fiducial Marker"
+			(at 35.56 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" ""
 			(at 35.56 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -9096,18 +9140,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 31.75 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" ""
 			(at 31.75 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -9275,7 +9308,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
+		(property "Digikey-PN" ""
 			(at 217.17 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -9286,7 +9319,29 @@
 				)
 			)
 		)
-		(property "LCSC  Part #" ""
+		(property "Var(433MHz)" ""
+			(at 217.17 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" ""
+			(at 217.17 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" ""
 			(at 217.17 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -9440,6 +9495,17 @@
 		)
 		(property "Description" "Resistor, US symbol"
 			(at 172.72 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "RMCF0603FT1K00CT-ND"
+			(at 172.72 152.4 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9610,6 +9676,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "311-1088-1-ND"
+			(at 170.18 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9c238b4f-56ef-4de2-9161-51ca8a9fb6a1")
 		)
@@ -9691,6 +9768,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "4544-FZ2812-0807CT-ND"
+			(at 152.4 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "3eb31845-de1a-4eab-b561-816465482096")
 		)
@@ -9719,9 +9807,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "453fa07c-9d80-4ebc-b076-8d9cc503c6df")
 		(property "Reference" "J401"
@@ -9768,6 +9856,17 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x06, script generated"
+			(at 26.67 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" ""
 			(at 26.67 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -10343,6 +10442,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" ""
+			(at 49.53 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
@@ -10498,18 +10608,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 41.91 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" ""
 			(at 41.91 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -10597,18 +10696,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 31.75 48.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "2073-USB4105-GF-ACT-ND"
 			(at 31.75 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -10903,18 +10991,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 113.03 48.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "ED10565-ND"
 			(at 113.03 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -11008,6 +11085,17 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
+			(at 218.44 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "13-RT0603BRD07500RLCT-ND"
 			(at 218.44 107.95 0)
 			(hide yes)
 			(show_name no)
@@ -11492,6 +11580,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" ""
+			(at 64.77 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
@@ -11647,18 +11746,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 138.43 48.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "ED10563-ND"
 			(at 138.43 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -11914,18 +12002,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 69.85 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-5.10KHRCT-ND"
 			(at 69.85 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -12017,18 +12094,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 21.59 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" ""
 			(at 21.59 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -12196,6 +12262,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" ""
+			(at 21.59 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
@@ -12261,6 +12338,17 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
+			(at 83.82 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "4809-SKTAAAE010CT-ND"
 			(at 83.82 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -12437,18 +12525,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 222.25 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
 			(at 222.25 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -12530,6 +12607,17 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x06, script generated"
+			(at 95.25 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" ""
 			(at 95.25 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -12712,18 +12800,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 74.93 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-5.10KHRCT-ND"
 			(at 74.93 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -12805,6 +12882,17 @@
 			)
 		)
 		(property "Description" "RGB LED with integrated controller, 2.0 x 2.0 mm, 12 mA"
+			(at 180.34 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "4544-FZ2812-0807CT-ND"
 			(at 180.34 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -12903,18 +12991,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 228.6 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "455-SM04B-SRSS-TBCT-ND"
 			(at 228.6 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -13080,6 +13157,17 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
+			(at 83.82 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "4809-SKTAAAE010CT-ND"
 			(at 83.82 162.56 0)
 			(hide yes)
 			(show_name no)
@@ -13447,6 +13535,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "5399-SL2302SCT-ND"
+			(at 232.41 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "3"
 			(uuid "200b682a-5f33-43f5-962f-23d20b3a7ddc")
 		)
@@ -13541,6 +13640,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "3147-B1931UD--05D000314U1930CT-ND"
+			(at 157.48 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "0c6ffffe-c039-47b4-aeff-a21a2b07bc84")
 		)
@@ -13621,18 +13731,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 173.99 67.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" ""
 			(at 173.99 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -13835,18 +13934,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 67.31 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "BAT750CT-ND"
 			(at 67.31 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -13949,6 +14037,17 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 228.6 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "BAT750CT-ND"
 			(at 228.6 116.84 0)
 			(hide yes)
 			(show_name no)

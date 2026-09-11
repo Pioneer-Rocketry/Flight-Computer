@@ -1,5 +1,5 @@
-### Footprint positions - created on 2026-07-13T00:04:34 ###
-### Printed by KiCad version 10.0.4
+### Footprint positions - created on 2026-09-11T17:04:08 ###
+### Printed by KiCad version 10.0.6
 ## Unit = mm, Angle = deg.
 ## Side : bottom
 # Ref     Val             Package                                           PosX       PosY       Rot  Side
@@ -28,8 +28,6 @@ C513      15p             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -110.7440
 C514      .1u             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -106.6800   -62.6375  -90.0000  bottom
 C515      .1u             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -111.2520   -62.6375  -90.0000  bottom
 C516      33p             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -109.8410   -59.9440    0.0000  bottom
-C517      TBD             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -113.3845   -58.1660    0.0000  bottom
-C518      TBD             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -106.1720   -58.1660  180.0000  bottom
 D401      D               SOT-23                                       -105.4100   -95.9335  -90.0000  bottom
 D405      D               SOT-23                                       -122.3795   -64.4550  180.0000  bottom
 FID401    Fiducial        Fiducial_1mm_Mask2mm                         -102.7500   -60.1500  180.0000  bottom
@@ -42,6 +40,7 @@ L503      33n             L_0603_1608Metric_Pad1.05x0.95mm_HandSolder  -108.4580
 L504      3.9n            L_0603_1608Metric_Pad1.05x0.95mm_HandSolder  -115.0620   -64.4030   90.0000  bottom
 L505      15n             L_0603_1608Metric_Pad1.05x0.95mm_HandSolder  -113.4110   -64.4030   90.0000  bottom
 L506      0R              L_0603_1608Metric_Pad1.05x0.95mm_HandSolder  -109.8410   -58.1660  180.0000  bottom
+L507      0R              L_0603_1608Metric_Pad1.05x0.95mm_HandSolder  -113.4000   -68.4530  -90.0000  bottom
 Q101      FDN306P         SOT-23-3                                     -105.4100  -100.2538  -90.0000  bottom
 Q401      SL2302S         SOT-23-3                                     -123.3170   -68.5800   90.0000  bottom
 Q601      SL2302S         SOT-23-3                                     -118.2624  -101.6508    0.0000  bottom

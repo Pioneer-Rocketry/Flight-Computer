@@ -50,7 +50,11 @@
           "Sim.Device",
           "Sim.Pins",
           "Sim.Type",
-          "Description"
+          "Description",
+          "Var.Aspect",
+          "Var(915MHz)",
+          "Digikey-PN",
+          "Var(433MHz)"
         ],
         "fields_ordered": [
           "Reference",
@@ -58,14 +62,18 @@
           "__Datasheet",
           "__Footprint",
           "${QUANTITY}",
-          "${DNP}",
+          "__${DNP}",
           "__${ITEM_NUMBER}",
           "__LCSC",
           "__LCSC  Part #",
           "__Sim.Device",
           "__Sim.Pins",
           "__Sim.Type",
-          "__Description"
+          "__Description",
+          "__Var.Aspect",
+          "__Var(915MHz)",
+          "Digikey-PN",
+          "__Var(433MHz)"
         ],
         "filter_string": "",
         "group_symbols": true,
@@ -204,6 +212,7 @@
       "settings": {
         "board_only": false,
         "board_outlines_chaining_epsilon": 0.01,
+        "component_filter": "",
         "cut_vias_in_body": true,
         "description": "",
         "export_board_body": true,
@@ -214,11 +223,14 @@
         "export_soldermask": true,
         "export_tracks": false,
         "export_zones": false,
+        "extra_pad_thickness": true,
         "fill_all_vias": false,
         "format": "step",
         "fuse_shapes": false,
+        "has_user_origin": false,
         "include_dnp": false,
         "include_unspecified": true,
+        "net_filter": "",
         "occt_format": 0,
         "optimize_step": true,
         "output_filename": "",
@@ -232,7 +244,8 @@
         "user_origin.y": 82.5,
         "variant": "",
         "vrml_model_dir": "",
-        "vrml_relative_paths": false
+        "vrml_relative_paths": false,
+        "vrml_units": "m"
       },
       "type": "pcb_export_3d"
     },

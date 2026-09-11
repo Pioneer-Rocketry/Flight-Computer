@@ -2075,18 +2075,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 63.5 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 63.5 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -2179,18 +2168,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 194.31 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "RMCF0603FT1K00CT-ND"
 			(at 194.31 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -2359,6 +2337,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "LM1117MP-3.3/NOPBCT-ND"
+			(at 50.8 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ddd780bd-787e-4ceb-9258-585f410c70af")
 		)
@@ -2466,6 +2455,17 @@
 		)
 		(property "Sim.Pins" "1=D 2=G 3=S"
 			(at 209.55 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "5399-FDN306PCT-ND"
+			(at 194.31 50.8 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2716,18 +2716,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 106.68 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "RMCF0603FT1K00CT-ND"
 			(at 106.68 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -2831,18 +2820,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 106.68 46.99 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "3147-B1931UD--05D000314U1930CT-ND"
 			(at 106.68 46.99 90)
 			(hide yes)
 			(show_name no)

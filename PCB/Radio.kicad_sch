@@ -2082,12 +2082,6 @@
 		(uuid "5d1713df-b8c0-429a-876f-15c07bc2a0d9")
 	)
 	(junction
-		(at 115.57 92.71)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "69235e1c-e82f-4259-a33d-83fe9f744bd7")
-	)
-	(junction
 		(at 67.31 58.42)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2118,7 +2112,7 @@
 		(uuid "97188f12-2d9b-4074-a593-1353ccfebeea")
 	)
 	(junction
-		(at 137.16 92.71)
+		(at 134.62 92.71)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9d9b0a6f-79eb-43d3-8680-c1efa8f221cd")
@@ -2130,19 +2124,19 @@
 		(uuid "a5bc7cba-4292-423f-b7bb-725bfb0ccf93")
 	)
 	(junction
-		(at 149.86 92.71)
+		(at 147.32 92.71)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a7a12edd-8a79-4b5e-8fa0-4aec78f1cb5d")
 	)
 	(junction
-		(at 110.49 73.66)
+		(at 110.49 66.04)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cfaef6ca-d3bc-4a80-bc46-832f665ce706")
 	)
 	(junction
-		(at 99.06 73.66)
+		(at 99.06 66.04)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d3f00446-3c85-4be5-b2fb-d8cb07775d69")
@@ -2152,6 +2146,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "daf9254b-010c-41d3-a356-a95d66aa86aa")
+	)
+	(junction
+		(at 115.57 92.71)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e88e3e47-6ed0-4496-a30f-1090eeec9781")
 	)
 	(wire
 		(pts
@@ -2165,7 +2165,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 92.71) (xy 149.86 95.25)
+			(xy 147.32 92.71) (xy 147.32 95.25)
 		)
 		(stroke
 			(width 0)
@@ -2295,7 +2295,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 73.66) (xy 110.49 73.66)
+			(xy 99.06 66.04) (xy 110.49 66.04)
 		)
 		(stroke
 			(width 0)
@@ -2375,6 +2375,16 @@
 	)
 	(wire
 		(pts
+			(xy 107.95 92.71) (xy 134.62 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2cecbf30-81f9-4068-9ab5-af6a1f370857")
+	)
+	(wire
+		(pts
 			(xy 132.08 111.76) (xy 135.89 111.76)
 		)
 		(stroke
@@ -2425,7 +2435,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 92.71) (xy 139.7 92.71)
+			(xy 134.62 92.71) (xy 137.16 92.71)
 		)
 		(stroke
 			(width 0)
@@ -2465,7 +2475,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 102.87) (xy 149.86 105.41)
+			(xy 147.32 102.87) (xy 147.32 105.41)
 		)
 		(stroke
 			(width 0)
@@ -2485,27 +2495,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 92.71) (xy 152.4 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "462790a5-2f4f-43be-ab9b-869fa3a7cf14")
-	)
-	(wire
-		(pts
-			(xy 115.57 92.71) (xy 137.16 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4bc6dc61-16fc-4a34-bea0-e42dcaca4ed0")
-	)
-	(wire
-		(pts
-			(xy 160.02 92.71) (xy 162.56 92.71)
+			(xy 158.75 92.71) (xy 162.56 92.71)
 		)
 		(stroke
 			(width 0)
@@ -2545,7 +2535,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 83.82) (xy 149.86 92.71)
+			(xy 147.32 83.82) (xy 147.32 92.71)
 		)
 		(stroke
 			(width 0)
@@ -2595,17 +2585,17 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 92.71) (xy 115.57 92.71)
+			(xy 85.09 92.71) (xy 100.33 92.71)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "60c83a74-7932-4db8-885f-34db02c68969")
+		(uuid "663acd3c-ad02-4778-af20-788431f892a3")
 	)
 	(wire
 		(pts
-			(xy 110.49 73.66) (xy 115.57 73.66)
+			(xy 110.49 66.04) (xy 115.57 66.04)
 		)
 		(stroke
 			(width 0)
@@ -2615,7 +2605,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 85.09) (xy 88.9 73.66)
+			(xy 88.9 85.09) (xy 88.9 66.04)
 		)
 		(stroke
 			(width 0)
@@ -2665,7 +2655,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 83.82) (xy 137.16 83.82)
+			(xy 137.16 83.82) (xy 134.62 83.82)
 		)
 		(stroke
 			(width 0)
@@ -2675,7 +2665,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 73.66) (xy 99.06 73.66)
+			(xy 88.9 66.04) (xy 99.06 66.04)
 		)
 		(stroke
 			(width 0)
@@ -2745,7 +2735,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 73.66) (xy 110.49 76.2)
+			(xy 110.49 66.04) (xy 110.49 68.58)
 		)
 		(stroke
 			(width 0)
@@ -2785,7 +2775,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 83.82) (xy 99.06 86.36)
+			(xy 99.06 76.2) (xy 99.06 78.74)
 		)
 		(stroke
 			(width 0)
@@ -2805,7 +2795,7 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 92.71) (xy 149.86 92.71)
+			(xy 144.78 92.71) (xy 151.13 92.71)
 		)
 		(stroke
 			(width 0)
@@ -2835,7 +2825,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 73.66) (xy 99.06 76.2)
+			(xy 99.06 66.04) (xy 99.06 68.58)
 		)
 		(stroke
 			(width 0)
@@ -2945,7 +2935,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 83.82) (xy 110.49 86.36)
+			(xy 110.49 76.2) (xy 110.49 78.74)
 		)
 		(stroke
 			(width 0)
@@ -3035,7 +3025,7 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 83.82) (xy 149.86 83.82)
+			(xy 144.78 83.82) (xy 147.32 83.82)
 		)
 		(stroke
 			(width 0)
@@ -3175,7 +3165,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 83.82) (xy 137.16 92.71)
+			(xy 134.62 83.82) (xy 134.62 92.71)
 		)
 		(stroke
 			(width 0)
@@ -3185,7 +3175,7 @@
 	)
 	(wire
 		(pts
-			(xy 115.57 73.66) (xy 115.57 78.74)
+			(xy 115.57 66.04) (xy 115.57 78.74)
 		)
 		(stroke
 			(width 0)
@@ -3272,9 +3262,22 @@
 			(justify left bottom)
 		)
 		(uuid "2d9236fb-2757-4224-b59f-12b4bced6a37")
+		(property "Netclass" "Radio"
+			(at 85.09 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
 	)
-	(label "RFO_2"
-		(at 160.02 92.71 0)
+	(label "RFO_3"
+		(at 158.75 92.71 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 0.635 0.635)
@@ -3282,6 +3285,19 @@
 			(justify left bottom)
 		)
 		(uuid "3b52a6d0-17d2-42a5-b4b4-dd16aa35f823")
+		(property "Netclass" "Radio"
+			(at 158.75 93.6625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
 	(label "CTR"
 		(at 165.1 81.28 0)
@@ -3293,8 +3309,9 @@
 		)
 		(uuid "493f53c9-ddea-4cc5-9a55-d9b9d58ea176")
 	)
-	(label "RFO_3"
+	(label "RFO_4"
 		(at 172.72 92.71 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 0.635 0.635)
@@ -3302,6 +3319,19 @@
 			(justify left bottom)
 		)
 		(uuid "7480bca5-2373-4432-a387-2bc6fc2a95b9")
+		(property "Netclass" "Radio"
+			(at 172.72 93.6625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
 	(label "CTR"
 		(at 38.1 100.33 0)
@@ -3315,6 +3345,7 @@
 	)
 	(label "RFI_P"
 		(at 85.09 97.79 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 0.635 0.635)
@@ -3322,9 +3353,23 @@
 			(justify left bottom)
 		)
 		(uuid "7c347a86-7c89-464a-ac84-63b776137e71")
+		(property "Netclass" "Radio"
+			(at 85.09 98.7425 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
 	(label "VR_PA"
 		(at 85.09 85.09 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 0.635 0.635)
@@ -3332,9 +3377,23 @@
 			(justify left bottom)
 		)
 		(uuid "8c681b46-ba1a-4617-a62c-e699a3162d69")
+		(property "Netclass" "Radio"
+			(at 85.09 86.0425 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
 	(label "RFI_0"
 		(at 135.89 111.76 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 0.635 0.635)
@@ -3342,9 +3401,23 @@
 			(justify left bottom)
 		)
 		(uuid "9eb842ed-cf30-456e-acfe-d3a1f1d13803")
+		(property "Netclass" "Radio"
+			(at 135.89 112.7125 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
 	(label "RF_1"
 		(at 237.49 97.79 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 0.635 0.635)
@@ -3352,6 +3425,19 @@
 			(justify left bottom)
 		)
 		(uuid "a2bcef74-5200-4739-8aac-9a3231794e9a")
+		(property "Netclass" "Radio"
+			(at 237.49 98.7425 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
 	(label "XTB"
 		(at 49.53 87.63 0)
@@ -3375,6 +3461,7 @@
 	)
 	(label "RF_0"
 		(at 224.79 97.79 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 0.635 0.635)
@@ -3382,9 +3469,23 @@
 			(justify left bottom)
 		)
 		(uuid "c033a4a0-2983-45a4-9ee7-d1d7f8c3c44d")
+		(property "Netclass" "Radio"
+			(at 224.79 98.7425 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
-	(label "RFO_1"
-		(at 149.86 92.71 0)
+	(label "RFO_2"
+		(at 147.32 92.71 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 0.635 0.635)
@@ -3392,9 +3493,23 @@
 			(justify left bottom)
 		)
 		(uuid "c0d0978a-bef7-4a92-a967-b7a0360bdda2")
+		(property "Netclass" "Radio"
+			(at 147.32 93.6625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
 	(label "RF_2"
 		(at 250.19 97.79 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 0.635 0.635)
@@ -3402,9 +3517,23 @@
 			(justify left bottom)
 		)
 		(uuid "c81339f5-1278-47a8-87c6-833ad2c32f25")
+		(property "Netclass" "Radio"
+			(at 250.19 98.7425 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
 	(label "RFI_N"
 		(at 85.09 95.25 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 0.635 0.635)
@@ -3412,6 +3541,19 @@
 			(justify left bottom)
 		)
 		(uuid "c9452576-1e88-44fc-9171-146533913bed")
+		(property "Netclass" "Radio"
+			(at 85.09 96.2025 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
 	(label "XTA"
 		(at 49.53 85.09 0)
@@ -3422,6 +3564,30 @@
 			(justify left bottom)
 		)
 		(uuid "d693416e-deb4-4a91-963c-aeb4502875b8")
+	)
+	(label "RFO_1"
+		(at 115.57 92.71 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 0.635 0.635)
+			)
+			(justify left bottom)
+		)
+		(uuid "ff492bfd-d763-4563-b5c2-d3a4fd6801bb")
+		(property "Netclass" "Radio"
+			(at 115.57 93.6625 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
 	(hierarchical_label "LORA_SEL"
 		(shape input)
@@ -3656,6 +3822,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "SX1262IMLTRTCT-ND"
+			(at 69.85 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "25"
 			(uuid "e2491744-9f55-4259-958a-4d30435ae480")
 		)
@@ -3816,10 +3993,21 @@
 				)
 			)
 		)
-		(property private "KLC_S4.1" "Some pins are on 50mil grid to make the symbol small"
-			(at 30.48 102.87 0)
+		(property "Digikey-PN" "644-CS06654-32MCT-ND"
+			(at 30.48 87.63 0)
 			(hide yes)
-			(show_name yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" ""
+			(at 30.48 87.63 0)
+			(hide yes)
+			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
@@ -3932,10 +4120,10 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "15abb8d5-0c11-4b21-af28-497d7dcff55c")
 		(property "Reference" "C517"
 			(at 233.68 102.8699 0)
@@ -3982,6 +4170,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 237.49 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" ""
 			(at 237.49 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -4072,6 +4271,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "1276-1070-1-ND"
+			(at 231.14 97.79 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c0bd84e9-1d9d-4d06-a3f5-2111831d1d78")
 		)
@@ -4153,6 +4363,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "311-1088-1-ND"
+			(at 41.91 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b5d6db32-4bbc-4a00-997a-3109bc704485")
 		)
@@ -4170,7 +4391,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 110.49 86.36 0)
+		(at 110.49 78.74 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4181,7 +4402,7 @@
 		(fields_autoplaced yes)
 		(uuid "19ecb5dd-ec4b-47f2-9969-3174583530c8")
 		(property "Reference" "#PWR0507"
-			(at 110.49 92.71 0)
+			(at 110.49 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4192,7 +4413,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 110.49 90.8034 0)
+			(at 110.49 83.1834 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4202,7 +4423,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 110.49 86.36 0)
+			(at 110.49 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4213,7 +4434,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 110.49 86.36 0)
+			(at 110.49 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4224,7 +4445,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 110.49 86.36 0)
+			(at 110.49 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4248,7 +4469,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 99.06 86.36 0)
+		(at 99.06 78.74 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4259,7 +4480,7 @@
 		(fields_autoplaced yes)
 		(uuid "1d56a9c7-f636-4ba1-a765-cacbe5fb523c")
 		(property "Reference" "#PWR0505"
-			(at 99.06 92.71 0)
+			(at 99.06 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4270,7 +4491,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 99.06 90.8034 0)
+			(at 99.06 83.1834 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4280,7 +4501,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 99.06 86.36 0)
+			(at 99.06 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4291,7 +4512,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 99.06 86.36 0)
+			(at 99.06 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4302,7 +4523,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 99.06 86.36 0)
+			(at 99.06 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4326,7 +4547,7 @@
 	)
 	(symbol
 		(lib_id "Device:L")
-		(at 156.21 92.71 270)
+		(at 154.94 92.71 270)
 		(mirror x)
 		(unit 1)
 		(body_style 1)
@@ -4338,7 +4559,7 @@
 		(fields_autoplaced yes)
 		(uuid "23499687-778e-4fc3-967c-d92d9f542dbd")
 		(property "Reference" "L505"
-			(at 156.21 87.63 90)
+			(at 154.94 87.63 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4348,7 +4569,7 @@
 			)
 		)
 		(property "Value" "15n"
-			(at 156.21 90.17 90)
+			(at 154.94 90.17 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4358,7 +4579,7 @@
 			)
 		)
 		(property "Footprint" "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
-			(at 156.21 92.71 0)
+			(at 154.94 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4369,7 +4590,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 92.71 0)
+			(at 154.94 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4380,7 +4601,51 @@
 			)
 		)
 		(property "Description" "Inductor"
-			(at 156.21 92.71 0)
+			(at 154.94 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "732-7447860115CT-ND"
+			(at 154.94 92.71 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(433MHz)" "15n"
+			(at 154.94 92.71 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" "1.3n"
+			(at 154.94 92.71 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" "RadioFrequency"
+			(at 154.94 92.71 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4471,6 +4736,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "311-1088-1-ND"
+			(at 182.88 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "a0fbf643-b5a2-4a00-a71e-7e27768bb047")
 		)
@@ -4487,8 +4763,9 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 110.49 80.01 0)
+		(lib_id "Device:L")
+		(at 104.14 92.71 270)
+		(mirror x)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4496,31 +4773,29 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "34620c78-417b-4502-8830-d5d5418251aa")
-		(property "Reference" "C506"
-			(at 106.68 78.7399 0)
+		(uuid "2de1efa8-afe8-4843-ac1c-e556735d34ae")
+		(property "Reference" "L507"
+			(at 104.14 87.63 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(property "Value" "22n"
-			(at 106.68 81.2799 0)
+		(property "Value" "0R"
+			(at 104.14 90.17 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 111.4552 83.82 0)
+		(property "Footprint" "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+			(at 104.14 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4531,7 +4806,132 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 110.49 80.01 0)
+			(at 104.14 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Inductor"
+			(at 104.14 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "311-0.0LDCT-ND"
+			(at 104.14 92.71 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(433MHz)" "0R"
+			(at 104.14 92.71 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" "6.5n"
+			(at 104.14 92.71 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" "RadioFrequency"
+			(at 104.14 92.71 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a68235e2-e428-48e3-ab0d-24ddbb755afa")
+		)
+		(pin "1"
+			(uuid "1456be24-0c63-4c71-bcab-f48540340c94")
+		)
+		(instances
+			(project "Flight Computer"
+				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/b5b3f2b6-4604-4088-8488-54d61b2ee536"
+					(reference "L507")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 110.49 72.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "34620c78-417b-4502-8830-d5d5418251aa")
+		(property "Reference" "C506"
+			(at 106.68 71.1199 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "22n"
+			(at 106.68 73.6599 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 111.4552 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 110.49 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4542,7 +4942,18 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 110.49 80.01 0)
+			(at 110.49 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "1276-6534-1-ND"
+			(at 110.49 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4569,7 +4980,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 99.06 80.01 0)
+		(at 99.06 72.39 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4579,7 +4990,7 @@
 		(dnp no)
 		(uuid "355fd85d-3b25-40be-a00f-c2ffba55f610")
 		(property "Reference" "C504"
-			(at 95.25 78.7399 0)
+			(at 95.25 71.1199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4590,7 +5001,7 @@
 			)
 		)
 		(property "Value" "100p"
-			(at 95.25 81.2799 0)
+			(at 95.25 73.6599 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4601,7 +5012,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 100.0252 83.82 0)
+			(at 100.0252 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4612,7 +5023,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 99.06 80.01 0)
+			(at 99.06 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4623,7 +5034,18 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 99.06 80.01 0)
+			(at 99.06 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "1276-1008-1-ND"
+			(at 99.06 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4884,7 +5306,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 149.86 105.41 0)
+		(at 147.32 105.41 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4895,7 +5317,7 @@
 		(fields_autoplaced yes)
 		(uuid "52654f67-c503-49f1-9218-cf7f5c602499")
 		(property "Reference" "#PWR0510"
-			(at 149.86 111.76 0)
+			(at 147.32 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4906,7 +5328,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 149.86 109.8534 0)
+			(at 147.32 109.8534 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4916,7 +5338,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 149.86 105.41 0)
+			(at 147.32 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4927,7 +5349,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 149.86 105.41 0)
+			(at 147.32 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4938,7 +5360,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 149.86 105.41 0)
+			(at 147.32 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5017,6 +5439,50 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 135.89 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "399-C0603C109D4HACTUCT-ND"
+			(at 135.89 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(433MHz)" "1p"
+			(at 135.89 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" "0 -!"
+			(at 135.89 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" "RadioFrequency"
 			(at 135.89 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -5127,9 +5593,9 @@
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
-		(on_board yes)
+		(on_board no)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "606d39e2-6bde-482d-8373-d1a285552c35")
 		(property "Reference" "C518"
 			(at 246.38 102.8699 0)
@@ -5176,6 +5642,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 250.19 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" ""
 			(at 250.19 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -5359,7 +5836,7 @@
 	)
 	(symbol
 		(lib_id "Device:L")
-		(at 143.51 92.71 90)
+		(at 140.97 92.71 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5370,7 +5847,7 @@
 		(fields_autoplaced yes)
 		(uuid "6e208a7e-5560-463e-8b9d-e02ed8bc81ca")
 		(property "Reference" "L504"
-			(at 143.51 87.63 90)
+			(at 140.97 87.63 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5380,7 +5857,7 @@
 			)
 		)
 		(property "Value" "3.9n"
-			(at 143.51 90.17 90)
+			(at 140.97 90.17 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5390,7 +5867,7 @@
 			)
 		)
 		(property "Footprint" "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
-			(at 143.51 92.71 0)
+			(at 140.97 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5401,7 +5878,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 143.51 92.71 0)
+			(at 140.97 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5412,7 +5889,51 @@
 			)
 		)
 		(property "Description" "Inductor"
-			(at 143.51 92.71 0)
+			(at 140.97 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "732-7447860039CT-ND"
+			(at 140.97 92.71 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(433MHz)" "3.9n"
+			(at 140.97 92.71 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" "6.5n"
+			(at 140.97 92.71 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" "RadioFrequency"
+			(at 140.97 92.71 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5504,6 +6025,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "311-1088-1-ND"
+			(at 195.58 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "3bb848e0-152b-4436-a5f2-84400d8e74a3")
 		)
@@ -5575,6 +6107,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 53.34 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 53.34 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -5667,6 +6210,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "1276-1063-1-ND"
+			(at 106.68 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "feacc4b3-c0ef-4f06-8245-115ad17ab288")
 		)
@@ -5738,6 +6292,50 @@
 		)
 		(property "Description" "Unpolarized capacitor"
 			(at 128.27 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "1276-1792-1-ND"
+			(at 128.27 111.76 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(433MHz)" "4.7p"
+			(at 128.27 111.76 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" "1.5p"
+			(at 128.27 111.76 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" "RadioFrequency"
+			(at 128.27 111.76 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5819,6 +6417,17 @@
 		)
 		(property "Description" "Unpolarized capacitor"
 			(at 166.37 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "1276-1008-1-ND"
+			(at 166.37 92.71 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6066,6 +6675,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "CON-SMA-EDGE-S-ND"
+			(at 257.81 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "a21b750c-e52c-48fa-a086-d49d94a6ebae")
 		)
@@ -6137,6 +6757,50 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 172.72 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "1276-CL10C150JC81PNCCT-ND"
+			(at 172.72 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(433MHz)" "15p"
+			(at 172.72 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" "0 -!"
+			(at 172.72 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" "RadioFrequency"
 			(at 172.72 99.06 0)
 			(hide yes)
 			(show_name no)
@@ -6219,6 +6883,17 @@
 			)
 		)
 		(property "Description" ""
+			(at 195.58 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "863-1602-1-ND"
 			(at 195.58 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -6312,6 +6987,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 30.48 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 30.48 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -6560,6 +7246,50 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "732-7447860168CT-ND"
+			(at 115.57 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(433MHz)" "68n"
+			(at 115.57 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" "68n"
+			(at 115.57 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" "RadioFrequency"
+			(at 115.57 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "034eae33-1427-432e-8923-7db2332a1b09")
 		)
@@ -6796,6 +7526,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "311-0.0LDCT-ND"
+			(at 243.84 97.79 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "e4787e9f-0f95-49e4-94aa-4c21299efae6")
 		)
@@ -6878,6 +7619,17 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "445-MLZ1608N150LT000CT-ND"
+			(at 106.68 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "8027d664-1594-4ade-896d-0ec4868432df")
 		)
@@ -6895,7 +7647,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 143.51 83.82 90)
+		(at 140.97 83.82 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6906,7 +7658,7 @@
 		(fields_autoplaced yes)
 		(uuid "d9f69937-e341-4a17-93bb-0ac89df6089f")
 		(property "Reference" "C510"
-			(at 143.51 76.2 90)
+			(at 140.97 76.2 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6916,7 +7668,7 @@
 			)
 		)
 		(property "Value" "3.3p"
-			(at 143.51 78.74 90)
+			(at 140.97 78.74 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6926,7 +7678,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 147.32 82.8548 0)
+			(at 144.78 82.8548 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6937,7 +7689,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 143.51 83.82 0)
+			(at 140.97 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6948,7 +7700,51 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 143.51 83.82 0)
+			(at 140.97 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "1276-6549-1-ND"
+			(at 140.97 83.82 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(433MHz)" "3.3p"
+			(at 140.97 83.82 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" "0 -!"
+			(at 140.97 83.82 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" "RadioFrequency"
+			(at 140.97 83.82 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7040,6 +7836,50 @@
 				)
 			)
 		)
+		(property "Digikey-PN" "1276-6549-1-ND"
+			(at 121.92 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(433MHz)" "3.3p"
+			(at 121.92 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" "5.6"
+			(at 121.92 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" "RadioFrequency"
+			(at 121.92 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "d8f60fdf-6a03-41e1-a5f2-604ce36915b1")
 		)
@@ -7112,6 +7952,50 @@
 			)
 		)
 		(property "Description" "Inductor"
+			(at 121.92 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "478-LCCI0603J33NGTARCT-ND"
+			(at 121.92 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(433MHz)" "33n"
+			(at 121.92 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" "24n"
+			(at 121.92 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" "RadioFrequency"
 			(at 121.92 118.11 0)
 			(hide yes)
 			(show_name no)
@@ -7217,7 +8101,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 149.86 99.06 0)
+		(at 147.32 99.06 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7227,7 +8111,7 @@
 		(dnp no)
 		(uuid "fd645d99-dc12-4ca9-85f2-3b2e2c76af7b")
 		(property "Reference" "C511"
-			(at 146.05 97.7899 0)
+			(at 143.51 97.7899 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7238,7 +8122,7 @@
 			)
 		)
 		(property "Value" "18p"
-			(at 146.05 100.3299 0)
+			(at 143.51 100.3299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7249,7 +8133,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 150.8252 102.87 0)
+			(at 148.2852 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7260,7 +8144,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 149.86 99.06 0)
+			(at 147.32 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7271,7 +8155,51 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 149.86 99.06 0)
+			(at 147.32 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "1276-1089-1-ND"
+			(at 147.32 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(433MHz)" "18p"
+			(at 147.32 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" "5.6p"
+			(at 147.32 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" "RadioFrequency"
+			(at 147.32 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7352,6 +8280,17 @@
 		)
 		(property "Description" "Resistor, US symbol"
 			(at 173.99 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey-PN" "13-RT0603BRD07500RLCT-ND"
+			(at 173.99 81.28 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

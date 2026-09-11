@@ -5011,18 +5011,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 90.17 105.41 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "497-STM32F446RET6TRCT-ND"
 			(at 90.17 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -5300,18 +5289,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 62.23 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 62.23 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -5560,18 +5538,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 102.87 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 102.87 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -5664,7 +5631,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
+		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
 			(at 58.42 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -5675,7 +5642,29 @@
 				)
 			)
 		)
-		(property "LCSC  Part #" ""
+		(property "Var(433MHz)" ""
+			(at 58.42 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" ""
+			(at 58.42 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" ""
 			(at 58.42 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -5767,18 +5756,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 25.4 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "1276-1044-1-ND"
 			(at 25.4 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -6025,18 +6003,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 171.45 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "490-CSTNE8M00G52Z000R0CT-ND"
 			(at 171.45 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -6287,18 +6254,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 73.66 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 73.66 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -6391,18 +6347,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 49.53 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 49.53 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -6494,7 +6439,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
+		(property "Digikey-PN" "311-5.10KHRCT-ND"
 			(at 130.81 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -6505,7 +6450,29 @@
 				)
 			)
 		)
-		(property "LCSC  Part #" ""
+		(property "Var(433MHz)" ""
+			(at 130.81 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" ""
+			(at 130.81 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" ""
 			(at 130.81 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -6598,18 +6565,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 115.57 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "1276-1946-1-ND"
 			(at 115.57 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -6858,18 +6814,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 160.02 36.83 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
 			(at 160.02 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -7429,7 +7374,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
+		(property "Digikey-PN" "311-5.10KHRCT-ND"
 			(at 55.88 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -7440,7 +7385,29 @@
 				)
 			)
 		)
-		(property "LCSC  Part #" ""
+		(property "Var(433MHz)" ""
+			(at 55.88 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" ""
+			(at 55.88 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" ""
 			(at 55.88 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -7533,18 +7500,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 55.88 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "1276-1044-1-ND"
 			(at 55.88 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -7636,18 +7592,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 203.2 31.75 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 203.2 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -7818,7 +7763,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
+		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
 			(at 50.8 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -7829,7 +7774,29 @@
 				)
 			)
 		)
-		(property "LCSC  Part #" ""
+		(property "Var(433MHz)" ""
+			(at 50.8 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var(915MHz)" ""
+			(at 50.8 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Var.Aspect" ""
 			(at 50.8 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -7922,18 +7889,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 36.83 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "311-1088-1-ND"
 			(at 36.83 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -8025,18 +7981,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 189.23 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
+		(property "Digikey-PN" "256-W25Q128JVSIQTRCT-ND"
 			(at 189.23 40.64 0)
 			(hide yes)
 			(show_name no)

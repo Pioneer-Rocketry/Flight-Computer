@@ -639,7 +639,7 @@
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
       "pin_not_driven": "error",
-      "pin_to_pin": "warning",
+      "pin_to_pin": "error",
       "power_pin_not_driven": "ignore",
       "same_local_global_label": "warning",
       "similar_label_and_power": "warning",
@@ -702,13 +702,15 @@
         "tuning_profile": ""
       },
       {
-        "clearance": 0.165,
+        "clearance": 0.2,
+        "line_style": 0,
         "name": "Radio",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
-        "tuning_profile": ""
+        "track_width": 0.26,
+        "tuning_profile": "",
+        "wire_width": 12
       },
       {
         "clearance": 0.2,
@@ -726,25 +728,45 @@
       "version": 5
     },
     "net_colors": null,
-    "netclass_assignments": null,
-    "netclass_patterns": [
-      {
-        "netclass": "Pyro[1-3]",
-        "pattern": "Pyro[1-3]"
-      },
-      {
-        "netclass": "Pyro_Power",
-        "pattern": "Pyro_Power"
-      },
-      {
-        "netclass": "USB",
-        "pattern": "USB*"
-      },
-      {
-        "netclass": "Radio",
-        "pattern": "radio_*"
-      }
-    ]
+    "netclass_assignments": {
+      "/Radio/RFI_0": [
+        "Radio"
+      ],
+      "/Radio/RFI_N": [
+        "Radio"
+      ],
+      "/Radio/RFI_P": [
+        "Radio"
+      ],
+      "/Radio/RFO_0": [
+        "Radio"
+      ],
+      "/Radio/RFO_1": [
+        "Radio"
+      ],
+      "/Radio/RFO_2": [
+        "Radio"
+      ],
+      "/Radio/RFO_3": [
+        "Radio"
+      ],
+      "/Radio/RFO_4": [
+        "Radio"
+      ],
+      "/Radio/RF_0": [
+        "Radio"
+      ],
+      "/Radio/RF_1": [
+        "Radio"
+      ],
+      "/Radio/RF_2": [
+        "Radio"
+      ],
+      "/Radio/VR_PA": [
+        "Radio"
+      ]
+    },
+    "netclass_patterns": []
   },
   "pcbnew": {
     "last_paths": {
@@ -766,7 +788,7 @@
       "method": 1,
       "sort_order": 0
     },
-    "bom_export_filename": "",
+    "bom_export_filename": "${PROJECTNAME}.csv",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
       "field_delimiter": "\t",
@@ -788,12 +810,6 @@
           "show": true
         },
         {
-          "group_by": false,
-          "label": "Qty",
-          "name": "${QUANTITY}",
-          "show": true
-        },
-        {
           "group_by": true,
           "label": "Value",
           "name": "Value",
@@ -801,7 +817,19 @@
         },
         {
           "group_by": false,
-          "label": "DNP",
+          "label": "Datasheet",
+          "name": "Datasheet",
+          "show": false
+        },
+        {
+          "group_by": true,
+          "label": "Footprint",
+          "name": "Footprint",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Do Not Place",
           "name": "${DNP}",
           "show": false
         },
@@ -818,33 +846,21 @@
           "show": false
         },
         {
-          "group_by": true,
-          "label": "Footprint",
-          "name": "Footprint",
+          "group_by": false,
+          "label": "Exclude from Simulation",
+          "name": "${EXCLUDE_FROM_SIM}",
           "show": false
         },
         {
           "group_by": false,
-          "label": "Datasheet",
-          "name": "Datasheet",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "LCSC  Part #",
-          "name": "LCSC  Part #",
+          "label": "Exclude from Position Files",
+          "name": "${EXCLUDE_FROM_POS_FILES}",
           "show": false
         },
         {
           "group_by": false,
           "label": "Sim.Pins",
           "name": "Sim.Pins",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "LCSC",
-          "name": "LCSC",
           "show": false
         },
         {
@@ -870,11 +886,47 @@
           "label": "Sim.Type",
           "name": "Sim.Type",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Digikey-PN",
+          "name": "Digikey-PN",
+          "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Qty",
+          "name": "${QUANTITY}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Var.Aspect",
+          "name": "Var.Aspect",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Var(433MHz)",
+          "name": "Var(433MHz)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Var(915MHz)",
+          "name": "Var(915MHz)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "KLC_S3.3",
+          "name": "KLC_S3.3",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
-      "include_excluded_from_bom": false,
+      "include_excluded_from_bom": true,
       "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
@@ -909,6 +961,14 @@
       "version": 1
     },
     "net_format_name": "",
+    "ngspice": {
+      "fix_include_paths": true,
+      "meta": {
+        "version": 0
+      },
+      "model_mode": 4,
+      "workbook_filename": ""
+    },
     "page_layout_descr_file": "",
     "plot_directory": "Output",
     "reuse_designators": true,
@@ -928,17 +988,13 @@
         "uuid": "4254ccd1-49f4-4fe6-9bf7-ccb200d73af4"
       }
     ],
-    "used_designators": "J401-408,J501,BZ401,C101,C201-209,C301-305,C401-402,C501-518,FID401-406,G401,H401-404,L501-506,Q101,Q401,Q601-603,D101,D401-405,U101,U201-202,U301-304,U501-502,SW401-402,R101-102,R201-205,R401-406,R501,R601-614,#PWR101-109,#PWR201-215,#PWR301-314,#PWR401-435,#PWR501-518,#PWR601-611,Y201,Y501",
+    "used_designators": "J401-408,J501,BZ401,C101,C201-209,C301-305,C401-402,C501-518,FID401-406,G401,H401-404,L501-507,Q101,Q401,Q601-603,D101,D401-405,U101,U201-202,U301-304,U501-502,SW401-402,R101-102,R201-205,R401-406,R501,R601-614,#PWR101-109,#PWR201-215,#PWR301-314,#PWR401-435,#PWR501-518,#PWR601-611,Y201,Y501",
     "variants": []
   },
   "sheets": [
     [
       "4254ccd1-49f4-4fe6-9bf7-ccb200d73af4",
       "Flight Computer"
-    ],
-    [
-      "ce25203d-742b-46bf-b676-aa9cb5879333",
-      "Power"
     ],
     [
       "d0598f39-31ca-47e7-8156-229135d6220f",
@@ -959,6 +1015,10 @@
     [
       "f595cd26-832b-4750-b9f5-43cd274712c7",
       "Pyro"
+    ],
+    [
+      "ce25203d-742b-46bf-b676-aa9cb5879333",
+      "Power"
     ]
   ],
   "text_variables": {},

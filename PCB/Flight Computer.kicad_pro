@@ -822,7 +822,7 @@
           "show": false
         },
         {
-          "group_by": true,
+          "group_by": false,
           "label": "Footprint",
           "name": "Footprint",
           "show": false
@@ -913,14 +913,44 @@
         },
         {
           "group_by": false,
-          "label": "Var(915MHz)",
-          "name": "Var(915MHz)",
+          "label": "KLC_S3.3",
+          "name": "KLC_S3.3",
           "show": false
         },
         {
           "group_by": false,
-          "label": "KLC_S3.3",
-          "name": "KLC_S3.3",
+          "label": "LCSC  Part #",
+          "name": "LCSC  Part #",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "KiLib_Generator",
+          "name": "KiLib_Generator",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "LCSC",
+          "name": "LCSC",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Digikey-PN.Var(433MHz)",
+          "name": "Digikey-PN.Var(433MHz)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Digikey-PN.Var(915MHz)",
+          "name": "Digikey-PN.Var(915MHz)",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Var(915MHz)",
+          "name": "Var(915MHz)",
           "show": false
         }
       ],
@@ -929,7 +959,7 @@
       "include_excluded_from_bom": true,
       "name": "",
       "sort_asc": true,
-      "sort_field": "Reference"
+      "sort_field": "Var(915MHz)"
     },
     "bus_aliases": {},
     "connection_grid_size": 50.0,

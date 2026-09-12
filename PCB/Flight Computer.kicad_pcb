@@ -249,71 +249,6 @@
 				)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b34cf47f-d93e-459e-b718-d069a45583c3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "299fc911-4ded-44d1-8997-ff1cde4a8946")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "60ed06f7-cc5e-4f37-8793-613741743cb2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "17b241de-1154-4384-9637-67c9d3bd932f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b15843d4-fab8-4f00-bbdb-95e56ad7384b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "LED*WS2812*-2020_PLCC4*")
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/3ee19838-15b7-4390-8fc8-72fd7f2fae7e")
 		(sheetname "/IO/")
@@ -599,103 +534,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e71716fd-1cc8-4b8e-9d1d-2eeacc0389de")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "1bf3e359-2f54-4a10-949e-c433ebc20c90")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "13-RT0603BRD07500RLCT-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "9e9e4798-5812-497e-963d-2fc6ad89f0a2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7b304fe3-c310-4a5b-b370-842b0f7196a5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9af6c6d4-0e0a-443d-a6e2-d20533c86262")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b17a3286-62f6-4570-ab27-f0ace107adff")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c96ac9ac-c206-43ed-8999-c96b7d6870b7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "bf8e683f-2c57-4ca7-b828-993449d4bd59")
+			(uuid "e71716fd-1cc8-4b8e-9d1d-2eeacc0389de")
 			(effects
 				(font
 					(size 1 1)
@@ -852,103 +696,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "8cd1236a-565b-4506-a855-bb04bdb5cf36")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "95a6403e-015b-4190-ae6b-d4b83d34547b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "311-1088-1-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "2848d765-71cb-4876-a5ac-093d12adb73f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b45b9657-2aa6-406c-bc00-816d54ae90d0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b364464c-04d3-4296-86c1-f849bb9b1dfc")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c34c47dd-f35e-4043-9aed-4be978e7b5da")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e74fceba-163a-4e8f-bf83-8102ef71b2bc")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "283c2b1b-a10e-40d9-b4cb-1044f2ad42dc")
+			(uuid "8cd1236a-565b-4506-a855-bb04bdb5cf36")
 			(effects
 				(font
 					(size 1 1)
@@ -1167,103 +920,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "8894392f-dc08-46b2-9fb0-2e70a83067d6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9a372eab-2d41-450f-b9bd-ef56a91cd356")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "7fb6e04a-710a-4db1-9e74-d6d1a0a1cab4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5ae69c76-c550-4484-8f83-6e62de308056")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b642bcd8-5da6-4424-b3f0-b786a9534563")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "18fe39fb-53ec-4ca4-bdb4-7978a635467b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "3da541b9-2291-47ca-aff3-632a39b3d6f2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a1d0c69e-a3b8-46a1-b663-97156357d66a")
+			(uuid "8894392f-dc08-46b2-9fb0-2e70a83067d6")
 			(effects
 				(font
 					(size 1 1)
@@ -1407,71 +1069,6 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "f96bbc3c-b023-4c32-be9c-3ba3782b9a07")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e2ace781-b20c-400c-8543-c3fffbd2376c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "35323a6b-df76-4172-8821-3bfc52bf96cf")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "427daedd-6e84-4fa4-a46f-ea0aada990f7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "0beb1776-bbc7-4f3b-8a17-0d361ebb045d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b4660610-8bb7-42f1-a60e-dfa1c4e31d81")
 			(effects
 				(font
 					(size 1 1)
@@ -1630,103 +1227,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a1b196fd-0b8e-447b-9934-700d9a4329cb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "af6b983a-cde4-4fe0-b96b-b9b8f58307f9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "1267-MMC5633NJLCT-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "764d580b-c438-44ab-9388-c2e7ca25fd37")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c50e5b9e-b28e-4c87-93f8-6dec50d8717f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "834fbca1-efe8-447c-9058-bb85dd0e344d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "358edb71-7232-453d-a459-f4cf81b7eb30")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "4cdbdbf5-45c0-4f1d-888a-8543d50b6344")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "68d4e2e0-d0ca-471a-bcfe-d8deb437cc64")
+			(uuid "a1b196fd-0b8e-447b-9934-700d9a4329cb")
 			(effects
 				(font
 					(size 1 1)
@@ -2007,103 +1513,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b442f97e-12e7-44ba-a73d-c7d9f6d92ef7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "292e911b-1cce-4e98-9a97-30d0449687a7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" ""
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "96bf151c-687d-419f-a309-898431680674")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "2c881068-859c-4aaf-bcd0-26c4426bbfee")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "cec9df58-a30d-4abe-93db-ff99977675bf")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a070b602-0b02-4233-ab0b-db435c56a6b5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "657e0e47-cfa8-4c21-a590-f53093d15b5f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9d96eb73-a2d6-4241-9cd2-7a493c11aac7")
+			(uuid "b442f97e-12e7-44ba-a73d-c7d9f6d92ef7")
 			(effects
 				(font
 					(size 1 1)
@@ -2307,71 +1722,6 @@
 				)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f51e138f-23cf-4f1f-9e6d-90e6ce1845e1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9dcea2d3-06d0-40ca-af0c-65ffeca25378")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b8b2bce3-033b-4779-bdd8-26e404dadae0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e8dbb87d-137f-42e4-97ab-f3d253555b27")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6144d941-7a41-4c2e-9e55-d937ee223cb5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "C_*")
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/202c5da4-c0c3-44fb-b3bd-f30d6e180faa")
 		(sheetname "/IO/")
@@ -2519,103 +1869,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "94d5892e-a973-427f-9d0c-04c26704e0ff")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "25b5f5e2-f828-4471-aa7e-495e56bd5649")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d3f38a0a-b916-47bc-8b95-a4435e55b26d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c09332b3-643e-4278-8f37-1cceeab6ca39")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b830171f-ff14-41e5-93b4-7858e40106cf")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "83e047ab-1a52-4fc2-bc34-2dae69c70d73")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "712c2d34-085a-4af1-a6bd-5b4327643a07")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9168c8b6-9c4c-4eed-8383-556b24f1ed53")
+			(uuid "94d5892e-a973-427f-9d0c-04c26704e0ff")
 			(effects
 				(font
 					(size 1 1)
@@ -2776,103 +2035,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b4b6f38e-de61-49db-a5c8-72a212bdad49")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c253370f-2456-4959-abb3-0672fc00a68e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "23c3cddd-2270-47f3-b195-67ee7a337f6f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a0d362b1-83ca-4480-b0f3-d5d07403629d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d39e5280-bed9-411c-bc99-d00092a7151e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d776a83c-a783-49df-a27d-3fe808650359")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "615db935-bc80-475a-b7e2-6a658b5920e3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e6c52006-3b1b-4aae-b0b8-34f8e6b6233c")
+			(uuid "b4b6f38e-de61-49db-a5c8-72a212bdad49")
 			(effects
 				(font
 					(size 1 1)
@@ -3010,103 +2178,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "1138305f-d0de-4038-ba17-961007f29ff6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "db8aaa2a-7d7c-4db7-aac6-553855467d6d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "311-1088-1-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "80cf5ffa-8bf3-4ec1-811e-4b2deea1c45f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "3eaf98fd-b739-49f7-83e0-d5e2654332db")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "15f7ffe0-08d7-4b9c-9a0e-f964e629d193")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c1b213ee-847c-4ae4-8d4a-6cb95c47962c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b6f812f3-b2b1-4111-be06-4ae2ae03dcc2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7909c818-59c6-4efa-b5be-701d7ae3899d")
+			(uuid "1138305f-d0de-4038-ba17-961007f29ff6")
 			(effects
 				(font
 					(size 1 1)
@@ -3286,71 +2363,6 @@
 				)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "bf7db979-76e1-4e37-83a9-45d54d8c409c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7b10e4c7-744b-467d-9fe8-1f36c436c1c5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "bf3b34a4-4737-4276-8bbe-2d912585f310")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f9059a76-803f-49f3-ab10-7ddd97f5998a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "fad8708e-edaf-4894-ad1f-be98d9c317d5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "Fiducial*")
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/0b900252-6f41-493e-a388-95a8fbfcf94f")
 		(sheetname "/IO/")
@@ -3464,71 +2476,6 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "f4915bc9-78f2-451e-84cf-b26af7217fee")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "8c33784b-eef3-4845-a2ff-4b234341f9c4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ada76002-8394-4c99-81a8-5ebbb093f5c1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "def618f4-1f2a-444c-aee5-c2fe32fb9422")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9d7b6a89-30c4-4a80-afdb-d91e230339de")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c17f842c-5373-4471-9006-1818dd930ecb")
 			(effects
 				(font
 					(size 1 1)
@@ -3709,103 +2656,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "46f484c0-4b0a-41ed-84cb-198986f5ea16")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a2cb7c1f-37fe-4c02-84ef-c0d5d278f8af")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "13-RT0603BRD07500RLCT-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "3182482c-cf8a-496c-9967-3e1c40420b1f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a1aee62b-edb3-4cf8-9506-85aa83ef867b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d4e7badf-524c-4e5f-bc06-245de5a43ec1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c5263581-82fd-4386-9fc9-48409d2d3818")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "af2f5ed4-da52-4f01-95b6-6b0bedf39c4e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ea7482de-36fd-4ebf-a04f-feec743a5e44")
+			(uuid "46f484c0-4b0a-41ed-84cb-198986f5ea16")
 			(effects
 				(font
 					(size 1 1)
@@ -3970,71 +2826,6 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "ff33f16d-e6c5-4e20-a378-41ef447a1258")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "deffaece-7f94-4d55-b533-ac0af7f9c9fb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e3f2df62-617f-4b2c-a752-e72d383f1c38")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a6d05835-67e0-42a3-937d-c554a2321e3f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "fa0858f4-ad7d-48e4-a5f2-730dcd11f538")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "be3109bb-dd0b-4f63-b7a4-2c622c34eb20")
 			(effects
 				(font
 					(size 1 1)
@@ -4345,71 +3136,6 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "a8c2af30-b648-46a9-b774-6a32f86ac918")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "65cb48c3-513d-488a-b8ad-a4cc7bad986b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "64eb5c7a-acb8-406e-bb3a-2377d824f0e2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "655ad8c6-67ce-4df4-b242-8bd88b57961c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "24c9bf92-9573-4881-916b-d3f2ae1b4550")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6b22db20-872d-4561-9765-d0a34f136571")
 			(effects
 				(font
 					(size 1 1)
@@ -4736,71 +3462,6 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "845f5072-68f4-483d-9728-8df99058b2f0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ad78979d-bd5b-4748-b80c-1a9f7ec18015")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "03ecb42f-1141-4aca-b5c8-f003c3f0190d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "8d9170e1-23a1-40a7-9c5d-44aa38443d54")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d6ad30f4-1f4a-4db8-9471-4e877e54f4c9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "4e7162e0-2623-41f9-893d-a27afcccfc14")
 			(effects
 				(font
 					(size 1 1)
@@ -5191,71 +3852,6 @@
 				)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "fadae33d-99f0-4326-823a-aeb33f647aa2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "8bc1e05d-df19-4354-836d-727a94e15096")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "32b7edea-d1de-44dc-af72-e866caa3543c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "abd20e83-08d0-4f86-ac3a-5260b8652ccf")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5596a3a6-51e6-4d12-921b-83a120842a10")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "R_*")
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/3d27d32b-2b58-44b5-a3b1-2008395c94d0")
 		(sheetname "/IO/")
@@ -5359,7 +3955,7 @@
 		(descr "GPS Module, 15.5x15.5x6.3mm, https://www.u-blox.com/sites/default/files/SAM-M8Q_HardwareIntegrationManual_%28UBX-16018358%29.pdf")
 		(tags "ublox SAM-M8Q")
 		(property "Reference" "U301"
-			(at -7.09 6.29 180)
+			(at -7.09 6.29 0)
 			(layer "User.1")
 			(hide yes)
 			(uuid "e1a84c86-0857-4fbe-a1d2-36e306036e57")
@@ -5407,103 +4003,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b91f3ecf-5fc9-43f4-b893-c07c775a9eea")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "424a0364-e9b9-4f4c-aae2-133275d0d3bd")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "672-1054-1-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ae0cef40-9ce2-4b65-b85b-9fbb7bc4e0c2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b5017b05-4455-4e10-8de7-c49da15779ef")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "369b5aa1-9ff6-4fba-92e7-419817818cbf")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e0dc83db-f5ea-4164-8fde-7d68a509add4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5ae79978-f729-44b6-a17b-c4846c6aedd0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c1bd577f-170e-4c89-8427-4630b4930a48")
+			(uuid "b91f3ecf-5fc9-43f4-b893-c07c775a9eea")
 			(effects
 				(font
 					(size 1 1)
@@ -6509,103 +5014,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "724c5e56-3d90-4ce0-ac12-3a8cede6987f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "40081ccf-a7f7-4d90-b38c-0d601fa267be")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "ED10563-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "954e95f2-28bf-4b27-83db-33610bdca4dd")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "dd98dc3d-4545-4467-adef-bb93c298cc55")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "1e72f3cb-b8c2-49a7-b805-df1a856cd5ae")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5b4c596c-f460-4b9c-b186-19429907f84e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "29783a10-95ef-48a7-8e42-7ffa484488ec")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6d763e25-a921-44c7-be5d-9c9088bd2ce1")
+			(uuid "724c5e56-3d90-4ce0-ac12-3a8cede6987f")
 			(effects
 				(font
 					(size 1 1)
@@ -7434,71 +5848,6 @@
 				)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "3c5002b9-5908-44b5-99af-5ba499a160b4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a8932d6e-4fc5-4368-adf8-a2976fe071b9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6d5cb6f5-a2a5-4be8-8795-a6352bfce531")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "4b4425b4-b216-46cf-b90f-21f42e4d2676")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c28c91c1-5f29-442a-9393-6156121cadb7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/d46e52d7-ed22-4fa3-a538-3144a7ed2bce")
 		(sheetname "/IO/")
 		(sheetfile "IO.kicad_sch")
@@ -7674,103 +6023,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "0a730ef4-88ab-428c-9466-0595a790ffc5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ac5f685b-9aa8-476f-ab52-e555cd36c27f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "455-SM04B-SRSS-TBCT-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "bce5036a-d9a1-4b3d-9290-d0b3aa9fb80c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6e5f61df-3e4a-4cbe-8d21-a933146e5dc0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "887394e1-9c1b-4bb2-9147-65f29d74e276")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "96da92e8-26d9-47f3-8ddc-dec894de3be9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "43245830-3cfa-4887-8043-887c1b551add")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ac2ddbd3-e108-44fa-bee4-c19b8a75912d")
+			(uuid "0a730ef4-88ab-428c-9466-0595a790ffc5")
 			(effects
 				(font
 					(size 1 1)
@@ -8096,71 +6354,6 @@
 				)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "35b22c87-09af-498a-92bf-fb4f186c52e6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "868b4019-24b1-4e02-a5c0-317d964bddc0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ebd79834-34a4-44aa-a741-863cf7918bb0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7df8dbac-15bf-4f8f-96c3-56b50ec70560")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "4867ce79-28da-4297-a25d-f5e7b1cea099")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "Connector*:*_2x??_*")
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/2512e338-16d9-423e-ab1d-4fa4a0d8455d")
 		(sheetname "/IO/")
@@ -8354,103 +6547,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "12aefbc3-85da-41a1-b7fb-86937cf80735")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d1fd181e-0aa4-44ae-b4f2-481db4d7c932")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "2073-USB4105-GF-ACT-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "f67de35e-69c2-40b5-a75b-0b388da154b2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5b011289-6b35-4349-9bd4-053c92aaf4f6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "4c10da17-a979-44d9-a58b-67d3850f3d75")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "0352a71d-2ece-4790-9bf1-377e4109b584")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "07a2dee8-d694-4a9b-a324-63e683dde6ad")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "54fadae9-3188-452f-9378-f54b18bd4a6f")
+			(uuid "12aefbc3-85da-41a1-b7fb-86937cf80735")
 			(effects
 				(font
 					(size 1 1)
@@ -8838,103 +6940,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5d573c9e-81bc-4a93-a4a7-09ba7e9bf812")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "0ded007d-661f-476f-a528-a843646ca1ad")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "ED10565-ND"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "835ca7b2-5c07-4131-8691-4360d1619581")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "8ddf25fc-1ae2-46f7-a501-51fd6fef80d5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "fd6560c2-5ecc-4407-a4c3-90a39b1db55c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "daab312f-b593-4943-908c-84568fe27483")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9b1eb109-2ca7-4065-b041-34e14a337182")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f5f23cf2-38e5-43a4-9239-854594b0f3f0")
+			(uuid "5d573c9e-81bc-4a93-a4a7-09ba7e9bf812")
 			(effects
 				(font
 					(size 1 1)
@@ -9491,71 +7502,6 @@
 				)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "68ae224a-b164-4aef-9c82-c636e726bee3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "8699d888-306e-4adf-8c10-158b58b8d7f6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6ccf3f76-939a-476b-888c-4601419b0723")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d10f7787-dfa8-4bd5-8941-e7ef06e5fe2a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "bf037cc3-1ff1-4a94-9047-babfff5ab5e9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "*Buzzer*")
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/0ca5669a-c135-434b-8cab-5ac272498047")
 		(sheetname "/IO/")
@@ -9820,103 +7766,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "3471acf9-c5a9-4c02-916b-c257884ac86d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "84304aea-9078-45bf-a027-f471bb67ac07")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "256-W25Q128JVSIQTRCT-ND"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "93d6cc64-f4d9-4bb1-a33c-64306c2a2616")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "43ea4273-1b46-41e3-81b9-48f21eeba113")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "65c109d5-0eec-4c41-aaac-62561f1f1aa0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "501adfad-b34f-4c82-a953-da1eab6574a7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7d9a07be-4756-46b1-b8a0-f8ab2568bef0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b35d3067-4f24-4586-a3de-a07997d7bb24")
+			(uuid "3471acf9-c5a9-4c02-916b-c257884ac86d")
 			(effects
 				(font
 					(size 1 1)
@@ -10297,103 +8152,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e1a600eb-bcf8-46b1-8b5d-ac91b6be267b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "110d9393-10dc-4383-b7f1-4b41a1c43be2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "497-LSM6DSV320XTRCT-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "f8395f6f-9f9f-4a60-bd39-c79bc3b9585a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e8bf9245-2b9e-438e-bd32-e9f77e3d2237")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e748cf03-05fc-4425-9afd-4bae4a1a8e1e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "80985826-7c22-496b-9599-2b4c0dedef6c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "fa4c76f5-8bc4-4432-a1a3-c6bd39f4f752")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "0dab285a-a8c3-46dc-aa2a-5ca962961a5d")
+			(uuid "e1a600eb-bcf8-46b1-8b5d-ac91b6be267b")
 			(effects
 				(font
 					(size 1 1)
@@ -10735,103 +8499,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5b03db23-4f72-439a-a680-319a9ffc7de8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f039142a-115e-4a07-bc3d-e7718339a00d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "311-1088-1-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "4fa85d8b-faf7-4beb-8d22-6ff98031b276")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d2cdc55f-43f0-4d9b-9c29-fe0f5edddcfa")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6c45e613-473a-48f4-babc-e315bdb7f248")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "fea5ba04-16e8-40a2-bbed-7181e759628d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "34aec50b-3d00-4646-8119-628f1f885dae")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9667a897-bc64-4eed-8012-1ef16356de90")
+			(uuid "5b03db23-4f72-439a-a680-319a9ffc7de8")
 			(effects
 				(font
 					(size 1 1)
@@ -11070,71 +8743,6 @@
 				)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "47d3f860-b0b8-4f2c-a0d8-d3714921837f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6f6e9cd0-a7ec-447a-b230-cf769127406b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "207dde84-5a5d-4d55-a170-833f6dd84af1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "343924bc-5593-4744-acd0-58925c4ad027")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6a3f6230-8462-4afd-bd50-3bdce3f70c8e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/ee542fd8-8736-414b-b3a2-819cefb791ec")
 		(sheetname "/IO/")
@@ -11339,103 +8947,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "4c63bf82-3ac1-470f-bdfd-28651a2a25f8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ecd123d9-dad1-4182-925c-97d4e552e100")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "203f227d-7811-40f5-9dc4-961ffdbbb61f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "0b18de36-1ae9-4292-a2f7-c0dc7b0bd05d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7379292f-8fd1-4f45-9259-807cf1781929")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e0b9e410-6be6-4da6-850f-4bd60311e48f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f6ed5ed1-6808-46af-a82c-dfa8b2ac8647")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b7a48460-1382-4193-80fe-082bcadb7c25")
+			(uuid "4c63bf82-3ac1-470f-bdfd-28651a2a25f8")
 			(effects
 				(font
 					(size 1 1)
@@ -11529,7 +9046,7 @@
 		(descr "Through hole straight pin header, 1x06, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x06 2.54mm single row")
 		(property "Reference" "J401"
-			(at 0 -2.38 270)
+			(at 0 -2.38 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "90402d31-8a0a-4514-9d6b-1adbfc124bbc")
@@ -11541,7 +9058,7 @@
 			)
 		)
 		(property "Value" "Conn_01x05_Pin"
-			(at 0 15.08 270)
+			(at 0 15.08 90)
 			(layer "F.Fab")
 			(uuid "848750b2-5510-4033-8682-130fc6718d61")
 			(effects
@@ -11552,7 +9069,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 270)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "18bf6e7a-3d5f-4bc4-9fd4-2c2e7a7a4475")
@@ -11563,7 +9080,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x06, script generated"
-			(at 0 0 270)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "74ade410-0de5-451a-804d-c0eda0012453")
@@ -11574,7 +9091,7 @@
 			)
 		)
 		(property "KiLib_Generator" "connector/pin_header_socket"
-			(at 0 0 270)
+			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "ff24ffa6-7877-4cca-95d1-8317b81d45c4")
@@ -11591,71 +9108,6 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "ac2785e1-d350-40b2-a759-69e03edf4522")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7d3caa3c-9326-43ca-a639-977f08a2db34")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a373fccf-9371-4fd1-a287-73ee570d3292")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "3306c42c-c887-40b8-bd6b-1077cd8b8363")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a4a406b0-8f1a-4323-b1f3-324eeb5ca836")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9bb63f46-752a-4c9a-b330-2b5d7196016d")
 			(effects
 				(font
 					(size 1 1)
@@ -11937,103 +9389,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "221a1048-8afb-4074-9523-bb26e92b186f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "34bb357c-3508-492e-83bd-6977458f8df8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "311-1088-1-ND"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "987a0afe-fa03-4a33-83a1-6bd59b19c969")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ff1da419-17e5-47ab-9711-c5d502f7ff40")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6d501894-63ed-4147-a10f-deadd71224a7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "852367f6-1614-467f-9d57-de7a678c178f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "279f55c4-2fac-47eb-9960-628020220f85")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "fdb79c80-d981-4a9f-b32b-8d48008d652d")
+			(uuid "221a1048-8afb-4074-9523-bb26e92b186f")
 			(effects
 				(font
 					(size 1 1)
@@ -12193,103 +9554,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "291db553-e46d-4d13-92d9-2caabbad21db")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6ade8c05-b981-46c8-96fb-78262c177a40")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "a3a28237-0541-42c1-816c-744347b58268")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "03a7c1d0-4520-414e-b271-732d9448be18")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "63af3960-0469-41c9-8a3b-8a4bd6c780eb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ef61c0ff-4dbb-4834-b891-c8bf188eae08")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ae60d3a3-6da8-46a4-bdfc-9ddb3ed64364")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "647d91db-7916-4d46-b72e-99d6366f0440")
+			(uuid "291db553-e46d-4d13-92d9-2caabbad21db")
 			(effects
 				(font
 					(size 1 1)
@@ -12468,103 +9738,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5976c9bf-b403-440c-827c-1ff04f8de648")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a4f4ecee-0622-43f0-ba70-63049ecf0d2b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" ""
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d122902d-0977-43c8-953b-fea5a07432d7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "bd0bd780-b83f-4652-9d72-917fadb6885b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "dce8c1bb-6025-4552-96c2-3a930511c480")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f98e428f-76f9-43e8-a83d-5a74ebe6d6d1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "b375517b-49cf-4cb9-9c50-e3e0e8e76460")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f9d71647-485a-46ae-992a-75a14143e4f3")
+			(uuid "5976c9bf-b403-440c-827c-1ff04f8de648")
 			(effects
 				(font
 					(size 1 1)
@@ -12715,103 +9894,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "eba55336-f25f-4658-97aa-20a9b8a6230a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e91a919f-45d6-4035-978f-643198564ee3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "3147-B1931UD--05D000314U1930CT-ND"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "feb50caa-e824-4fee-b560-27a563cc48be")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "29dbdcbe-7e61-46f3-be16-22e00781c6c0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "2dfff927-4c14-4ffb-8591-8471c2f26d7d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5277fe3d-53cd-4f88-9f34-4310ce337ef5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "45d83569-9dd8-41a0-92aa-f70edc810651")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7af354d3-92df-43d0-8332-f5cba0061d21")
+			(uuid "eba55336-f25f-4658-97aa-20a9b8a6230a")
 			(effects
 				(font
 					(size 1 1)
@@ -13017,103 +10105,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7c252999-a2a0-4948-96f3-3a6c4836a17b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "faa02205-c749-46c2-a135-cf48e9a9bb0a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603FT1K00CT-ND"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d6e0fc97-8017-472a-9f8e-e058907fa0b2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "1248c01f-ca7c-4960-9864-6ddb10ab9fdb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "10b736e6-7769-4c5a-839a-8c8f39ac73e9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "95b38870-06d3-4d10-b861-609420195c43")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "7de0033d-c041-4910-b43d-e4b5f68c27fe")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d5728e48-3dd6-4a0b-8a8e-6b19ef55c7fa")
+			(uuid "7c252999-a2a0-4948-96f3-3a6c4836a17b")
 			(effects
 				(font
 					(size 1 1)
@@ -13268,103 +10265,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "cf5dfb72-a4f6-4cbc-a10a-4bd6843d119d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "12de1023-0c27-43a2-9e99-873ea233705a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "311-1088-1-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "bae9c124-e64b-4368-a4f2-f7eeab237081")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f62bf416-1728-4a97-83d4-3088fead7e7e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "cbac93cd-48cd-4809-a42e-4067f65d7e51")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9b9f02cf-7534-447b-b899-f5faf9dca463")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e2480ff3-d84a-459b-a8a5-01d36f1c82be")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "bcbde9c1-d20f-4878-95fa-b30ef88e227c")
+			(uuid "cf5dfb72-a4f6-4cbc-a10a-4bd6843d119d")
 			(effects
 				(font
 					(size 1 1)
@@ -13475,7 +10381,7 @@
 		(descr "LGA-8")
 		(tags "lga land grid array")
 		(property "Reference" "U304"
-			(at 2.538999 0.007 180)
+			(at 2.538999 0.007 0)
 			(layer "User.1")
 			(hide yes)
 			(uuid "e51b6f32-3621-4e9d-9cb6-e24f40c07beb")
@@ -13523,103 +10429,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "79aa4eb0-5b4c-4d16-883e-519d7fb37cf9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d087539a-c3b1-4cd9-8ccb-0d2e1dcad3a3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "223-1198-1-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "79ec4d9a-8aee-4c14-94f4-c495c7423d8c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d2e6587c-e8a5-4675-b336-4f91f1d19318")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5760fd2b-478f-4ee3-af43-b9e84328ebe3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "1bc945d4-378e-4493-9d65-1e4e3335420f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a2748b34-7800-4e03-8936-11297ecd8d42")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ca080299-5dc6-4dbb-8400-feaecac7af1f")
+			(uuid "79aa4eb0-5b4c-4d16-883e-519d7fb37cf9")
 			(effects
 				(font
 					(size 1 1)
@@ -13983,71 +10798,6 @@
 				)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "011bf182-4e09-4d44-859c-737cb33470e7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "2b754c36-0087-43f1-961b-4a6fe1eb58d5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "2859f453-54b4-44a2-94f2-6ae94d47a21e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "3bfe2061-bd1e-45fc-9e70-a99bebfc58a4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "ee415e14-0813-4804-81d4-875164e0fe2d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "Fiducial*")
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/842c3e6e-2cba-40a3-9360-5480f69d9e2c")
 		(sheetname "/IO/")
@@ -14156,103 +10906,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e923a9a8-9d49-440b-aec7-03173be5717d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "5a31bae9-44fe-41ed-9765-b2fa6ba4ffc6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "311-1088-1-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "32da18f3-ea8e-49f1-b0b6-3ed8938b06d5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e1b05f3a-2256-43dc-9a95-10a71033ef45")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6ddbe47c-1128-48a1-9870-1c9157399ee3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "d096986c-bf5c-428e-862d-c679006ebf8b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "bc9e1db6-cb34-4271-b330-cf2ace103c1b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "01ae80cf-e0eb-4440-bb3c-4883f623df5d")
+			(uuid "e923a9a8-9d49-440b-aec7-03173be5717d")
 			(effects
 				(font
 					(size 1 1)
@@ -14478,71 +11137,6 @@
 				)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6411e80c-a7ba-4ab4-9ff9-7cf36ad9f537")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f0634091-1cfd-4813-a6b7-ff8f84644523")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "0474e104-3680-431d-a20f-787926e30d2a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e62d1c10-e74c-4ad3-b2c1-b30a0529be7d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "df5d3ac3-a7ba-4e06-a789-6ed34bf58564")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property ki_fp_filters "Fiducial*")
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/257cead3-3238-4f1d-8834-44266a9bb6a0")
 		(sheetname "/IO/")
@@ -14649,103 +11243,12 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f83054fc-a7ac-4754-9fff-d0091d9ae071")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "aa351027-14cb-48d6-9991-8d02626b2cc2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603FT3K00CT-ND"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "cbc11312-3eba-42d0-bcfa-cf3a7ec6e289")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "3782d506-a398-4dab-8517-ad003efb089f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "305a55e1-b32c-4e94-9187-72479e2d7181")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c42ec184-25d4-40a9-8fa6-7a2c2d89c13e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "c5441ada-310f-40d7-a289-c11bc2e30460")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "a9c49ecd-c40f-4b27-92f0-dec0788979b6")
+			(uuid "f83054fc-a7ac-4754-9fff-d0091d9ae071")
 			(effects
 				(font
 					(size 1 1)
@@ -14918,76 +11421,6 @@
 				(justify mirror)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e5a29247-8ebe-4b6c-97f9-1699781a8f70")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "664d9880-633e-4e98-ad26-af28be40abdd")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "25dddd10-3bd5-4e09-acd8-b2a621090aaa")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b376bed2-92f3-4ccf-a34e-3c3492bf65e8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "adc21c9c-bcbe-4c04-b368-a35e9e234f3e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property ki_fp_filters "R_*")
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/6d67e284-c262-4aaf-afba-1e88124b9f21")
 		(sheetname "/IO/")
@@ -15140,110 +11573,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 45)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "6166a66e-e736-4130-b981-280512a585b4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 45)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d845183f-a2bf-4552-87fb-b69ec6412c2b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "1276-1946-1-ND"
 			(at 0 0 225)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "62229558-d0bd-4efc-8c9c-38d357ac7ecd")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 225)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "426181d6-e2a7-4081-bbb4-acfec251e414")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 225)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "94f4c701-b553-4b9a-9007-dd51c0ea90e5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 225)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a37ac604-a7f1-4e2c-bdc0-747becd32404")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 225)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "84f8edf8-454a-4730-9cd2-0e6e7a3b23d6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 225)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "854da139-e89a-4cd9-ab86-566c0226ada4")
+			(uuid "6166a66e-e736-4130-b981-280512a585b4")
 			(effects
 				(font
 					(size 1 1)
@@ -15699,110 +12034,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e585dcc3-a48b-4ac2-b56c-23688324bca7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "2b73f16f-468e-4937-85ee-c004d2108d0b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603FT3K00CT-ND"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "6da3fbf2-e179-4f9f-827a-1bce99114890")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "83007f64-456b-4722-87a9-e1a61dd313b0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ed9e72a7-0bc8-4456-81f1-417c9436d565")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "59613c42-f6cb-45c8-a53e-0d7dbdb07475")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a8fcebb7-712f-4d2f-ad0f-5df05de006de")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9db22477-814c-42f3-943f-127718cf6500")
+			(uuid "e585dcc3-a48b-4ac2-b56c-23688324bca7")
 			(effects
 				(font
 					(size 1 1)
@@ -15963,110 +12200,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ffb706c3-4519-46f7-9fba-0eefea8c14fa")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "6d0a5cd0-d163-4050-a2f3-2745e780b45e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "13-RT0603BRD07500RLCT-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "628a1eb6-9bb4-42e5-9d77-1364ed780fd9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "f2ea98dc-17a6-4d7a-aec1-db34516ba484")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "6b1c1575-ce12-43d6-a784-482c5db147d3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "bd9bb486-d0f3-402f-9c09-adbae9d104fb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "659bdabd-e6a0-4693-aa3a-98ab5ad53c96")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "82e6e3d5-db9e-4b13-b135-42ab963e7a54")
+			(uuid "ffb706c3-4519-46f7-9fba-0eefea8c14fa")
 			(effects
 				(font
 					(size 1 1)
@@ -16657,76 +12796,6 @@
 				(justify mirror)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "010ed155-2e99-4a3c-b272-9ad274944e69")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "338592ee-b383-4c83-a8fe-2fcafbad5419")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "12f9c3d7-6468-40af-805a-ea289e0ea1c4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "92a0ef39-5f1c-45b6-ba56-2a1a7983d2eb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "32ccef9a-170c-43a7-8a51-8fc0d8409b45")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(path "/f595cd26-832b-4750-b9f5-43cd274712c7/0fde5649-6324-413c-a164-9e1dd352c128")
 		(sheetname "/Pyro/")
 		(sheetfile "Pyro.kicad_sch")
@@ -17130,7 +13199,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Var(915MHz)" "1.3n"
+		(property "Var(915MHz)" "1.2n"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -17150,6 +13219,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "f1dc7698-c9e6-45bc-813a-fc403f3fc46e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(915MHz)" "535-11530-2-ND"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "b25146d2-f31b-46da-887a-85a28f1c5132")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(433MHz)" "732-7447860115CT-ND"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "3d6543e8-eed7-45e4-a97c-66db438dbfc0")
 			(effects
 				(font
 					(size 1 1)
@@ -17368,6 +13465,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Digikey-PN.Var(433MHz)" "478-LCCI0603J33NGTARCT-ND"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "4fb0c227-7af1-478b-8e5a-ef345edbe0b8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(915MHz)" "5262-HBWS1608-24NJTR-ND"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "4fd7f9fa-fefa-4b15-b5a0-58c9a8c081bb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/b5b3f2b6-4604-4088-8488-54d61b2ee536/ef7e5370-2b8a-4b91-8960-65abe00c71f8")
 		(sheetname "/Radio/")
@@ -17522,110 +13647,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "448285fe-9faa-48df-9f3e-2c79d9879fe0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8c15ec26-53d7-49e3-9cc0-fd87869663e4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "e51fad2a-0bd0-41ea-ad9b-3bbc0e85e59d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "f55cc347-1912-4435-b6f4-13135ff1d959")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "093a3166-8ad7-4b09-8979-b0b62370511b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "18acd267-0edc-4d1c-9054-3c2fed9bac0c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a49faa08-4428-4272-a7f2-5c459dae2687")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "2aefc5d7-607e-4b7a-9b11-875c3855d60b")
+			(uuid "448285fe-9faa-48df-9f3e-2c79d9879fe0")
 			(effects
 				(font
 					(size 1 1)
@@ -17789,110 +13816,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d7421e4d-cef2-4b30-8ea2-0689508ca097")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "69ff8250-670d-4ae3-b2f2-4a2be21d85e9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-5.10KHRCT-ND"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "88b2dacd-823d-4cd5-95d5-82181b0d6e9b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "f4fe7d25-37a1-4ac1-9228-9c16403b97ed")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ca20727b-65ba-4a37-920d-2b700bfeb655")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e009551b-7368-4d93-8b10-bcab2fb610f4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9b4af8be-8451-4788-bd34-07ee51a98695")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d62ce040-b353-49dc-84da-372635493a62")
+			(uuid "d7421e4d-cef2-4b30-8ea2-0689508ca097")
 			(effects
 				(font
 					(size 1 1)
@@ -18111,110 +14040,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "40566607-c0f2-49be-b6a3-546a8914fc60")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "4230f0e9-37f5-47ae-8bb2-19105d03ed0b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "9461677b-cb60-4147-be40-515e7932a56f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c99fa87b-5456-44d0-8af0-000cc31989d0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "6718c3f3-3107-4f63-ad59-30d6af707cd7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e649af8d-28e2-4d7d-af0c-49ac8b5899a8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a7596623-fce0-4b63-a19d-e075e4596cc3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c0ac9daa-1e79-4179-b688-212620a06ada")
+			(uuid "40566607-c0f2-49be-b6a3-546a8914fc60")
 			(effects
 				(font
 					(size 1 1)
@@ -18390,110 +14221,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "f40c5f3d-f174-49a0-a76c-f5a2a4a5d367")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "7900a46a-b468-4004-b362-a7edd197ff71")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "a87e7ca8-1241-4014-ae41-e5c9f5bcf65a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "64071344-1feb-4bc7-a09b-d60bc543bd4a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a526a513-63cb-4f12-943a-5bb8457b986e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "1c2a7e69-590b-4779-a792-0041f8e747fe")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "5a1ba40f-8f84-4329-9f7e-e434b50f0a22")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "6955296b-1192-4896-8556-c8e8726164c7")
+			(uuid "f40c5f3d-f174-49a0-a76c-f5a2a4a5d367")
 			(effects
 				(font
 					(size 1 1)
@@ -18654,110 +14387,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 135)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8d4ef9d5-8e61-412c-a9f9-4cb460ca94c6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 135)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a73cbf1a-858c-4c72-8681-02bfdab55e33")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "1276-1044-1-ND"
 			(at 0 0 315)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "76b0f7ed-2eeb-43e3-9dc0-a276eb01827e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8806b52f-228d-40ab-9feb-14415c861fa7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c45fd7f9-0bbd-40e7-baf5-2a6b74f8fdf9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "69c59f5e-dca7-453a-8ee9-33c578e78492")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "24928c47-4b08-4c7e-a42a-f6d8b7f3c09e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "2fa1e67d-c81e-4fbd-8b88-8393e1bdd6b7")
+			(uuid "8d4ef9d5-8e61-412c-a9f9-4cb460ca94c6")
 			(effects
 				(font
 					(size 1 1)
@@ -19120,76 +14755,6 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "a7d8673c-6925-40be-9fe0-ec4e0704003b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "cf09ad1d-8d46-4a47-b7f0-ea52bf9ca2f0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c439d656-7032-4472-b2d3-a31ba0e36f87")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e4a076a6-c62c-4d9f-9cc5-5c6b398316b0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "902dc005-8b68-47b1-9ad6-2eb964178ce1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8b35c4df-5405-42e7-8fa4-60667146ac80")
 			(effects
 				(font
 					(size 1 1)
@@ -19571,110 +15136,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9d55e19e-32ed-4a83-bcb9-04cc9d873f95")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "cc096545-9b03-4100-b6fa-a466e64e9f43")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "49bd2806-afd7-47f4-b44f-4554630ccef4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "575f5c68-9686-4768-bdc4-190466bd6bd3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8f3954f2-e726-487c-8f68-43d5c7a69d5d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "2d2f159d-12c4-4d1b-bc6e-6383c346b461")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "464946f8-0787-480f-b9b0-49ce981a89c7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "093732c1-0bea-4fb7-b641-31cffb77d104")
+			(uuid "9d55e19e-32ed-4a83-bcb9-04cc9d873f95")
 			(effects
 				(font
 					(size 1 1)
@@ -19849,34 +15316,6 @@
 				(justify mirror)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b91b2778-0965-40fe-bfdf-44ffeaa15ef1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "3c4cfe9f-3716-403c-ba1a-100a968d7473")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property ki_fp_filters "C_*")
 		(path "/b5b3f2b6-4604-4088-8488-54d61b2ee536/72581f06-8515-4ec7-91f3-c0533d3ee622")
 		(sheetname "/Radio/")
@@ -20030,110 +15469,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8ad51d6f-3bb7-423f-8bf7-c41cdb2225fb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "15e55ade-00e7-4b7b-850a-36da4efdff48")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-5.10KHRCT-ND"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "3518b338-0477-4516-81a6-46c666508d7b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b1983076-09f4-41c7-b82a-941e9132f3c2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e6f60961-8958-452b-9920-2c56551ec38a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "fb171080-93a5-4ed2-a144-02242a868afd")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "5a3d5f4e-d308-4ebc-9c83-5a2d2213b311")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d1bce7ab-8b20-448a-bd83-d77414d73ac6")
+			(uuid "8ad51d6f-3bb7-423f-8bf7-c41cdb2225fb")
 			(effects
 				(font
 					(size 1 1)
@@ -20352,110 +15693,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "56cd99df-d258-4519-bfe7-c92a5bd8ae1e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e8babce0-a372-40bb-bb01-97bc84b79d74")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "510ae728-d041-4d6f-a2af-162a948b94da")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0035a96c-78c4-490f-bb7c-8eb51befba2d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "669442f8-c4c3-4018-bb3d-d4aa3d6cbd92")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "1a9c0761-caf2-4f09-8c60-c0f1df75e6d2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d2627aa7-fee6-49da-a2ef-a0cacae686a1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "6d0a6d1d-0d9d-42bd-a697-31e501966eb7")
+			(uuid "56cd99df-d258-4519-bfe7-c92a5bd8ae1e")
 			(effects
 				(font
 					(size 1 1)
@@ -20685,6 +15928,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Digikey-PN.Var(433MHz)" "311-0.0LDCT-ND"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "bd1ee4d1-3e29-46a5-bd09-78c5631f0648")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(915MHz)" "490-LQW18AN6N5G80DTR-ND"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "7f701f91-4093-4f08-9a13-cedfb1638d68")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/b5b3f2b6-4604-4088-8488-54d61b2ee536/2de1efa8-afe8-4843-ac1c-e556735d34ae")
 		(sheetname "/Radio/")
@@ -20887,76 +16158,6 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "4c9afe8c-91bf-4694-866a-e8ceff9e3b56")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d1d1c2e8-1788-447e-8189-f422d83848e1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9a5676ba-3409-4828-a23d-11fa3a94802f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0f90d70f-4b31-42c9-b614-15ae4e121aed")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "07a67246-9eae-4f3d-aaef-4f3bca2caa5a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "dc204a7f-eb86-4950-aeb3-32f40f85f109")
 			(effects
 				(font
 					(size 1 1)
@@ -21340,110 +16541,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "82094fd2-84ee-4a2c-b3d2-ebf7553e3322")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e8b2506f-32ee-4d2b-ba77-bf1e0eccfabd")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603FT3K00CT-ND"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "c09bdc1b-7725-4372-954d-37a394fad50f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "db5972a0-0a7e-4614-9664-1d1cd5e8d6f7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9309aab9-a6e2-4952-9fa5-7a08ed8651c3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b720e43c-f159-41eb-86ea-2dc84672a6d3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e0531947-c88c-46a3-8c1e-b81d90c39c88")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8c06e6f7-bec8-4134-ade6-0412f794be92")
+			(uuid "82094fd2-84ee-4a2c-b3d2-ebf7553e3322")
 			(effects
 				(font
 					(size 1 1)
@@ -21603,110 +16706,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "bbab6295-4b59-40c5-aa71-f32d03b63670")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "aeaffce8-a635-40b4-bc87-36e91a5e5195")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "bf7ab19c-6912-478d-93f1-923a4e43344a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e1b956be-f85f-4b59-9d08-46de9cc56970")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8f94bc41-d5a8-4c2e-bbb5-b64e15f6e8a6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "93216036-6f76-4620-8e5e-a869d4d6a261")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "7333cdaa-389b-4ea0-b979-7c3c178cb5bc")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "6483a752-ab83-4ae5-8670-02ecb8c9d6c3")
+			(uuid "bbab6295-4b59-40c5-aa71-f32d03b63670")
 			(effects
 				(font
 					(size 1 1)
@@ -21867,110 +16872,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "142f0e35-9b41-432e-aaa7-281d5f8c384b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "74a09b26-8b67-408c-addb-f8fc149f5250")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-5.10KHRCT-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "ebc72cc8-3555-401d-abf5-8dac69afa40c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c4ed2435-0ecd-46a3-bc50-eda6e1ed49b7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0789a180-3a44-4e69-8754-8a27594fa40d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "42e1e4af-d652-4339-b0f6-939363e66dae")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ba3ccd9c-399d-484f-ab00-d53b4b02f9ce")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "cb25e897-ecae-4e48-b19f-3bc2c5b0aefb")
+			(uuid "142f0e35-9b41-432e-aaa7-281d5f8c384b")
 			(effects
 				(font
 					(size 1 1)
@@ -22131,110 +17038,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "3a565c22-c021-4810-9fa5-a1bbe3e4f697")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e9db44ca-a0cf-4589-b13b-cdc7bb8a8171")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-1088-1-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "9d6d83d7-5987-401b-a1cf-28007605fe15")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "700c9616-a776-4c22-97fc-dceb586fb31b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c887a232-d02c-42dc-be8e-62a7e15bd596")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "28ee8589-b0fc-4646-b81c-a4060a7175d3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "065a15e6-eef7-4e01-8a17-98bb8a59c3be")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "4f339bb5-9fc5-4145-841b-94740b8701ec")
+			(uuid "3a565c22-c021-4810-9fa5-a1bbe3e4f697")
 			(effects
 				(font
 					(size 1 1)
@@ -22410,110 +17219,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e5671b6b-6e08-4675-b123-a65f1751db07")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "fbfc900f-3318-4361-8ccf-edf586efdb2a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-5.10KHRCT-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "6a54f37c-76c9-4f71-8354-bad79fa2188f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "5fddff19-af89-4bac-b882-9e4a3631459b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "632ae413-3908-43a0-b909-919968aaf594")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "3338539b-31d6-4cc4-9111-a94446931276")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "bc89348f-d39c-4d44-bbf9-7b8e3c3cf132")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "4d7cb16a-98e5-4b0f-a98b-3fabd9055c64")
+			(uuid "e5671b6b-6e08-4675-b123-a65f1751db07")
 			(effects
 				(font
 					(size 1 1)
@@ -22674,110 +17385,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "bd85d7de-ec8f-48b5-ab29-617ecab90481")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "1adf179b-e205-4309-8747-b2300bcf2b0b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-1088-1-ND"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "9a2a8d68-c746-4966-9a9f-bd9f064bd4db")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c19a73dd-4c0f-469c-b058-58aeaf3269c8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "39920a13-57c4-471c-9514-8e23ab2e4f1e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "101d8609-e8a4-44b0-8cec-478ab6c38e85")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d005f018-1809-44e6-8141-d89a0d56d5c2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "20c0a670-e6e4-4a67-927b-e1e58c86e36c")
+			(uuid "bd85d7de-ec8f-48b5-ab29-617ecab90481")
 			(effects
 				(font
 					(size 1 1)
@@ -22940,110 +17553,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a1973190-b491-4994-b20c-e90fdc2ac6f5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "14427fc0-cd84-4469-b94a-87543bfc357c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-5.10KHRCT-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "5c1e68e4-2cbd-49a2-afc4-39295324f48a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ec821e5d-ae1e-4594-8695-1de1a533db27")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ff89ffd5-0a03-4dfe-9524-d64c7a2f216d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "4c82df90-07a6-4fe2-b21d-07c1b71d2f8e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "31afdbab-eed4-4ff7-ad62-6870e0d11a8b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "eed82181-3ca4-4e38-9120-615a1a4d544f")
+			(uuid "a1973190-b491-4994-b20c-e90fdc2ac6f5")
 			(effects
 				(font
 					(size 1 1)
@@ -23218,76 +17733,6 @@
 				(justify mirror)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "1b9357b2-fa07-4951-880a-cc724b990996")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "5c657be6-b156-4a4b-92d1-a44acb748cb4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e06af0ee-6fb1-42a3-93ce-2aa852f6b162")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b2768652-cc19-42c5-92ca-56c54b27588a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "1008563a-4cd7-4460-a9de-e33c7df2caa6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property ki_fp_filters "Fiducial*")
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/26550cf6-6262-4b95-9831-f9099accb324")
 		(sheetname "/IO/")
@@ -23427,110 +17872,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "41d39a06-a627-4215-afa6-d8fc20e0ee9c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "da59ccac-ca6e-4f58-ad27-c5860472217b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "BAT750CT-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "ece55498-3fce-4af9-9857-174a4c1cfe03")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8f9a6a07-80ba-434b-9356-8461ddf4642e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ed71e236-71b9-44c6-999e-7f1184a875f1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "7bea3299-615f-4915-b4d1-013f2b356709")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "4a4a75d9-0d4b-495b-8c12-1af414d14c83")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "dba21d1d-e768-492c-a8d6-5b013b3c4dc6")
+			(uuid "41d39a06-a627-4215-afa6-d8fc20e0ee9c")
 			(effects
 				(font
 					(size 1 1)
@@ -23912,110 +18259,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e0a10f5c-e5bb-4955-98f7-606a1d6943d6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "2dabe985-2a40-4a90-a7c4-7654e150a24a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-5.10KHRCT-ND"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "e56e9d45-cb26-442b-b3f3-394f6c13a99d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8b3c2785-e4f2-4536-adb6-749dd6396fac")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "3df7fbf7-5a07-4697-aad0-42c60dfa821b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "481c0773-846b-4cda-b7b1-39aa8f365c97")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "466bea4b-1f61-4c41-bc65-7e6a4036aae9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c2b9d79e-b668-4b42-80f3-c8380bf1a954")
+			(uuid "e0a10f5c-e5bb-4955-98f7-606a1d6943d6")
 			(effects
 				(font
 					(size 1 1)
@@ -24224,6 +18473,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "aaefa181-2770-4058-9e52-f39f38bdd85a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(433MHz)" "1276-6549-1-ND"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e8dea256-59a9-4cdd-a7dc-84579e26c7a8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(915MHz)" "0"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "86ea0a31-742c-4b35-82a3-6f751180bfeb")
 			(effects
 				(font
 					(size 1 1)
@@ -24586,110 +18863,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 45)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "33417c12-e545-406f-8f7e-230a4a4f96f3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 45)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "758eb831-0b8d-4b91-85e5-e3307be821be")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-1088-1-ND"
 			(at 0 0 225)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "1cfe9bd0-62a6-4c3a-90ec-dde2beab39c1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 225)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e122c7ec-e7c8-40e5-8471-0006db2588b6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 225)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e3880afc-c0e5-4442-a025-9d4c9c7ab5d5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 225)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "5ad8b863-4eae-47f4-9bff-63e6cd730a0e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 225)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0c0ef4fa-7133-482e-8ba1-c4ba70f4a4f6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 225)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "4057aa50-1abe-429c-96e6-030e6d947a77")
+			(uuid "33417c12-e545-406f-8f7e-230a4a4f96f3")
 			(effects
 				(font
 					(size 1 1)
@@ -24852,110 +19031,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "4f4fa582-bfe6-4e31-957a-b0df08f2accb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d84d93a4-a0fa-45ef-b3a9-6d6ceb343a89")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "144a0a4a-1b50-4910-b372-da878e16c7fe")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e6929445-8212-4950-bc3d-e3161765f786")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0b683946-5bfd-4d9c-b09f-617369a8ea44")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c8e9919e-7886-4f3f-9811-24092dd68723")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c76f8fcb-c3b0-437b-8eb0-526be8c0adb4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "12e8844c-0db5-456f-9014-315abb5f6e02")
+			(uuid "4f4fa582-bfe6-4e31-957a-b0df08f2accb")
 			(effects
 				(font
 					(size 1 1)
@@ -25282,110 +19363,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 135)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "520fa5d2-6c68-4f33-b59e-9d5f0be03a52")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 135)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "7c185d37-f201-4604-b3a8-d754b9f3dd54")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "1276-1044-1-ND"
 			(at 0 0 315)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "de754791-0c83-4e5b-8507-569e04c17ff2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d177ad5e-5988-4973-8e62-28947d2171d1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c39d5080-8845-4779-b1cf-d56a313a8be3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "858ebf98-397c-43ff-85fe-5f130d77ebb9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "5b305383-d773-42d8-8cec-e087701a74c7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "37cb0e72-d8b1-4ed4-ba1f-7b925db7c8ed")
+			(uuid "520fa5d2-6c68-4f33-b59e-9d5f0be03a52")
 			(effects
 				(font
 					(size 1 1)
@@ -25758,110 +19741,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b488334d-5c33-4ef8-a1f4-b56d7e428a45")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "1ebc1912-f97f-45cc-adf8-754a12b0644a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603FT1K00CT-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "543c19aa-53ca-42fc-9eb0-36445e57b6be")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b1cd71e6-0790-4820-8041-333e509c8ab8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b85dde12-46a2-416f-a77c-6eef1e0d9f3b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0b57b6aa-2dea-4646-9dc0-ff136442556d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "63834149-5c6a-4c91-923e-16e18936fc62")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b40cda0b-f739-45ec-8b58-75a45a4ce234")
+			(uuid "b488334d-5c33-4ef8-a1f4-b56d7e428a45")
 			(effects
 				(font
 					(size 1 1)
@@ -26235,6 +20120,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "240714c4-6805-431f-b956-fc7bf0d380d7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(915MHz)" "1292-HH18N1R5B500CTTR-ND"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "73bf4f91-8d88-4154-bcfa-d7be0f5ff5fc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(433MHz)" "1276-1792-1-ND"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "624c414a-9eb1-4478-b833-af217137b5b8")
 			(effects
 				(font
 					(size 1 1)
@@ -27474,34 +21387,6 @@
 				(justify mirror)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b86f33a0-920b-4e25-b6be-9db26e1289d3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ed8aa8e2-80e2-4553-9587-83dee6aea4f9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property ki_fp_filters "C_*")
 		(path "/b5b3f2b6-4604-4088-8488-54d61b2ee536/178dcc5f-0ecb-4c08-9664-081c66f2d2cf")
 		(sheetname "/Radio/")
@@ -27702,76 +21587,6 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "87751bea-0be9-452e-ada4-1853844f79b5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "bae9cfef-fe36-46c5-b1da-495db3bf3eb7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "bcfbc096-532a-4cb5-ba9f-949f84e0591c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "37b3a1fd-f9bc-48ea-9ee0-87abb2f8a0d9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0ce09f11-fd21-4426-9f2b-8bfbfc26e284")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "5d8eedc3-f532-451b-8b8e-c12f2b25550d")
 			(effects
 				(font
 					(size 1 1)
@@ -28155,110 +21970,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ee204e8d-427a-4856-a02c-ac09616f1a19")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "fc0742da-8ed4-41eb-9628-78e4e5e869d7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-1088-1-ND"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "12cd19dd-1555-4a3b-bc7b-31ee1a2207af")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "223c307a-4d81-4d6a-bfac-72b378342322")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d92d6651-6ce7-4094-9900-c4c4e53a24d0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "f4673d77-70db-4e3a-9384-bc24cd42c1c5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "703c1b78-1779-4839-a14a-c50d1d089bed")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "552d60ad-7313-4a7e-85a1-0139fc60fd1a")
+			(uuid "ee204e8d-427a-4856-a02c-ac09616f1a19")
 			(effects
 				(font
 					(size 1 1)
@@ -29597,76 +23314,6 @@
 				(justify mirror)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "72e4c596-8a78-4b6e-8dbc-0242ae7fb6b0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "91844c2d-0a19-4c96-8975-913ffc8263c1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9603207c-705e-4b75-a600-cb7d4b2cd2d2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "53617bee-657f-4d8b-a2db-b513d020669d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "3c4d8ffe-841a-4282-bcfd-a07b56801468")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/ed3f93ad-40b2-4e8a-9808-723282726c5d")
 		(sheetname "/IO/")
 		(sheetfile "IO.kicad_sch")
@@ -30070,7 +23717,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Var(915MHz)" "5.6"
+		(property "Var(915MHz)" "5.6p"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -30090,6 +23737,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "c5abc359-b451-40af-bf2c-393291ec8682")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(915MHz)" "399-C0603C569C5GACTUTR-ND"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "9c8cb4fa-eb08-450e-99e7-f94b9a83b01a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(433MHz)" "1276-6549-1-ND"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "5b72c7f3-1e16-4f47-8281-d13f5d2a010b")
 			(effects
 				(font
 					(size 1 1)
@@ -30250,110 +23925,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "15d503cd-da8c-48ec-8a38-8da3ca2dc475")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8b80b37d-0284-4a1b-b43b-cc515878487f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-5.10KHRCT-ND"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "33e66cd3-a0bf-4a21-bcd6-61568c56a8d2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "7bd1eb93-9038-48ee-8d0c-545d287eba6f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "6fcc9155-2689-48c7-a442-129064cdde1a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "1e02d009-a770-4037-bcef-69ec72a4b756")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "f995ba90-dc5f-4e2c-a999-b54b385e0cd0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "552560c0-4cd5-4b03-9417-888d10d89f1d")
+			(uuid "15d503cd-da8c-48ec-8a38-8da3ca2dc475")
 			(effects
 				(font
 					(size 1 1)
@@ -30682,110 +24259,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9cdbedce-d7c4-4c14-83be-14fc7b21ff4b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "378f9394-51ca-411f-8d4d-3a30c1685af5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "13-RT0603BRD07500RLCT-ND"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "5ab4a40c-8c4d-4ec8-a8ba-a3222a73404c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d95d3c33-40ef-417e-a14d-e83a6886508a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "39b7db8f-41c4-458a-a27f-625bef904b17")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "36ac3e86-1eb9-4e43-b739-8457c532b58e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "29ee957f-f85b-4eaa-ba1f-e13fb0b6790a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 270)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "7722198e-4c44-424d-8b8f-41e20da1327c")
+			(uuid "9cdbedce-d7c4-4c14-83be-14fc7b21ff4b")
 			(effects
 				(font
 					(size 1 1)
@@ -30952,76 +24431,6 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "66f31e40-49a0-4a24-91e3-dd3e387d5ce1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9dbb47ef-0652-4437-9b33-2b754060adcc")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "2f8b2bb4-a82d-4eb3-93b3-709c64240725")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "21130e4b-77c0-46cd-b7c0-2e940d9c74ec")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "df4002af-0912-41a3-8cb7-8b6fc56c2038")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "bad6881f-9af4-4dfd-9cda-bb5b917c3e0a")
 			(effects
 				(font
 					(size 1 1)
@@ -31197,6 +24606,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Digikey-PN.Var(433MHz)" "399-C0603C109D4HACTUCT-ND"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "c2e3d25f-d8ab-4549-9825-7d1e591fcca9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(915MHz)" "0"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "35ebd398-1b87-4c0d-8513-309df656e698")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/b5b3f2b6-4604-4088-8488-54d61b2ee536/5743dc0b-2d03-4c99-a464-a89d75e73da0")
 		(sheetname "/Radio/")
@@ -31353,110 +24790,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9953ab31-ce76-4dda-b21d-79f920ae2f9a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "4159f3b6-9629-42c4-88c7-aa1bdab29f09")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "LM1117MP-3.3/NOPBCT-ND"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "e07b9b8c-90cd-4674-a3d1-456a036e654b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "39c34ce1-39d6-416b-b582-ff38847b4406")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a16e66e4-7923-4b3e-adf8-7c876db69f5e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "4fb4430c-0ed9-4fc0-84ce-abe27d4dc66b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "1f91adc9-ab99-4e89-83e5-7232a5fc755a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8288fae7-7101-4365-b0fa-785bd1eabce4")
+			(uuid "9953ab31-ce76-4dda-b21d-79f920ae2f9a")
 			(effects
 				(font
 					(size 1 1)
@@ -31795,6 +25134,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Digikey-PN.Var(433MHz)" "732-7447860039CT-ND"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "367982f8-b6b7-4d4c-ae7c-3bc8ad60e029")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(915MHz)" "490-LQW18AN6N5G80DTR-ND"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0ef8946a-8cc7-4458-913c-d8fb40a24f2f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/b5b3f2b6-4604-4088-8488-54d61b2ee536/6e208a7e-5560-463e-8b9d-e02ed8bc81ca")
 		(sheetname "/Radio/")
@@ -32005,6 +25372,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Digikey-PN.Var(915MHz)" "0"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "74f18291-1341-435e-b8ec-3a14a669a186")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(433MHz)" "1276-CL10C150JC81PNCCT-ND"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "284e92e2-65bd-42f0-a7b6-4bf96121cd05")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/b5b3f2b6-4604-4088-8488-54d61b2ee536/9d583413-cc96-4221-a76b-dcf51f60b083")
 		(sheetname "/Radio/")
@@ -32157,40 +25552,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 135)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a9527342-c3e6-4ea8-89b8-b4f579c1465a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 135)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "002d65fc-66ac-4191-93ce-f127fa8d98a5")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-1088-1-ND"
 			(at 0 0 315)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "f85973d9-efe4-426a-9e56-394afb28f0d7")
+			(uuid "a9527342-c3e6-4ea8-89b8-b4f579c1465a")
 			(effects
 				(font
 					(size 1 1)
@@ -32204,63 +25571,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "b475f5fc-d479-4f62-a676-6125b6f357db")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "27b5cce6-4db4-48f4-bb91-6ffcae804b35")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "4bf3107a-1f49-430b-8983-340af2ea89ae")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "26a24e45-74f4-4e2f-aca3-5b31668cc158")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "07058c39-a53d-4b25-9188-cb341f90d183")
+			(uuid "002d65fc-66ac-4191-93ce-f127fa8d98a5")
 			(effects
 				(font
 					(size 1 1)
@@ -32990,6 +26301,34 @@
 				(justify mirror)
 			)
 		)
+		(property "Digikey-PN.Var(433MHz)" "1276-1089-1-ND"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d7533855-d446-4730-a4b7-9b507658e6fe")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Digikey-PN.Var(915MHz)" "399-C0603C569C5GACTUTR-ND"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "0e4b9740-157d-44f1-b657-af000a192e9b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/b5b3f2b6-4604-4088-8488-54d61b2ee536/fd645d99-dc12-4ca9-85f2-3b2e2c76af7b")
 		(sheetname "/Radio/")
@@ -33156,76 +26495,6 @@
 				(justify mirror)
 			)
 		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "6b66baf4-898c-4b6b-9f30-3432322ea81f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9ba25a23-2f2a-4317-9371-717cad15d540")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "414276c0-3028-4bde-8037-2701ea3d6c19")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c0e9b21c-71e9-4822-9086-d760be514bc8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b6cc914f-23d1-4b8b-b656-9df36791aa0a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property ki_fp_filters "Fiducial*")
 		(path "/0a0b3d01-7422-42e0-b725-ff9e85b891ec/5a44e0b0-99a4-448c-8634-c4c1e021116d")
 		(sheetname "/IO/")
@@ -33337,110 +26606,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 225)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ec92b7e1-562a-4209-b57a-53803e364ce1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 225)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "56182ff9-ebac-497c-82fc-dfc6f3dc0ea4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "490-CSTNE8M00G52Z000R0CT-ND"
 			(at 0 0 45)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "f40627c1-877d-4633-ad71-6b489cc20972")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 45)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a1f61d10-55c2-4a5b-b043-10172d375745")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 45)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b896b217-e986-415b-a892-e58f7f50944d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 45)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "2f250c19-2033-4e73-9b40-eeee5fb2fd3a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 45)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "fe10f189-0eda-4676-aee4-3b574e2ec7b6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 45)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ef356c3f-4f3b-4593-b249-f80f09bddddc")
+			(uuid "ec92b7e1-562a-4209-b57a-53803e364ce1")
 			(effects
 				(font
 					(size 1 1)
@@ -33681,110 +26852,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 135)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9bd57d1c-1f72-460e-9953-c344319c13cb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 135)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "972a0f9f-2b81-44cf-9035-f78dd177bd6e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "311-1088-1-ND"
 			(at 0 0 315)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "44f0be1b-361c-43df-84a8-a1d91e6a0082")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "db22c63a-54a4-421b-89b2-6fdd6e0ba54c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "aca9a68b-8bc8-4b03-8088-f9b20bb1b670")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0a302b7d-caaa-4748-98e4-2d414991e148")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ec54e10e-6e13-41a4-87f0-e89930bfcdcb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 315)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "65f050cd-72ce-4f0d-a47a-45ceca7cd8e3")
+			(uuid "9bd57d1c-1f72-460e-9953-c344319c13cb")
 			(effects
 				(font
 					(size 1 1)
@@ -34443,110 +27516,12 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0dee035a-9583-4166-b171-73ef27dc80ff")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "LCSC  Part #" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0afb0370-5ed2-4d6e-8ab8-f93f5dbd8e14")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
 		(property "Digikey-PN" "RMCF0603FT1K00CT-ND"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "9c709aae-b037-4439-a943-28292258aed7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "125f8e6e-1653-40a7-a6f8-2af2a8856357")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d1f5bd0e-9014-4635-b458-e1ec8fc91825")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "f54453ad-5e34-485e-a890-aa4c470bfb1e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9572ef7e-c21c-43d1-9613-da089bd7370e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "fe5452f6-75a9-45f2-8599-4f6a7367694e")
+			(uuid "0dee035a-9583-4166-b171-73ef27dc80ff")
 			(effects
 				(font
 					(size 1 1)
@@ -39632,20 +32607,28 @@
 		(uuid "09918ee5-6ebd-442f-aadf-9771ba5289ca")
 	)
 	(segment
-		(start 124.3838 67.575)
-		(end 124.3838 60.569853)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "/SPI_MOSI")
-		(uuid "0b5e59bb-73d2-4f2b-a85d-2c8ee7fd7869")
-	)
-	(segment
 		(start 117.826246 88.473754)
 		(end 117.98 88.32)
 		(width 0.2)
 		(layer "F.Cu")
 		(net "/SPI_MOSI")
 		(uuid "121015e8-f83d-47a3-a61d-af84e086396c")
+	)
+	(segment
+		(start 124.3838 62.2338)
+		(end 124.3838 67.575)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "/SPI_MOSI")
+		(uuid "1ce8f836-dc0b-46c2-8137-2bab0ae301a4")
+	)
+	(segment
+		(start 124.18881 59.67281)
+		(end 124.18881 62.03881)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "/SPI_MOSI")
+		(uuid "27009973-a695-4b47-b8b2-ca99142de24d")
 	)
 	(segment
 		(start 124.363583 72.657)
@@ -39656,20 +32639,20 @@
 		(uuid "2823f904-0d94-4672-8249-723268633130")
 	)
 	(segment
-		(start 124.321782 60.569853)
-		(end 124.18881 60.436881)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "/SPI_MOSI")
-		(uuid "2a7d8ec9-68e4-43e5-99e9-53b99d446e2a")
-	)
-	(segment
 		(start 112.17 81.2328)
 		(end 112.17 81.5875)
 		(width 0.2)
 		(layer "F.Cu")
 		(net "/SPI_MOSI")
 		(uuid "3e19b38d-ddcd-42dd-bebf-990d3aba0a6f")
+	)
+	(segment
+		(start 124.18881 62.03881)
+		(end 124.3838 62.2338)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "/SPI_MOSI")
+		(uuid "51f22851-91e5-4f82-94be-669462be4928")
 	)
 	(segment
 		(start 107.13491 75.4698)
@@ -39696,14 +32679,6 @@
 		(uuid "92a328fd-0f32-4c18-9d3f-c4c36c3c61a6")
 	)
 	(segment
-		(start 120.55 56.034)
-		(end 120.55 54.35)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "/SPI_MOSI")
-		(uuid "93aed1e5-4883-409b-9944-696d9d955cc7")
-	)
-	(segment
 		(start 117.98 88.32)
 		(end 117.98 87.690001)
 		(width 0.2)
@@ -39728,20 +32703,20 @@
 		(uuid "9d1c6951-d233-4a46-bf83-2727f82095f8")
 	)
 	(segment
+		(start 120.55 56.034)
+		(end 124.18881 59.67281)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "/SPI_MOSI")
+		(uuid "a05815aa-2c5b-434b-af03-f1083ef5af2f")
+	)
+	(segment
 		(start 110.9472 80.9752)
 		(end 111.9124 80.9752)
 		(width 0.2)
 		(layer "F.Cu")
 		(net "/SPI_MOSI")
 		(uuid "b424e7c0-5480-4840-beb5-b7591aa98daf")
-	)
-	(segment
-		(start 124.18881 59.67281)
-		(end 120.55 56.034)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "/SPI_MOSI")
-		(uuid "b86259d4-19fb-4b85-a1af-331d5afeb4c9")
 	)
 	(segment
 		(start 124.3838 67.575)
@@ -39752,12 +32727,12 @@
 		(uuid "be2c5d85-d207-41bf-b4c3-a50c047daa4e")
 	)
 	(segment
-		(start 124.3838 60.569853)
-		(end 124.321782 60.569853)
+		(start 120.55 54.35)
+		(end 120.55 56.034)
 		(width 0.2)
 		(layer "F.Cu")
 		(net "/SPI_MOSI")
-		(uuid "ed92a270-3971-4173-b212-0d1a93ce23aa")
+		(uuid "c448deae-a401-4e1c-ae16-5c6388bfe9d0")
 	)
 	(segment
 		(start 124.3838 72.636783)
@@ -39766,14 +32741,6 @@
 		(layer "F.Cu")
 		(net "/SPI_MOSI")
 		(uuid "f29aab8d-3900-4082-9e8a-399e9af1cbb3")
-	)
-	(segment
-		(start 124.18881 60.436881)
-		(end 124.18881 59.67281)
-		(width 0.2)
-		(layer "F.Cu")
-		(net "/SPI_MOSI")
-		(uuid "f3f8dd3a-e630-4de3-bdc2-e359a29e8864")
 	)
 	(via
 		(at 117.333754 88.473754)

@@ -5022,6 +5022,28 @@
 				)
 			)
 		)
+		(property "LCSC" ""
+			(at 90.17 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC  Part #" ""
+			(at 90.17 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "36"
 			(uuid "63a58b8e-a59a-4912-a7b9-546e60d88abd")
 		)
@@ -5632,39 +5654,6 @@
 			)
 		)
 		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
-			(at 58.42 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 58.42 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 58.42 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
 			(at 58.42 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -6450,29 +6439,7 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 130.81 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 130.81 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 130.81 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -6815,6 +6782,17 @@
 			)
 		)
 		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
+			(at 160.02 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
 			(at 160.02 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -7385,39 +7363,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 55.88 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 55.88 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 55.88 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "18bd0166-618c-4c6f-ab6a-cf333ebd91e9")
 		)
@@ -7774,39 +7719,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 50.8 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 50.8 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 50.8 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "1"
 			(uuid "46ff064c-61be-427a-b43c-27bf68188e59")
 		)
@@ -7890,6 +7802,17 @@
 			)
 		)
 		(property "Digikey-PN" "311-1088-1-ND"
+			(at 36.83 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
 			(at 36.83 38.1 0)
 			(hide yes)
 			(show_name no)

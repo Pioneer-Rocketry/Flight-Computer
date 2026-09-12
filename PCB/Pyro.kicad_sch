@@ -1613,39 +1613,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 66.04 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 66.04 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 66.04 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "3"
 			(uuid "639a65d5-d39d-436d-a5f1-fff030cf2990")
 		)
@@ -1742,39 +1709,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 55.88 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 55.88 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 55.88 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "fc54fbff-fd77-48b1-92da-69f239d6aa3a")
 		)
@@ -1858,39 +1792,6 @@
 			)
 		)
 		(property "Digikey-PN" "13-RT0603BRD07500RLCT-ND"
-			(at 55.88 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 55.88 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 55.88 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
 			(at 55.88 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -2150,39 +2051,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 55.88 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 55.88 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 55.88 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "1994bedc-fd1c-4ae1-b83d-9d5fcd0056e2")
 		)
@@ -2300,39 +2168,6 @@
 			)
 		)
 		(property "Digikey-PN" "5399-SL2302SCT-ND"
-			(at 66.04 130.81 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 66.04 130.81 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 66.04 130.81 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
 			(at 66.04 130.81 0)
 			(hide yes)
 			(show_name no)
@@ -2670,39 +2505,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 55.88 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 55.88 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 55.88 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "828f23e5-f338-49a9-89e4-b459dde9684b")
 		)
@@ -2786,39 +2588,6 @@
 			)
 		)
 		(property "Digikey-PN" "RMCF0603FT3K00CT-ND"
-			(at 82.55 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 82.55 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 82.55 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
 			(at 82.55 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -2999,39 +2768,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 129.54 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 129.54 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 129.54 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "b9e76dc2-f343-4ea2-ac2f-84d1126f2f88")
 		)
@@ -3192,39 +2928,6 @@
 			)
 		)
 		(property "Digikey-PN" "311-5.10KHRCT-ND"
-			(at 82.55 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 82.55 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 82.55 124.46 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
 			(at 82.55 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -3405,39 +3108,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 82.55 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 82.55 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 82.55 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "f690215c-3a5c-4271-b17e-809657de707c")
 		)
@@ -3608,39 +3278,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 82.55 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 82.55 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 82.55 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "169d11ca-758f-4055-907c-d9d76a5c1b3b")
 		)
@@ -3734,39 +3371,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 129.54 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 129.54 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 129.54 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "b26b3ba9-c487-4619-bc5f-77e0f9ccf3d6")
 		)
@@ -3850,39 +3454,6 @@
 			)
 		)
 		(property "Digikey-PN" "RMCF0603FT3K00CT-ND"
-			(at 82.55 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 82.55 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 82.55 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
 			(at 82.55 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -4063,39 +3634,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 55.88 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 55.88 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 55.88 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "2e088373-ea32-4a82-b794-1992d2bf4e5f")
 		)
@@ -4189,39 +3727,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 82.55 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 82.55 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 82.55 46.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(pin "2"
 			(uuid "0ac73789-9f30-4cdd-a15a-d1c01ca58447")
 		)
@@ -4305,39 +3810,6 @@
 			)
 		)
 		(property "Digikey-PN" "RMCF0603JT10K0CT-ND"
-			(at 55.88 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 55.88 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 55.88 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
 			(at 55.88 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -4542,39 +4014,6 @@
 			)
 		)
 		(property "Digikey-PN" "5399-SL2302SCT-ND"
-			(at 66.04 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(433MHz)" ""
-			(at 66.04 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 66.04 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
 			(at 66.04 91.44 0)
 			(hide yes)
 			(show_name no)

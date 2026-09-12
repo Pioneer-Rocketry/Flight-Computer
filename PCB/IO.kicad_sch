@@ -8021,6 +8021,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "fiducial"
+			(at 64.77 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
@@ -9319,39 +9330,6 @@
 				)
 			)
 		)
-		(property "Var(433MHz)" ""
-			(at 217.17 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var(915MHz)" ""
-			(at 217.17 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Var.Aspect" ""
-			(at 217.17 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
@@ -9807,9 +9785,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
-		(in_pos_files no)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "453fa07c-9d80-4ebc-b076-8d9cc503c6df")
 		(property "Reference" "J401"
@@ -9867,6 +9845,17 @@
 			)
 		)
 		(property "Digikey-PN" ""
+			(at 26.67 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "connector/pin_header_socket"
 			(at 26.67 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -11591,6 +11580,17 @@
 				)
 			)
 		)
+		(property "KiLib_Generator" "fiducial"
+			(at 64.77 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(instances
 			(project "Flight Computer"
 				(path "/4254ccd1-49f4-4fe6-9bf7-ccb200d73af4/0a0b3d01-7422-42e0-b725-ff9e85b891ec"
@@ -12618,6 +12618,17 @@
 			)
 		)
 		(property "Digikey-PN" ""
+			(at 95.25 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "connector/pin_header_socket"
 			(at 95.25 109.22 0)
 			(hide yes)
 			(show_name no)

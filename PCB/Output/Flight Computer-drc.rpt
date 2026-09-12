@@ -1,0 +1,17 @@
+** Drc report for Flight Computer.kicad_pcb **
+** Created on 2026-09-12T01:00:36 **
+** Report includes: Errors, Warnings **
+
+** Found 0 DRC violations **
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Silkscreen clearance
+    - Footprint doesn't match copy in library
+
+** End of Report **

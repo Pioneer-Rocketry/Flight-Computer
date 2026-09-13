@@ -1,4 +1,4 @@
-### Footprint positions - created on 2026-09-11T19:58:32 ###
+### Footprint positions - created on 2026-09-12T22:28:14 ###
 ### Printed by KiCad version 10.0.6
 ## Unit = mm, Angle = deg.
 ## Side : bottom
@@ -7,11 +7,12 @@ C101      .1u             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -114.0968
 C201      4.7u            C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -122.5807   -87.5033  -45.0000  bottom
 C202      .1u             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -121.3107   -88.7733  -45.0000  bottom
 C203      .1u             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -109.8550   -95.5040  -45.0000  bottom
-C204      4.7u            C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -105.9180   -91.6940  -45.0000  bottom
+C204      2.2u            C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -105.9180   -91.6940  -45.0000  bottom
 C205      .1u             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -104.1400   -88.6460   90.0000  bottom
 C206      .1u             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -112.8765   -78.6130    0.0000  bottom
 C207      .1u             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -115.8240   -95.2500  -135.0000  bottom
 C208      1u              C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -116.9670   -96.3930  -135.0000  bottom
+C210      2.2u            C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -106.8500   -77.8500   90.0000  bottom
 C501      .1u             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -116.6125   -70.9930    0.0000  bottom
 C502      .1u             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -109.3470   -76.9620  180.0000  bottom
 C503      .1u             C_0603_1608Metric_Pad1.08x0.95mm_HandSolder  -109.3470   -78.6130  180.0000  bottom
@@ -68,7 +69,7 @@ R612      3k              R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -125.6792
 R613      10k             R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -111.1000  -101.7250    0.0000  bottom
 R614      1k              R_0603_1608Metric_Pad0.98x0.95mm_HandSolder  -111.1000  -100.0250  180.0000  bottom
 U101      LM1117MP-3.3    SOT-223-3_TabPin2                            -108.5000  -106.1250    0.0000  bottom
-U201      STM32F446RETx   LQFP-64_10x10mm_P0.5mm                       -112.6511   -87.5933  135.0000  bottom
+U201      STM32F405RGTx   LQFP-64_10x10mm_P0.5mm                       -112.6511   -87.5933  135.0000  bottom
 U501      SX1262IMLTRT    QFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm          -111.8265   -73.1520  180.0000  bottom
 U502      SKY13453-385LF  QFN_453-385LF_SKY                            -108.9660   -62.0145  180.0000  bottom
 Y201      Resonator       OSC_CSTNE8M00G52Z000R0                       -119.5475   -92.5425   45.0000  bottom

@@ -51,7 +51,7 @@ endif
 # C sources
 C_SOURCES =  \
 $(shell find Core/Src -type f -name '*.c') \
-$(shell find Drivers/STM32F4xx_HAL_Driver/Src -type f -name '*.c')
+$(filter-out %_template.c,$(shell find Drivers/STM32F4xx_HAL_Driver/Src -type f -name '*.c'))
 
 # C++ sources
 CXX_SOURCES =  \
@@ -120,7 +120,7 @@ AS_DEFS =
 # C defines
 C_DEFS =  \
 -DUSE_HAL_DRIVER \
--DSTM32F446xx \
+-DSTM32F405xx \
 -DTUP_USBIP_DWC2 \
 -DTUP_USBIP_DWC2_STM32 \
 -DCFG_TUD_DWC2_SLAVE_ENABLE=1

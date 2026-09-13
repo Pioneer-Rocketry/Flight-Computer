@@ -1,12 +1,21 @@
+<<<<<<< HEAD
 %TF.GenerationSoftware,KiCad,Pcbnew,10.0.6*%
 %TF.CreationDate,2026-09-12T22:28:14-05:00*%
+=======
+%TF.GenerationSoftware,KiCad,Pcbnew,10.0.4*%
+%TF.CreationDate,2026-09-12T01:00:42+00:00*%
+>>>>>>> d196e305cd3c99f0732030f0056c21514a57751b
 %TF.ProjectId,Flight Computer,466c6967-6874-4204-936f-6d7075746572,rev?*%
 %TF.SameCoordinates,Original*%
 %TF.FileFunction,Soldermask,Bot*%
 %TF.FilePolarity,Negative*%
 %FSLAX45Y45*%
 G04 Gerber Fmt 4.5, Leading zero omitted, Abs format (unit mm)*
+<<<<<<< HEAD
 G04 Created by KiCad (PCBNEW 10.0.6) date 2026-09-12 22:28:14*
+=======
+G04 Created by KiCad (PCBNEW 10.0.4) date 2026-09-12 01:00:42*
+>>>>>>> d196e305cd3c99f0732030f0056c21514a57751b
 %MOMM*%
 %LPD*%
 G01*

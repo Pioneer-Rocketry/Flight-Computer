@@ -9,8 +9,6 @@ on:
       - "**.md"
       - "PCB/Output/*"
       - "Datasheets/**"
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:

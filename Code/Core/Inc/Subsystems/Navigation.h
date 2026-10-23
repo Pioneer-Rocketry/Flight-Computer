@@ -96,28 +96,29 @@ private:
 	void initializeQuaternion();
 
 	void rotateVectorByQuaternion(Matrix<float, 3, 1>& vec);
+	float lowGVarianceScale() const;
 
 	// Kalman Filter
 	Matrix<float, 3, 1> lowG;
 	Matrix<float, 3, 1> highG;
 
-	Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 			1> 									x;  // State vector
-	Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 	1> 									Z;  // Measurements
-	Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 			KALMAN_FILTER_NUM_OF_STATES> 		F;  // State transition matrix
-	Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 	KALMAN_FILTER_NUM_OF_STATES> 		H;  // Observation matrix
-	Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 			KALMAN_FILTER_NUM_OF_STATES> 		Q;  // Process noise covariance
-	Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 	KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	R;  // Measurement noise covariance
-	Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 			KALMAN_FILTER_NUM_OF_STATES> 		P;  // Estimate error covariance
-	Matrix<float, KALMAN_FILTER_NUM_OF_STATES, 			KALMAN_FILTER_NUM_OF_MEASUREMENTS> 	K;  // Kalman gain
+	static constexpr int AXIS_COUNT = 3;
+	static constexpr int AXIS_STATE_COUNT = 3;
+	enum AxisStateIndex { POSITION = 0, VELOCITY = 1, ACCELERATION = 2 };
 
-    Matrix<float, KALMAN_FILTER_NUM_OF_MEASUREMENTS, 	KALMAN_FILTER_NUM_OF_MEASUREMENTS>	S;
-	Matrix<float, KALMAN_FILTER_NUM_OF_STATES,			KALMAN_FILTER_NUM_OF_STATES>		I;
+	// Independent [position, velocity, acceleration] filters for X, Y, and Z.
+	Matrix<float, AXIS_STATE_COUNT, 1> axisState[AXIS_COUNT];
+	Matrix<float, AXIS_STATE_COUNT, AXIS_STATE_COUNT> axisCovariance[AXIS_COUNT];
+	Matrix<float, AXIS_STATE_COUNT, AXIS_STATE_COUNT> F;
+	Matrix<float, AXIS_STATE_COUNT, AXIS_STATE_COUNT> Q;
+	Matrix<float, AXIS_STATE_COUNT, AXIS_STATE_COUNT> I;
 
 	float processNoise = 0.01f;
 
-	float lowGNoise		= 0.01f;
-	float highGNoise	= 0.01f;
-	float baroNoise 	= 0.01f;
+	// Provisional values; replace with variances measured from flight hardware.
+	float lowGNoise		= 0.5f;
+	float highGNoise	= 2.0f;
+	float baroNoise 	= 3.0f;
 
 	/**
 	 * @brief Initializes the Kalman Filter
@@ -129,20 +130,17 @@ private:
 	void updateKalmanFilter();
 
 	void runKalmanFilter();
+	void scalarMeasurementUpdate(int axis, AxisStateIndex stateIndex,
+							 float measurement, float variance);
 
 	bool isKalmanFilterInit = false;
 
 	// Timing
-	float lastLoop;	// Time of start of previous loop in ms
+	uint32_t lastLoop_us;	// Time of start of previous loop in microseconds
 	float freq;		// Frequency of the loop = 1/dt
-	float now;		// Current time in ms
-	float dt_ms;	// Time since last loop in ms
+	uint32_t now_us;	// Current time in microseconds
 	float dt_s;		// Time since last loop in s
 	float dt2, dt3, dt4;	// dt^2, dt^3, dt^4
-
-	float dt_us;
-	float freq_us;
-	float last_us;
 };
 
 #endif /* SRC_SUBSYSTEMS_NAVIGATION_H_ */

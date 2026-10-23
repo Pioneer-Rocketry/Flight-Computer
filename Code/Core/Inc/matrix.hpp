@@ -164,6 +164,52 @@ public:
         return inv;
     }
 
+    /**
+     * Solve A * x = b for symmetric positive-definite A using Cholesky
+     * factorization. Returns false instead of emitting NaNs when A is not SPD.
+     */
+    template<int RHS_COLS>
+    bool solveSPD(const Matrix<T, ROWS, RHS_COLS>& b,
+                  Matrix<T, ROWS, RHS_COLS>& x) const {
+        static_assert(ROWS == COLS, "SPD solve only defined for square matrices");
+
+        Matrix<T, ROWS, COLS> lower;
+        for (int i = 0; i < ROWS; ++i) {
+            for (int j = 0; j <= i; ++j) {
+                T sum = data[i][j];
+                for (int k = 0; k < j; ++k)
+                    sum -= lower(i, k) * lower(j, k);
+
+                if (i == j) {
+                    if (!(sum > T(1e-9)) || !std::isfinite(sum))
+                        return false;
+                    lower(i, j) = std::sqrt(sum);
+                } else {
+                    lower(i, j) = sum / lower(j, j);
+                }
+            }
+        }
+
+        Matrix<T, ROWS, RHS_COLS> y;
+        for (int col = 0; col < RHS_COLS; ++col) {
+            for (int i = 0; i < ROWS; ++i) {
+                T sum = b(i, col);
+                for (int k = 0; k < i; ++k)
+                    sum -= lower(i, k) * y(k, col);
+                y(i, col) = sum / lower(i, i);
+            }
+
+            for (int i = ROWS - 1; i >= 0; --i) {
+                T sum = y(i, col);
+                for (int k = i + 1; k < ROWS; ++k)
+                    sum -= lower(k, i) * x(k, col);
+                x(i, col) = sum / lower(i, i);
+            }
+        }
+
+        return true;
+    }
+
     Matrix<T, ROWS, COLS> identity() const {
         static_assert(ROWS == COLS, "Identity matrix must be square");
         Matrix<T, ROWS, COLS> result;

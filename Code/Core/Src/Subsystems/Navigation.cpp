@@ -7,6 +7,14 @@
 
 #include "Subsystems/Navigation.h"
 
+namespace {
+constexpr float MAX_NAVIGATION_DT_S = 0.05f;
+constexpr float LOW_G_FULL_SCALE_MPS2 = 16.0f * GRAVITY;
+constexpr float LOW_G_DERATE_START = 0.80f;
+constexpr float LOW_G_REJECT_START = 0.97f;
+constexpr float SATURATED_VARIANCE_SCALE = 1.0e6f;
+}
+
 float softThreshold(float value, float threshold)
 {
     if (fabsf(value) < threshold)
@@ -32,8 +40,7 @@ Navigation::Navigation(DataContainer* data, SPI_HandleTypeDef* spiBus, UART_Hand
 	data->KalmanFilterAccelerationY_mps2 = 0.0f;
 	data->KalmanFilterAccelerationZ_mps2 = 0.0f;
 
-	lastLoop = HAL_GetTick();
-	last_us = micros();
+	lastLoop_us = micros();
 }
 
 
@@ -65,17 +72,17 @@ int Navigation::init()
 
 int Navigation::update()
 {
-	now = micros();
+	now_us = micros();
+	// Unsigned subtraction handles the micros() counter wrapping around.
+	const uint32_t elapsed_us = now_us - lastLoop_us;
+	lastLoop_us = now_us;
+	if (elapsed_us == 0U)
+		return 0;
 
-	// Handle micros() overflow
-	if (now > lastLoop)
-	{
-		dt_us 	= now - lastLoop;
-		dt_s  	= dt_us / 1000000.0f;
-		freq 	= 1.0f / dt_s;
-		lastLoop = now;
-	}
-	// If now < lastLoop, micros() has overflowed and pretend that the dt didn't change
+	dt_s = static_cast<float>(elapsed_us) * 1.0e-6f;
+	if (dt_s > MAX_NAVIGATION_DT_S)
+		dt_s = MAX_NAVIGATION_DT_S;
+	freq = 1.0f / dt_s;
 
 	dt2 = dt_s * dt_s;
 	dt3 = dt2  * dt_s;
@@ -109,6 +116,10 @@ int Navigation::update()
 	rotateVectorByQuaternion(lowG);
     rotateVectorByQuaternion(highG);
 
+	// Accelerometers measure specific force. This navigation frame uses +Z up.
+	lowG(2) -= GRAVITY;
+	highG(2) -= GRAVITY;
+
 	baro.update();
 	gps.update();
 
@@ -122,17 +133,17 @@ int Navigation::update()
 	updateKalmanFilter();
 	runKalmanFilter();
 
-	data->KalmanFilterPositionX_m			= x(0);
-	data->KalmanFilterAccelerationX_mps2	= x(1);
-	data->KalmanFilterVelocityX_mps			= x(2);
+	data->KalmanFilterPositionX_m			= axisState[0](POSITION);
+	data->KalmanFilterVelocityX_mps			= axisState[0](VELOCITY);
+	data->KalmanFilterAccelerationX_mps2	= axisState[0](ACCELERATION);
 
-	data->KalmanFilterPositionY_m			= x(3);
-	data->KalmanFilterAccelerationY_mps2	= x(4);
-	data->KalmanFilterVelocityY_mps			= x(5);
+	data->KalmanFilterPositionY_m			= axisState[1](POSITION);
+	data->KalmanFilterVelocityY_mps			= axisState[1](VELOCITY);
+	data->KalmanFilterAccelerationY_mps2	= axisState[1](ACCELERATION);
 
-	data->KalmanFilterPositionZ_m			= x(6);
-	data->KalmanFilterAccelerationZ_mps2	= x(7);
-	data->KalmanFilterVelocityZ_mps			= x(8);
+	data->KalmanFilterPositionZ_m			= axisState[2](POSITION);
+	data->KalmanFilterVelocityZ_mps			= axisState[2](VELOCITY);
+	data->KalmanFilterAccelerationZ_mps2	= axisState[2](ACCELERATION);
 
 	baro.startConversion();
 
@@ -241,35 +252,58 @@ void Navigation::initializeQuaternion()
 		data->quaternionX = 0.0f;
 		data->quaternionY = 0.0f;
 		data->quaternionZ = 0.0f;
+		data->quaternionNorm = 1.0f;
+		data->roll = 0.0f;
+		data->pitch = 0.0f;
+		data->yaw = 0.0f;
+		return;
 	}
 
-	float ax = data->LSM6DSV320LowGAccelX_mps2 / norm;
-	float ay = data->LSM6DSV320LowGAccelY_mps2 / norm;
-	float az = data->LSM6DSV320LowGAccelZ_mps2 / norm;
+	const float ax = data->LSM6DSV320LowGAccelX_mps2 / norm;
+	const float ay = data->LSM6DSV320LowGAccelY_mps2 / norm;
+	const float az = data->LSM6DSV320LowGAccelZ_mps2 / norm;
 
-	data->quaternionW = sqrtf(1 + ax + ay + az) / 2;
-	data->quaternionX = (ay - az) / (4 * data->quaternionW);
-	data->quaternionY = (az - ax) / (4 * data->quaternionW);
-	data->quaternionZ = (ax - ay) / (4 * data->quaternionW);
+	// Shortest rotation from measured specific force to navigation-frame +Z.
+	// Rotation about gravity remains unobservable and is initialized to zero.
+	if (az > -0.9999f)
+	{
+		data->quaternionW = sqrtf(0.5f * (1.0f + az));
+		const float scale = 0.5f / data->quaternionW;
+		data->quaternionX = ay * scale;
+		data->quaternionY = -ax * scale;
+		data->quaternionZ = 0.0f;
+	}
+	else
+	{
+		// Anti-parallel vectors require an arbitrary 180-degree transverse axis.
+		data->quaternionW = 0.0f;
+		data->quaternionX = 1.0f;
+		data->quaternionY = 0.0f;
+		data->quaternionZ = 0.0f;
+	}
+	data->quaternionNorm = 1.0f;
+	data->roll = 0.0f;
+	data->pitch = 0.0f;
+	data->yaw = 0.0f;
+}
 
-	// Calculate initial roll and pitch from accelerometer
-	data->pitch = atan2f(-ax,  ay);
-	data->yaw 	= atan2f(-az, -ay);
-	data->roll 	= 0.0f;
+float Navigation::lowGVarianceScale() const
+{
+	// Rotation mixes body axes, so clipping on any raw axis invalidates the
+	// complete rotated low-g vector rather than only one navigation axis.
+	const float largestBodyAxis = fmaxf(
+			fabsf(data->LSM6DSV320LowGAccelX_mps2),
+			fmaxf(fabsf(data->LSM6DSV320LowGAccelY_mps2),
+				   fabsf(data->LSM6DSV320LowGAccelZ_mps2)));
+	const float fraction = largestBodyAxis / LOW_G_FULL_SCALE_MPS2;
+	if (fraction <= LOW_G_DERATE_START)
+		return 1.0f;
+	if (fraction >= LOW_G_REJECT_START)
+		return SATURATED_VARIANCE_SCALE;
 
-	// Convert to quaternion
-	float cr = cosf(data->roll * 0.5f);
-    float sr = sinf(data->roll * 0.5f);
-    float cp = cosf(data->pitch * 0.5f);
-    float sp = sinf(data->pitch * 0.5f);
-    float cy = cosf(data->yaw * 0.5f);
-    float sy = sinf(data->yaw * 0.5f);
-
-	// Quaternion from Euler angles
-    data->quaternionW = cr * cp * cy + sr * sp * sy;
-    data->quaternionX = cr * sp * cy + sr * cp * sy;
-    data->quaternionY = sr * cp * cy - cr * sp * sy;
-    data->quaternionZ = cr * cp * sy - sr * sp * cy;
+	const float transition = (fraction - LOW_G_DERATE_START) /
+						 (LOW_G_REJECT_START - LOW_G_DERATE_START);
+	return 1.0f + 99.0f * transition * transition;
 }
 
 void Navigation::initKalmanFilter()
@@ -281,12 +315,14 @@ void Navigation::initKalmanFilter()
 
 	// Initialize Kalman Filter Matricies
 
-	// Initial State
-	x.setZero();
-	x(2) = lowG(0); // Acc X
-	x(5) = lowG(1); // Acc Y
-	x(6) = data->MS560702BA03Altitude_m; // Pos Z Set the initial Barometric Altitude to the current altitude
-	x(8) = lowG(2); // Acc Z
+	// Initial axis states and covariances.
+	for (int axis = 0; axis < AXIS_COUNT; ++axis)
+	{
+		axisState[axis].setZero();
+		axisState[axis](ACCELERATION) = lowG(axis);
+		axisCovariance[axis].setIdentity();
+	}
+	axisState[2](POSITION) = data->MS560702BA03Altitude_m;
 
 	// State Transition
 	F.setIdentity();
@@ -295,34 +331,10 @@ void Navigation::initKalmanFilter()
     // vel' = vel + acc*dt
     // acc' = acc
 
-	// X Axis
+	// Shared axis transition matrix.
 	F(0,1) = dt_s;
 	F(0,2) = (dt_s * dt_s) / 2.0f;
 	F(1,2) = dt_s;
-
-	// Y Axis
-    F(3,4) = dt_s;
-    F(3,5) = (dt_s * dt_s) / 2.0f;
-    F(4,5) = dt_s;
-
-    // Z Axis
-    F(6,7) = dt_s;
-    F(6,8) = (dt_s * dt_s) / 2.0f;
-    F(7,8) = dt_s;
-
-	// Get Initial Measurements
-	Z.setZero();
-	Z(0) = data->LSM6DSV320LowGAccelX_mps2;
-	Z(1) = data->LSM6DSV320LowGAccelY_mps2;
-	Z(2) = data->LSM6DSV320LowGAccelZ_mps2;
-	Z(3) = data->LSM6DSV320HighGAccelX_mps2;
-	Z(4) = data->LSM6DSV320HighGAccelY_mps2;
-	Z(5) = data->LSM6DSV320HighGAccelZ_mps2;
-	Z(6) = data->MS560702BA03Altitude_m;
-
-	// Observation
-	H.setZero();
-	H(0, 2) = H(1, 5) = H(2, 8) = H(3, 2) = H(4, 5) = H(5, 8) = H(6, 6) = 1.0f;
 
 	// Process Noise
 	Q.setZero();
@@ -333,33 +345,7 @@ void Navigation::initKalmanFilter()
 	Q(1,2) = dt_s; Q(2,1) = Q(1,2);
 	Q(2,2) = 1.0f; // keep small baseline
 
-	Q(3,3) = dt4 / 4.0f;
-	Q(3,4) = dt3 / 2.0f; Q(4,3) = Q(3,4);
-	Q(3,5) = dt2 / 2.0f; Q(5,3) = Q(3,5);
-	Q(4,4) = dt2;
-	Q(4,5) = dt_s; Q(5,4) = Q(4,5);
-	Q(5,5) = 1.0f; // keep small baseline
-
-	Q(6,6) = dt4 / 4.0f;
-	Q(6,7) = dt3 / 2.0f; Q(7,6) = Q(6,7);
-	Q(6,8) = dt2 / 2.0f; Q(8,6) = Q(6,8);
-	Q(7,7) = dt2;
-	Q(7,8) = dt_s; Q(8,7) = Q(7,8);
-	Q(8,8) = 1.0f; // keep small baseline
-
-	// copy blocks for Y (3..5) and Z (6..8)
-
 	Q *= processNoise;
-
-	// Measurement Noise
-	R.setIdentity();
-	R(0, 0) = R(1, 1) = R(2, 2) = powf(lowGNoise, 2);
-	R(3, 3) = R(4, 4) = R(5, 5) = powf(highGNoise, 2);
-	R(6, 6) = powf(baroNoise, 2);
-
-	// Estimate Error
-	P.setIdentity();
-	P *= 1.0;  // initial uncertainty
 
 	I.setIdentity();
 
@@ -370,31 +356,10 @@ void Navigation::initKalmanFilter()
 
 void Navigation::updateKalmanFilter()
 {
-	// Update Measurements
-	Z(0) = lowG(0);
-	Z(1) = lowG(1);
-	Z(2) = lowG(2);
-	Z(3) = highG(0);
-	Z(4) = highG(1);
-	Z(5) = highG(2);
-	Z(6) = data->MS560702BA03Altitude_m;
-
 	// Update State Transition Matrix
-
-	// X Axis
 	F(0,1) = dt_s;
 	F(0,2) = (dt_s * dt_s) / 2.0f;
 	F(1,2) = dt_s;
-
-	// Y Axis
-    F(3,4) = dt_s;
-    F(3,5) = (dt_s * dt_s) / 2.0f;
-    F(4,5) = dt_s;
-
-    // Z Axis
-    F(6,7) = dt_s;
-    F(6,8) = (dt_s * dt_s) / 2.0f;
-    F(7,8) = dt_s;
 
 	// Update Process Noise
 	Q.setZero();
@@ -405,20 +370,6 @@ void Navigation::updateKalmanFilter()
 	Q(1,2) = dt_s; Q(2,1) = Q(1,2);
 	Q(2,2) = 1.0f; // keep small baseline
 
-	Q(3,3) = dt4 / 4.0f;
-	Q(3,4) = dt3 / 2.0f; Q(4,3) = Q(3,4);
-	Q(3,5) = dt2 / 2.0f; Q(5,3) = Q(3,5);
-	Q(4,4) = dt2;
-	Q(4,5) = dt_s; Q(5,4) = Q(4,5);
-	Q(5,5) = 1.0f; // keep small baseline
-
-	Q(6,6) = dt4 / 4.0f;
-	Q(6,7) = dt3 / 2.0f; Q(7,6) = Q(6,7);
-	Q(6,8) = dt2 / 2.0f; Q(8,6) = Q(6,8);
-	Q(7,7) = dt2;
-	Q(7,8) = dt_s; Q(8,7) = Q(7,8);
-	Q(8,8) = 1.0f; // keep small baseline
-
 	Q *= processNoise;
 
 	return;
@@ -426,21 +377,56 @@ void Navigation::updateKalmanFilter()
 
 void Navigation::runKalmanFilter()
 {
-	// Predict State ~0.5 ms
-	x = F * x;
+	const float lowGVariance = lowGNoise * lowGNoise;
+	const float highGVariance = highGNoise * highGNoise;
+	const float lowVariance = lowGVariance * lowGVarianceScale();
 
-	// Predict Error Covariance ~3 ms
-    S = H * P * H.transpose() + R;
+	for (int axis = 0; axis < AXIS_COUNT; ++axis)
+	{
+		axisState[axis] = F * axisState[axis];
+		axisCovariance[axis] = F * axisCovariance[axis] * F.transpose() + Q;
 
-	// Compute Kalman Gain ~5 ms
-    // Prefer an LDLT or LLT solve over explicit inverse:
-    K = (P * H.transpose()) * S.inverse();
+		scalarMeasurementUpdate(axis, ACCELERATION, lowG(axis), lowVariance);
+		scalarMeasurementUpdate(axis, ACCELERATION, highG(axis), highGVariance);
+	}
 
-	// Compute the Estimate ~0.5 ms
-	x = x + K * (Z - H * x);
+	if (data->MS560702BA03Pressure_hPA > 0.0f)
+		scalarMeasurementUpdate(2, POSITION, data->MS560702BA03Altitude_m,
+							baroNoise * baroNoise);
 
-	// Computer the Error covariance ~10 ms
-	P = (I - K * H) * P * (I - K * H).transpose() + K * R * K.transpose();
+	return;
+}
+
+void Navigation::scalarMeasurementUpdate(int axis, AxisStateIndex stateIndex,
+									 float measurement, float variance)
+{
+	if (!std::isfinite(measurement) || !std::isfinite(variance) || variance <= 0.0f)
+		return;
+
+	Matrix<float, AXIS_STATE_COUNT, 1> gain;
+	const float innovationVariance = axisCovariance[axis](stateIndex, stateIndex) + variance;
+	if (!std::isfinite(innovationVariance) || innovationVariance <= 1.0e-9f)
+		return;
+
+	for (int row = 0; row < AXIS_STATE_COUNT; ++row)
+		gain(row) = axisCovariance[axis](row, stateIndex) / innovationVariance;
+
+	const float innovation = measurement - axisState[axis](stateIndex);
+	for (int row = 0; row < AXIS_STATE_COUNT; ++row)
+		axisState[axis](row) += gain(row) * innovation;
+
+	// Joseph-form scalar covariance update.
+	Matrix<float, AXIS_STATE_COUNT, AXIS_STATE_COUNT> correction = I;
+	for (int row = 0; row < AXIS_STATE_COUNT; ++row)
+		correction(row, stateIndex) -= gain(row);
+
+	axisCovariance[axis] = correction * axisCovariance[axis] * correction.transpose();
+	for (int row = 0; row < AXIS_STATE_COUNT; ++row)
+		for (int column = 0; column < AXIS_STATE_COUNT; ++column)
+			axisCovariance[axis](row, column) += gain(row) * variance * gain(column);
+
+	axisCovariance[axis] = axisCovariance[axis] + axisCovariance[axis].transpose();
+	axisCovariance[axis] *= 0.5f;
 
 	return;
 }

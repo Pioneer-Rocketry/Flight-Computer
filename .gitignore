@@ -27,6 +27,9 @@ Code/Debug/
 Code/Release/
 Code/debug/
 Code/release/
+Code/sitl/build/
+__pycache__/
+*.pyc
 
 ############################
 # ARM / GCC build artifacts

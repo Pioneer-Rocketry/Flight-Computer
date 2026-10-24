@@ -124,6 +124,14 @@ HILT allows the flight computer to run full flight software using simulated sens
 
 This framework accelerates development and eliminates many failure modes before field testing.
 
+### Navigation software-in-the-loop tests
+
+The host SITL harness builds the production navigation estimator as a shared
+library, replays sensor CSV files, generates deterministic flight trajectories,
+checks estimates against available truth, and saves diagnostic plots. See
+[Code/sitl/README.md](Code/sitl/README.md) for build commands, data schema,
+coordinate conventions, and test limitations.
+
 
 ---
 
@@ -158,6 +166,5 @@ Flight-Computer/
 ├── Datasheets/
 └── PCB/
 ```
-
 
 

@@ -1,46 +1,56 @@
-name: Build
+name: Build and navigation SITL
 
 on:
-    push:
-        paths:
-            - "Code/**"
-        paths-ignore::
-            - "**.md"
-            - "PCB/**"
-            - "Datasheets/**"
-        branches: [ main ]
-    pull_request:
-        branches: [ main ]
-    workflow_dispatch:
-
+  push:
+    branches: [main]
+    paths:
+      - "Code/**"
+      - ".github/workflows/build.yml"
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        container:
-            image: ghcr.io/pioneer-rocketry/flight-computer:feature-actions
-            credentials:
-                username: ${{ github.actor }}
-                password: ${{ secrets.GITHUB_TOKEN }}
+  firmware:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/pioneer-rocketry/flight-computer:feature-actions
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Build ARM firmware
+        run: make -C Code all
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flight-computer-build
+          path: |
+            Code/build/*.elf
+            Code/build/*.bin
+            Code/build/*.hex
+            Code/build/*.map
 
-        steps:
-            - name: Check out code
-              uses: actions/checkout@v4
-              with:
-                submodules: recursive
-
-            - name: Version Info
-              run: arm-none-eabi-gcc --version
-
-            - name: Build
-              run: make -C ./Code all
-            
-            - name: Upload build artifacts
-              uses: actions/upload-artifact@v4
-              with:
-                name: flight-computer-build
-                path: |
-                    Code/build/*.elf
-                    Code/build/*.bin
-                    Code/build/*.hex
-                    Code/build/*.map
+  navigation-sitl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build native estimator and run regressions
+        run: make -C Code/sitl test
+      - name: Install plotting dependency
+        run: python -m pip install -r Code/sitl/requirements-plot.txt
+      - name: Save diagnostic plots and metrics
+        env:
+          PYTHONPATH: Code/sitl/python
+        run: |
+          python -m navsitl synthetic full_flight --duration-s 30 --dt-us 5000 --seed 1 --plots --save-input --output Code/sitl/build/ci-report
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: navigation-sitl-report
+          path: Code/sitl/build/ci-report/

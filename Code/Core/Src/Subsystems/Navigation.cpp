@@ -56,8 +56,12 @@ void Navigation::publish()
 
 int Navigation::init()
 {
-    if (imu.init() < 0 || baro.init() < 0 || gps.init() < 0)
+    if (imu.init() < 0)
         return -1;
+    if (baro.init() < 0)
+        return -2;
+    if (gps.init() < 0)
+        return -3;
     estimator.reset(sample());
     publish();
     baro.startConversion();

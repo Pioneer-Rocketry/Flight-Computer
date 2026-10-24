@@ -144,24 +144,43 @@ int main(void)
   HAL_UART_Receive_DMA(&huart4, gpsRxBuffer, GPS_BUFFER_SIZE);
 
   tud_init(BOARD_TUD_RHPORT);
-
-  cdcSendMessage("Welcome to the Pioneer Rocketry Flight Computer!\r\n", USB_BUF_LEN);
-
   DWT_Init();
 
-  if (nav.init() < 0)
+  // Give TinyUSB time to enumerate before blocking sensor initialization.
+  uint32_t usbStartupStart = HAL_GetTick();
+  while (HAL_GetTick() - usbStartupStart < 500U)
   {
-    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN, "Error while Initializing Navigation!\r\n");
-    cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-	  while (1)
-    { 
-      // Send Error Message over USB CDC
-      cdcSendMessage(usbTxBuffer, usbTxBufferLen);
-      HAL_Delay(1000);
+    tud_task();
+  }
+
+  char welcomeMessage[] = "Welcome to the Pioneer Rocketry Flight Computer!\r\n";
+  cdcSendMessage(welcomeMessage, sizeof(welcomeMessage) - 1U);
+
+  int navigationInitStatus = nav.init();
+  if (navigationInitStatus < 0)
+  {
+    const char* failedDevice = navigationInitStatus == -1 ? "IMU" :
+                               navigationInitStatus == -2 ? "barometer" :
+                                                            "GPS";
+    usbTxBufferLen = snprintf((char*)usbTxBuffer, USB_BUF_LEN,
+                              "Navigation initialization failed: %s\r\n",
+                              failedDevice);
+    uint32_t lastErrorPrint = 0U;
+    while (1)
+    {
+      tud_task();
+      uint32_t errorNow = HAL_GetTick();
+      if (errorNow - lastErrorPrint >= 1000U)
+      {
+        lastErrorPrint = errorNow;
+        cdcSendMessage(usbTxBuffer, usbTxBufferLen);
+      }
     }
   }
 
-  cdcSendMessage("Initialization Complete \r\n", USB_BUF_LEN);
+  char initializationCompleteMessage[] = "Initialization Complete\r\n";
+  cdcSendMessage(initializationCompleteMessage,
+                 sizeof(initializationCompleteMessage) - 1U);
 
   /* USER CODE END 2 */
 

@@ -36,9 +36,7 @@ int GPS::init()
     HAL_Delay(500);
     
     // Configure GPS for UBX protocol
-    configureGPS();
-    
-    return 0;
+    return configureGPS();
 }
 
 void GPS::calculateChecksum(const uint8_t* data, uint16_t len, uint8_t* ckA, uint8_t* ckB)
@@ -58,7 +56,7 @@ void GPS::sendUBXCommand(const uint8_t* cmd, uint16_t len)
     HAL_UART_Transmit(uart, (uint8_t*)cmd, len, 100);
 }
 
-void GPS::configureGPS()
+int GPS::configureGPS()
 {
     // Change baud rate from 9600 to 115200
     uint8_t cfgPrtBaud[] = {
@@ -87,7 +85,7 @@ void GPS::configureGPS()
     uart->Init.BaudRate = 115200;
     if (HAL_UART_Init(uart) != HAL_OK)
     {
-        Error_Handler();
+        return -1;
     }
     
     HAL_Delay(100);
@@ -157,6 +155,8 @@ void GPS::configureGPS()
     sendUBXCommand(cfgSave, sizeof(cfgSave));
     
     HAL_Delay(500); // Wait for save to complete
+
+    return 0;
 }
 
 int GPS::update()

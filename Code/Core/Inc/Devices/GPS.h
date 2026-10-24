@@ -96,7 +96,7 @@ private:
     void processUBXMessage();
     void sendUBXCommand(const uint8_t* cmd, uint16_t len);
     void calculateChecksum(const uint8_t* data, uint16_t len, uint8_t* ckA, uint8_t* ckB);
-    void configureGPS();
+    int configureGPS();
 };
 
 #endif /* SRC_DEVICES_GPS_H_ */

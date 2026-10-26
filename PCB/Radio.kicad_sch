@@ -5,6 +5,7 @@
 	(uuid "30a142c7-306e-49e8-bd6c-0160a53d0ca1")
 	(paper "A4")
 	(title_block
+		(rev "1.3")
 		(company "Pioneer Rocketry")
 	)
 	(lib_symbols

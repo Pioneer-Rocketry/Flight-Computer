@@ -6,6 +6,7 @@
 	(paper "A4")
 	(title_block
 		(title "Power Supply")
+		(rev "1.3")
 		(company "Pioneer Rocketry")
 	)
 	(lib_symbols

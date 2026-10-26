@@ -178,6 +178,7 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
+          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -189,6 +190,7 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
+          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -200,6 +202,7 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
+          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -259,7 +262,7 @@
       "internal_id": "",
       "mfg": "",
       "mpn": "",
-      "sch_revision": "1.2"
+      "sch_revision": "1.3"
     },
     "layer_pairs": [],
     "layer_presets": [
@@ -642,6 +645,7 @@
       "pin_to_pin": "error",
       "power_pin_not_driven": "ignore",
       "same_local_global_label": "warning",
+      "same_local_global_power": "warning",
       "similar_label_and_power": "warning",
       "similar_labels": "warning",
       "similar_power": "warning",
@@ -727,7 +731,7 @@
     "meta": {
       "version": 5
     },
-    "net_colors": null,
+    "net_colors": {},
     "netclass_assignments": {
       "/Radio/RFI_0": [
         "Radio"
@@ -1018,7 +1022,7 @@
         "uuid": "4254ccd1-49f4-4fe6-9bf7-ccb200d73af4"
       }
     ],
-    "used_designators": "J401-408,J501,BZ401,C101,C201-210,C301-305,C401-402,C501-518,FID401-406,G401,H401-404,L501-507,Q101,Q401,Q601-603,D101,D401-405,U101,U201-203,U301-304,U501-502,SW401-402,R101-102,R201-205,R401-406,R501,R601-614,Y201,Y501,#PWR101-109,#PWR201-215,#PWR301-314,#PWR401-435,#PWR501-518,#PWR601-611",
+    "used_designators": "#PWR101-109,#PWR201-216,#PWR301-314,#PWR401-435,#PWR501-518,#PWR601-611,BZ401,C101,C201-210,C301-305,C401-402,C501-518,D101,D401-405,FID401-406,G401,H401-404,J401-408,J501,L501-507,Q101,Q401,Q601-603,R101-102,R201-206,R401-406,R501,R601-614,SW401-402,U101,U201-203,U301-304,U501-502,Y201,Y501",
     "variants": []
   },
   "sheets": [
